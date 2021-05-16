@@ -3,6 +3,28 @@
 \textbf{take-home message: two conditions on gravitational dynamics determined by coupled matter theory}
 
 \section{Lagrangian field theory}
+
+\begin{definition}{(Lagrangian)}
+  Let $M$ be a smooth manifold of dimension $n$ and $E \overset{\pi}{\longrightarrow} M$ a smooth fibre bundle over $M$ with typical fibre $F$. A \textbf{Lagrangian} $\mathcal L$ of order $k$ is an element
+  \begin{equation}
+    \mathcal L \in \Lambda^n_0(J^k\pi),
+  \end{equation}
+the space of horizontal $n$-forms on the $k$-th-order jet bundle of $\pi$.
+\end{definition}
+
+In local coordinates, a Lagrangian has the representation
+\begin{equation}
+  \mathcal L = L(x^i, u^A, u^A_i, \dots) \, \omega
+\end{equation}
+where $\omega = dx^1 \wedge \cdots \wedge dx^n$.
+
+The \emph{action} $S\lbrack\phi\rbrack$ corresponding to a Lagrangian $\mathcal L$ is the integral of $\mathcal L$ composed with a section $\phi\in\Gamma(\pi)$
+\begin{equation}
+  S\lbrack\phi\rbrack = \int (j^k\phi)^\ast \mathcal L = \int L(x^i, \phi^A, \partial_i\phi^A, \dots) d^4x.
+\end{equation}
+
+Lagrangian field theory now stipulates that sections $\phi\in\Gamma(\pi)$ are physical if they are stationary points of the action functional.
+
 \begin{itemize}
 \item Lagrangian as differential form on a jet bundle
 \item variational problem
