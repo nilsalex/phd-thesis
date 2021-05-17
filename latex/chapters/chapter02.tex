@@ -7,23 +7,26 @@
 \begin{definition}{(Lagrangian)}
   Let $M$ be a smooth manifold of dimension $n$ and $E \overset{\pi}{\longrightarrow} M$ a smooth fibre bundle over $M$ with typical fibre $F$. A \textbf{Lagrangian} $\mathcal L$ of order $k$ is an element
   \begin{equation}
-    \mathcal L \in \Lambda^n_0(J^k\pi),
+    \mathcal L \in \Lambda^n_0(\pi_k),
   \end{equation}
-the space of horizontal $n$-forms on the $k$-th-order jet bundle of $\pi$.
+the space of horizontal $n$-forms on the $k$-th-order jet bundle $\pi_k$ of $\pi$.
+
+  Assuming $M$ to be orientable with volume form $\Omega\in\Lambda^n(\tau_M^\ast)$, a Lagrangian $\mathcal L$ is equivalently characterized by its \textbf{Lagrangian density} $L\in C^\infty(J^k\pi)$,
+\begin{equation}
+  \mathcal L = L\pi_k^\ast\Omega.
+\end{equation}
 \end{definition}
 
-In local coordinates, a Lagrangian has the representation
-\begin{equation}
-  \mathcal L = L(x^i, u^A, u^A_i, \dots) \, \omega
-\end{equation}
-where $\omega = dx^1 \wedge \cdots \wedge dx^n$.
+From now on, we will consider smooth, orientable base manifolds $M$ and smooth bundles over the base manifold. Depending on the context, the symbol $\Omega$ will denote either the form on $M$ or the pullback to various bundles over $M$.
 
-The \emph{action} $S\lbrack\phi\rbrack$ corresponding to a Lagrangian $\mathcal L$ is the integral of $\mathcal L$ composed with a section $\phi\in\Gamma(\pi)$
+In adapted coordinates, $L$
+
+The \emph{action} $S\lbrack\phi\rbrack$ corresponding to a Lagrangian $\mathcal L$ is the integral of $\mathcal L$ composed with a section $\phi\in\Gamma\pi$
 \begin{equation}
   S\lbrack\phi\rbrack = \int (j^k\phi)^\ast \mathcal L = \int L(x^i, \phi^A, \partial_i\phi^A, \dots) d^4x.
 \end{equation}
 
-Lagrangian field theory now stipulates that sections $\phi\in\Gamma(\pi)$ are physical if they are stationary points of the action functional.
+Lagrangian field theory now stipulates that sections $\phi\in\Gamma\pi$ are physical if they are stationary points of the action functional.
 
 \begin{itemize}
 \item Lagrangian as differential form on a jet bundle
