@@ -32,11 +32,27 @@ Lagrangian field theory now stipulates that sections $\phi\in\Gamma(\pi)$ are ph
 \begin{proposition}
   Let $L\in C^\infty(J^k\pi)$ be a Lagrangian density. Let $C$ be a compact submanifold of $M$ and $\phi$ be a local section of $\pi$ such that the local action functional $S\lbrack\phi\rbrack$ is defined. If $\phi$ is an extremal of $S$, it satisfies the Euler-Lagrange equations
   \begin{equation}
-    (j^2\phi)^\ast\left( \frac{\partial L}{\partial u^A} - D_i \frac{\partial L}{\partial u^A_i} \right) = 0.
+    (j^{2k}\phi)^\ast\left( \sum_{l=0}^{k} (-1)^l D_{i_1} \cdots D_{i_l} \frac{\partial L}{\partial u^A_{i_1\cdots i_l}}\right) = 0.
   \end{equation}
 \end{proposition}
 
+\begin{proposition}
+  Given a Lagrangian $\mathcal L = L\Omega \in \Lambda^n_0(\pi_k)$, there exists an $n+1$ form $\Theta_{\mathcal L}\in\Lambda^{n+1}_1(\pi_k)$, such that, globally, the variation of the Lagrangian is given by
+  \begin{equation}\label{global_lagrange_form}
+    \delta L = \pi^\ast_{2k,k} \left( dL\wedge\Omega\right) + d_h \Theta_{\mathcal L}
+  \end{equation}
+  Such a form $\Theta_{\mathcal L}$ is called a \textbf{Cartan form}.
+\end{proposition}
 
+A coordinate expression for $\Theta_{\mathcal L}$ is
+\begin{equation}\label{local_cartan_form}
+  \Theta_{\mathcal L} = L\Omega + \sum_{s=0}^{k-1} \sum_{l=0}^{k-s-1} (-1)^l D_{i_1} \cdots D_{i_l} \left(\frac{\partial L}{\partial u^A_{j i_1 \dots i_{l} p_1 \dots p_s}}\right) \psi^A_{p_1\dots p_s} \wedge \left(i_{\partial_j}\Omega\right).
+\end{equation}
+Straight-forward application of (\ref{global_lagrange_form}) to (\ref{local_cartan_form}) yields the well-known coordinate expression
+\begin{equation}
+  \delta L = \left( \sum_{l=0}^{k} (-1)^l D_{i_1} \cdots D_{i_l} \frac{\partial L}{\partial u^A_{i_1\cdots i_l}}\right) u^A \wedge \Omega
+\end{equation}
+for the Euler-Lagrange form.
 
 \begin{itemize}
 \item Lagrangian as differential form on a jet bundle
