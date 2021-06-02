@@ -34,6 +34,9 @@ Lagrangian field theory now stipulates that sections $\phi\in\Gamma(\pi)$ are ph
     (j^{2k}\phi)^\ast\left( \sum_{l=0}^{k} (-1)^l D_{i_1} \cdots D_{i_l} \frac{\partial L}{\partial u^A_{i_1\cdots i_l}}\right) = 0.
   \end{equation}
 \end{proposition}
+\begin{proof}
+  See Saunders 1989 or older, original work
+\end{proof}
 
 \begin{proposition}
   Given a Lagrangian $\mathcal L = L\Omega \in \bigwedge^n_0\pi_k$, there exists an $n+1$ form $\Theta_L\in\bigwedge^{n}_0\pi_{2k-1,k-1}\cap\bigwedge^{n}_{1}\pi_{2k-1}$, such that, globally, the variation of the Lagrangian is given by
@@ -46,13 +49,18 @@ Lagrangian field theory now stipulates that sections $\phi\in\Gamma(\pi)$ are ph
   \end{equation}
   Such a form $\Theta_L$ is called a \textbf{Cartan form}.
 \end{proposition}
+\begin{proof}
+  See Saunders 1989 or older, original work
+\end{proof}
 
-This definition generalizes the local construction of (\ref{euler_lagrange_local}): The variation $\delta L$ is obtained by lifting $d\mathcal L$ to $\pi_{2k}$ and cancelling non-horizontal terms (over $E$) by adding a derivative.
+This definition generalizes the local derivation of (\ref{euler_lagrange_local}): The variation $\delta L$ is obtained by lifting $d\mathcal L$ to $\pi_{2k}$ and cancelling non-horizontal terms (over $E$) by adding a derivative, which corresponds to repeated integrations by parts.
 
 A coordinate expression for $\Theta_L$ is
 \begin{equation}\label{local_cartan_form}
   \Theta_L = L\Omega + \sum_{s=0}^{k-1} \sum_{l=0}^{k-s-1} (-1)^l D_{i_1} \cdots D_{i_l} \left(\frac{\partial L}{\partial u^A_{j i_1 \dots i_{l} p_1 \dots p_s}}\right) \psi^A_{p_1\dots p_s} \wedge \left(i_{\partial_j}\Omega\right).
 \end{equation}
+The forms $\psi^A_{p_1\dots p_s} = du^A_{p_1\dots p_s} - u^A_{p_1\dots p_sq} dx^q$ span the contact system of $J^k\pi$.
+
 Straight-forward application of (\ref{global_lagrange_form}) to (\ref{local_cartan_form}) yields the well-known coordinate expression
 \begin{equation}
   \delta L = \left( \sum_{l=0}^{k} (-1)^l D_{i_1} \cdots D_{i_l} \frac{\partial L}{\partial u^A_{i_1\cdots i_l}}\right) u^A \wedge \Omega
@@ -63,24 +71,24 @@ In later sections, we will restrict our attention to Lagrangians of second deriv
 \begin{proposition}
   The Cartan form is unique for second-order Lagrangians.
 \end{proposition}
-
-\begin{proposition}{(First Noether theorem)}
-  \begin{equation}
-    0 = d \left((j^{2k-1}\phi)^\ast J^\mathcal L(\xi_E)\right)
-  \end{equation}
-\end{proposition}
-
-\begin{itemize}
-\item noether theorem
-\item energy momentum tensor
-\end{itemize}
+\begin{proof}
+  See Saunders 1989 or older, original work
+\end{proof}
 
 \section{Axiom I: diffeomorphism invariance}
 \begin{itemize}
 \item justification, history, general relativity
 \item geometric formulation
 \item equivariance equations
+\item noether theorem
+\item energy momentum tensor
 \end{itemize}
+
+\begin{proposition}{(First Noether theorem)}
+  \begin{equation}
+    0 = d \left((j^{2k-1}\phi)^\ast J^\mathcal L(\xi_E)\right)
+  \end{equation}
+\end{proposition}
 
 \section{Axiom II: causal compatibility}
 \begin{itemize}
