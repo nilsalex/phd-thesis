@@ -94,17 +94,34 @@ In the language of jet bundles, the first axiom can be formalized as equivarianc
   A Lagrangian on the second jet bundle over a sub-bundle of some tensor bundle is called a \textbf{tensorial field theory of second (derivative) order}.
 \end{definition}
 
-By virtue of the pushforward-pullback construction, sub-bundles of tensor bundles carry a canonical action of the diffeomorphism group $\mathrm{Diff}(M)$ as bundle automorphisms, denoted as $\varphi_E\in \mathrm{Aut}(E)$ for every $\varphi\in\mathrm{Diff}(M)$. We call this the \emph{lift} of the diffeomorphism $\varphi$. This action, in turn, lifts naturally to the second jet bundle over $E$.
+By virtue of the pushforward-pullback construction, sub-bundles of tensor bundles carry a canonical action of the diffeomorphism group $\mathrm{Diff}(M)$ as bundle automorphisms, denoted as $\varphi_E\in \mathrm{Aut}(E)$ for every $\varphi\in\mathrm{Diff}(M)$. We call this the \emph{lift} of the diffeomorphism $\varphi$. This action, in turn, lifts naturally to the jet bundles over $E$.
 
-\begin{definition}
-  
+\begin{definition}[prolongation of morphisms]
+  Let $E \overset{\pi_E}{\longrightarrow} M$ and $H \overset{\pi_H}{\longrightarrow} N$ be two bundles. The $k$th-order jet bundle lift of a bundle morphism $(F,f)$ from $\pi_E$ to $\pi_H$ is the unique bundle morphism $(j^k(F),f)$ from $J^k\pi_E$ to $J^k\pi_H$ that lets the diagram in Fig.~(??) commute.
 \end{definition}
-
-The formalism is extensible to other bundles, if an action of the diffeomorphism group can be specified in a meaningful way.
-
-\begin{definition}
-
+A proof for the existence and uniqueness of this construction can be found in Ref.~\cite{saunders}. With the notion of the \emph{lift} of a bundle automorphism at hand, we now give the first axiom a precise meaning
+\begin{definition}[diffeomorphism invariant theory]
+  A Lagrangian field theory is called \textbf{diffeomorphism invariant} if its Lagrangian $\mathcal L\in\textstyle\bigwedge_0^n\pi_k$ is invariant with respect to the lifted action of $\mathrm{Diff}(M)$ on $J^kE$, i.e.~ if for all $\varphi\in\mathrm{Diff}(M)$
+  \begin{equation}\label{lagrangian_diffeo_invariance}
+    j^k(\varphi_E)^\ast \mathcal L = \mathcal L.
+  \end{equation}
 \end{definition}
+This definition applies to other bundles and groups as well, as long as the action on the total space is defined.
+
+Using a local representation $\mathcal L = L d^nx$, the diffeomorphism invariance condition (\ref{lagrangian_diffeo_invariance}) translates into an equivariance condition on the Lagrangian density
+\begin{equation}\label{lagrangian_density_diffeo_equivariance}
+  L \circ j^k(\varphi_E) = \lvert D\varphi\rvert^{-1} L,
+\end{equation}
+where $\lvert D\varphi\rvert$ denotes the determinant of the Jacobian $D\varphi$. Covariant constructive gravity derives its calculational power from the observation that (\ref{lagrangian_density_diffeo_equivariance}) is locally equivalent to a system of linear partial differential equations (PDEs) for the Lagrangian density $L$. For this theorem and the remainder of the chapter, we will work on the second jet bundle, as we are ultimately interested in investigating field theories of second derivative order.
+\begin{theorem}
+  Let $L$ be the local Lagrangian density of a second derivative order Lagrangian $\mathcal L = Ld^4x \in \textstyle\bigwedge_0^n\pi_2$. If $\mathcal L$ is diffeomorphism invariant, i.e.~satisfies the invariance condition (\ref{lagrangian_diffeo_invariance}) of the first axiom of covariant constructive gravity, its local representation $L$ satisfies a system of first-order linear partial differential equations given by
+  \begin{equation}
+    \begin{aligned}
+      0 &{} = L_{\colon m} \\
+      0 &{} = L_{\colon m} \\
+    \end{aligned}
+  \end{equation}
+\end{theorem}
 
 \begin{itemize}
 \item justification, history, general relativity
