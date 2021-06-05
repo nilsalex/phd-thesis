@@ -34,7 +34,7 @@ A bundle is denoted as $E\overset{\pi}{\longrightarrow}M$, where $E$ is the tota
   \end{equation}
 In other words, $\mathcal L$ is a horizontal $n$-form on the $k$-th-order jet bundle $\pi_k$ of $\pi$.
 
-  Assuming $M$ to be orientable with volume form $\Omega\in\bigwedge^n\tau_M^\ast$, a Lagrangian $\mathcal L$ is equivalently characterized by its \textbf{Lagrangian density} $L\in C^\infty(J^k\pi)$,
+Assuming $M$ to be orientable with volume form $\Omega\in\Lambda^nM$, a Lagrangian $\mathcal L$ is equivalently characterized by its \textbf{Lagrangian density} $L\in C^\infty(J^k\pi)$,
   \begin{equation}\label{lagrangian_density}
   \mathcal L = L\pi_k^\ast\Omega.
 \end{equation}
@@ -44,30 +44,31 @@ The claim of (\ref{lagrangian_density}) becomes apparent in local coordinates, w
 \begin{equation}\label{lagrangian_local}
   \mathcal L = \mathcal L(x^i,u^A,u^A_i,\dots) dx^1\wedge \dots \wedge dx^n.
 \end{equation}
-From (\ref{lagrangian_local}) and (\ref{lagrangian_density}), it is also clear how the notion of a Lagrangian as a horizontal $n$-form captures in a geometric way the notion used elsewhere as a bundle map $J^kE \rightarrow \Lambda^4M$ (see Refs.~\cite{saunders,marsden,ccg}).
+From (\ref{lagrangian_local}) and (\ref{lagrangian_density}), it is also clear how the notion of a Lagrangian as a horizontal $n$-form captures in a geometric way the notion used elsewhere as a bundle map $J^kE \rightarrow \Lambda^nM$ (see Refs.~\cite{saunders,marsden,ccg}).
 
 
 From now on, we will consider smooth, orientable base manifolds $M$ and smooth bundles over the base manifold. Depending on the context, the symbol $\Omega$ will denote either the form on $M$ or the pullback to various bundles over $M$.
 
 \begin{definition}{(local action functional)}
-  Given a Lagrangian density $\mathcal L \in \bigwedge^n_0\pi_k$ and a compact $n$-dimensional submanifold $C \subset M$, the \textbf{local action functional} is defined as the map
+  Given a Lagrangian $\mathcal L \in \bigwedge^n_0\pi_k$ and a compact $n$-dimensional submanifold $C \subset M$, the \textbf{local action functional} is defined as the map
   \begin{equation}
-    \phi \mapsto S\lbrack\phi\rbrack = \int_C (j^k\phi)^\ast\mathcal L
+    \sigma \mapsto S\lbrack\sigma\rbrack = \int_C (j^k\sigma)^\ast\mathcal L
   \end{equation}
-for all local sections $\phi$ of $\pi$ with support on $C$.
+for all local sections $\sigma$ of $\pi$ with support on $C$.
 \end{definition}
 
-Lagrangian field theory now stipulates that sections $\phi\in\Gamma(\pi)$ are physical if they are stationary points of the action functional. A well-known result from the calculus of variations is the following:
+Lagrangian field theory now stipulates that sections $\sigma\in\Gamma(\pi)$ are physical if they are extremals of the action functional \cite{}. The well-known \emph{Euler-Lagrange} equations from the calculus of variations provide a neccessary condition in local coordinates which such sections extremals must satisfy.
 \begin{proposition}
-  Let $L\in C^\infty(J^k\pi)$ be a Lagrangian density. Let $C$ be a compact submanifold of $M$ and $\phi$ be a local section of $\pi$ such that the local action functional $S\lbrack\phi\rbrack$ is defined. If $\phi$ is an extremal of $S$, it satisfies the Euler-Lagrange equations
+  Let $L\in C^\infty(J^k\pi)$ be a Lagrangian density. Let $C$ be a compact submanifold of $M$ and $\sigma$ be a local section of $\pi$ such that the local action functional $S\lbrack\sigma\rbrack$ is defined. If $\sigma$ is an extremal of $S$, it satisfies the \textbf{Euler-Lagrange equations}
   \begin{equation}\label{euler_lagrange_local}
-    (j^{2k}\phi)^\ast\left( \sum_{l=0}^{k} (-1)^l D_{i_1} \cdots D_{i_l} \frac{\partial L}{\partial u^A_{i_1\cdots i_l}}\right) = 0.
+    (j^{2k}\sigma)^\ast\left( \sum_{l=0}^{k} (-1)^l D_{i_1} \cdots D_{i_l} \frac{\partial L}{\partial u^A_{i_1\cdots i_l}}\right) = 0.
   \end{equation}
 \end{proposition}
 \begin{proof}
   See Saunders 1989 or older, original work
 \end{proof}
 
+The intrinsic equivalent to the Euler-Lagrange equations in local coordinates introduces a new object, the \emph{Cartan form}, which plays a central role in the geometrization of Lagrangian field theory.
 \begin{proposition}
   Given a Lagrangian $\mathcal L = L\Omega \in \bigwedge^n_0\pi_k$, there exists an $n+1$ form $\Theta_L\in\bigwedge^{n}_0\pi_{2k-1,k-1}\cap\bigwedge^{n}_{1}\pi_{2k-1}$, such that, globally, the variation of the Lagrangian is given by
   \begin{equation}\label{global_lagrange_form}
@@ -75,7 +76,7 @@ Lagrangian field theory now stipulates that sections $\phi\in\Gamma(\pi)$ are ph
   \end{equation}
   and extremals of $\mathcal L$ are extremals of $\Theta_L$ in the sense that
   \begin{equation}
-    \pi_{2k-1,k}^\ast (j^k\phi)^\ast\mathcal L = (j^{2k-1}\phi)^\ast\Theta_L.
+    \pi_{2k-1,k}^\ast (j^k\sigma)^\ast\mathcal L = (j^{2k-1}\sigma)^\ast\Theta_L.
   \end{equation}
   Such a form $\Theta_L$ is called a \textbf{Cartan form}.
 \end{proposition}
@@ -152,7 +153,7 @@ where $\lvert D\varphi\rvert$ denotes the determinant of the Jacobian $D\varphi$
 
 \begin{proposition}{(First Noether theorem)}
   \begin{equation}
-    0 = d \left((j^{2k-1}\phi)^\ast J^\mathcal L(\xi_E)\right)
+    0 = d \left((j^{2k-1}\sigma)^\ast J^\mathcal L(\xi_E)\right)
   \end{equation}
 \end{proposition}
 
