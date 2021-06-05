@@ -2,7 +2,6 @@
 
 \textbf{take-home message: two conditions on gravitational dynamics determined by coupled matter theory}
 
-
 This chapter is concerned with the two axioms of covariant constructive gravity. Their informal formulation is as follows:
 \begin{axiom}[Diffeomorphism invariance]
   The dynamical laws that govern gravity are invariant under spacetime diffeomorphisms. \cite{cgg paper}
@@ -14,6 +13,9 @@ This chapter is concerned with the two axioms of covariant constructive gravity.
 For a more precise formulation of the axioms, which will enable us to derive their consequences for gravitational theories coupled to novel matter, an introduction of the basic concepts of Lagrangian field theory is in order.
 
 \section{Lagrangian field theory}
+For the purpose of the present work, a \emph{Lagrangian field theory} will be a geometric formulation of certain conditions on sections $\sigma\in\Gamma(\pi)$---called \emph{fields}---of some bundle $E\overset{\pi}{\longrightarrow} M$. These conditions select the physical realizations of fields admissible by the theory. The bundle $\pi$ shall be constructed from a tensor bundle, i.e.~be a sub-bundle of some tensor bundle $T^r_sM$. It is possible to extend the framework to include other bundles, with the caveat that a lift of the action of the diffeomorphism group on $M$ to $E$ may have to be specified manually. Although not relevant for much of the development of the theory, the base manifolds to be considered later for concrete examples will be spacetime manifolds of dimension 4.
+
+A short introduction to the notation is in order: A bundle with total space $E$, base manifold $M$, and submersion $\pi$ is denoted as $E\overset{\pi}{\longrightarrow}M$ or, in short, $\pi$. $n$ is the dimension of $M$, the dimension of a typical fibre $F$ of $\pi$ is $m$. Coordinate functions on $E$ are denoted by $(x^i,u^A)$. Such coordinates extend to the $k$th jet bundle $J^kE \overset{\pi_k}{\longrightarrow}M$ over $\pi$ as $(x^i,\allowbreak u^A,\allowbreak u^A_{i_1},\allowbreak u^A_{i_1i_2},\allowbreak \dots,\allowbreak u^A_{i_1\dots i_k})$. The literature on jet bundles mostly employs multi-indices for higher-order jet bundles (see e.g.~Ref.~\cite{saunders}), which is certainly the right approach for studying the properties of jet bundles, but for practical calculations on the second-order jet bundle performed below a different technique will be employed which also takes care of ambiguities regarding symmetric indices. Prolongations of sections $\sigma$ are denoted with $j^k(\sigma)$, projections between jet bundles of different order with $\pi_{k,k^\prime}(\sigma)$. The latter are submersions in their own right and thus also define bundle projections.
 
 \begin{definition}{(Lagrangian)}
   Let $M$ be a smooth manifold of dimension $n$ and $E \overset{\pi}{\longrightarrow} M$ a smooth fibre bundle over $M$ with typical fibre $F$. A \textbf{Lagrangian} $\mathcal L$ of order $k$ is an element
