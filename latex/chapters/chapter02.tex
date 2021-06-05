@@ -18,14 +18,14 @@ For the purpose of the present work, a \emph{Lagrangian field theory} will be a 
 \begin{example}
   Two examples for Lagrangian field theories are
   \begin{itemize}
-    \item Einstein gravity on the symmetric sub-bundle of $T^2_0M$ of inverse metric tensors\footnote{The equivalent formulation as a theory for a metric tensor fields takes place on the bundle $T^0_2M$.} and with dynamical laws given by the Einstein equations action, and
-    \item Maxwell electrodynamics on the bundle $T^\ast M$ of potential one-forms and with dynamical laws given by the Maxwell equations.
+    \item Einstein gravity on the symmetric sub-bundle of $T^2_0M$ of inverse metric tensors\footnote{The equivalent formulation as a theory for a metric tensor fields takes place on the bundle $T^0_2M$.} with dynamical laws given by the Einstein equations action, and
+    \item Maxwell electrodynamics on the bundle $T^\ast M$ of potential one-forms with dynamical laws given by the Maxwell equations.
   \end{itemize}
 \end{example}
 
 Both theories are \emph{Lagrangian} because they derive their dynamical laws in a certain geometric manner. The mechanism will be explained in the following, but first, let us fix some of the notation involved.
 
-A bundle is denoted as $E\overset{\pi}{\longrightarrow}M$, where $E$ is the total space, $M$ is the base manifold $M$, $\pi$ is the submersion. As a shorthand, it is common to write just $\pi$---total space and base manifold are domain and co-domain of $\pi$, respectively. The dimension of $M$ is written as $n$, the dimension of a typical fibre $F$ of $\pi$ as $m$. Coordinate functions on $E$ are denoted by $(x^i,u^A)$. Such coordinates extend to the $k$th jet bundle $J^kE \overset{\pi_k}{\longrightarrow}M$ over $\pi$ as $(x^i,\allowbreak u^A,\allowbreak u^A_{i_1},\allowbreak u^A_{i_1i_2},\allowbreak \dots,\allowbreak u^A_{i_1\dots i_k})$. The literature on jet bundles mostly employs multi-indices for higher-order jet bundles (see e.g.~Ref.~\cite{saunders}), which is certainly the right approach for studying the properties of jet bundles, but for practical calculations on the second-order jet bundle performed below a different technique will be used which also takes care of ambiguities regarding symmetric indices. Prolongations of sections $\sigma$ are denoted with $j^k(\sigma)$, projections between jet bundles of different order with $\pi_{k,k^\prime}(\sigma)$. The latter are submersions in their own right and thus also define bundle projections. Throughout, the Einstein summation convention is used.
+A bundle is denoted as $E\overset{\pi}{\longrightarrow}M$, where $E$ is the total space, $M$ is the base manifold $M$, $\pi$ is the submersion. As a shorthand, it is common to write just $\pi$---it is then understood that total space and base manifold are domain and co-domain of $\pi$, respectively. The dimension of $M$ is written as $n$, the dimension of a typical fibre $F$ of $\pi$ as $m$. Coordinate functions on $E$ are denoted by $(x^i,u^A)$. Such coordinates extend to the $k$th jet bundle $J^kE \overset{\pi_k}{\longrightarrow}M$ over $\pi$ as $(x^i,\allowbreak u^A,\allowbreak u^A_{i_1},\allowbreak u^A_{i_1i_2},\allowbreak \dots,\allowbreak u^A_{i_1\dots i_k})$. The literature on jet bundles mostly employs multi-indices for higher-order jet bundles (see e.g.~Ref.~\cite{saunders}), which is certainly the right approach for studying the properties of jet bundles, but for practical calculations on the second-order jet bundle performed below a different technique will be used which also takes care of ambiguities regarding symmetric indices. Prolongations of sections $\sigma$ are denoted with $j^k(\sigma)$, projections between jet bundles of different order with $\pi_{k,k^\prime}(\sigma)$. The latter are submersions in their own right and thus also define bundle projections. Throughout, the Einstein summation convention is used.
 
 \begin{definition}{(Lagrangian)}
   Let $M$ be a smooth manifold of dimension $n$ and $E \overset{\pi}{\longrightarrow} M$ a smooth fibre bundle over $M$ with typical fibre $F$. A \textbf{Lagrangian} $\mathcal L$ of order $k$ is an element
@@ -40,9 +40,9 @@ Assuming $M$ to be orientable with volume form $\Omega\in\Lambda^nM$, a Lagrangi
 \end{equation}
 \end{definition}
 
-The claim of (\ref{lagrangian_density}) becomes apparent in local coordinates, where an element of $\bigwedge^n_0\pi_k$ appears as
+The claim of (\ref{lagrangian_density}) becomes apparent in local coordinates, where a horizontal $n$-form on $\pi_k$ appears as
 \begin{equation}\label{lagrangian_local}
-  \mathcal L = \mathcal L(x^i,u^A,u^A_i,\dots) dx^1\wedge \dots \wedge dx^n.
+  \textstyle\bigwedge^n_0\pi_k\ni \mathcal L = \mathcal L(x^i,u^A,u^A_i,\dots) dx^1\wedge \dots \wedge dx^n.
 \end{equation}
 From (\ref{lagrangian_local}) and (\ref{lagrangian_density}), it is also clear how the notion of a Lagrangian as a horizontal $n$-form captures in a geometric way the notion used elsewhere as a bundle map $J^kE \rightarrow \Lambda^nM$ (see Refs.~\cite{saunders,marsden,ccg}).
 
@@ -86,17 +86,17 @@ The intrinsic equivalent to the Euler-Lagrange equations in local coordinates in
 
 This definition generalizes the local derivation of (\ref{euler_lagrange_local}): The variation $\delta L$ is obtained by lifting $d\mathcal L$ to $\pi_{2k}$ and cancelling non-horizontal terms (over $E$) by adding a derivative, which corresponds to repeated integrations by parts.
 
-A coordinate expression for $\Theta_L$ is
+A possible\footnote{Generally, $\Theta_L$ is not uniquely defined.} coordinate expression for $\Theta_L$ is \ref{}
 \begin{equation}\label{local_cartan_form}
-  \Theta_L = L\Omega + \sum_{s=0}^{k-1} \sum_{l=0}^{k-s-1} (-1)^l D_{i_1} \cdots D_{i_l} \left(\frac{\partial L}{\partial u^A_{j i_1 \dots i_{l} p_1 \dots p_s}}\right) \psi^A_{p_1\dots p_s} \wedge \left(i_{\partial_j}\Omega\right).
+  \Theta_L = L\Omega + \sum_{s=0}^{k-1} \sum_{l=0}^{k-s-1} (-1)^l D_{i_1} \cdots D_{i_l} \left(\frac{\partial L}{\partial u^A_{j i_1 \dots i_{l} p_1 \dots p_s}}\right) \psi^A_{p_1\dots p_s} \wedge \left(i_{\partial_j}\Omega\right),
 \end{equation}
-The forms $\psi^A_{p_1\dots p_s} = du^A_{p_1\dots p_s} - u^A_{p_1\dots p_sq} dx^q$ span the contact system of $J^k\pi$.
+where the forms $\psi^A_{p_1\dots p_s} = du^A_{p_1\dots p_s} - u^A_{p_1\dots p_sq} dx^q$ span the contact system of $\pi_k$ (see \ref{}).
 
 Straight-forward application of (\ref{global_lagrange_form}) to (\ref{local_cartan_form}) yields the well-known coordinate expression
 \begin{equation}
   \delta L = \left( \sum_{l=0}^{k} (-1)^l D_{i_1} \cdots D_{i_l} \frac{\partial L}{\partial u^A_{i_1\cdots i_l}}\right) u^A \wedge \Omega
 \end{equation}
-for the Euler-Lagrange form.
+for the Euler-Lagrange form, reconciling the intrinsic formulation using the Cartan form with the explicitly coordinate-dependent\footnote{Which is not to say \emph{ill-defined}.} formulation using the Euler-Lagrange equations.
 
 In later sections, we will restrict our attention to Lagrangians of second derivative order. As it turns out, the Cartan form for such a theory is \emph{unique}.
 \begin{proposition}
