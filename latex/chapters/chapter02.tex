@@ -1,4 +1,4 @@
-\chapter{Covariant constructive gravity}
+\chapter{The axioms of covariant constructive gravity}
 
 \textbf{take-home message: two conditions on gravitational dynamics determined by coupled matter theory}
 
@@ -86,7 +86,7 @@ The intrinsic equivalent to the Euler-Lagrange equations in local coordinates in
 
 This definition generalizes the local derivation of (\ref{euler_lagrange_local}): The variation $\delta L$ is obtained by lifting $d\mathcal L$ to $\pi_{2k}$ and cancelling non-horizontal terms (over $E$) by adding a derivative, which corresponds to repeated integrations by parts.
 
-A possible\footnote{Generally, $\Theta_L$ is not uniquely defined.} coordinate expression for $\Theta_L$ is \ref{}
+A possible\footnote{Generally, $\Theta_L$ is not uniquely defined. \cite{saunders}} coordinate expression for $\Theta_L$ is \ref{}
 \begin{equation}\label{local_cartan_form}
   \Theta_L = L\Omega + \sum_{s=0}^{k-1} \sum_{l=0}^{k-s-1} (-1)^l D_{i_1} \cdots D_{i_l} \left(\frac{\partial L}{\partial u^A_{j i_1 \dots i_{l} p_1 \dots p_s}}\right) \psi^A_{p_1\dots p_s} \wedge \left(i_{\partial_j}\Omega\right),
 \end{equation}
@@ -108,13 +108,7 @@ In later sections, we will restrict our attention to Lagrangians of second deriv
 
 \section{Axiom I: diffeomorphism invariance}
 
-In the language of jet bundles, the first axiom can be formalized as equivariance condition on the Lagrangian. We will restrict our attention here to tensorial field theories of second derivative order.
-
-\begin{definition}
-  A Lagrangian on the second jet bundle over a sub-bundle of some tensor bundle is called a \textbf{tensorial field theory of second (derivative) order}.
-\end{definition}
-
-By virtue of the pushforward-pullback construction, sub-bundles of tensor bundles carry a canonical action of the diffeomorphism group $\mathrm{Diff}(M)$ as bundle automorphisms, denoted as $\varphi_E\in \mathrm{Aut}(E)$ for every $\varphi\in\mathrm{Diff}(M)$. We call this the \emph{lift} of the diffeomorphism $\varphi$. This action, in turn, lifts naturally to the jet bundles over $E$.
+In the language of jet bundles, the first axiom can be formalized as equivariance condition under a certain group action on the Lagrangian. The group in question is the diffeomorphism group $\mathrm{Diff}(M)$, acting on $M$ by function application. By virtue of the pushforward-pullback construction, sub-bundles of tensor bundles carry a canonical action of $\mathrm{Diff}(M)$ as bundle automorphisms, denoted as $\varphi_E\in \mathrm{Aut}(E)$ for every $\varphi\in\mathrm{Diff}(M)$. We call this the \emph{lift} of the diffeomorphism $\varphi$. This action, in turn, lifts naturally to the jet bundles over $E$.
 
 \begin{definition}[prolongation of morphisms]
   Let $E \overset{\pi_E}{\longrightarrow} M$ and $H \overset{\pi_H}{\longrightarrow} N$ be two bundles. The $k$th-order jet bundle lift of a bundle morphism $(F,f)$ from $\pi_E$ to $\pi_H$ is the unique bundle morphism $(j^k(F),f)$ from $J^k\pi_E$ to $J^k\pi_H$ that lets the diagram in Fig.~(??) commute.
@@ -126,7 +120,14 @@ A proof for the existence and uniqueness of this construction can be found in Re
     j^k(\varphi_E)^\ast \mathcal L = \mathcal L.
   \end{equation}
 \end{definition}
-This definition applies to other bundles and groups as well, as long as the action on the total space is defined.
+This definition applies not only to tensor bundles and the diffeomorphism group---all we need is a well-defined action as bundle automorphism. For tensor bundles, however, there is always the canonical action built from the push-forward action on tangent vectors
+\begin{equation}
+  \varphi_\ast\colon T_pM\rightarrow T_{\varphi(p)}M
+\end{equation}
+and the pull-back action on cotangent vectors\footnote{Inverted, in order to still be a covariant functor.}
+\begin{equation}
+   (\varphi^\ast)^{-1}\colon T^\ast_pM\rightarrow T^\ast_{\varphi(p)}M.
+\end{equation}
 
 Using a local representation $\mathcal L = L d^nx$, the diffeomorphism invariance condition (\ref{lagrangian_diffeo_invariance}) translates into an equivariance condition on the Lagrangian density
 \begin{equation}\label{lagrangian_density_diffeo_equivariance}
