@@ -13,22 +13,39 @@ This chapter is concerned with the two axioms of covariant constructive gravity.
 For a more precise formulation of the axioms, which will enable us to derive their consequences for gravitational theories coupled to novel matter, an introduction of the basic concepts of Lagrangian field theory is in order.
 
 \section{Lagrangian field theory}
-For the purpose of the present work, a \emph{Lagrangian field theory} will be a geometric formulation of certain conditions on sections $\sigma\in\Gamma(\pi)$---called \emph{fields}---of some bundle $E\overset{\pi}{\longrightarrow} M$. These conditions select the physical realizations of fields admissible by the theory. The bundle $\pi$ shall be constructed from a tensor bundle, i.e.~be a sub-bundle of some tensor bundle $T^r_sM$. It is possible to extend the framework to include other bundles, with the caveat that a lift of the action of the diffeomorphism group on $M$ to $E$ may have to be specified manually. Although not relevant for much of the development of the theory, the base manifolds to be considered later for concrete examples will be spacetime manifolds of dimension 4.
+For the purpose of the present work, a \emph{Lagrangian field theory} will be a geometric formulation of certain conditions on sections $\sigma\in\Gamma(\pi)$---called \emph{fields}---of some bundle $E\overset{\pi}{\longrightarrow} M$. These conditions select the physical realizations of fields admissible by the theory and constitute the \emph{dynamical laws}. The bundle $\pi$ shall be constructed from a tensor bundle, i.e.~be a sub-bundle of some tensor bundle $T^r_sM$. It is possible to extend the framework to include other bundles, with the caveat that a lift of the action of the diffeomorphism group on $M$ to $E$ may have to be specified manually. Although not relevant for much of the development of the theory, the base manifolds to be considered later for concrete examples will be spacetime manifolds of dimension 4.
 
-A short introduction to the notation is in order: A bundle with total space $E$, base manifold $M$, and submersion $\pi$ is denoted as $E\overset{\pi}{\longrightarrow}M$ or, in short, $\pi$. $n$ is the dimension of $M$, the dimension of a typical fibre $F$ of $\pi$ is $m$. Coordinate functions on $E$ are denoted by $(x^i,u^A)$. Such coordinates extend to the $k$th jet bundle $J^kE \overset{\pi_k}{\longrightarrow}M$ over $\pi$ as $(x^i,\allowbreak u^A,\allowbreak u^A_{i_1},\allowbreak u^A_{i_1i_2},\allowbreak \dots,\allowbreak u^A_{i_1\dots i_k})$. The literature on jet bundles mostly employs multi-indices for higher-order jet bundles (see e.g.~Ref.~\cite{saunders}), which is certainly the right approach for studying the properties of jet bundles, but for practical calculations on the second-order jet bundle performed below a different technique will be employed which also takes care of ambiguities regarding symmetric indices. Prolongations of sections $\sigma$ are denoted with $j^k(\sigma)$, projections between jet bundles of different order with $\pi_{k,k^\prime}(\sigma)$. The latter are submersions in their own right and thus also define bundle projections.
+\begin{example}
+  Two examples for Lagrangian field theories are
+  \begin{itemize}
+    \item Einstein gravity on the symmetric sub-bundle of $T^2_0M$ of inverse metric tensors\footnote{The equivalent formulation as a theory for a metric tensor fields takes place on the bundle $T^0_2M$.} and with dynamical laws given by the Einstein equations action, and
+    \item Maxwell electrodynamics on the bundle $T^\ast M$ of potential one-forms and with dynamical laws given by the Maxwell equations.
+  \end{itemize}
+\end{example}
+
+Both theories are \emph{Lagrangian} because they derive their dynamical laws in a certain geometric manner. The mechanism will be explained in the following, but first, let us fix some of the notation involved.
+
+A bundle is denoted as $E\overset{\pi}{\longrightarrow}M$, where $E$ is the total space, $M$ is the base manifold $M$, $\pi$ is the submersion. As a shorthand, it is common to write just $\pi$---total space and base manifold are domain and co-domain of $\pi$, respectively. The dimension of $M$ is written as $n$, the dimension of a typical fibre $F$ of $\pi$ as $m$. Coordinate functions on $E$ are denoted by $(x^i,u^A)$. Such coordinates extend to the $k$th jet bundle $J^kE \overset{\pi_k}{\longrightarrow}M$ over $\pi$ as $(x^i,\allowbreak u^A,\allowbreak u^A_{i_1},\allowbreak u^A_{i_1i_2},\allowbreak \dots,\allowbreak u^A_{i_1\dots i_k})$. The literature on jet bundles mostly employs multi-indices for higher-order jet bundles (see e.g.~Ref.~\cite{saunders}), which is certainly the right approach for studying the properties of jet bundles, but for practical calculations on the second-order jet bundle performed below a different technique will be used which also takes care of ambiguities regarding symmetric indices. Prolongations of sections $\sigma$ are denoted with $j^k(\sigma)$, projections between jet bundles of different order with $\pi_{k,k^\prime}(\sigma)$. The latter are submersions in their own right and thus also define bundle projections. Throughout, the Einstein summation convention is used.
 
 \begin{definition}{(Lagrangian)}
   Let $M$ be a smooth manifold of dimension $n$ and $E \overset{\pi}{\longrightarrow} M$ a smooth fibre bundle over $M$ with typical fibre $F$. A \textbf{Lagrangian} $\mathcal L$ of order $k$ is an element
   \begin{equation}
-    \mathcal L \in \textstyle\bigwedge^n_0\pi_k,
+    \mathcal L \in \textstyle\bigwedge^n_0\pi_k.
   \end{equation}
-the space of horizontal $n$-forms on the $k$-th-order jet bundle $\pi_k$ of $\pi$.
+In other words, $\mathcal L$ is a horizontal $n$-form on the $k$-th-order jet bundle $\pi_k$ of $\pi$.
 
   Assuming $M$ to be orientable with volume form $\Omega\in\bigwedge^n\tau_M^\ast$, a Lagrangian $\mathcal L$ is equivalently characterized by its \textbf{Lagrangian density} $L\in C^\infty(J^k\pi)$,
-\begin{equation}
+  \begin{equation}\label{lagrangian_density}
   \mathcal L = L\pi_k^\ast\Omega.
 \end{equation}
 \end{definition}
+
+The claim of (\ref{lagrangian_density}) becomes apparent in local coordinates, where an element of $\bigwedge^n_0\pi_k$ appears as
+\begin{equation}\label{lagrangian_local}
+  \mathcal L = \mathcal L(x^i,u^A,u^A_i,\dots) dx^1\wedge \dots \wedge dx^n.
+\end{equation}
+From (\ref{lagrangian_local}) and (\ref{lagrangian_density}), it is also clear how the notion of a Lagrangian as a horizontal $n$-form captures in a geometric way the notion used elsewhere as a bundle map $J^kE \rightarrow \Lambda^4M$ (see Refs.~\cite{saunders,marsden,ccg}).
+
 
 From now on, we will consider smooth, orientable base manifolds $M$ and smooth bundles over the base manifold. Depending on the context, the symbol $\Omega$ will denote either the form on $M$ or the pullback to various bundles over $M$.
 
