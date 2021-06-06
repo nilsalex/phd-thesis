@@ -149,7 +149,12 @@ We wish to encode (\ref{lagrangian_diffeo_invariance}) as local conditions on th
   The result follows from the coordinate expression (\ref{pullback_coordiantes}) for the pull-back of one forms, which extends to horizontal forms on the jet bundle.
 \end{proof}
 
-Covariant constructive gravity derives its calculational power from the observation that the infinitesimal version of (\ref{lagrangian_density_diffeo_equivariance}) is equivalent to a system of linear partial differential equations (PDEs) for the Lagrangian density $L$. For this theorem and the remainder of the chapter, we will work on the second jet bundle, as we are ultimately interested in investigating field theories of second derivative order.
+Covariant constructive gravity derives its calculational power from the observation that the infinitesimal version of (\ref{lagrangian_density_diffeo_equivariance}) is equivalent to a system of linear partial differential equations (PDEs) for the Lagrangian density $L$. For the derivation of this theorem and the remainder of the chapter, we will work on the second jet bundle, as we are ultimately interested in investigating field theories of second derivative order. We will also drop the chart label from coordinate-dependent quantities. In order to lighten the notation, partial derivatives of functions on $J^2M$ are denoted $L_{,m}$ for derivatives with respect to coordinates on $M$ and $L_{,A},\,L_{\colon A}^{\hphantom{\colon A}p},\,L_{\colon A}^{\hphantom{\colon A}pq}$ for derivatives with respect to fibre coordinates.
+
+First, it needs to be specified what is meant by \emph{infinitesimal}. As the symmetry group in question is the diffeomorphism group on the base manifold, the infinitesimal equivalent is the corresponding Lie algebra $\Gamma(TM)$ of sections of the tangent bundle over $M$. The Lie bracket is given by the Lie bracket of vector fields. In a given coordinate chart, an element $\xi\in\Gamma(TM)$ defines an infinitesimal diffeomorphism as
+\begin{equation}
+  x^i \mapsto x^i + \xi^i.
+\end{equation}
 \begin{theorem}
   Let $L$ be the local Lagrangian density of a second derivative order Lagrangian $\mathcal L = Ld^4x \in \textstyle\bigwedge_0^n\pi_2$. If $\mathcal L$ is diffeomorphism invariant, i.e.~satisfies the invariance condition (\ref{lagrangian_diffeo_invariance}) of the first axiom of covariant constructive gravity, its local representation $L$ satisfies a system of first-order linear partial differential equations given by
   \begin{equation}
