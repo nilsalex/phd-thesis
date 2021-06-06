@@ -124,16 +124,32 @@ This definition applies not only to tensor bundles and the diffeomorphism group-
 \begin{equation}
   \varphi_\ast\colon T_pM\rightarrow T_{\varphi(p)}M
 \end{equation}
-and the pull-back action on cotangent vectors\footnote{Inverted, in order to still be a covariant functor.}
+and the pull-back action on cotangent vectors\footnote{The action is inverted in order to still define a covariant functor.}
 \begin{equation}
    (\varphi^\ast)^{-1}\colon T^\ast_pM\rightarrow T^\ast_{\varphi(p)}M.
 \end{equation}
-
-Using a local representation $\mathcal L = L d^nx$, the diffeomorphism invariance condition (\ref{lagrangian_diffeo_invariance}) translates into an equivariance condition on the Lagrangian density
-\begin{equation}\label{lagrangian_density_diffeo_equivariance}
-  L \circ j^k(\varphi_E) = \lvert D\varphi\rvert^{-1} L,
+Using a coordinate $(U,x)$ containing $p$ and $(V,y)$ containing $\varphi(p)$, the bundle automorphisms act on coordinate-induced component functions of vector fields as
+\begin{equation}
+(\varphi_\ast X)_{(y)}^j(y(p)) = \frac{\partial (y^j\circ \varphi)}{\partial x^i} \Bigg\rvert_{\varphi^{-1}(p)} \cdot X_{(x)}^i(x(\varphi^{-1}(p)))
 \end{equation}
-where $\lvert D\varphi\rvert$ denotes the determinant of the Jacobian $D\varphi$. Covariant constructive gravity derives its calculational power from the observation that (\ref{lagrangian_density_diffeo_equivariance}) is locally equivalent to a system of linear partial differential equations (PDEs) for the Lagrangian density $L$. For this theorem and the remainder of the chapter, we will work on the second jet bundle, as we are ultimately interested in investigating field theories of second derivative order.
+and on component functions of covector fields as\footnote{As for any group homomorphism, we have $(\varphi^\ast)^{-1}=(\varphi^{-1})^\ast$.}
+\begin{equation}\label{pullback_coordiantes}
+((\varphi^{-1})^\ast\omega)_{(y)j}(y(p)) = \frac{\partial (x^i\circ \varphi^{-1})}{\partial y^j}\Bigg\rvert_p \cdot \omega_{(x)i}(x(\varphi^{-1}(p))).
+\end{equation}
+
+We wish to encode (\ref{lagrangian_diffeo_invariance}) as local conditions on the Lagrangian density. To this end, consider a coordinate representation $\mathcal L = Ld^nx$. 
+\begin{proposition}
+  Let $\mathcal L = L_{(x)}d^nx$ be a coordinate representation of a diffeomorphism invariant Lagrangian, induced by a coordinate chart $(U,x)$ on $M$. It follows from the invariance condition (\ref{lagrangian_diffeo_invariance}) that $L_{(x)}$ is \textbf{diffeomorphism equivariant}, i.e.~it holds for all $\varphi\in\mathrm{Diff}(M)$ that, over the intersection of $U$ and $\varphi(U)$,
+  \begin{equation}\label{lagrangian_density_diffeo_equivariance}
+    L_{(x)}\circ j^k_{(x)}(\varphi_E) = \lvert d\varphi_{(x)}\rvert^{-1} L_{(x)}.
+  \end{equation}
+  $\lvert d\varphi_{(x)}\rvert$ denotes the determinant of the Jacobian of $\varphi$ in terms of the coordinate chart $(U,x)$.
+\end{proposition}
+\begin{proof}
+  The result follows from the coordinate expression (\ref{pullback_coordiantes}) for the pull-back of one forms, which extends to horizontal forms on the jet bundle.
+\end{proof}
+
+Covariant constructive gravity derives its calculational power from the observation that the infinitesimal version of (\ref{lagrangian_density_diffeo_equivariance}) is equivalent to a system of linear partial differential equations (PDEs) for the Lagrangian density $L$. For this theorem and the remainder of the chapter, we will work on the second jet bundle, as we are ultimately interested in investigating field theories of second derivative order.
 \begin{theorem}
   Let $L$ be the local Lagrangian density of a second derivative order Lagrangian $\mathcal L = Ld^4x \in \textstyle\bigwedge_0^n\pi_2$. If $\mathcal L$ is diffeomorphism invariant, i.e.~satisfies the invariance condition (\ref{lagrangian_diffeo_invariance}) of the first axiom of covariant constructive gravity, its local representation $L$ satisfies a system of first-order linear partial differential equations given by
   \begin{equation}
