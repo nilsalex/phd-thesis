@@ -129,11 +129,11 @@ and the pull-back action on cotangent vectors\footnote{The action is inverted in
    (\varphi^\ast)^{-1}\colon T^\ast_pM\rightarrow T^\ast_{\varphi(p)}M.
 \end{equation}
 Using a coordinate $(U,x)$ containing $p$ and $(V,y)$ containing $\varphi(p)$, the bundle automorphisms act on coordinate-induced component functions of vector fields as
-\begin{equation}
+\begin{equation}\label{diffeo_vector_coordinates}
 (\varphi_\ast X)_{(y)}^j(y(p)) = \frac{\partial (y^j\circ \varphi)}{\partial x^i} \Bigg\rvert_{\varphi^{-1}(p)} \cdot X_{(x)}^i(x(\varphi^{-1}(p)))
 \end{equation}
 and on component functions of covector fields as\footnote{As for any group homomorphism, we have $(\varphi^\ast)^{-1}=(\varphi^{-1})^\ast$.}
-\begin{equation}\label{pullback_coordiantes}
+\begin{equation}\label{diffeo_covector_coordinates}
 ((\varphi^{-1})^\ast\omega)_{(y)j}(y(p)) = \frac{\partial (x^i\circ \varphi^{-1})}{\partial y^j}\Bigg\rvert_p \cdot \omega_{(x)i}(x(\varphi^{-1}(p))).
 \end{equation}
 
@@ -146,15 +146,29 @@ We wish to encode (\ref{lagrangian_diffeo_invariance}) as local conditions on th
   $\lvert d\varphi_{(x)}\rvert$ denotes the determinant of the Jacobian of $\varphi$ in terms of the coordinate chart $(U,x)$.
 \end{proposition}
 \begin{proof}
-  The result follows from the coordinate expression (\ref{pullback_coordiantes}) for the pull-back of one forms, which extends to horizontal forms on the jet bundle.
+  The result follows from the coordinate expression (\ref{diffeo_covector_coordinates}) for the pull-back of one forms, which extends to horizontal forms on the jet bundle.
 \end{proof}
 
 Covariant constructive gravity derives its calculational power from the observation that the infinitesimal version of (\ref{lagrangian_density_diffeo_equivariance}) is equivalent to a system of linear partial differential equations (PDEs) for the Lagrangian density $L$. For the derivation of this theorem and the remainder of the chapter, we will work on the second jet bundle, as we are ultimately interested in investigating field theories of second derivative order. We will also drop the chart label from coordinate-dependent quantities. In order to lighten the notation, partial derivatives of functions on $J^2M$ are denoted $L_{,m}$ for derivatives with respect to coordinates on $M$ and $L_{,A},\,L_{\colon A}^{\hphantom{\colon A}p},\,L_{\colon A}^{\hphantom{\colon A}pq}$ for derivatives with respect to fibre coordinates.
 
 First, it needs to be specified what is meant by \emph{infinitesimal}. As the symmetry group in question is the diffeomorphism group on the base manifold, the infinitesimal equivalent is the corresponding Lie algebra $\Gamma(TM)$ of sections of the tangent bundle over $M$. The Lie bracket is given by the Lie bracket of vector fields. In a given coordinate chart, an element $\xi\in\Gamma(TM)$ defines an infinitesimal diffeomorphism as
-\begin{equation}
+\begin{equation}\label{diffeo_infinitesimal}
   x^i \mapsto x^i + \xi^i.
 \end{equation}
+From (\ref{diffeo_vector_coordinates}) and (\ref{diffeo_covector_coordinates}), we know how an infinitesimal diffeomorphism (\ref{diffeo_infinitesimal}) acts on vectors and covectors. Dropping chart labels because everything takes place in the chart $(U,x)$, the actions are given by
+\begin{equation}
+  X^i \mapsto X^i + X^j \xi^i_{,j} - \xi^j X^i_{,j}
+\end{equation}
+and
+\begin{equation}
+  \omega_i \mapsto \omega_i - \omega_j \xi^j_{,i} - \xi^j \omega_{i,j}.
+\end{equation}
+On higher-ranked tensor bundles, the action generalizes to
+\begin{equation}
+  T^A \mapsto T^A + C^{A\hphantom Bn}_{\hphantom AB\hphantom nm}T^B \xi^m_{,n} - T^A_{,m} \xi^m
+\end{equation}
+with $C^{i\hphantom jn}_{\hphantom ij\hphantom nm} = \delta^i_m \delta^n_j$ for vectors and $C_{i\hphantom{jn}m}^{\hphantom ijn}=\delta^n_i\delta^j_m$ for covectors.
+
 \begin{theorem}
   Let $L$ be the local Lagrangian density of a second derivative order Lagrangian $\mathcal L = Ld^4x \in \textstyle\bigwedge_0^n\pi_2$. If $\mathcal L$ is diffeomorphism invariant, i.e.~satisfies the invariance condition (\ref{lagrangian_diffeo_invariance}) of the first axiom of covariant constructive gravity, its local representation $L$ satisfies a system of first-order linear partial differential equations given by
   \begin{equation}
