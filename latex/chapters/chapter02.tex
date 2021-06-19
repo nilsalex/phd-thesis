@@ -149,7 +149,7 @@ We wish to encode (\ref{lagrangian_diffeo_invariance}) as local conditions on th
   The result follows from the coordinate expression (\ref{diffeo_covector_coordinates}) for the pull-back of one forms, which extends to horizontal forms on the jet bundle.
 \end{proof}
 
-Covariant constructive gravity derives its calculational power from the observation that the infinitesimal version of (\ref{lagrangian_density_diffeo_equivariance}) is equivalent to a system of linear partial differential equations (PDEs) for the Lagrangian density $L$. For the derivation of this theorem and the remainder of the chapter, we will work on the second jet bundle, as we are ultimately interested in investigating field theories of second derivative order. We will also drop the chart label from coordinate-dependent quantities. In order to lighten the notation, partial derivatives of functions on $J^2M$ are denoted $L_{,m}$ for derivatives with respect to coordinates on $M$ and $L_{,A},\,L_{\colon A}^{\hphantom{\colon A}p},\,L_{\colon A}^{\hphantom{\colon A}pq}$ for derivatives with respect to fibre coordinates.
+Covariant constructive gravity derives its calculational power from the observation that the infinitesimal version of (\ref{lagrangian_density_diffeo_equivariance}) is equivalent to a system of linear partial differential equations (PDEs) for the Lagrangian density $L$. For the derivation of this theorem and the remainder of the chapter, we will work on the second jet bundle, as we are ultimately interested in investigating field theories of second derivative order. We will also drop the chart label from coordinate-dependent quantities. In order to lighten the notation, partial derivatives of functions on $J^2M$ are denoted $L_{,m}$ for derivatives with respect to coordinates on $M$ and $L_{:A},\,L_{:A}^{\hphantom{:A}p},\,L_{:A}^{\hphantom{:A}pq}$ for derivatives with respect to fibre coordinates.
 
 First, it needs to be specified what is meant by \emph{infinitesimal}. As the symmetry group in question is the diffeomorphism group on the base manifold, the infinitesimal equivalent is the corresponding Lie algebra $\Gamma(TM)$ of sections of the tangent bundle over $M$. The Lie bracket is given by the Lie bracket of vector fields. In a given coordinate chart, an element $\xi\in\Gamma(TM)$ defines an infinitesimal diffeomorphism as
 \begin{equation}\label{diffeo_infinitesimal}
@@ -165,9 +165,32 @@ and
 \end{equation}
 On higher-ranked tensor bundles, the action generalizes to
 \begin{equation}
-  T^A \mapsto T^A + C^{A\hphantom Bn}_{\hphantom AB\hphantom nm}T^B \xi^m_{,n} - T^A_{,m} \xi^m
+  T^A \mapsto T^A - C^{A\hphantom Bn}_{\hphantom AB\hphantom nm}T^B \xi^m_{,n} - T^A_{,m} \xi^m,
 \end{equation}
-with $C^{i\hphantom jn}_{\hphantom ij\hphantom nm} = \delta^i_m \delta^n_j$ for vectors and $C_{i\hphantom{jn}m}^{\hphantom ijn}=\delta^n_i\delta^j_m$ for covectors.
+with $C^{i\hphantom jn}_{\hphantom ij\hphantom nm} = -\delta^i_m \delta^n_j$ for the special case of vectors and $C_{i\hphantom{jn}m}^{\hphantom ijn}=\delta^n_i\delta^j_m$ for covectors. From this, we can read off the Lie algebra morphism which maps vector fields on $M$ to vector fields on $E$ and is induced by the group homomorphism from $\operatorname{Diff}(M)$ to $\operatorname{Aut}(E)$:
+\begin{equation}\label{algebra_morphism}
+  \begin{aligned}
+    \Gamma(TM) &{} \rightarrow \Gamma(TE) \\
+    \xi &{} \mapsto \xi_E \vcentcolon= \xi^m\partial_m + C^{A\hphantom Bn}_{\hphantom AB\hphantom nm}u^B \xi^m_{,n} \partial_A.
+  \end{aligned}
+\end{equation}
+The constant coefficients $C^{A\hphantom Bn}_{\hphantom AB\hphantom nm}$ will be called \emph{Gotay-Marsden coefficients} after the authors of Ref.~\cite{gotay-marsden1992}, where this formalism is developed in a more general setting---but only for the first jet bundle. In the language of this reference, a tensor field theory is of \emph{differential index} 1.
+\begin{proposition}
+  The map (\ref{algebra_morphism}) is a Lie algebra homomorphism, i.e.~it holds for all $\xi,\psi\in\Gamma(TM)$ that
+  \begin{equation}
+    \lbrack \xi_E,\psi_E\rbrack = \lbrack \xi,\psi\rbrack_E.
+  \end{equation}
+\end{proposition}
+\begin{proof}
+  To be worked out. Idea: Arises from the definition via the group homomorphism from $\operatorname{Diff}(M)$ to $\operatorname{Aut}(E)$. Caution: The latter is not a finite dimensional Lie group.
+\end{proof}
+A useful corollary of the homomorphism property of the Lie algebra lift $\xi\mapsto\xi_E$ is the following fact about Gotay-Marsden coefficients.
+\begin{corollary}
+  Let $C^{A\hphantom Bn}_{\hphantom AB\hphantom nm}$ denote the Gotay-Marsden coefficients corresponding to a tensor field theory. The identity
+  \begin{equation}
+    C^{A\hphantom Bn}_{\hphantom AB\hphantom nm}
+  \end{equation}
+\end{corollary}
 
 \begin{theorem}
   Let $L$ be the local Lagrangian density of a second derivative order Lagrangian $\mathcal L = Ld^4x \in \textstyle\bigwedge_0^n\pi_2$. If $\mathcal L$ is diffeomorphism invariant, i.e.~satisfies the invariance condition (\ref{lagrangian_diffeo_invariance}) of the first axiom of covariant constructive gravity, its local representation $L$ satisfies a system of first-order linear partial differential equations given by
