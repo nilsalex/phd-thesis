@@ -25,9 +25,9 @@ For the purpose of the present work, a \emph{Lagrangian field theory} will be a 
 
 Both theories are \emph{Lagrangian} because they derive their dynamical laws in a certain geometric manner. The mechanism will be explained in the following, but first, let us fix some of the notation involved.
 
-A bundle is denoted as $E\overset{\pi}{\longrightarrow}M$, where $E$ is the total space, $M$ is the base manifold $M$, $\pi$ is the submersion. As a shorthand, it is common to write just $\pi$---it is then understood that total space and base manifold are domain and co-domain of $\pi$, respectively. The dimension of $M$ is written as $n$, the dimension of a typical fibre $F$ of $\pi$ as $m$. Coordinate functions on $E$ are denoted by $(x^i,u^A)$. Such coordinates extend to the $k$th jet bundle $J^kE \overset{\pi_k}{\longrightarrow}M$ over $\pi$ as $(x^i,\allowbreak u^A,\allowbreak u^A_{i_1},\allowbreak u^A_{i_1i_2},\allowbreak \dots,\allowbreak u^A_{i_1\dots i_k})$. The literature on jet bundles mostly employs multi-indices for higher-order jet bundles (see e.g.~Ref.~\cite{saunders}), which is certainly the right approach for studying the properties of jet bundles, but for practical calculations on the second-order jet bundle performed below a different technique will be used which also takes care of ambiguities regarding symmetric indices. Prolongations of sections $\sigma$ are denoted with $j^k(\sigma)$, projections between jet bundles of different order with $\pi_{k,k^\prime}(\sigma)$. The latter are submersions in their own right and thus also define bundle projections. Throughout, the Einstein summation convention is used.
+A bundle is denoted as $E\overset{\pi}{\longrightarrow}M$, where $E$ is the total space, $M$ is the base manifold $M$, $\pi$ is the submersion. As a shorthand, it is common to write just $\pi$---it is then understood that total space and base manifold are domain and co-domain of $\pi$, respectively. The dimension of $M$ is written as $n$, the dimension of a typical fibre $F$ of $\pi$ as $m$. Coordinate functions on $E$ are denoted by $(x^i,u^A)$. Such coordinates extend to the $k$th jet bundle $J^kE \overset{\pi_k}{\longrightarrow}M$ over $\pi$ as $(x^i,\allowbreak u^A,\allowbreak u^A_{i_1},\allowbreak u^A_{i_1i_2},\allowbreak \dots,\allowbreak u^A_{i_1\dots i_k})$. The literature on jet bundles mostly employs multi-indices for higher-order jet bundles (see e.g.~Ref.~\cite{saunders}), which is certainly the right approach for studying the properties of jet bundles, but for practical calculations on the second-order jet bundle performed below the intertwiner technique (see \ref{def_intertwiner}) will be used which also takes care of ambiguities regarding symmetric indices. Prolongations of sections $\sigma$ are denoted with $j^k(\sigma)$, projections between jet bundles of different order with $\pi_{k,k^\prime}(\sigma)$. The latter are submersions in their own right and thus also define bundle projections. Throughout, the Einstein summation convention is used.
 
-\begin{definition}{(Lagrangian)}
+\begin{definition}[Lagrangian]
   Let $M$ be a smooth manifold of dimension $n$ and $E \overset{\pi}{\longrightarrow} M$ a smooth fibre bundle over $M$ with typical fibre $F$. A \textbf{Lagrangian} $\mathcal L$ of order $k$ is an element
   \begin{equation}
     \mathcal L \in \textstyle\bigwedge^n_0\pi_k.
@@ -150,6 +150,25 @@ We wish to encode (\ref{lagrangian_diffeo_invariance}) as local conditions on th
 \end{proof}
 
 Covariant constructive gravity derives its calculational power from the observation that the infinitesimal version of (\ref{lagrangian_density_diffeo_equivariance}) is equivalent to a system of linear partial differential equations (PDEs) for the Lagrangian density $L$. For the derivation of this theorem and the remainder of the chapter, we will work on the second jet bundle, as we are ultimately interested in investigating field theories of second derivative order. We will also drop the chart label from coordinate-dependent quantities. In order to lighten the notation, partial derivatives of functions on $J^2M$ are denoted $L_{,m}$ for derivatives with respect to coordinates on $M$ and $L_{:A},\,L_{:A}^{\hphantom{:A}p},\,L_{:A}^{\hphantom{:A}pq}$ for derivatives with respect to fibre coordinates.
+
+Since the bundles in question are (sub-bundles of) tensor bundles $T^m_nM$, it is possible to restrict to coordinates which are linear on the fibres. The \emph{intertwiner technique}\footnote{First described for a similar setting in Ref.~\cite{david_bachelor}, later introduced in the context of covariant constructive gravity\cite{ccg_paper}} relates such coordinates to coordinates on $T^m_nM$ itself by virtue of two special bundle morphisms.
+\begin{definition}[intertwiners]
+  Let $E\overset{\pi}{\longrightarrow}M$ be a sub-bundle of $T^m_nM$. A pair of vector bundle morphisms $(I,J)$,
+  \begin{equation}
+    \begin{aligned}
+      I&{} \colon E\rightarrow T^m_nM, \\
+      J&{} \colon T^m_nM\rightarrow E,
+    \end{aligned}
+  \end{equation}
+  which cover $\mathrm{id}_M$ and satisfy $J\circ I = \mathrm{id}_E$ is called a pair of \textbf{intertwiners} for $\pi$.
+\end{definition}
+It follows from the property $J\circ I=\mathrm{id}_E$ that $J$ is a \emph{surjection} and $I$ is an \emph{injection}. Expressed in adapted coordinates, it is clear how the coordinate representations of $I$ and $J$ relate fibre coordinates to each other:
+\begin{equation}
+  \begin{aligned}
+  u^{a_1\dots a_m}_{b_1\dots b_n} &= I^{a_1\dots a_m}_{b_1\dots b_nA} u^A \\
+  u^A &= J^{Ab_1\dots b_n}_{a_1\dots a_m} u^{a_1\dots a_m}_{b_1\dots b_n}
+  \end{aligned}
+\end{equation}
 
 First, it needs to be specified what is meant by \emph{infinitesimal}. As the symmetry group in question is the diffeomorphism group on the base manifold, the infinitesimal equivalent is the corresponding Lie algebra $\Gamma(TM)$ of sections of the tangent bundle over $M$. The Lie bracket is given by the Lie bracket of vector fields. In a given coordinate chart, an element $\xi\in\Gamma(TM)$ defines an infinitesimal diffeomorphism as
 \begin{equation}\label{diffeo_infinitesimal}
