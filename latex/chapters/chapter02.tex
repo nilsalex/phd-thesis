@@ -184,17 +184,17 @@ Proceeding to derive the infinetismal version of axiom 1, we first need to speci
 \end{equation}
 From (\ref{diffeo_vector_coordinates}) and (\ref{diffeo_covector_coordinates}), we know how an infinitesimal diffeomorphism (\ref{diffeo_infinitesimal}) acts on vectors and covectors. Dropping chart labels because everything takes place in the chart $(U,x)$, the actions are given by
 \begin{equation}
-  X^i \mapsto X^i + X^j \xi^i_{,j} - \xi^j X^i_{,j}
+  X^i \mapsto X^i + X^j \xi^i_{,j}
 \end{equation}
 and
 \begin{equation}
-  \omega_i \mapsto \omega_i - \omega_j \xi^j_{,i} - \xi^j \omega_{i,j}.
+  \omega_i \mapsto \omega_i - \omega_j \xi^j_{,i}.
 \end{equation}
 On higher-ranked tensor bundles, the action generalizes to
 \begin{equation}
-  T^A \mapsto T^A - C^{A\hphantom Bn}_{\hphantom AB\hphantom nm}T^B \xi^m_{,n} - T^A_{,m} \xi^m,
+  T^A \mapsto T^A + C^{A\hphantom Bn}_{\hphantom AB\hphantom nm}T^B \xi^m_{,n},
 \end{equation}
-with $C^{i\hphantom jn}_{\hphantom ij\hphantom nm} = -\delta^i_m \delta^n_j$ for the special case of vectors and $C_{i\hphantom{jn}m}^{\hphantom ijn}=\delta^n_i\delta^j_m$ for covectors. From this, we can read off the Lie algebra morphism which maps vector fields on $M$ to vector fields on $E$ and is induced by the group homomorphism from $\operatorname{Diff}(M)$ to $\operatorname{Aut}(E)$:
+with $C^{i\hphantom jn}_{\hphantom ij\hphantom nm} = \delta^i_m \delta^n_j$ for the special case of vectors and $C_{i\hphantom{jn}m}^{\hphantom ijn}=-\delta^n_i\delta^j_m$ for covectors. From this, we can read off the Lie algebra morphism which maps vector fields on $M$ to vector fields on $E$ and is induced by the group homomorphism from $\operatorname{Diff}(M)$ to $\operatorname{Aut}(E)$:
 \begin{equation}\label{algebra_morphism}
   \begin{aligned}
     \Gamma(TM) &{} \rightarrow \Gamma(TE) \\
@@ -243,14 +243,14 @@ If required for calculations, Gotay-Marsden coefficients are easily expressed us
 
 The Gotay-Marsden coefficients are the defining objects for the PDE version of the invariance of $L$ under infinitesimal diffeomorphisms. This constitutes the central result concerning the first axiom and shall be proved in the following.
 
-\begin{theorem}
+\begin{theorem}\label{equivariance_eqns_thm}
   Let $L$ be the local Lagrangian density of a second derivative order Lagrangian $\mathcal L = Ld^4x \in \textstyle\bigwedge_0^n\pi_2$. If $\mathcal L$ is diffeomorphism invariant, i.e.~satisfies the invariance condition (\ref{lagrangian_diffeo_invariance}) of the first axiom of covariant constructive gravity, its local representation $L$ satisfies a system of first-order linear partial differential equations given by
   \begin{subequations}
     \begin{align}
       0 &{} = L_{,m} \\
-      0 &{} = L_{:A} \gmc{A}{B}{n}{m}u^B + L_{:A}^{\hphantom{:A}p}\left\lbrack\gmc{A}{B}{n}{m} \delta^q_p + \delta^A_B\delta^q_m\delta^n_p\right\rbrack u^{B}_{\hphantom Bq} \nonumber \\
-        &{} \hphantom{=} + L_{:A}^{\hphantom{:A}I} \left\lbrack\gmc{A}{B}{n}{m} \delta^J_I + 2 \delta^A_B J^{pn}_{I} I^J_{pm}\right\rbrack u^B_{\hphantom BJ} - L\delta^n_m \\
-      0 &{} = L_{:A}^{\hphantom{:A}(p\mid} \gmc{A}{B}{\mid n)}{m} u^B + L_{:A}^{\hphantom{:A}I}\left\lbrack\gmc{A}{B}{(n}{m} 2J^{p)q}_I + \delta^A_B J^{pn}_I \delta^q_m\right\rbrack u^B_{\hphantom Bq} \\
+      0 &{} = L_{:A} \gmc{A}{B}{n}{m}u^B + L_{:A}^{\hphantom{:A}p}\left\lbrack\gmc{A}{B}{n}{m} \delta^q_p - \delta^A_B\delta^q_m\delta^n_p\right\rbrack u^{B}_{\hphantom Bq} \nonumber \\
+        &{} \hphantom{=} + L_{:A}^{\hphantom{:A}I} \left\lbrack\gmc{A}{B}{n}{m} \delta^J_I - 2 \delta^A_B J^{pn}_{I} I^J_{pm}\right\rbrack u^B_{\hphantom BJ} + L\delta^n_m \\
+      0 &{} = L_{:A}^{\hphantom{:A}(p\mid} \gmc{A}{B}{\mid n)}{m} u^B + L_{:A}^{\hphantom{:A}I}\left\lbrack\gmc{A}{B}{(n}{m} 2J^{p)q}_I - \delta^A_B J^{pn}_I \delta^q_m\right\rbrack u^B_{\hphantom Bq} \\
       0 &{} = L_{:A}^{\hphantom{:A}I} \gmc{A}{B}{(n}{m} J^{pq)}_I u^B.
     \end{align}
   \end{subequations}
@@ -267,7 +267,21 @@ The Gotay-Marsden coefficients are the defining objects for the PDE version of t
     \end{aligned}
   \end{equation}
   Like before, the map $\xi\mapsto\xi_{J^2E}$ constitutes a Lie algebra morphism from $\Gamma(TM)$ to $\Gamma(\pi_2)$. \textbf{proof/citation needed}
+
+  Assuming that (\ref{lagrangian_density_diffeo_equivariance}) holds, we obtain the infinitesimal version by acting on $L$ with $\xi_{J^2E}$ for the left-hand side and approximating $\lvert d\varphi\rvert^{-1}$ as $1 - \xi^m_{,m}$ for the right-hand side. Equating both sides yields
+  \begin{equation}\label{infinitesimal_with_vector}
+    \begin{aligned}
+      0 &{} = L_{,m} \xi^m \\
+        &{} \hphantom{=} + \big\{ L_{:A} \gmc{A}{B}{n}{m}u^B + L_{:A}^{\hphantom{:A}p}\left\lbrack\gmc{A}{B}{n}{m} \delta^q_p - \delta^A_B\delta^q_m\delta^n_p\right\rbrack u^{B}_{\hphantom Bq} \\
+        &{} \hphantom{=+\{} + L_{:A}^{\hphantom{:A}I} \left\lbrack\gmc{A}{B}{n}{m} \delta^J_I - 2 \delta^A_B J^{pn}_{I} I^J_{pm}\right\rbrack u^B_{\hphantom BJ} + L\delta^n_m \big\} \xi^m_{,n} \\
+        &{} \hphantom{=} + \big\{ L_{:A}^{\hphantom{:A}p} \gmc{A}{B}{n}{m} u^B + L_{:A}^{\hphantom{:A}I}\left\lbrack\gmc{A}{B}{n}{m} 2J^{pq}_I - \delta^A_B J^{pn}_I \delta^q_m\right\rbrack u^B_{\hphantom Bq} \big\} \xi^m_{,np} \\
+        &{} \hphantom{=} + L_{:A}^{\hphantom{:A}I} \gmc{A}{B}{n}{m} J^{pq}_I u^B \xi^m_{,npq}.
+    \end{aligned}
+  \end{equation}
+Since (\ref{infinitesimal_with_vector}) holds for any $\xi\in\Gamma(TM)$, the individual contributions for $\xi$, $\partial\xi$, $\partial\partial\xi$, $\partial\partial\partial\xi$ are satisfied separately.
 \end{proof}
+
+On a four-dimensional spacetime manifold, Thm.~\ref{equivariance_eqns_thm} yields a system of 140 linear PDEs of first order for the Lagrangian density $L$. Any diffeomorphism invariant second-derivative tensor field theory must satisfy this system and, conversely, any solution to the system provides a candidate for a diffeomorphism invariant theory. Thus, the search for such theories has been reduced to the mathematical task of solving PDEs of a certain (simple!) form.
 
 \begin{itemize}
 \item noether theorem
