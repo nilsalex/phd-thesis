@@ -115,7 +115,7 @@ In the language of jet bundles, the first axiom can be formalized as equivarianc
 \end{definition}
 A proof for the existence and uniqueness of this construction can be found in Ref.~\cite{saunders}. With the notion of the \emph{lift} of a bundle automorphism at hand, we now give the first axiom a precise meaning
 \begin{definition}[diffeomorphism invariant theory]
-  A Lagrangian field theory is called \textbf{diffeomorphism invariant} if its Lagrangian $\mathcal L\in\textstyle\bigwedge_0^n\pi_k$ is invariant with respect to the lifted action of $\mathrm{Diff}(M)$ on $J^kE$, i.e.~ if for all $\varphi\in\mathrm{Diff}(M)$
+  A Lagrangian field theory is called \textbf{diffeomorphism invariant} if its Lagrangian $\mathcal L\in\textstyle\bigwedge_0^n\pi_k$ is invariant with respect to the lifted action of $\mathrm{Diff}(M)$ on $J^kE$, i.e.~if for all $\varphi\in\mathrm{Diff}(M)$
   \begin{equation}\label{lagrangian_diffeo_invariance}
     j^k(\varphi_E)^\ast \mathcal L = \mathcal L.
   \end{equation}
@@ -124,7 +124,7 @@ This definition applies not only to tensor bundles and the diffeomorphism group-
 \begin{equation}
   \varphi_\ast\colon T_pM\rightarrow T_{\varphi(p)}M
 \end{equation}
-and the pull-back action on cotangent vectors\footnote{The action is inverted in order to still define a covariant functor.}
+and the pull-back action on cotangent vectors\footnote{The action is inverted in order to still define a covariant functor. \textbf{explain!}\cite{}}
 \begin{equation}
    (\varphi^\ast)^{-1}\colon T^\ast_pM\rightarrow T^\ast_{\varphi(p)}M.
 \end{equation}
@@ -178,7 +178,7 @@ Concrete implementations of $I$ and $J$ will be introduced in Sect.~\ref{}. Inte
   \end{aligned}
 \end{equation}
 
-Proceeding to derive the infinetismal version of axiom 1, we first need to specify what is meant by \emph{infinitesimal}. As the symmetry group in question is the diffeomorphism group on the base manifold, the infinitesimal equivalent is the corresponding Lie algebra $\Gamma(TM)$ of sections of the tangent bundle over $M$.\footnote{not a Lie algebra, etc.~} The Lie bracket is given by the Lie bracket of vector fields. In a given coordinate chart, an element $\xi\in\Gamma(TM)$ defines an infinitesimal diffeomorphism as
+Proceeding to derive the infinetismal version of axiom 1, we first need to specify what is meant by \emph{infinitesimal}. As the symmetry group in question is the diffeomorphism group on the base manifold, the infinitesimal equivalent is the corresponding Lie algebra $\Gamma(TM)$ of sections of the tangent bundle over $M$.\footnote{not a Lie algebra, etc.~\cite{}} The Lie bracket is given by the Lie bracket of vector fields. In a given coordinate chart, an element $\xi\in\Gamma(TM)$ defines an infinitesimal diffeomorphism as
 \begin{equation}\label{diffeo_infinitesimal}
   x^i \mapsto x^i + \xi^i.
 \end{equation}
@@ -202,6 +202,8 @@ with $C^{i\hphantom jn}_{\hphantom ij\hphantom nm} = -\delta^i_m \delta^n_j$ for
   \end{aligned}
 \end{equation}
 The constant coefficients $C^{A\hphantom Bn}_{\hphantom AB\hphantom nm}$ will be called \emph{Gotay-Marsden coefficients} after the authors of Ref.~\cite{gotay-marsden1992}, where this formalism is developed in a more general setting---but only for the first jet bundle. In the language of this reference, a tensor field theory is of \emph{differential index} 1.
+
+As it turns out, the map $\xi\mapsto \xi_E$ indeed defines a homomorphism between Lie algebras.
 \begin{proposition}
   The map (\ref{algebra_morphism}) is a Lie algebra homomorphism, i.e.~it holds for all $\xi,\psi\in\Gamma(TM)$ that
   \begin{equation}\label{lie_algebra_homo}
@@ -226,7 +228,20 @@ A useful corollary of the homomorphism property of the Lie algebra lift $\xi\map
   from which the result follows, as $\xi$ and $\psi$ can be chosen arbitrarily.
 \end{proof}
 
-The Gotay-Marsden coefficients are the defining objects for the PDE version of the invariance of $L$ under infinitesimal diffeomorphisms. This constitutes the central result concerning axiom 1 and shall be proved in the following.
+If required for calculations, Gotay-Marsden coefficients are easily expressed using intertwiners.
+\begin{proposition}
+  Let $E\overset{\pi}{\longrightarrow} M$ be a sub-bundle of the tensor bundle $T^r_sM$ with a pair $(I,J)$ of intertwiners. If the tensors in $E$ are purely contravariant, i.e.~$s=0$, the Gotay-Marsden coefficients are
+  \begin{equation}
+    \gmc{A}{B}{n}{m} = -r \cdot I^{a_1\dots a_{r-1}n}_B J^A_{a_1\dots a_{r-1}m}.
+  \end{equation}
+  If the tensors in $E$ are purely covariant, i.e.~$r=0$, the Gotay-Marsden coefficients are
+  \begin{equation}
+    \gmcd{A}{B}{n}{m} = s \cdot I^B_{a_1\dots a_{s-1}m} J^{a_1\dots a_{s-1}n}_A.
+  \end{equation}
+  Note that in the latter case of a purely covariant tensor bundle a fibre coordinate function is denoted $u_A$ with a lower index.
+\end{proposition}
+
+The Gotay-Marsden coefficients are the defining objects for the PDE version of the invariance of $L$ under infinitesimal diffeomorphisms. This constitutes the central result concerning the first axiom and shall be proved in the following.
 
 \begin{theorem}
   Let $L$ be the local Lagrangian density of a second derivative order Lagrangian $\mathcal L = Ld^4x \in \textstyle\bigwedge_0^n\pi_2$. If $\mathcal L$ is diffeomorphism invariant, i.e.~satisfies the invariance condition (\ref{lagrangian_diffeo_invariance}) of the first axiom of covariant constructive gravity, its local representation $L$ satisfies a system of first-order linear partial differential equations given by
@@ -240,11 +255,21 @@ The Gotay-Marsden coefficients are the defining objects for the PDE version of t
     \end{align}
   \end{subequations}
 \end{theorem}
+\begin{proof}
+  Given a vector field $X$ on $E$, the lift to the total space $J^2E$ of the second jet bundle is uniquely defined \cite{saunders_jet_bundles}. Applying this lift to the vector field $\xi_E$ corresponding to $\xi\in \Gamma(TM)$ yields the vector field
+  \begin{equation}
+    \begin{aligned}
+      \xi_{J^2E} &{} \vcentcolon= \xi^m\partial_m \\
+                 &{} \hphantom{\vcentcolon=} + \gmc{A}{B}{n}{m} u^B \xi^m_{,n}\partial_A + \gmc{A}{B}{n}{m} u^B_p\xi^m_{,n}\partial_A^{\hphantom Ap} - u^A_m\xi^m_{,p}\partial_A^{\hphantom Ap} \\
+                 &{} \hphantom{\vcentcolon=} + \gmc{A}{B}{n}{m} u^B_I \xi^m_{,n} \partial_A^{\hphantom AI} - 2 J_I^{nr}I^J_{mr}u^A_J\xi^m_{,n}\partial_A^{\hphantom AI} \\
+                 &{} \hphantom{\vcentcolon=} + \gmc{A}{B}{n}{m} u^B \xi^m_{,np} \partial_A^{\hphantom Ap} + 2 \gmc{A}{B}{n}{m} J_I^{pq} u^B_p \xi^m_{,nq} \partial_A^{\hphantom AI} - J_I^{pq} u^A_m \xi^m_{,pq} \partial_A^{\hphantom AI} \\
+                 &{} \hphantom{\vcentcolon=} + \gmc{A}{B}{n}{m} J_I^{pq} u^B \xi^m_{,npq} \partial_A^{\hphantom AI}.
+    \end{aligned}
+  \end{equation}
+  Like before, the map $\xi\mapsto\xi_{J^2E}$ constitutes a Lie algebra morphism from $\Gamma(TM)$ to $\Gamma(\pi_2)$. \textbf{proof/citation needed}
+\end{proof}
 
 \begin{itemize}
-\item justification, history, general relativity
-\item geometric formulation
-\item equivariance equations
 \item noether theorem
 \item energy momentum tensor
 \end{itemize}
