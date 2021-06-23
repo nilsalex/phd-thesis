@@ -162,15 +162,23 @@ Since the bundles in question are (sub-bundles of) tensor bundles $T^m_nM$, it i
   \end{equation}
   which cover $\mathrm{id}_M$ and satisfy $J\circ I = \mathrm{id}_E$ is called a pair of \textbf{intertwiners} for $\pi$.
 \end{definition}
-It follows from the property $J\circ I=\mathrm{id}_E$ that $J$ is a \emph{surjection} and $I$ is an \emph{injection}. Expressed in adapted coordinates, it is clear how the coordinate representations of $I$ and $J$ relate fibre coordinates to each other:
+It follows from the property $J\circ I=\mathrm{id}_E$ that $J$ is a \emph{surjection} and $I$ is an \emph{injection}. Expressed in adapted coordinates, it is clear how the coordinate representations of $I$ and $J$ relate fibre coordinates to each other,
 \begin{equation}
   \begin{aligned}
-  u^{a_1\dots a_m}_{b_1\dots b_n} &= I^{a_1\dots a_m}_{b_1\dots b_nA} u^A \\
-  u^A &= J^{Ab_1\dots b_n}_{a_1\dots a_m} u^{a_1\dots a_m}_{b_1\dots b_n}
+  u^{a_1\dots a_m}_{b_1\dots b_n} &= I^{a_1\dots a_m}_{b_1\dots b_nA} \cdot u^A, \\
+  u^A &= J^{Ab_1\dots b_n}_{a_1\dots a_m} \cdot u^{a_1\dots a_m}_{b_1\dots b_n}, \\
+  \delta^B_A &{} = I^{a_1\dots a_m}_{b_1\dots b_nA} \cdot J^{Ab_1\dots b_n}_{a_1\dots a_m}.
+  \end{aligned}
+\end{equation}
+Concrete implementations of $I$ and $J$ will be introduced in Sect.~\ref{}. Intertwiners for the symmetric sub-bundle of $T^0_2M$ are used to deduplicate second-order derivative indices by defining
+\begin{equation}
+  \begin{aligned}
+    u^A_{I} &{} = J^{ij}_I u^A_{ij}, \\
+    u^A_{ij} &{} = I^I_{ij} u^A_I.
   \end{aligned}
 \end{equation}
 
-First, it needs to be specified what is meant by \emph{infinitesimal}. As the symmetry group in question is the diffeomorphism group on the base manifold, the infinitesimal equivalent is the corresponding Lie algebra $\Gamma(TM)$ of sections of the tangent bundle over $M$. The Lie bracket is given by the Lie bracket of vector fields. In a given coordinate chart, an element $\xi\in\Gamma(TM)$ defines an infinitesimal diffeomorphism as
+Proceeding to derive the infinetismal version of axiom 1, we first need to specify what is meant by \emph{infinitesimal}. As the symmetry group in question is the diffeomorphism group on the base manifold, the infinitesimal equivalent is the corresponding Lie algebra $\Gamma(TM)$ of sections of the tangent bundle over $M$.\footnote{not a Lie algebra, etc.~} The Lie bracket is given by the Lie bracket of vector fields. In a given coordinate chart, an element $\xi\in\Gamma(TM)$ defines an infinitesimal diffeomorphism as
 \begin{equation}\label{diffeo_infinitesimal}
   x^i \mapsto x^i + \xi^i.
 \end{equation}
