@@ -285,7 +285,14 @@ On a four-dimensional spacetime manifold, Thm.~\ref{equivariance_eqns_thm} yield
 
 The literature on this kind of PDEs is very extensive\cite{} with many applications throughout science\cite{}. There are strong results on the properties and solutions which provide a good basis for our work with Eqns.~\ref{equivariance_eqn_1}--\ref{equivariance_eqn_4} in the following.
 
-The PDE system will be referred to as \emph{equivariance equations} from now on. In a similar form, these equations already appear in Ref.~\cite{goma} during the derivation of conservation laws arising from diffeomorphism invariance. As they were not meant to be solved for the Lagrangian density, the presentation is not as explicit as here. Also note that Ref.~\cite{goma} considers theories of arbitrary differential index but only the first jet bundle, whereas the present derivation takes place on the second jet bundle but is restricted to a differential index of 1 (i.e.~tensor field theories of second derivative order).
+The PDE system will be referred to as \emph{equivariance equations} from now on. In a similar form, these equations already appear in Ref.~\cite{goma} during the derivation of conservation laws arising from diffeomorphism invariance. As they were not meant to be solved for the Lagrangian density, the presentation is not as explicit as here. Also note that Ref.~\cite{goma} considers theories of arbitrary differential index but only the first jet bundle, whereas the present derivation takes place on the second jet bundle but is restricted to a differential index of 1, i.e.~tensor field theories of second derivative order. The extension to theories with arbitrary differential index is possible---there will be a series of Gotay-Marsden coefficients
+\begin{equation}
+  \xi_E = \xi^m\partial_m + C^A_{\hphantom ABm} \xi^m + C^{A\hphantom Bn}_{\hphantom AB\hphantom nm} \xi^m_{,n} + C^{A\hphantom Bnp}_{\hphantom AB\hphantom {np}m} \xi^m_{,np} + \dots
+\end{equation}
+which follow from the action of the diffeomorphism group on the bundle. \cite{goma}
+
+\section{Noether theorems}
+Diffeomorphism invariance of the Lagrangian as required by the first axiom results in a number of interesting properties of the theory. Among these are identities for the Euler-Lagrange equations and conservation laws for the dynamics given by the Euler-Lagrange equations, which are examples for the well-known Noether theorems \cite{}. In analogy to the derivation for theories of first derivative order in Ref.~\cite{goma}, we shall now prove a version of the Noether theorems for the formalism developed above.
 
 \begin{itemize}
 \item noether theorem
