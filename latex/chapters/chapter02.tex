@@ -40,11 +40,11 @@ Assuming $M$ to be orientable with volume form $\Omega\in\Lambda^nM$, a Lagrangi
 \end{equation}
 \end{definition}
 
-The claim of (\ref{lagrangian_density}) becomes apparent in local coordinates, where a horizontal $n$-form on $\pi_k$ appears as
+The claim of \eqref{lagrangian_density} becomes apparent in local coordinates, where a horizontal $n$-form on $\pi_k$ appears as
 \begin{equation}\label{lagrangian_local}
   \textstyle\bigwedge^n_0\pi_k\ni \mathcal L = \mathcal L(x^i,u^A,u^A_i,\dots) dx^1\wedge \dots \wedge dx^n.
 \end{equation}
-From (\ref{lagrangian_local}) and (\ref{lagrangian_density}), it is also clear how the notion of a Lagrangian as a horizontal $n$-form captures in a geometric way the notion used elsewhere as a bundle map $J^kE \rightarrow \Lambda^nM$ (see Refs.~\cite{saunders,marsden,ccg}).
+From \eqref{lagrangian_local} and \eqref{lagrangian_density}, it is also clear how the notion of a Lagrangian as a horizontal $n$-form captures in a geometric way the notion used elsewhere as a bundle map $J^kE \rightarrow \Lambda^nM$ (see Refs.~\cite{saunders,marsden,ccg}).
 
 
 From now on, we will consider smooth, orientable base manifolds $M$ and smooth bundles over the base manifold. Depending on the context, the symbol $\Omega$ will denote either the form on $M$ or the pullback to various bundles over $M$.
@@ -84,7 +84,7 @@ The intrinsic equivalent to the Euler-Lagrange equations in local coordinates in
   See Saunders 1989 or older, original work
 \end{proof}
 
-This definition generalizes the local derivation of (\ref{euler_lagrange_local}): The variation $\delta L$ is obtained by lifting $d\mathcal L$ to $\pi_{2k}$ and cancelling non-horizontal terms (over $E$) by adding a derivative, which corresponds to repeated integrations by parts.
+This definition generalizes the local derivation of \eqref{euler_lagrange_local}: The variation $\delta L$ is obtained by lifting $d\mathcal L$ to $\pi_{2k}$ and cancelling non-horizontal terms (over $E$) by adding a derivative, which corresponds to repeated integrations by parts.
 
 A possible\footnote{Generally, $\Theta_L$ is not uniquely defined. \cite{saunders}} coordinate expression for $\Theta_L$ is \ref{}
 \begin{equation}\label{local_cartan_form}
@@ -92,7 +92,7 @@ A possible\footnote{Generally, $\Theta_L$ is not uniquely defined. \cite{saunder
 \end{equation}
 where the forms $\psi^A_{p_1\dots p_s} = du^A_{p_1\dots p_s} - u^A_{p_1\dots p_sq} dx^q$ span the contact system of $\pi_k$ (see \ref{}).
 
-Straight-forward application of (\ref{global_lagrange_form}) to (\ref{local_cartan_form}) yields the well-known coordinate expression
+Straight-forward application of \eqref{global_lagrange_form} to \eqref{local_cartan_form} yields the well-known coordinate expression
 \begin{equation}
   \delta L = \left( \sum_{l=0}^{k} (-1)^l D_{i_1} \cdots D_{i_l} \frac{\partial L}{\partial u^A_{i_1\cdots i_l}}\right) u^A \wedge \Omega
 \end{equation}
@@ -137,19 +137,19 @@ and on component functions of covector fields as\footnote{As for any group homom
 ((\varphi^{-1})^\ast\omega)_{(y)j}(y(p)) = \frac{\partial (x^i\circ \varphi^{-1})}{\partial y^j}\Bigg\rvert_p \cdot \omega_{(x)i}(x(\varphi^{-1}(p))).
 \end{equation}
 
-We wish to encode (\ref{lagrangian_diffeo_invariance}) as local conditions on the Lagrangian density. To this end, consider a coordinate representation $\mathcal L = Ld^nx$. 
+We wish to encode \eqref{lagrangian_diffeo_invariance} as local conditions on the Lagrangian density. To this end, consider a coordinate representation $\mathcal L = Ld^nx$. 
 \begin{proposition}
-  Let $\mathcal L = L_{(x)}d^nx$ be a coordinate representation of a diffeomorphism invariant Lagrangian, induced by a coordinate chart $(U,x)$ on $M$. It follows from the invariance condition (\ref{lagrangian_diffeo_invariance}) that $L_{(x)}$ is \textbf{diffeomorphism equivariant}, i.e.~it holds for all $\varphi\in\mathrm{Diff}(M)$ that, over the intersection of $U$ and $\varphi(U)$,
+  Let $\mathcal L = L_{(x)}d^nx$ be a coordinate representation of a diffeomorphism invariant Lagrangian, induced by a coordinate chart $(U,x)$ on $M$. It follows from the invariance condition \eqref{lagrangian_diffeo_invariance} that $L_{(x)}$ is \textbf{diffeomorphism equivariant}, i.e.~it holds for all $\varphi\in\mathrm{Diff}(M)$ that, over the intersection of $U$ and $\varphi(U)$,
   \begin{equation}\label{lagrangian_density_diffeo_equivariance}
     L_{(x)}\circ j^k_{(x)}(\varphi_E) = \lvert d\varphi_{(x)}\rvert^{-1} L_{(x)}.
   \end{equation}
   $\lvert d\varphi_{(x)}\rvert$ denotes the determinant of the Jacobian of $\varphi$ in terms of the coordinate chart $(U,x)$.
 \end{proposition}
 \begin{proof}
-  The result follows from the coordinate expression (\ref{diffeo_covector_coordinates}) for the pull-back of one forms, which extends to horizontal forms on the jet bundle.
+  The result follows from the coordinate expression \eqref{diffeo_covector_coordinates} for the pull-back of one forms, which extends to horizontal forms on the jet bundle.
 \end{proof}
 
-Covariant constructive gravity derives its calculational power from the observation that the infinitesimal version of (\ref{lagrangian_density_diffeo_equivariance}) is equivalent to a system of linear partial differential equations (PDEs) for the Lagrangian density $L$. For the derivation of this theorem and the remainder of the chapter, we will work on the second jet bundle, as we are ultimately interested in investigating field theories of second derivative order. We will also drop the chart label from coordinate-dependent quantities. In order to lighten the notation, partial derivatives of functions on $J^2M$ are denoted $L_{,m}$ for derivatives with respect to coordinates on $M$ and $L_{:A},\,L_{:A}^{\hphantom{:A}p},\,L_{:A}^{\hphantom{:A}pq}$ for derivatives with respect to fibre coordinates.
+Covariant constructive gravity derives its calculational power from the observation that the infinitesimal version of \eqref{lagrangian_density_diffeo_equivariance} is equivalent to a system of linear partial differential equations (PDEs) for the Lagrangian density $L$. For the derivation of this theorem and the remainder of the chapter, we will work on the second jet bundle, as we are ultimately interested in investigating field theories of second derivative order. We will also drop the chart label from coordinate-dependent quantities. In order to lighten the notation, partial derivatives of functions on $J^2M$ are denoted $L_{,m}$ for derivatives with respect to coordinates on $M$ and $L_{:A},\,L_{:A}^{\hphantom{:A}p},\,L_{:A}^{\hphantom{:A}pq}$ for derivatives with respect to fibre coordinates.
 
 Since the bundles in question are (sub-bundles of) tensor bundles $T^m_nM$, it is possible to restrict to coordinates which are linear on the fibres. The \emph{intertwiner technique}\footnote{First described for a similar setting in Ref.~\cite{david_bachelor}, later introduced in the context of covariant constructive gravity\cite{ccg_paper}} relates such coordinates to coordinates on $T^m_nM$ itself by virtue of two special bundle morphisms.
 \begin{definition}[intertwiners]
@@ -182,7 +182,7 @@ Proceeding to derive the infinetismal version of axiom 1, we first need to speci
 \begin{equation}\label{diffeo_infinitesimal}
   x^i \mapsto x^i + \xi^i.
 \end{equation}
-From (\ref{diffeo_vector_coordinates}) and (\ref{diffeo_covector_coordinates}), we know how an infinitesimal diffeomorphism (\ref{diffeo_infinitesimal}) acts on vectors and covectors. Dropping chart labels because everything takes place in the chart $(U,x)$, the actions are given by
+From \eqref{diffeo_vector_coordinates} and \eqref{diffeo_covector_coordinates}, we know how an infinitesimal diffeomorphism \eqref{diffeo_infinitesimal} acts on vectors and covectors. Dropping chart labels because everything takes place in the chart $(U,x)$, the actions are given by
 \begin{equation}
   X^i \mapsto X^i + X^j \xi^i_{,j}
 \end{equation}
@@ -205,7 +205,7 @@ The constant coefficients $C^{A\hphantom Bn}_{\hphantom AB\hphantom nm}$ will be
 
 As it turns out, the map $\xi\mapsto \xi_E$ indeed defines a homomorphism between Lie algebras.
 \begin{proposition}
-  The map (\ref{algebra_morphism}) is a Lie algebra homomorphism, i.e.~it holds for all $\xi,\psi\in\Gamma(TM)$ that
+  The map \eqref{algebra_morphism} is a Lie algebra homomorphism, i.e.~it holds for all $\xi,\psi\in\Gamma(TM)$ that
   \begin{equation}\label{lie_algebra_homo}
     \lbrack \xi_E,\psi_E\rbrack = \lbrack \xi,\psi\rbrack_E.
   \end{equation}
@@ -221,7 +221,7 @@ A useful corollary of the homomorphism property of the Lie algebra lift $\xi\map
   \end{equation}
 \end{corollary}
 \begin{proof}
-  Expanding (\ref{lie_algebra_homo}) and making use of the coordinate expression (\ref{algebra_morphism}) yields the identity
+  Expanding \eqref{lie_algebra_homo} and making use of the coordinate expression \eqref{algebra_morphism} yields the identity
   \begin{equation}
     \left\lbrack\gmc{A}{B}{n}{m} \gmc{B}{C}{q}{p} - \gmc{A}{B}{q}{p} \gmc{B}{C}{n}{m} - (\gmc{A}{B}{q}{m} - \gmc{A}{B}{n}{p})\right\rbrack \xi^m_{,n} \psi^p_{,q} = 0,
   \end{equation}
@@ -244,14 +244,14 @@ If required for calculations, Gotay-Marsden coefficients are easily expressed us
 The Gotay-Marsden coefficients are the defining objects for the PDE version of the invariance of $L$ under infinitesimal diffeomorphisms. This constitutes the central result concerning the first axiom and shall be proved in the following.
 
 \begin{theorem}\label{equivariance_eqns_thm}
-  Let $L$ be the local Lagrangian density of a second derivative order Lagrangian $\mathcal L = Ld^4x \in \textstyle\bigwedge_0^n\pi_2$. If $\mathcal L$ is diffeomorphism invariant, i.e.~satisfies the invariance condition (\ref{lagrangian_diffeo_invariance}) of the first axiom of covariant constructive gravity, its local representation $L$ satisfies a system of first-order linear partial differential equations given by
-  \begin{subequations}
+  Let $L$ be the local Lagrangian density of a second derivative order Lagrangian $\mathcal L = Ld^4x \in \textstyle\bigwedge_0^n\pi_2$. If $\mathcal L$ is diffeomorphism invariant, i.e.~satisfies the invariance condition \eqref{lagrangian_diffeo_invariance} of the first axiom of covariant constructive gravity, its local representation $L$ satisfies a system of first-order linear partial differential equations given by
+  \begin{subequations}\label{equivariance_eqns}
     \begin{align}
-      0 &{} = L_{,m} \\
+      0 &{} = L_{,m} \label{equivariance_eqn_1}\\
       0 &{} = L_{:A} \gmc{A}{B}{n}{m}u^B + L_{:A}^{\hphantom{:A}p}\left\lbrack\gmc{A}{B}{n}{m} \delta^q_p - \delta^A_B\delta^q_m\delta^n_p\right\rbrack u^{B}_{\hphantom Bq} \nonumber \\
-        &{} \hphantom{=} + L_{:A}^{\hphantom{:A}I} \left\lbrack\gmc{A}{B}{n}{m} \delta^J_I - 2 \delta^A_B J^{pn}_{I} I^J_{pm}\right\rbrack u^B_{\hphantom BJ} + L\delta^n_m \\
-      0 &{} = L_{:A}^{\hphantom{:A}(p\mid} \gmc{A}{B}{\mid n)}{m} u^B + L_{:A}^{\hphantom{:A}I}\left\lbrack\gmc{A}{B}{(n}{m} 2J^{p)q}_I - \delta^A_B J^{pn}_I \delta^q_m\right\rbrack u^B_{\hphantom Bq} \\
-      0 &{} = L_{:A}^{\hphantom{:A}I} \gmc{A}{B}{(n}{m} J^{pq)}_I u^B.
+        &{} \hphantom{=} + L_{:A}^{\hphantom{:A}I} \left\lbrack\gmc{A}{B}{n}{m} \delta^J_I - 2 \delta^A_B J^{pn}_{I} I^J_{pm}\right\rbrack u^B_{\hphantom BJ} + L\delta^n_m \label{equivariance_eqn_2}\\
+      0 &{} = L_{:A}^{\hphantom{:A}(p\mid} \gmc{A}{B}{\mid n)}{m} u^B + L_{:A}^{\hphantom{:A}I}\left\lbrack\gmc{A}{B}{(n}{m} 2J^{p)q}_I - \delta^A_B J^{pn}_I \delta^q_m\right\rbrack u^B_{\hphantom Bq} \label{equivariance_eqn_3}\\
+      0 &{} = L_{:A}^{\hphantom{:A}I} \gmc{A}{B}{(n}{m} J^{pq)}_I u^B.\label{equivariance_eqn_4}
     \end{align}
   \end{subequations}
 \end{theorem}
@@ -268,7 +268,7 @@ The Gotay-Marsden coefficients are the defining objects for the PDE version of t
   \end{equation}
   Like before, the map $\xi\mapsto\xi_{J^2E}$ constitutes a Lie algebra morphism from $\Gamma(TM)$ to $\Gamma(\pi_2)$. \textbf{proof/citation needed}
 
-  Assuming that (\ref{lagrangian_density_diffeo_equivariance}) holds, we obtain the infinitesimal version by acting on $L$ with $\xi_{J^2E}$ for the left-hand side and approximating $\lvert d\varphi\rvert^{-1}$ as $1 - \xi^m_{,m}$ for the right-hand side. Equating both sides yields
+  Assuming that \eqref{lagrangian_density_diffeo_equivariance} holds, we obtain the infinitesimal version by acting on $L$ with $\xi_{J^2E}$ for the left-hand side and approximating $\lvert d\varphi\rvert^{-1}$ as $1 - \xi^m_{,m}$ for the right-hand side. Equating both sides yields
   \begin{equation}\label{infinitesimal_with_vector}
     \begin{aligned}
       0 &{} = L_{,m} \xi^m \\
@@ -278,10 +278,14 @@ The Gotay-Marsden coefficients are the defining objects for the PDE version of t
         &{} \hphantom{=} + L_{:A}^{\hphantom{:A}I} \gmc{A}{B}{n}{m} J^{pq}_I u^B \xi^m_{,npq}.
     \end{aligned}
   \end{equation}
-Since (\ref{infinitesimal_with_vector}) holds for any $\xi\in\Gamma(TM)$, the individual contributions for $\xi$, $\partial\xi$, $\partial\partial\xi$, $\partial\partial\partial\xi$ are satisfied separately.
+Since \eqref{infinitesimal_with_vector} holds for any $\xi\in\Gamma(TM)$, the individual contributions for $\xi$, $\partial\xi$, $\partial\partial\xi$, $\partial\partial\partial\xi$ are satisfied separately.
 \end{proof}
 
-On a four-dimensional spacetime manifold, Thm.~\ref{equivariance_eqns_thm} yields a system of 140 linear PDEs of first order for the Lagrangian density $L$. Any diffeomorphism invariant second-derivative tensor field theory must satisfy this system and, conversely, any solution to the system provides a candidate for a diffeomorphism invariant theory. Thus, the search for such theories has been reduced to the mathematical task of solving PDEs of a certain (simple!) form.
+On a four-dimensional spacetime manifold, Thm.~\ref{equivariance_eqns_thm} yields a system of 140 linear PDEs of first order for the Lagrangian density $L$. Any diffeomorphism invariant tensor field theory of second derivative order must satisfy this system and, conversely, any solution to the system provides a candidate for a diffeomorphism invariant theory. Thus, the search for such theories has been reduced to the mathematical task of solving PDEs of a certain (simple!) form. The only ingredients which depend on the specific theory at hand are the Gotay-Marsden coefficients, such that it is possible to derive certain properties of the system without knowlegde of the concrete tensor bundle.
+
+The literature on this kind of PDEs is very extensive\cite{} with many applications throughout science\cite{}. There are strong results on the properties and solutions which provide a good basis for our work with Eqns.~\ref{equivariance_eqn_1}--\ref{equivariance_eqn_4} in the following.
+
+The PDE system will be referred to as \emph{equivariance equations} from now on. In a similar form, these equations already appear in Ref.~\cite{goma} during the derivation of conservation laws arising from diffeomorphism invariance. As they were not meant to be solved for the Lagrangian density, the presentation is not as explicit as here. Also note that Ref.~\cite{goma} considers theories of arbitrary differential index but only the first jet bundle, whereas the present derivation takes place on the second jet bundle but is restricted to a differential index of 1 (i.e.~tensor field theories of second derivative order).
 
 \begin{itemize}
 \item noether theorem
