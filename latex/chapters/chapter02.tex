@@ -330,7 +330,14 @@ Using the infinitesimal diffeomorphism invariance condition $\mathcal L_{\xi_{J^
   for extremals of $\Theta_L$. The condition holds for arbitrary vector fields $\Xi$ on $J^{2k-1}E$, including the vector fields $\xi_{J^{2k-1}E}$.
 \end{proof}
 
-Eq.~\ref{first_noether_eq} defines a current which is conserved \emph{on shell}, i.e.~whenever the Euler-Lagrange equations hold.
+Eq.~\ref{first_noether_eq} defines a current which is conserved \emph{on shell}, i.e.~whenever the Euler-Lagrange equations hold. Thm.~3.1 of Ref.~\cite{goma} already shows---for theories defined on the first jet bundle---how the current arises from the so-called \emph{stress-energy-momentum} tensor. This result can now be generalized to tensor field theories defined of second derivative order.
+\begin{theorem}[stress-energy-momentum tensor]
+  Let $\Theta_L$ be the diffeomorphism invariant Cartan form corresponding to a diffeomorphism invariant Lagrangian of second derivative order. For any solution $\sigma$ of the Euler-Lagrange equations, there exists a unique $(1,1)$-tensor density $T(\sigma)$ on the base manifold $M$ such that for all vector fields $\xi$ on $M$ and embedded hypersurfaces $i_\Sigma \colon \Sigma \rightarrow M$
+  \begin{equation}
+    \int_\Sigma i_\Sigma^\ast(j^3\sigma)^\ast\iota_{\xi_{J^3E}}\Theta_L = \int_\Sigma T^m_n(\sigma)\xi^n \omega_m.
+  \end{equation}
+
+\end{theorem}
 
 \section{Axiom II: causal compatibility}
 
