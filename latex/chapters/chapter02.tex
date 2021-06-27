@@ -28,21 +28,21 @@ Both theories are \emph{Lagrangian} because they derive their dynamical laws in 
 A bundle is denoted as $E\overset{\pi}{\longrightarrow}M$, where $E$ is the total space, $M$ is the base manifold $M$, $\pi$ is the submersion. As a shorthand, it is common to write just $\pi$---it is then understood that total space and base manifold are domain and co-domain of $\pi$, respectively. The dimension of $M$ is written as $n$, the dimension of a typical fibre $F$ of $\pi$ as $m$. Coordinate functions on $E$ are denoted by $(x^i,u^A)$. Such coordinates extend to the $k$th jet bundle $J^kE \overset{\pi_k}{\longrightarrow}M$ over $\pi$ as $(x^i,\allowbreak u^A,\allowbreak u^A_{i_1},\allowbreak u^A_{i_1i_2},\allowbreak \dots,\allowbreak u^A_{i_1\dots i_k})$. The literature on jet bundles mostly employs multi-indices for higher-order jet bundles (see e.g.~Ref.~\cite{saunders}), which is certainly the right approach for studying the properties of jet bundles, but for practical calculations on the second-order jet bundle performed below the intertwiner technique (see \ref{def_intertwiner}) will be used which also takes care of ambiguities regarding symmetric indices. Prolongations of sections $\sigma$ are denoted with $j^k(\sigma)$, projections between jet bundles of different order with $\pi_{k,k^\prime}(\sigma)$. The latter are submersions in their own right and thus also define bundle projections. Throughout, the Einstein summation convention is used.
 
 \begin{definition}[Lagrangian]
-  Let $M$ be a smooth manifold of dimension $n$ and $E \overset{\pi}{\longrightarrow} M$ a smooth fibre bundle over $M$ with typical fibre $F$. A \textbf{Lagrangian} $\mathcal L$ of order $k$ is an element
+  Let $M$ be a smooth manifold of dimension $n$ and $E \overset{\pi}{\longrightarrow} M$ a smooth fibre bundle over $M$ with typical fibre $F$. A \textbf{Lagrangian} $\mathscr L$ of order $k$ is an element
   \begin{equation}
-    \mathcal L \in \textstyle\bigwedge^n_0\pi_k.
+    \mathscr L \in \textstyle\bigwedge^n_0\pi_k.
   \end{equation}
-In other words, $\mathcal L$ is a horizontal $n$-form on the $k$-th-order jet bundle $\pi_k$ of $\pi$.
+In other words, $\mathscr L$ is a horizontal $n$-form on the $k$-th-order jet bundle $\pi_k$ of $\pi$.
 
-Assuming $M$ to be orientable with volume form $\Omega\in\Lambda^nM$, a Lagrangian $\mathcal L$ is equivalently characterized by its \textbf{Lagrangian density} $L\in C^\infty(J^k\pi)$,
+Assuming $M$ to be orientable with volume form $\Omega\in\Lambda^nM$, a Lagrangian $\mathscr L$ is equivalently characterized by its \textbf{Lagrangian density} $L\in C^\infty(J^k\pi)$,
   \begin{equation}\label{lagrangian_density}
-  \mathcal L = L\pi_k^\ast\Omega.
+  \mathscr L = L\pi_k^\ast\Omega.
 \end{equation}
 \end{definition}
 
 The claim of \eqref{lagrangian_density} becomes apparent in local coordinates, where a horizontal $n$-form on $\pi_k$ appears as
 \begin{equation}\label{lagrangian_local}
-  \textstyle\bigwedge^n_0\pi_k\ni \mathcal L = \mathcal L(x^i,u^A,u^A_i,\dots) dx^1\wedge \dots \wedge dx^n.
+  \textstyle\bigwedge^n_0\pi_k\ni \mathscr L = \mathscr L(x^i,u^A,u^A_i,\dots) dx^1\wedge \dots \wedge dx^n.
 \end{equation}
 From \eqref{lagrangian_local} and \eqref{lagrangian_density}, it is also clear how the notion of a Lagrangian as a horizontal $n$-form captures in a geometric way the notion used elsewhere as a bundle map $J^kE \rightarrow \Lambda^nM$ (see Refs.~\cite{saunders,marsden,ccg}).
 
@@ -50,14 +50,14 @@ From \eqref{lagrangian_local} and \eqref{lagrangian_density}, it is also clear h
 From now on, we will consider smooth, orientable base manifolds $M$ and smooth bundles over the base manifold. Depending on the context, the symbol $\Omega$ will denote either the form on $M$ or the pullback to various bundles over $M$.
 
 \begin{definition}{(local action functional)}
-  Given a Lagrangian $\mathcal L \in \bigwedge^n_0\pi_k$ and a compact $n$-dimensional submanifold $C \subset M$, the \textbf{local action functional} is defined as the map
+  Given a Lagrangian $\mathscr L \in \bigwedge^n_0\pi_k$ and a compact $n$-dimensional submanifold $C \subset M$, the \textbf{local action functional} is defined as the map
   \begin{equation}
-    \sigma \mapsto S\lbrack\sigma\rbrack = \int_C (j^k\sigma)^\ast\mathcal L
+    \sigma \mapsto S\lbrack\sigma\rbrack = \int_C (j^k\sigma)^\ast\mathscr L
   \end{equation}
 for all local sections $\sigma$ of $\pi$ with support on $C$.
 \end{definition}
 
-Lagrangian field theory now stipulates that sections $\sigma\in\Gamma(\pi)$ are physical if they are extremals of the action functional \cite{}. The well-known \emph{Euler-Lagrange} equations from the calculus of variations provide a necessary condition in local coordinates which such sections extremals must satisfy.
+Lagrangian field theory now stipulates that sections $\sigma\in\Gamma(\pi)$ are physical if they are extremals of the action functional\cite{}. The well-known \emph{Euler-Lagrange} equations from the calculus of variations provide a necessary condition in local coordinates which such sections extremals must satisfy.
 \begin{proposition}
   Let $L\in C^\infty(J^k\pi)$ be a Lagrangian density. Let $C$ be a compact submanifold of $M$ and $\sigma$ be a local section of $\pi$ such that the local action functional $S\lbrack\sigma\rbrack$ is defined. If $\sigma$ is an extremal of $S$, it satisfies the \textbf{Euler-Lagrange equations}
   \begin{equation}\label{euler_lagrange_local}
@@ -70,13 +70,13 @@ Lagrangian field theory now stipulates that sections $\sigma\in\Gamma(\pi)$ are 
 
 The intrinsic equivalent to the Euler-Lagrange equations in local coordinates introduces a new object, the \emph{Cartan form}, which plays a central role in the geometrization of Lagrangian field theory.
 \begin{proposition}
-  Given a Lagrangian $\mathcal L = L\Omega \in \bigwedge^n_0\pi_k$, there exists an $n+1$ form $\Theta_L\in\bigwedge^{n}_0\pi_{2k-1,k-1}\cap\bigwedge^{n}_{1}\pi_{2k-1}$, such that, globally, the variation of the Lagrangian is given by
+  Given a Lagrangian $\mathscr L = L\Omega \in \bigwedge^n_0\pi_k$, there exists an $n+1$ form $\Theta_L\in\bigwedge^{n}_0\pi_{2k-1,k-1}\cap\bigwedge^{n}_{1}\pi_{2k-1}$, such that, globally, the variation of the Lagrangian is given by
   \begin{equation}\label{global_lagrange_form}
     \delta L = \pi^\ast_{2k,k} \left( dL\wedge\Omega\right) + d_h \Theta_L
   \end{equation}
-  and extremals of $\mathcal L$ are extremals of $\Theta_L$ in the sense that
+  and extremals of $\mathscr L$ are extremals of $\Theta_L$ in the sense that
   \begin{equation}
-    \pi_{2k-1,k}^\ast (j^k\sigma)^\ast\mathcal L = (j^{2k-1}\sigma)^\ast\Theta_L.
+    \pi_{2k-1,k}^\ast (j^k\sigma)^\ast\mathscr L = (j^{2k-1}\sigma)^\ast\Theta_L.
   \end{equation}
   Such a form $\Theta_L$ is called a \textbf{Cartan form}.
 \end{proposition}
@@ -84,7 +84,7 @@ The intrinsic equivalent to the Euler-Lagrange equations in local coordinates in
   See Saunders 1989 or older, original work
 \end{proof}
 
-This definition generalizes the local derivation of \eqref{euler_lagrange_local}: The variation $\delta L$ is obtained by lifting $d\mathcal L$ to $\pi_{2k}$ and cancelling non-horizontal terms (over $E$) by adding a derivative, which corresponds to repeated integrations by parts.
+This definition generalizes the local derivation of \eqref{euler_lagrange_local}: The variation $\delta L$ is obtained by lifting $d\mathscr L$ to $\pi_{2k}$ and cancelling non-horizontal terms (over $E$) by adding a derivative, which corresponds to repeated integrations by parts.
 
 A possible\footnote{Generally, $\Theta_L$ is not uniquely defined. \cite{saunders}} coordinate expression for $\Theta_L$ is \ref{}
 \begin{equation}\label{local_cartan_form}
@@ -115,9 +115,9 @@ In the language of jet bundles, the first axiom can be formalized as equivarianc
 \end{definition}
 A proof for the existence and uniqueness of this construction can be found in Ref.~\cite{saunders}. With the notion of the \emph{lift} of a bundle automorphism at hand, we now give the first axiom a precise meaning
 \begin{definition}[diffeomorphism invariant theory]
-  A Lagrangian field theory is called \textbf{diffeomorphism invariant} if its Lagrangian $\mathcal L\in\textstyle\bigwedge_0^n\pi_k$ is invariant with respect to the lifted action of $\mathrm{Diff}(M)$ on $J^kE$, i.e.~if for all $\varphi\in\mathrm{Diff}(M)$
+  A Lagrangian field theory is called \textbf{diffeomorphism invariant} if its Lagrangian $\mathscr L\in\textstyle\bigwedge_0^n\pi_k$ is invariant with respect to the lifted action of $\mathrm{Diff}(M)$ on $J^kE$, i.e.~if for all $\varphi\in\mathrm{Diff}(M)$
   \begin{equation}\label{lagrangian_diffeo_invariance}
-    j^k(\varphi_E)^\ast \mathcal L = \mathcal L.
+    j^k(\varphi_E)^\ast \mathscr L = \mathscr L.
   \end{equation}
 \end{definition}
 This definition applies not only to tensor bundles and the diffeomorphism group---all we need is a well-defined action as bundle automorphism. For tensor bundles, however, there is always the canonical action built from the push-forward action on tangent vectors
@@ -137,9 +137,9 @@ and on component functions of covector fields as\footnote{As for any group homom
 ((\varphi^{-1})^\ast\omega)_{(y)j}(y(p)) = \frac{\partial (x^i\circ \varphi^{-1})}{\partial y^j}\Bigg\rvert_p \cdot \omega_{(x)i}(x(\varphi^{-1}(p))).
 \end{equation}
 
-We wish to encode \eqref{lagrangian_diffeo_invariance} as local conditions on the Lagrangian density. To this end, consider a coordinate representation $\mathcal L = Ld^nx$. 
+We wish to encode \eqref{lagrangian_diffeo_invariance} as local conditions on the Lagrangian density. To this end, consider a coordinate representation $\mathscr L = Ld^nx$. 
 \begin{proposition}
-  Let $\mathcal L = L_{(x)}d^nx$ be a coordinate representation of a diffeomorphism invariant Lagrangian, induced by a coordinate chart $(U,x)$ on $M$. It follows from the invariance condition \eqref{lagrangian_diffeo_invariance} that $L_{(x)}$ is \textbf{diffeomorphism equivariant}, i.e.~it holds for all $\varphi\in\mathrm{Diff}(M)$ that, over the intersection of $U$ and $\varphi(U)$,
+  Let $\mathscr L = L_{(x)}d^nx$ be a coordinate representation of a diffeomorphism invariant Lagrangian, induced by a coordinate chart $(U,x)$ on $M$. It follows from the invariance condition \eqref{lagrangian_diffeo_invariance} that $L_{(x)}$ is \textbf{diffeomorphism equivariant}, i.e.~it holds for all $\varphi\in\mathrm{Diff}(M)$ that, over the intersection of $U$ and $\varphi(U)$,
   \begin{equation}\label{lagrangian_density_diffeo_equivariance}
     L_{(x)}\circ j^k_{(x)}(\varphi_E) = \lvert d\varphi_{(x)}\rvert^{-1} L_{(x)}.
   \end{equation}
@@ -244,7 +244,7 @@ If required for calculations, Gotay-Marsden coefficients are easily expressed us
 The Gotay-Marsden coefficients are the defining objects for the PDE version of the invariance of $L$ under infinitesimal diffeomorphisms. This constitutes the central result concerning the first axiom and shall be proved in the following.
 
 \begin{theorem}\label{equivariance_eqns_thm}
-  Let $L$ be the local Lagrangian density of a second derivative order Lagrangian $\mathcal L = Ld^4x \in \textstyle\bigwedge_0^n\pi_2$. If $\mathcal L$ is diffeomorphism invariant, i.e.~satisfies the invariance condition \eqref{lagrangian_diffeo_invariance} of the first axiom of covariant constructive gravity, its local representation $L$ satisfies a system of first-order linear partial differential equations given by
+  Let $L$ be the local Lagrangian density of a second derivative order Lagrangian $\mathscr L = Ld^4x \in \textstyle\bigwedge_0^n\pi_2$. If $\mathscr L$ is diffeomorphism invariant, i.e.~satisfies the invariance condition \eqref{lagrangian_diffeo_invariance} of the first axiom of covariant constructive gravity, its local representation $L$ satisfies a system of first-order linear partial differential equations given by
   \begin{subequations}\label{equivariance_eqns}
     \begin{align}
       0 &{} = L_{,m} \label{equivariance_eqn_1}\\
@@ -256,7 +256,7 @@ The Gotay-Marsden coefficients are the defining objects for the PDE version of t
   \end{subequations}
 \end{theorem}
 \begin{proof}
-  Given a vector field $X$ on $E$, the lift to the total space $J^2E$ of the second jet bundle is uniquely defined \cite{saunders_jet_bundles}. Applying this lift to the vector field $\xi_E$ corresponding to $\xi\in \Gamma(TM)$ yields the vector field
+  Given a vector field $X$ on $E$, the lift to the total space $J^2E$ of the second jet bundle is uniquely defined\cite{saunders_jet_bundles}. Applying this lift to the vector field $\xi_E$ corresponding to $\xi\in \Gamma(TM)$ yields the vector field
   \begin{equation}
     \begin{aligned}
       \xi_{J^2E} &{} \vcentcolon= \xi^m\partial_m \\
@@ -292,18 +292,45 @@ The PDE system will be referred to as \emph{equivariance equations} from now on.
 which follow from the action of the diffeomorphism group on the bundle. \cite{goma}
 
 \section{Noether theorems}
-Diffeomorphism invariance of the Lagrangian as required by the first axiom results in a number of interesting properties of the theory. Among these are identities for the Euler-Lagrange equations and conservation laws for the dynamics given by the Euler-Lagrange equations, which are examples for the well-known Noether theorems \cite{}. In analogy to the derivation for theories of first derivative order in Ref.~\cite{goma}, we shall now prove a version of the Noether theorems for the formalism developed above.
+Diffeomorphism invariance of the Lagrangian as required by the first axiom results in a number of interesting properties of the theory. Among these are identities for the Euler-Lagrange equations and conservation laws for the dynamics given by the Euler-Lagrange equations, which are examples for the well-known Noether theorems\cite{}. In analogy to the derivation for theories of first derivative order in Ref.~\cite{goma}, we shall now prove a version of the Noether theorems for the second-order formalism developed above.
 
-\begin{itemize}
-\item noether theorem
-\item energy momentum tensor
-\end{itemize}
-
-\begin{proposition}{(First Noether theorem)}
+The first step is to realize that the Cartan form for a diffeomorphism invariant Lagrangian is diffeomorphism invariant.
+\begin{proposition}[\cite{}]\label{prop_cartan_diffeo}
+  Let $\mathscr L$ be a diffeomorphism invariant Lagrangian, i.e.~$j^k(\varphi_E)^\ast \mathscr L=\mathscr L$. Any corresponding Cartan form $\Theta_L$ satisfies the diffeomorphism invariance condition
   \begin{equation}
-    0 = d \left((j^{2k-1}\sigma)^\ast J^\mathcal L(\xi_E)\right)
+    j^{2k-1}(\varphi_E)^\ast \Theta_L = \Theta_L.
   \end{equation}
 \end{proposition}
+\begin{proof}
+  Find one in the literature/derive my own version
+\end{proof}
+Using the infinitesimal diffeomorphism invariance condition $\mathcal L_{\xi_{J^{2k-1}E}} \Theta_L = 0$, the first Noether theorem follows as a direct consequence.
+\begin{theorem}[First Noether theorem\cite{}]
+  Let $\mathscr L$ be a diffeomorphism invariant Lagrangian and $\Theta_L$ a corresponding Cartan form. For any lifted generator $\xi_{J^{2k-1}E}$ of the diffeomorphism action and any section $\sigma\in\Gamma(\pi)$ satisfying the Euler-Lagrange equations $j^{2k}(\sigma)^\ast(\delta L)=0$, it follows that
+  \begin{equation}\label{first_noether_eq}
+    0 = d \left((j^{2k-1}\sigma)^\ast \iota_{\xi_{J^{2k-1}E}} \Theta_L \right).
+  \end{equation}
+\end{theorem}
+\begin{proof}
+  Applying the Cartan formula to the infinitesimal diffeomorphism invariance condition for $\Theta_L$ (which follows from Prop.~\ref{prop_cartan_diffeo}) gives
+  \begin{equation}
+    0 = \mathcal L_{\xi_{J^{2k-1}E}} \Theta_L = d\,\iota_{\xi_{J^{2k-1}E}} \Theta_L + \iota_{\xi_{J^{2k-1}E}} d \Theta_L
+  \end{equation}
+  such that
+  \begin{equation}
+    \begin{aligned}
+      d \left((j^{2k-1}\sigma)^\ast \iota_{\xi_{J^{2k-1}E}} \Theta_L \right) &{} = (j^{2k-1}\sigma)^\ast ( d\,\iota_{\xi_{J^{2k-1}E}} \Theta_L ) \\
+                                                                             &{} = -(j^{2k-1}\sigma)^\ast (\iota_{\xi_{J^{2k-1}E}} d \Theta_L ).
+    \end{aligned}
+  \end{equation}
+  One of the defining properties of the Cartan form $\Theta_L$ is that extremals of $\mathscr L$ are extremals of $\Theta_L$. Because $\sigma$, satisfying the Euler-Lagrange equations, is an extremal of $\mathscr L$, it also satisfies the condition\cite{}
+  \begin{equation}
+    0 = (j^{2k-1}\sigma)^\ast (\iota_\Xi d \Theta_L)
+  \end{equation}
+  for extremals of $\Theta_L$. The condition holds for arbitrary vector fields $\Xi$ on $J^{2k-1}E$, including the vector fields $\xi_{J^{2k-1}E}$.
+\end{proof}
+
+Eq.~\ref{first_noether_eq} defines a current which is conserved \emph{on shell}, i.e.~whenever the Euler-Lagrange equations hold.
 
 \section{Axiom II: causal compatibility}
 
