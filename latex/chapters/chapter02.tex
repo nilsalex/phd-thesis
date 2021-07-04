@@ -99,7 +99,7 @@ Straight-forward application of \eqref{global_lagrange_form} to \eqref{local_car
 for the Euler-Lagrange form, reconciling the intrinsic formulation using the Cartan form with the explicitly coordinate-dependent\footnote{Which is not to say \emph{ill-defined}.} formulation using the Euler-Lagrange equations.
 
 In later sections, we will restrict our attention to Lagrangians of second derivative order. As it turns out, the Cartan form for such a theory is \emph{unique}.
-\begin{proposition}
+\begin{proposition}\label{prop_cartan_unique}
   The Cartan form is unique for second-order Lagrangians.
 \end{proposition}
 \begin{proof}
@@ -120,11 +120,11 @@ A proof for the existence and uniqueness of this construction can be found in Re
     j^k(\varphi_E)^\ast \mathscr L = \mathscr L.
   \end{equation}
 \end{definition}
-This definition applies not only to tensor bundles and the diffeomorphism group---all we need is a well-defined action as bundle automorphism. For tensor bundles, however, there is always the canonical action built from the push-forward action on tangent vectors
+This definition applies not only to tensor bundles and the diffeomorphism group---all we need is a well-defined action as bundle automorphism. For tensor bundles, however, there is always the canonical action built from the pushforward action on tangent vectors
 \begin{equation}
   \varphi_\ast\colon T_pM\rightarrow T_{\varphi(p)}M
 \end{equation}
-and the pull-back action on cotangent vectors\footnote{The action is inverted in order to still define a covariant functor. \textbf{explain!}\cite{}}
+and the pullback action on cotangent vectors\footnote{The action is inverted in order to still define a covariant functor. \textbf{explain!}\cite{}}
 \begin{equation}
    (\varphi^\ast)^{-1}\colon T^\ast_pM\rightarrow T^\ast_{\varphi(p)}M.
 \end{equation}
@@ -146,7 +146,7 @@ We wish to encode \eqref{lagrangian_diffeo_invariance} as local conditions on th
   $\lvert d\varphi_{(x)}\rvert$ denotes the determinant of the Jacobian of $\varphi$ in terms of the coordinate chart $(U,x)$.
 \end{proposition}
 \begin{proof}
-  The result follows from the coordinate expression \eqref{diffeo_covector_coordinates} for the pull-back of one forms, which extends to horizontal forms on the jet bundle.
+  The result follows from the coordinate expression \eqref{diffeo_covector_coordinates} for the pullback of one forms, which extends to horizontal forms on the jet bundle.
 \end{proof}
 
 Covariant constructive gravity derives its calculational power from the observation that the infinitesimal version of \eqref{lagrangian_density_diffeo_equivariance} is equivalent to a system of linear partial differential equations (PDEs) for the Lagrangian density $L$. For the derivation of this theorem and the remainder of the chapter, we will work on the second jet bundle, as we are ultimately interested in investigating field theories of second derivative order. We will also drop the chart label from coordinate-dependent quantities. In order to lighten the notation, partial derivatives of functions on $J^2M$ are denoted $L_{,m}$ for derivatives with respect to coordinates on $M$ and $L_{:A},\,L_{:A}^{\hphantom{:A}p},\,L_{:A}^{\hphantom{:A}pq}$ for derivatives with respect to fibre coordinates.
@@ -306,9 +306,13 @@ The first step is to realize that the Cartan form for a diffeomorphism invariant
 \end{proof}
 Using the infinitesimal diffeomorphism invariance condition $\mathcal L_{\xi_{J^{2k-1}E}} \Theta_L = 0$, the first Noether theorem follows as a direct consequence.
 \begin{theorem}[First Noether theorem\cite{}]
-  Let $\mathscr L$ be a diffeomorphism invariant Lagrangian and $\Theta_L$ a corresponding Cartan form. For any lifted generator $\xi_{J^{2k-1}E}$ of the diffeomorphism action and any section $\sigma\in\Gamma(\pi)$ satisfying the Euler-Lagrange equations $j^{2k}(\sigma)^\ast(\delta L)=0$, it follows that
+  Let $\mathscr L$ be a diffeomorphism invariant Lagrangian and $\Theta_L$ a corresponding Cartan form. For any lifted generator $\xi_{J^{2k-1}E}$ of the diffeomorphism action and any section $\sigma\in\Gamma(\pi)$ satisfying the Euler-Lagrange equations $j^{2k}(\sigma)^\ast(\delta L)=0$, it follows that the current defined as
+  \begin{equation}
+    \boldsymbol{j}(\sigma) = (j^{2k-1}\sigma)^\ast \iota_{\xi_{J^{2k-1}E}} \Theta_L
+  \end{equation}
+  is a closed differential form, i.e.~
   \begin{equation}\label{first_noether_eq}
-    0 = d \left((j^{2k-1}\sigma)^\ast \iota_{\xi_{J^{2k-1}E}} \Theta_L \right).
+    0 = d \boldsymbol{j}(\sigma).
   \end{equation}
 \end{theorem}
 \begin{proof}
@@ -330,14 +334,32 @@ Using the infinitesimal diffeomorphism invariance condition $\mathcal L_{\xi_{J^
   for extremals of $\Theta_L$. The condition holds for arbitrary vector fields $\Xi$ on $J^{2k-1}E$, including the vector fields $\xi_{J^{2k-1}E}$.
 \end{proof}
 
-Eq.~\ref{first_noether_eq} defines a current which is conserved \emph{on shell}, i.e.~whenever the Euler-Lagrange equations hold. Thm.~3.1 of Ref.~\cite{goma} already shows---for theories defined on the first jet bundle---how the current arises from the so-called \emph{stress-energy-momentum} tensor. This result can now be generalized to tensor field theories defined of second derivative order.
+Eq.~\ref{first_noether_eq} defines a current which is conserved \emph{on shell}, i.e.~whenever the Euler-Lagrange equations hold. Thm.~3.1 of Ref.~\cite{goma} already shows---for theories defined on the first jet bundle---how the current arises from the so-called \emph{stress-energy-momentum} tensor. This result can now be generalized to tensor field theories of second derivative order.
 \begin{theorem}[stress-energy-momentum tensor]
-  Let $\Theta_L$ be the diffeomorphism invariant Cartan form corresponding to a diffeomorphism invariant Lagrangian of second derivative order. For any solution $\sigma$ of the Euler-Lagrange equations, there exists a unique $(1,1)$-tensor density $T(\sigma)$ on the base manifold $M$ such that for all vector fields $\xi$ on $M$ and embedded hypersurfaces $i_\Sigma \colon \Sigma \rightarrow M$
+  Let $\Theta_L$ be the diffeomorphism invariant Cartan form corresponding to a diffeomorphism invariant Lagrangian of second derivative order ($k=2$). For any solution $\sigma$ of the Euler-Lagrange equations, there exists a unique $(1,1)$-tensor density $\boldsymbol{\mathcal T}(\sigma)$ on the base manifold $M$ such that for all vector fields $\xi$ on $M$ and embedded hypersurfaces $i_\Sigma \colon \Sigma \rightarrow M$
   \begin{equation}
-    \int_\Sigma i_\Sigma^\ast(j^3\sigma)^\ast\iota_{\xi_{J^3E}}\Theta_L = \int_\Sigma T^m_n(\sigma)\xi^n \omega_m.
+    \int_\Sigma i_\Sigma^\ast\boldsymbol{j}(\sigma) = \int_\Sigma \boldsymbol{\mathcal T}^{\,m}_{\,n}(\sigma)\xi^n \omega_m.
   \end{equation}
-
 \end{theorem}
+\begin{proof}
+  With the Cartan form for a second-derivative-order theory being uniquely defined (see Prop.~\ref{prop_cartan_unique}), there is always the coordinate expression \eqref{local_cartan_form}. With $k=2$ and making use of intertwiners for second-derivative indices, this expression reads
+  \begin{equation}
+    \begin{aligned}
+      \Theta_L &{} = L\Omega \\
+               &{} \hphantom{=} + \frac{\partial L}{\partial u^A_j}(du^A - u^A_q dx^q)\wedge\omega_j - D_i \frac{\partial L}{\partial u^A_I} J_I^{ji} (du^A-u^A_qdx^q)\wedge\omega_j \\
+               &{} \hphantom{=} + \frac{\partial L}{\partial u^A_I} J_I^{jp} (du^A_p - u^A_J I_{pq}^J dx^q)\wedge\omega_j.
+  \end{aligned}
+  \end{equation}
+  Note that, because the Cartan form is horizontal over the first jet bundle, there is no appearance of the forms $du^A_{ij}$ and $du^A_{ijk}$ in the coordinate expression for $\Theta_L$. Thus, the pairing with $\xi_{J^3E}$ for the calculation of $\boldsymbol{j}(\sigma)$ makes use only of the coefficients $\xi^m$, $\xi^A$, and $\xi^A_i$. Performing the pairing and the subsequent pullback with respect to the prolongation of $\sigma$, the current is obtained as
+  \begin{equation}
+    \begin{aligned}
+      \boldsymbol{j}(\sigma) &{} = L \xi^j \omega_j \\
+                             &{} \hphantom{=} + \frac{\partial L}{\partial u^A_j} (\xi^A - \sigma^A_{,q} \xi^q) \omega_j - D_i \frac{\partial L}{\partial u^A_I} J_I^{ji} (\xi^A - \sigma^A_{,q} \xi^q) \omega_j \\
+                             &{} \hphantom{=} + \frac{\partial L}{\partial u^A_I} J_I^{jp} (\xi^A_p - \sigma^A_{,J}I^J_{pq}\xi^q) \omega_j,
+    \end{aligned}
+  \end{equation}
+  where $L$ and its derivatives are to be understood as being evaluated at prolongations of the section $\sigma$.
+\end{proof}
 
 \section{Axiom II: causal compatibility}
 
