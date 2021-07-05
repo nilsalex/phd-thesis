@@ -257,7 +257,7 @@ The Gotay-Marsden coefficients are the defining objects for the PDE version of t
 \end{theorem}
 \begin{proof}
   Given a vector field $X$ on $E$, the lift to the total space $J^2E$ of the second jet bundle is uniquely defined\cite{saunders_jet_bundles}. Applying this lift to the vector field $\xi_E$ corresponding to $\xi\in \Gamma(TM)$ yields the vector field
-  \begin{equation}
+  \begin{equation}\label{vector_field_2nd_prolongation}
     \begin{aligned}
       \xi_{J^2E} &{} \vcentcolon= \xi^m\partial_m \\
                  &{} \hphantom{\vcentcolon=} + \gmc{A}{B}{n}{m} u^B \xi^m_{,n}\partial_A + \gmc{A}{B}{n}{m} u^B_p\xi^m_{,n}\partial_A^{\hphantom Ap} - u^A_m\xi^m_{,p}\partial_A^{\hphantom Ap} \\
@@ -336,13 +336,13 @@ Using the infinitesimal diffeomorphism invariance condition $\mathcal L_{\xi_{J^
 
 Eq.~\ref{first_noether_eq} defines a current which is conserved \emph{on shell}, i.e.~whenever the Euler-Lagrange equations hold. Thm.~3.1 of Ref.~\cite{goma} already shows---for theories defined on the first jet bundle---how the current arises from the so-called \emph{stress-energy-momentum} tensor. This result can now be generalized to tensor field theories of second derivative order.
 \begin{theorem}[stress-energy-momentum tensor]
-  Let $\Theta_L$ be the diffeomorphism invariant Cartan form corresponding to a diffeomorphism invariant Lagrangian of second derivative order ($k=2$). For any solution $\sigma$ of the Euler-Lagrange equations, there exists a unique $(1,1)$-tensor density $\boldsymbol{\mathcal T}(\sigma)$ on the base manifold $M$ such that for all vector fields $\xi$ on $M$ and embedded hypersurfaces $i_\Sigma \colon \Sigma \rightarrow M$
-  \begin{equation}
-    \int_\Sigma i_\Sigma^\ast\boldsymbol{j}(\sigma) = \int_\Sigma \boldsymbol{\mathcal T}^{\,m}_{\,n}(\sigma)\xi^n \omega_m.
+  Let $\Theta_L$ be the diffeomorphism invariant Cartan form corresponding to a diffeomorphism invariant Lagrangian of second derivative order ($k=2$). For any local section $\sigma$ of the underlying bundle, there exists a unique $(1,1)$-tensor density $\boldsymbol{\mathcal T}(\sigma)$ on the base manifold $M$ such that for all vector fields $\xi$ on $M$ and embedded hypersurfaces $i_\Sigma \colon \Sigma \rightarrow M$
+  \begin{equation}\label{sem_definition}
+    \int_\Sigma i_\Sigma^\ast\boldsymbol{j}(\sigma) = \int_\Sigma \boldsymbol{\mathcal T}^{\,n}_{\,m}(\sigma)\xi^m \omega_n.
   \end{equation}
 \end{theorem}
 \begin{proof}
-  With the Cartan form for a second-derivative-order theory being uniquely defined (see Prop.~\ref{prop_cartan_unique}), there is always the coordinate expression \eqref{local_cartan_form}. With $k=2$ and making use of intertwiners for second-derivative indices, this expression reads
+  With the Cartan form for a second-derivative-order theory being uniquely defined (see Prop.~\ref{prop_cartan_unique}), there is always the coordinate expression \eqref{local_cartan_form}. Setting $k=2$ and making use of intertwiners for second-derivative indices, this expression reads
   \begin{equation}
     \begin{aligned}
       \Theta_L &{} = L\Omega \\
@@ -354,11 +354,61 @@ Eq.~\ref{first_noether_eq} defines a current which is conserved \emph{on shell},
   \begin{equation}
     \begin{aligned}
       \boldsymbol{j}(\sigma) &{} = L \xi^j \omega_j \\
-                             &{} \hphantom{=} + \frac{\partial L}{\partial u^A_j} (\xi^A - \sigma^A_{,q} \xi^q) \omega_j - D_i \frac{\partial L}{\partial u^A_I} J_I^{ji} (\xi^A - \sigma^A_{,q} \xi^q) \omega_j \\
-                             &{} \hphantom{=} + \frac{\partial L}{\partial u^A_I} J_I^{jp} (\xi^A_p - \sigma^A_{,J}I^J_{pq}\xi^q) \omega_j,
+                             &{} \hphantom{=} + L_{:A}^{\hphantom{:A}j} (\xi^A - \sigma^A_{,q} \xi^q) \omega_j - D_i L_{:A}^{\hphantom{:A}I} J_I^{ji} (\xi^A - \sigma^A_{,q} \xi^q) \omega_j \\
+                             &{} \hphantom{=} + L_{:A}^{\hphantom{:A}I} J_I^{jp} (\xi^A_p - \sigma^A_{,J}I^J_{pq}\xi^q) \omega_j,
     \end{aligned}
   \end{equation}
   where $L$ and its derivatives are to be understood as being evaluated at prolongations of the section $\sigma$.
+
+  Using $\xi^A = \gmc{A}{B}{n}{m}u^B\xi^m_{,n}$ and $\xi^A_p = D_p(\gmc{A}{B}{n}{m}u^B\xi^m_{,n})-u^A_m\xi^m_{,p}$ from Eq.~\ref{vector_field_2nd_prolongation} yields the current in its expanded form, which is
+  \begin{equation}\label{sem_calculation_current}
+    \begin{aligned}
+      \boldsymbol{j}(\sigma) &{} = \big\lbrack L\delta^n_m - L_{:A}^{\hphantom{:A}n}\sigma^A_{,m} + D_iL_{:A}^{\hphantom{:A}I}J_I^{in}\sigma^A_{,m}-L_{:A}^{\hphantom{:A}I}J_I^{np}I^J_{mp}\sigma^A_{,J}\big\rbrack \xi^m \omega_n \\
+                             &{} \hphantom{=} + \big\lbrack \gmc{A}{B}{n}{m}(L_{:A}^{\hphantom{:A}j}\sigma^B - D_iL_{:A}^{\hphantom{:A}I}J_{I}^{ij}\sigma^B + L_{:A}^{\hphantom{:A}^I}J_{I}^{jp}\sigma^B_{,p}) - L_{:A}^{\hphantom{:A}I} J_I^{jn} \sigma^A_{,m}\big\rbrack \xi^m_{,n}\omega_j \\
+                             &{} \hphantom{=} + \big\lbrack L_{:A}^{\hphantom{:A}I} J_I^{jp} \gmc{A}{B}{n}{m}\sigma^B\big\rbrack \xi^m_{,np}\omega_j.
+    \end{aligned}
+  \end{equation}
+  The key to proving the identity \eqref{sem_definition} is to express the integrals with contributions from $\xi^m_{,n}$ and $\xi^m_{,np}$ as volume integrals using Gauss's theorem and then to repeatedly simplify the integrand by employing the diffeomorphism equivariance equations \eqref{equivariance_eqns} and a variant of integration by parts, in analogy to the operations performed in Ref.~\cite{goma} for first-order theories.
+
+  For the term with two derivatives of $\xi$, this is as follows:
+  \begin{equation}\label{sem_calculation_2nd_deriv}
+    \begin{multlined}
+      \int_\Sigma L_{:A}^{\hphantom{:A}I} J_I^{jp} \gmc{A}{B}{n}{m}\sigma^B \xi^m_{,np}\omega_j \\
+      \begin{aligned}
+          &{} = \int_V D_j \big\lbrack L_{:A}^{\hphantom{:A}I} J_I^{jp} \gmc{A}{B}{n}{m}\sigma^B \xi^m_{,np}\big\rbrack \omega \\
+          &{} = \int_V \big\{ D_j \big\lbrack L_{:A}^{\hphantom{:A}I} J_I^{jp} \gmc{A}{B}{n}{m}\sigma^B\big\rbrack \xi^m_{,np} + \underbrace{L_{:A}^{\hphantom{:A}I} J_I^{jp} \gmc{A}{B}{n}{m}\sigma^B \xi^m_{,npj}}_{\mathrlap{\!=0\ \eqref{equivariance_eqn_4}}} \big\}\omega \\
+          &{} = \int_V \big\{ D_p \big( D_j \big\lbrack L_{:A}^{\hphantom{:A}I} J_I^{jp} \gmc{A}{B}{n}{m}\sigma^B\big\rbrack \xi^m_{,n} \big) - D_p D_j \big\lbrack L_{:A}^{\hphantom{:A}I} J_I^{jp} \gmc{A}{B}{n}{m}\sigma^B\big\rbrack \xi^m_{,n}\big\}\omega \\
+          &{} = \int_V \big\{ D_p \big( D_j \big\lbrack L_{:A}^{\hphantom{:A}I} J_I^{jp} \gmc{A}{B}{n}{m}\sigma^B\big\rbrack \xi^m_{,n} \big) - D_n\big(D_p D_j \big\lbrack L_{:A}^{\hphantom{:A}I} J_I^{jp} \gmc{A}{B}{n}{m}\sigma^B\big\rbrack \xi^m\big) \\
+          &{} \hphantom{= \int_V \big\{} + \underbrace{D_n D_p D_j \big\lbrack L_{:A}^{\hphantom{:A}I} J_I^{jp} \gmc{A}{B}{n}{m}\sigma^B\big\rbrack}_{\mathrlap{\!=0\ \eqref{equivariance_eqn_4}}} \xi^m\big\}\omega \\
+          &{} = \int_V \big\{ D_j \big\lbrack L_{:A}^{\hphantom{:A}I} J_I^{jp} \gmc{A}{B}{n}{m}\sigma^B\big\rbrack \xi^m_{,n} \omega_p - D_p D_j \big\lbrack L_{:A}^{\hphantom{:A}I} J_I^{jp} \gmc{A}{B}{n}{m}\sigma^B\big\rbrack \xi^m \omega_n\big\}
+      \end{aligned}
+    \end{multlined}
+  \end{equation}
+  The original contributions from \eqref{sem_calculation_current} together with the new contributions from \eqref{sem_calculation_2nd_deriv} containing first derivatives of $\xi$ combine to
+  \begin{equation}\label{sem_calculation_1st_deriv}
+    \begin{multlined}
+      \int_\Sigma \big\lbrack \underbrace{L_{:A}^{\hphantom{:A}j} \gmc{A}{B}{n}{m}\sigma^B + 2 L_{:A}^{\hphantom{:A}I} J_I^{jp} \gmc{A}{B}{n}{m}\sigma^B_{,p} - L_{:A}^{\hphantom{:A}I} J_I^{jn}\sigma^A_{,m}}_{\vcentcolon=S_m^{jn}}\big\rbrack \xi^m_{,n}\omega_j \\
+      \begin{aligned}
+        &{} = \int_V D_j \big\lbrack S_m^{jn} \xi^m_{,n}\big\rbrack \omega \\
+        &{} = \int_V \big\{ D_j S_m^{jn} \xi^m_{,n} + \underbrace{S_m^{jn} \xi^m_{,jn}}_{\mathrlap{\!=0\ \eqref{equivariance_eqn_3}}}\big\}\omega\\
+        &{} = \int_V \big\{ D_n\big( D_j S_m^{jn} \xi^m\big) - \underbrace{D_n D_j S_m^{jn}}_{\mathrlap{\!=0\ \eqref{equivariance_eqn_3}}} \xi^m \big\}\omega\\
+        &{} = \int_\Sigma D_j S_m^{jn} \xi^m \omega_n.
+      \end{aligned}
+    \end{multlined}
+  \end{equation}
+  Putting together \eqref{sem_calculation_current}--\eqref{sem_calculation_2nd_deriv} finally gives
+  \begin{equation}
+    \begin{aligned}
+      \int_\Sigma i_\Sigma^\ast\boldsymbol{j}(\sigma) &{} =\, \int_\Sigma \big\{ L\delta^n_m - L_{:A}^{\hphantom{:A}n}\sigma^A_{,m} - 2 L_{:A}^{\hphantom{:A}I}J_I^{np} I^J_{mp} \sigma^A_{,J} + \big(L_{:A}^{\hphantom{:A}I}\sigma^B_{,I} \\
+                                                        &{} \hphantom{=\, \int_\Sigma\big\{} + L_{:A}^{\hphantom{:A}j}\sigma^B_{,j} + D_j L_{:A}^{\hphantom{:A}j}\sigma^B - D_j D_p L_{:A}^{\hphantom{:A}I}J_I^{jp} \sigma^B \big)\gmc{A}{B}{n}{m} \big\} \xi^m \omega_n \\
+                                                        &{} \stackrel{\mathclap{\eqref{equivariance_eqn_2}}}{=}\, \int_\Sigma \big\{{-\big\lbrack} L_{:A} - D_p L_{:A}^{\hphantom{:A}p} + D_p D_q L_{:A}^{\hphantom{:A}I} J_I^{pq} \big\rbrack \gmc{A}{B}{n}{m} \sigma^B \big\} \xi^m \omega_n,
+    \end{aligned}
+  \end{equation}
+  from which the stress-energy-momentum tensor is easily read off as
+  \begin{equation}
+    \boldsymbol{\mathcal{T}}^{\,n}_{\,m} = -\frac{\delta L}{\delta u^A} \gmc{A}{B}{n}{m} \sigma^B,
+  \end{equation}
+  where $\frac{\delta L}{\delta u^A} =  L_{:A} - D_p L_{:A}^{\hphantom{:A}p} + D_p D_q L_{:A}^{\hphantom{:A}I} J_I^{pq}$ denotes the variational derivative. 
 \end{proof}
 
 \section{Axiom II: causal compatibility}
