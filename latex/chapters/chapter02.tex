@@ -294,7 +294,7 @@ which follow from the action of the diffeomorphism group on the bundle. \cite{go
 \section{Noether theorems}
 Diffeomorphism invariance of the Lagrangian as required by the first axiom results in a number of interesting properties of the theory. Among these are identities for the Euler-Lagrange equations and conservation laws for the dynamics given by the Euler-Lagrange equations, which are examples for the well-known Noether theorems\cite{}. In analogy to the derivation for theories of first derivative order in Ref.~\cite{goma}, we shall now prove a version of the Noether theorems for the second-order formalism developed above.
 
-The first step is to realize that the Cartan form for a diffeomorphism invariant Lagrangian is diffeomorphism invariant.
+The first step is to realize that the Cartan form for a diffeomorphism invariant Lagrangian is itself diffeomorphism invariant.
 \begin{proposition}[\cite{}]\label{prop_cartan_diffeo}
   Let $\mathscr L$ be a diffeomorphism invariant Lagrangian, i.e.~$j^k(\varphi_E)^\ast \mathscr L=\mathscr L$. Any corresponding Cartan form $\Theta_L$ satisfies the diffeomorphism invariance condition
   \begin{equation}
@@ -304,7 +304,7 @@ The first step is to realize that the Cartan form for a diffeomorphism invariant
 \begin{proof}
   Find one in the literature/derive my own version
 \end{proof}
-Using the infinitesimal diffeomorphism invariance condition $\mathcal L_{\xi_{J^{2k-1}E}} \Theta_L = 0$, the first Noether theorem follows as a direct consequence.
+Using the infinitesimal version $\mathcal L_{\xi_{J^{2k-1}E}} \Theta_L = 0$ of the diffeomorphism invariance of $\Theta_L$, the first Noether theorem follows as a direct consequence.
 \begin{theorem}[First Noether theorem\cite{}]
   Let $\mathscr L$ be a diffeomorphism invariant Lagrangian and $\Theta_L$ a corresponding Cartan form. For any lifted generator $\xi_{J^{2k-1}E}$ of the diffeomorphism action and any section $\sigma\in\Gamma(\pi)$ satisfying the Euler-Lagrange equations $j^{2k}(\sigma)^\ast(\delta L)=0$, it follows that the current defined as
   \begin{equation}
@@ -335,11 +335,12 @@ Using the infinitesimal diffeomorphism invariance condition $\mathcal L_{\xi_{J^
 \end{proof}
 
 Eq.~\ref{first_noether_eq} defines a current which is conserved \emph{on shell}, i.e.~whenever the Euler-Lagrange equations hold. Thm.~3.1 of Ref.~\cite{goma} already shows---for theories defined on the first jet bundle---how the current arises from the so-called \emph{stress-energy-momentum} tensor. This result can now be generalized to tensor field theories of second derivative order.
-\begin{theorem}[stress-energy-momentum tensor]
-  Let $\Theta_L$ be the diffeomorphism invariant Cartan form corresponding to a diffeomorphism invariant Lagrangian of second derivative order ($k=2$). For any local section $\sigma$ of the underlying bundle, there exists a unique $(1,1)$-tensor density $\boldsymbol{\mathcal T}(\sigma)$ on the base manifold $M$ such that for all vector fields $\xi$ on $M$ and embedded hypersurfaces $i_\Sigma \colon \Sigma \rightarrow M$
+\begin{theorem}[stress-energy-momentum tensor]\label{sem_thm}
+  Let $\Theta_L$ be the diffeomorphism invariant Cartan form corresponding to a diffeomorphism invariant Lagrangian of second derivative order ($k=2$). For any local section $\sigma$ of the underlying bundle, there exists a unique $(1,1)$-tensor density $\mathcal T(\sigma)$ on the base manifold $M$ such that for all vector fields $\xi$ on $M$ and embedded hypersurfaces $i_\Sigma \colon \Sigma \rightarrow M$
   \begin{equation}\label{sem_definition}
-    \int_\Sigma i_\Sigma^\ast\boldsymbol{j}(\sigma) = \int_\Sigma \boldsymbol{\mathcal T}^{\,n}_{\,m}(\sigma)\xi^m \omega_n.
+    \int_\Sigma i_\Sigma^\ast\boldsymbol{j}(\sigma) = \int_\Sigma \mathcal T^{\,n}_{\,m}(\sigma)\xi^m \omega_n.
   \end{equation}
+  The tensor $\mathcal T(\sigma)$ is called the \textbf{stress-energy-momentum tensor}.
 \end{theorem}
 \begin{proof}
   With the Cartan form for a second-derivative-order theory being uniquely defined (see Prop.~\ref{prop_cartan_unique}), there is always the coordinate expression \eqref{local_cartan_form}. Setting $k=2$ and making use of intertwiners for second-derivative indices, this expression reads
@@ -368,9 +369,9 @@ Eq.~\ref{first_noether_eq} defines a current which is conserved \emph{on shell},
                              &{} \hphantom{=} + \big\lbrack L_{:A}^{\hphantom{:A}I} J_I^{jp} \gmc{A}{B}{n}{m}\sigma^B\big\rbrack \xi^m_{,np}\omega_j.
     \end{aligned}
   \end{equation}
-  The key to proving the identity \eqref{sem_definition} is to express the integrals with contributions from $\xi^m_{,n}$ and $\xi^m_{,np}$ as volume integrals using Gauss's theorem and then to repeatedly simplify the integrand by employing the diffeomorphism equivariance equations \eqref{equivariance_eqns} and a variant of integration by parts, in analogy to the operations performed in Ref.~\cite{goma} for first-order theories.
+  The key to proving the identity \eqref{sem_definition} is to express the integrals with contributions from $\xi^m_{,n}$ and $\xi^m_{,np}$ as volume integrals using Gauss's theorem and to then repeatedly simplify the integrand by employing the diffeomorphism equivariance equations \eqref{equivariance_eqns} and a variant of integration by parts, in analogy to the operations performed in Ref.~\cite{goma} for first-order theories.
 
-  For the term with two derivatives of $\xi$, this is as follows:
+  Applying this procedure to the terms containing two derivatives of $\xi$ eliminates these terms, at the cost of new terms containing lower derivatives:
   \begin{equation}\label{sem_calculation_2nd_deriv}
     \begin{multlined}
       \int_\Sigma L_{:A}^{\hphantom{:A}I} J_I^{jp} \gmc{A}{B}{n}{m}\sigma^B \xi^m_{,np}\omega_j \\
@@ -380,7 +381,7 @@ Eq.~\ref{first_noether_eq} defines a current which is conserved \emph{on shell},
           &{} = \int_V \big\{ D_p \big( D_j \big\lbrack L_{:A}^{\hphantom{:A}I} J_I^{jp} \gmc{A}{B}{n}{m}\sigma^B\big\rbrack \xi^m_{,n} \big) - D_p D_j \big\lbrack L_{:A}^{\hphantom{:A}I} J_I^{jp} \gmc{A}{B}{n}{m}\sigma^B\big\rbrack \xi^m_{,n}\big\}\omega \\
           &{} = \int_V \big\{ D_p \big( D_j \big\lbrack L_{:A}^{\hphantom{:A}I} J_I^{jp} \gmc{A}{B}{n}{m}\sigma^B\big\rbrack \xi^m_{,n} \big) - D_n\big(D_p D_j \big\lbrack L_{:A}^{\hphantom{:A}I} J_I^{jp} \gmc{A}{B}{n}{m}\sigma^B\big\rbrack \xi^m\big) \\
           &{} \hphantom{= \int_V \big\{} + \underbrace{D_n D_p D_j \big\lbrack L_{:A}^{\hphantom{:A}I} J_I^{jp} \gmc{A}{B}{n}{m}\sigma^B\big\rbrack}_{\mathrlap{\!=0\ \eqref{equivariance_eqn_4}}} \xi^m\big\}\omega \\
-          &{} = \int_V \big\{ D_j \big\lbrack L_{:A}^{\hphantom{:A}I} J_I^{jp} \gmc{A}{B}{n}{m}\sigma^B\big\rbrack \xi^m_{,n} \omega_p - D_p D_j \big\lbrack L_{:A}^{\hphantom{:A}I} J_I^{jp} \gmc{A}{B}{n}{m}\sigma^B\big\rbrack \xi^m \omega_n\big\}
+          &{} = \int_\Sigma \big\{ D_j \big\lbrack L_{:A}^{\hphantom{:A}I} J_I^{jp} \gmc{A}{B}{n}{m}\sigma^B\big\rbrack \xi^m_{,n} \omega_p - D_p D_j \big\lbrack L_{:A}^{\hphantom{:A}I} J_I^{jp} \gmc{A}{B}{n}{m}\sigma^B\big\rbrack \xi^m \omega_n\big\}
       \end{aligned}
     \end{multlined}
   \end{equation}
@@ -396,7 +397,7 @@ Eq.~\ref{first_noether_eq} defines a current which is conserved \emph{on shell},
       \end{aligned}
     \end{multlined}
   \end{equation}
-  Putting together \eqref{sem_calculation_current}--\eqref{sem_calculation_2nd_deriv} finally gives
+  Putting together \eqref{sem_calculation_current}--\eqref{sem_calculation_1st_deriv} finally gives
   \begin{equation}
     \begin{aligned}
       \int_\Sigma i_\Sigma^\ast\boldsymbol{j}(\sigma) &{} =\, \int_\Sigma \big\{ L\delta^n_m - L_{:A}^{\hphantom{:A}n}\sigma^A_{,m} - 2 L_{:A}^{\hphantom{:A}I}J_I^{np} I^J_{mp} \sigma^A_{,J} + \big(L_{:A}^{\hphantom{:A}I}\sigma^B_{,I} \\
@@ -405,11 +406,13 @@ Eq.~\ref{first_noether_eq} defines a current which is conserved \emph{on shell},
     \end{aligned}
   \end{equation}
   from which the stress-energy-momentum tensor is easily read off as
-  \begin{equation}
-    \boldsymbol{\mathcal{T}}^{\,n}_{\,m} = -\frac{\delta L}{\delta u^A} \gmc{A}{B}{n}{m} \sigma^B,
+  \begin{equation}\label{sem_tensor_result}
+    \mathcal T^{\,n}_{\,m}(\sigma) = -\frac{\delta L}{\delta u^A} \gmc{A}{B}{n}{m} \sigma^B,
   \end{equation}
   where $\frac{\delta L}{\delta u^A} =  L_{:A} - D_p L_{:A}^{\hphantom{:A}p} + D_p D_q L_{:A}^{\hphantom{:A}I} J_I^{pq}$ denotes the variational derivative. 
 \end{proof}
+
+According to \eqref{sem_tensor_result}, the stress-energy-momentum tensor vanishes identically \emph{on-shell}, i.e.~for sections solving the Euler-Lagrange equations---a recurring theme in the analysis of generally covariant theories. The precursor of Thm.~\ref{sem_thm}, proven in Ref.~\cite{goma}, settled a long-standing debate about stress-energy-momentum tensors, addressing the shortcomings of 
 
 \section{Axiom II: causal compatibility}
 
