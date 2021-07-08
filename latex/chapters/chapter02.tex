@@ -335,12 +335,12 @@ Using the infinitesimal version $\mathcal L_{\xi_{J^{2k-1}E}} \Theta_L = 0$ of t
 \end{proof}
 
 Eq.~\ref{first_noether_eq} defines a current which is conserved \emph{on shell}, i.e.~whenever the Euler-Lagrange equations hold. Thm.~3.1 of Ref.~\cite{goma} already shows---for theories defined on the first jet bundle---how the current arises from the so-called \emph{stress-energy-momentum} tensor. This result can now be generalized to tensor field theories of second derivative order.
-\begin{theorem}[stress-energy-momentum tensor]\label{sem_thm}
-  Let $\Theta_L$ be the diffeomorphism invariant Cartan form corresponding to a diffeomorphism invariant Lagrangian of second derivative order ($k=2$). For any local section $\sigma$ of the underlying bundle, there exists a unique $(1,1)$-tensor density $\mathcal T(\sigma)$ on the base manifold $M$ such that for all vector fields $\xi$ on $M$ and embedded hypersurfaces $i_\Sigma \colon \Sigma \rightarrow M$
+\begin{theorem}[Gotay-Marsden stress-energy-momentum tensor]\label{sem_thm}
+  Let $\Theta_L$ be the diffeomorphism invariant Cartan form corresponding to a diffeomorphism invariant Lagrangian of second derivative order ($k=2$). For any local section $\sigma$ of the underlying bundle, there exists a unique $(1,1)$-tensor density $\mathcal T(\sigma)$ on the base manifold $M$ such that for all vector fields $\xi$ with compact support on $M$ and embedded hypersurfaces $i_\Sigma \colon \Sigma \rightarrow M$
   \begin{equation}\label{sem_definition}
     \int_\Sigma i_\Sigma^\ast\boldsymbol{j}(\sigma) = \int_\Sigma \mathcal T^{\,n}_{\,m}(\sigma)\xi^m \omega_n.
   \end{equation}
-  The tensor $\mathcal T(\sigma)$ is called the \textbf{stress-energy-momentum tensor}.
+  The tensor density $\mathcal T(\sigma)$ is called the \textbf{Gotay-Marsden stress-energy-momentum (SEM) tensor}.
 \end{theorem}
 \begin{proof}
   With the Cartan form for a second-derivative-order theory being uniquely defined (see Prop.~\ref{prop_cartan_unique}), there is always the coordinate expression \eqref{local_cartan_form}. Setting $k=2$ and making use of intertwiners for second-derivative indices, this expression reads
@@ -405,14 +405,14 @@ Eq.~\ref{first_noether_eq} defines a current which is conserved \emph{on shell},
                                                         &{} \stackrel{\mathclap{\eqref{equivariance_eqn_2}}}{=}\, \int_\Sigma \big\{{-\big\lbrack} L_{:A} - D_p L_{:A}^{\hphantom{:A}p} + D_p D_q L_{:A}^{\hphantom{:A}I} J_I^{pq} \big\rbrack \gmc{A}{B}{n}{m} \sigma^B \big\} \xi^m \omega_n,
     \end{aligned}
   \end{equation}
-  from which the stress-energy-momentum tensor is easily read off as
+  from which the Gotay-Marsden stress-energy-momentum tensor density is easily read off as
   \begin{equation}\label{sem_tensor_result}
     \mathcal T^{\,n}_{\,m}(\sigma) = -\frac{\delta L}{\delta u^A} \gmc{A}{B}{n}{m} \sigma^B,
   \end{equation}
   where $\frac{\delta L}{\delta u^A} =  L_{:A} - D_p L_{:A}^{\hphantom{:A}p} + D_p D_q L_{:A}^{\hphantom{:A}I} J_I^{pq}$ denotes the variational derivative. 
 \end{proof}
 
-According to \eqref{sem_tensor_result}, the stress-energy-momentum tensor vanishes identically \emph{on-shell}, i.e.~for sections solving the Euler-Lagrange equations---a recurring theme in the analysis of generally covariant theories. The precursor of Thm.~\ref{sem_thm}, proven in Ref.~\cite{goma}, settled a long-standing debate about stress-energy-momentum tensors, addressing the shortcomings of 
+According to \eqref{sem_tensor_result}, the Gotay-Marsden stress-energy-momentum tensor density vanishes identically \emph{on-shell}, i.e.~for sections solving the Euler-Lagrange equations---a recurring theme in the analysis of generally covariant theories. The first-order version of Thm.~\ref{sem_thm}, proven in Ref.~\cite{goma}, settled a long-standing debate about SEM tensors densities by providing a definition which is based on Noether theory and naturally satisfies a \emph{generalized Belinfante-Rosenfeld formula}\footnote{For general relativity, the Belinfante-Rosenfeld formula\cite{Belinfante,Rosenfeld} relates the SEM tensor density obtained from Noether theory by considering translations to the Hilbert SEM tensor density, which is defined as the source density of the Einstein equations.\cite{GoMa} This comes with a seemingly \emph{ad hoc} symmetrization of the Noether SEM tensor density. The generalized Belinfante-Rosenfeld formula\cite{GoMa} relates the Gotay-Marsden SEM tensor density \eqref{sem_tensor_result} to the Noether SEM tensor density without such choices, just by considering currents and spacetime diffeomorphisms.}.
 
 \section{Axiom II: causal compatibility}
 
