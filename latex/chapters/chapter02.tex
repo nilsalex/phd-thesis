@@ -415,17 +415,29 @@ Eq.~\ref{first_noether_eq} defines a current which is conserved \emph{on shell},
 According to \eqref{sem_tensor_result}, the Gotay-Marsden stress-energy-momentum tensor density vanishes identically \emph{on-shell}, i.e.~for sections solving the Euler-Lagrange equations---a recurring theme in the analysis of generally covariant theories. The first-order version of Thm.~\ref{sem_thm}, proven in Ref.~\cite{goma}, settled a long-standing debate about SEM tensors densities by providing a definition which is based on Noether theory and naturally satisfies a \emph{generalized Belinfante-Rosenfeld formula}\footnote{For general relativity, the Belinfante-Rosenfeld formula\cite{Belinfante,Rosenfeld} relates the SEM tensor density obtained from Noether theory by considering translations to the Hilbert SEM tensor density, which is defined as the source density of the Einstein equations.\cite{GoMa} This comes with a seemingly \emph{ad hoc} symmetrization of the Noether SEM tensor density. The generalized Belinfante-Rosenfeld formula\cite{GoMa} relates the Gotay-Marsden SEM tensor density \eqref{sem_tensor_result} to the Noether SEM tensor density without such choices, just by considering currents and spacetime diffeomorphisms.}.
 
 \section{Axiom II: causal compatibility}
-\textbf{after ccg paper\cite{ccg paper}}
+\textit{This section follows very closely Sect.~II.B of Ref.~\cite{ccg paper}.}
 
 For the mathematical formulation of the second axiom, we utilize the close relation of the causal structure of field equations to the short-wavelength limit of the theory.\cite{cgg} First, we restrict to Lagrangians which are \emph{degenerate} in the sense that the Euler-Lagrange equations---although defined on $J^4E$---depend only on second derivatives and lower, i.e.
 \begin{equation}
   \delta L = \pi^\ast_{2k,k}\delta \tilde L
 \end{equation}
-for $k=2$. This makes the theory immune from Ostrogradsky instabilities\cite{ostrogradsky}, which afflict theories of higher derivative orders. In addition, the formalism is being kept very close to Einstein gravity, whose Lagrangian is likewise degenerate---so we are still right on track in sticking closely to the established formalism and just inject different matter dynamics at the very beginning. Given the Euler-Lagrange equations $E_A=0$ of the degenerate second-order theory, we enter the limit of short wavelengths by considering the Wentzel-Kramers-Brillouin ansatz for a local section $\sigma$ of $\pi$
+for $k=2$. This makes the theory immune from Ostrogradsky instabilities\cite{ostrogradsky}, which afflict theories of higher derivative orders. In addition, the formalism is being kept very close to Einstein gravity, whose Lagrangian is likewise degenerate---so we are still right on track in sticking closely to the established formalism and just inject different matter dynamics at the very beginning. Given the Euler-Lagrange equations $E_A=0$ (henceforth called \emph{field equations}) of the degenerate second-order theory, we enter the limit of short wavelengths by considering the Wentzel-Kramers-Brillouin (WKB) ansatz for a local section $\sigma$ of $\pi$
 \begin{equation}
   \sigma^A(x^m) = \mathfrak{Re}\{ \mathrm e^\frac{\mathrm iS(x^m)}{\lambda} \lbrack a^A(x^m) + \mathcal O(\lambda)\rbrack \}.
 \end{equation}
+Evaluating the field equations at this ansatz and taking the limit $\lambda\rightarrow 0$ gives to leading order
+\begin{equation}\label{wkb_section}
+  \underbrace{\left(\frac{\partial E_A}{\partial u^B_I}\right)J^{ij}_Ik_ik_j}_{T_{AB}(k)}a^B = 0,
+\end{equation}
+which depends on the wavefront $S$ only via the wave covector $k=-\mathrm dS$. Eq.~\ref{wkb_section} is a linear equation for the amplitudes $a^B$, which is determined by the $m\times m$ matrix $T_{AB}(k)$, called the \emph{principal symbol} of the field equations. If the theory admits solutions with nontrivial amplitudes $a^B$ in the WKB limit, the principal symbol $T_{AB}(k)$ must necessarily be noninjective. By virtue of this condition, the principal polynomial has the important r\^ole to select physically admissible wave covectors in the limit of short wavelengths. As a square matrix is noninjective if and only if its determinant vanishes, admissible wave covectors can equivalently be characterized by a vanishing condition on the determinant of $T_{AB}(k)$.
 
+There is, however, a problem with this approach: In the presence of gauge symmetries, there are nontrivial solutions equivalent to the trivial solution $a^B=0$. These solutions will also be contained in the kernel of the principal symbol, rendering the naive conditions on wave covectors formulated above meaningless. More specifically, assuming a gauge symmetry with $s$-dimensional gauge orbits, there are exactly $s$ independent functions $\chi_{(i)}^A(k)$ which are equivalent to the trivial solution and span an $s$-dimensional subspace of the kernel of $T_{AB}(k)$. In order to allow for solutions which are \emph{not} equivalent to the trivial solution, the kernel needs to be of dimension greater or equal than $s+1$.
+
+The condition that the kernel of the principal symbol be of dimension $s+1$ or higher is equivalent to imposing that all order-$s$ adjugate matrices
+\begin{equation}
+  Q^{(A_1\dots A_s)(B_1\dots B_s)}(k) \vcentcolon= \frac{\partial^s \operatorname{det}(T_{AB}(k))}{\partial T_{A_1B_1}(k)\dots T_{A_sB_s}(k)}
+\end{equation}
+vanish.
 
 The mathematical formulation of the second axiom is concerned with properties of the gravitational theory in the short-wavelength approximation.
 
