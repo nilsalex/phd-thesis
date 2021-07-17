@@ -231,7 +231,7 @@ A useful corollary of the homomorphism property of the Lie algebra lift $\xi\map
 If required for calculations, Gotay-Marsden coefficients are easily expressed using intertwiners.
 \begin{proposition}
   Let $E\overset{\pi}{\longrightarrow} M$ be a sub-bundle of the tensor bundle $T^r_sM$ with a pair $(I,J)$ of intertwiners. If the tensors in $E$ are purely contravariant, i.e.~$s=0$, the Gotay-Marsden coefficients are
-  \begin{equation}
+  \begin{equation}\label{gmc_contra}
     \gmc{A}{B}{n}{m} = -r \cdot I^{a_1\dots a_{r-1}n}_B J^A_{a_1\dots a_{r-1}m}.
   \end{equation}
   If the tensors in $E$ are purely covariant, i.e.~$r=0$, the Gotay-Marsden coefficients are
@@ -438,7 +438,7 @@ The condition that the kernel of the principal symbol be of dimension $s+1$ or h
   Q^{(A_1\dots A_s)(B_1\dots B_s)}(k) \vcentcolon= \frac{\partial^s \operatorname{det}(T_{AB}(k))}{\partial T_{A_1B_1}(k)\dots T_{A_sB_s}(k)}
 \end{equation}
 vanish.\footnote{The vanishing of the order-$s$ adjugate matrix is equivalent to the vanishing of all order-$s$ subdeterminants, which are obtained by removing all possible combinations of $s$ rows and and $s$ columns from the matrix and calculating the determinant of each such reduced matrix. This is why the adjugate matrix is of dimension $\binom{r}{s} \times \binom{r}{s}$ for theories with fibre dimension $r$ and $s$-dimensional gauge symmetries.} In this situation, where we have a square $r\times r$ matrix with $s$ vectors $(\chi_{(i)})_{i=1\dots s}$ spanning a subspace of the kernel, we can use the general result\cite{cgg,itin} 
-\begin{equation}
+\begin{equation}\label{principal_polynomial}
   Q^{(A_1\dots A_s)(B_1\dots B_s)}(k) = \epsilon^{\mu_1\dots\mu_s}\epsilon^{\nu_1\dots\nu_s}\left\lbrack\prod_{i=1}^s\chi_{(\mu_i)}^{A_i}\right\rbrack\left\lbrack\prod_{j=1}^s\chi_{(\nu_j)}^{B_j}\right\rbrack \mathcal P(k)
 \end{equation}
 to arrive at the so-called \emph{principal polynomial} $P(k)$. The principal polynomial is a homogeneous polynomial of order $2r-4s$ in the components $k_a$ of the wave covector and has---as is clear from the derivation above---the important property that in order for an ansatz \eqref{wkb_ansatz} to describe a nontrivial solution in the short-wavelength limit the wave covector $k=-\mathrm dS$ must be a root of $\mathcal P$. Thus, the complete information about the propagation of waves in the infinite frequency limit is encoded in the principal symbol. This is an example for the more general result that the eligibility of a theory as a \emph{physically relevant} theory hinges on properties of $\mathcal P$. More specifically, it has been shown that a theory can only be \emph{predictive}, \emph{interpretable}, and \emph{quantizable} if the principal polynomial satisfies certain algebraic conditions, which further propagate to conditions on the underlying geometry.\cite{sergio}
@@ -460,12 +460,22 @@ Before closing this section about the second axiom, a remark about its practical
 
 \section{The construction algorithm}
 
+The results obtained so far allow us to formulate 
 
-\section{Relation to canonical constructive gravity}
-\begin{itemize}
-\item relation between diffeo invariance and constraint algebra
-\item the role of causality in the constraint algebra
-\end{itemize}
+\begin{algorithm}
+  \DontPrintSemicolon
+  \KwData{Geometry bundle $E_\text{grav}\overset{\pi_\text{grav}}{\longrightarrow}M$, matter bundle $E_\text{mat}\overset{\pi_\text{mat}}{\longrightarrow}M$,
+  Lagrangian matter field theory on $E_\text{grav} \oplus_M J^1E_\text{mat}$ with linear field equations}
+  \KwResult{Most general diffeomorphism invariant and causally compatible gravitational Lagrangian field theory on $J^2E_\text{grav}$}
+  compute the Gotay-Marsden coefficients \eqref{gmc_contra} for $E_\text{grav}$ \;
+  set up the equivariance equations \eqref{equivariance_eqn_1}--\eqref{equivariance_eqn_4} \;
+  solve the equivariance equations for the gravitational Lagrangian density $L_\text{grav}$ \;
+  compute the Euler-Lagrange equations \eqref{euler_lagrange_local} corresponding to $L_\text{grav}$ \;
+  restrict the gravitational theory to second-derivative-order field equations \;
+  calculate the principal polynomials \eqref{principal_polynomial} $\mathcal P_\text{grav}$ and $\mathcal P_\text{mat}$ \;
+  solve the causal compatibility conditions $C_\text{grav} = C_\text{mat}$ and $V_\text{grav} \subseteq V_\text{mat}$
+  \caption{Gravitational closure using covariant constructive gravity}
+\end{algorithm}
 
 \section{Example: Einstein gravity}
 \begin{itemize}
