@@ -30,6 +30,50 @@ $u$ is the dependent variable, $x^i$ are the independent variables and the coeff
 For a known solution, it is only a matter of applying Eq.~\ref{euler_lagrange_local} to the Lagrangian in order to compute the Euler-Lagrange equations for step 4. Restricting to second-derivative-order field equations, as required by step 5, could be done now by imposing that higher-derivative-order terms vanish. In practice, however, such restrictions will be placed at an earlier stage, in order to rule out higher orders from the beginning. A similar pattern emerges for steps 6 and 7: placing restrictions on the computed entities is possible, but may be hard to enforce after the fact. So it is worth keeping this requirement in mind early on.
 
 \section{Example: Einstein gravity}
+
+As already outlined in the introduction, Einstein gravity can be thought of as the gravitational closure of Maxwell electrodynamics in four dimensions. This theory provides dynamics for sections $A$ in the bundle $T^\ast M$ of one-forms, parameterized with sections $g$ in the bundle $S(T^2_0M)$ of contravariant\footnote{Many descriptions regard the covariant inverse metric as fundamental. In this case, the contravariant metric tensor appearing in the Lagrangian density \eqref{maxwell_lagrangian} is the inverse of the metric field. Both descriptions will yield slightly differing intermediate results during the construction procedure, but are fundamentally equivalent.} symmetric tensors of rank two. $A$ is commonly known as the \emph{electromagnetic potential}, $g$ as the \emph{metric tensor}. The dynamics of the electromagnetic field is given by the Lagrangian density
+\begin{equation}
+  L_\text{Maxwell} = \sqrt{-\operatorname{det} g} g^{ac}g^{bd} F_{ab} F_{cd},
+\end{equation}
+where the electromagnetic potential enters via the field strength tensor $F = \mathrm dA$.
+
+We now collect the ingredients for the construction algorithm. The fibre dimension of the bundle $S(T^2_0M)$ is 10, such that a suitable pair of intertwiners $(I,J)$ between this bundle and the unrestricted tensor bundle $T^2M$ is given by
+\begin{equation}
+  \footnotesize
+  \begin{gathered}
+  I^{ab}_1 = \begin{pmatrix}1 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0\end{pmatrix}^{ab}, I^{ab}_2 = \begin{pmatrix}0 & 1 & 0 & 0 \\ 1 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0\end{pmatrix}^{ab}, I^{ab}_3 = \begin{pmatrix}0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 0 \\ 1 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0\end{pmatrix}^{ab} I^{ab}_4 = \begin{pmatrix}0 & 0 & 0 & 1 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 1 & 0 & 0 & 0\end{pmatrix}^{ab}, \\
+  I^{ab}_5 = \begin{pmatrix}0 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0\end{pmatrix}^{ab}, I^{ab}_6 = \begin{pmatrix}0 & 0 & 0 & 0 \\ 0 & 0 & 1 & 0 \\ 0 & 1 & 0 & 0 \\ 0 & 0 & 0 & 0\end{pmatrix}^{ab}, I^{ab}_7 = \begin{pmatrix}0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 1 \\ 0 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0\end{pmatrix}^{ab}, I^{ab}_8 = \begin{pmatrix}0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 0\end{pmatrix}^{ab}, \\
+  I^{ab}_9 = \begin{pmatrix}0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 1 \\ 0 & 0 & 1 & 0\end{pmatrix}^{ab}, I^{ab}_{10} = \begin{pmatrix}0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 1\end{pmatrix}^{ab},
+  \end{gathered}
+\end{equation}
+and
+\begin{equation}
+  \footnotesize
+  \begin{gathered}
+    J_{ab}^1 = \begin{pmatrix}1 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0\end{pmatrix}_{ab}, J_{ab}^2 = \begin{pmatrix}0 & \frac{1}{2} & 0 & 0 \\ \frac{1}{2} & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0\end{pmatrix}_{ab}, J_{ab}^3 = \begin{pmatrix}0 & 0 & \frac{1}{2} & 0 \\ 0 & 0 & 0 & 0 \\ \frac{1}{2} & 0 & 0 & 0 \\ 0 & 0 & 0 & 0\end{pmatrix}_{ab} J_{ab}^4 = \begin{pmatrix}0 & 0 & 0 & \frac{1}{2} \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ \frac{1}{2} & 0 & 0 & 0\end{pmatrix}_{ab}, \\
+    J_{ab}^5 = \begin{pmatrix}0 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0\end{pmatrix}_{ab}, J_{ab}^6 = \begin{pmatrix}0 & 0 & 0 & 0 \\ 0 & 0 & \frac{1}{2} & 0 \\ 0 & \frac{1}{2} & 0 & 0 \\ 0 & 0 & 0 & 0\end{pmatrix}_{ab}, J_{ab}^7 = \begin{pmatrix}0 & 0 & 0 & 0 \\ 0 & 0 & 0 & \frac{1}{2} \\ 0 & 0 & 0 & 0 \\ 0 & \frac{1}{2} & 0 & 0\end{pmatrix}_{ab}, J_{ab}^8 = \begin{pmatrix}0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 0\end{pmatrix}_{ab}, \\
+    J_{ab}^9 = \begin{pmatrix}0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & \frac{1}{2} \\ 0 & 0 & \frac{1}{2} & 0\end{pmatrix}_{ab}, J_{ab}^{10} = \begin{pmatrix}0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 1\end{pmatrix}_{ab}.
+  \end{gathered}
+\end{equation}
+The intertwiner $I$ distributes the ten degrees of freedom for a symmetric tensor of dimension 4 across the components of a generic rank-2 tensor
+\begin{equation}
+  I^{ab}(c_Au^A) = \begin{pmatrix} c_1 & c_2 & c_3 & c_4 \\ c_2 & c_5 & c_6 & c_7 \\ c_3 & c_6 & c_8 & c_9 \\ c_4 & c_7 & c_9 & c_{10}\end{pmatrix}^{ab},
+\end{equation}
+while $J$ projects such symmetrically distributed components back to the ten degrees of freedom, discarding possible antisymmetric contributions.
+
+Prop.~\ref{prop_gmc_intertwiner} yields the Gotay-Marsden intertwiner from $(I,J)$ as
+\begin{equation}
+  \gmc{A}{B}{n}{m} = -2 I^{pn}_B J^A_{pm}.
+\end{equation}
+Contracting with $I$ and $J$ yields the spacetime expression
+\begin{equation}
+  \gmc{ab}{cd}{n}{m} = -2 \delta^{(a}_m \delta^{b)}_{(c} \delta^n_{d)},
+\end{equation}
+which serves as a good sanity check: Contracting again with a metric $g$ and the derivatives of a vector field $\xi$ results in the well-known transformation of $g$ w.r.t.~infinitesimal diffeomorphism generated by $\xi$,
+\begin{equation}
+  \gmc{ab}{cd}{n}{m} g^{cd} \xi^m_n = -2g^{n(a} \xi^{b)}_{,n}.
+\end{equation}
+
 \begin{itemize}
 \item Gotay-Marsden coefficients, equivariance equations
 \item GR as solution
