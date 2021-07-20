@@ -86,21 +86,30 @@ Before proceeding, let us emphasize that there are only two things needed from t
   \item the principal polynomial $\mathcal P_\text{Maxwell}(k) = g(k,k)$.
 \end{enumerate}
 
-The equivariance equations \eqref{equivariance_eqn_1}--\eqref{equivariance_eqn_4} for the metric gravitational Lagrangian are a system of 140 PDEs for one variable dependent on 154 independent variables\footnote{The dimension of the second jet bundle over the metric bundle is $4+10+4\times 10 + \binom{4}{2}\times 10=154$.}. Because the system admits the aforementioned property called involutivity, which will play a major role and therefore will actually be proven in Chap.~\ref{chapter_perturbation}, we can make use of a very strong result about the solutions of this system\cite{seiler}: There are $154-140=14$ independent solutions $\psi_i$, such that any solution is of the form $f(\psi_i)$. Two solutions are already known,
+The equivariance equations \eqref{equivariance_eqn_1}--\eqref{equivariance_eqn_4} for the metric gravitational Lagrangian are a system of 140 PDEs for one variable dependent on 154 independent variables\footnote{The dimension of the second jet bundle over the metric bundle is $4+10+4\times 10 + \binom{4}{2}\times 10=154$.}. Because the system admits the aforementioned property called involutivity, which will play a major role and therefore will actually be proven in Chap.~\ref{chapter_perturbation}, we can make use of a very strong result about the solutions of this system\cite{seiler}: There are $154-140=14$ functions $\psi_\alpha$ of the independent variables, such that any solution of the homogeneous system
 \begin{equation}
-  \psi_1 = \sqrt{-\operatorname{det}g}\quad\text{and}\quad \psi_2 = \sqrt{-\operatorname{det}g}R,
+  0 = A^{Ij} u_{,j}
 \end{equation}
-which constitute the manifestly diffeomorphism equivariant Einstein-Hilbert Lagrangian density
+is of the form $f(\psi_1,\dots,\psi_{14})$ for any (suitably differentiable) function $f$. Any particular solution $\omega$ of the inhomogeneous system
 \begin{equation}
-  L_\text{Einstein-Hilbert} = \frac{1}{2\kappa} \sqrt{-\operatorname{det}g}(R - 2\Lambda)
+  0 = A^{Ij} u_{,j} + B^I
 \end{equation}
-with its two \emph{a priori} undetermined coefficients $\kappa$, called the \emph{gravitational constant}, and $\Lambda$, the \emph{cosmological constant}.
+yields, by virtue of the product rule, the general form of a solution,
+\begin{equation}\label{general_metric_solution}
+  u = \omega\cdot f(\psi_1,\dots,\psi_{14}).
+\end{equation}
 
-\begin{itemize}
-\item Gotay-Marsden coefficients, equivariance equations
-\item GR as solution
-\item causality is already solved
-\end{itemize}
+Now, the dynamics of general relativity as derived by Einstein are given by the manifestly diffeomorphism equivariant Einstein-Hilbert Lagrangian density
+\begin{equation}\label{einstein_hilbert}
+  L_\text{Einstein-Hilbert} = \frac{1}{2\kappa} \sqrt{-\operatorname{det}g}(R - 2\Lambda),
+\end{equation}
+from which we readily recognise two solutions,
+\begin{equation}
+  \omega = \sqrt{-\operatorname{det}g}\quad\text{and}\quad \psi_1 = R.
+\end{equation}
+The constants $\kappa$ and $\Lambda$ are known as gravitational constant and cosmological constant, respectively, and $R$ is the Ricci scalar curvature. Together with the homogeneous solution $\psi_1=R$, the remaining 13 homogeneous solutions $\psi_2,\dots,\psi_{14}$ are known in the literature as the fourteen \emph{curvature invariants}\cite{curvature_invariants}.
+
+While the system of equivariance equations alone admits a multitude of solutions \eqref{general_metric_solution}, it has been shown by Lovelock\cite{} that only Einstein general relativity \eqref{einstein_hilbert} admits second-order-derivative field equations. Step 5 of the construction algorithm therefore restricts the gravitational theory closing Maxwell electrodynamics to general relativity with its two undetermined constants \emph{exactly}. The causality conditions do not have to be implemented anymore, since they follow trivially---the causal structures of Maxwell electrodynamics and Einstein gravity coincide\cite{??}.
 
 \section{Example: area metric gravity}
 \begin{itemize}
