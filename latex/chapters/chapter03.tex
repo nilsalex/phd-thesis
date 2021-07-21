@@ -111,6 +111,28 @@ The constants $\kappa$ and $\Lambda$ are known as gravitational constant and cos
 
 While the system of equivariance equations alone admits a multitude of solutions \eqref{general_metric_solution}, it has been shown by Lovelock\cite{} that only Einstein general relativity \eqref{einstein_hilbert} admits second-order-derivative field equations. Step 5 of the construction algorithm therefore restricts the gravitational theory closing Maxwell electrodynamics to general relativity with its two undetermined constants \emph{exactly}. The causality conditions do not have to be implemented anymore, since they follow trivially---the causal structures of Maxwell electrodynamics and Einstein gravity coincide\cite{??}.
 
+There is another interesting result that follows from the equivariance equations. Restricting to the zeroth jet bundle and switching from abstract indices to indices inherited from the tangent bundle, the equations are
+\begin{equation}\label{metric_order_0_eq}
+  0 = \omega_{,m}\quad\text{and}\quad 0 = 2\frac{\partial\omega}{\partial g^{am}} g^{an} + \delta^n_m \omega.
+\end{equation}
+If we solve the first equation by restricting further to $\omega=\omega(g^{ab})$ and manipulate the second equation by contraction with the covariant metric, we obtain
+\begin{equation}
+  \frac{\partial\omega}{\partial g^{ab}} = -\frac{1}{2} g_{ab} \omega.
+\end{equation}
+This equation is obviously symmetric in the indices and therefore boils down to a system of 10 PDEs for the function $\omega$ of the 10 independent variables $g^{ab}$. As the system is completely determined, the known solution $\omega=\sqrt{-\operatorname{det}g}$, which can be easily verified by straightforward differentiation, is the \emph{unique} solution. Using our framework, we thus have provided a derivation of the well-known fact that the only scalar densities that can be constructed from the metric tensor are powers of the metric determinant.
+
+The same result holds for the equivariance equations restricted to the first jet bundle, which are
+\begin{subequations}
+  \begin{align}
+    0 &{} = L_{,m}, \label{metric_order_1_eq_1}\\
+    0 &{} = 2 L_{:am}g^{an} + 2 L_{:am}^{\hphantom{:am}p}g^{an}_{,p} - L_{:ab}^{\hphantom{:ab}n}g^{ab}_{,m}, \label{metric_order_1_eq_2}\\
+    0 &{} = L_{:am}^{\hphantom{:am}(p}g^{n)a}. \label{metric_order_1_eq_3}
+  \end{align}
+\end{subequations}
+Equation \ref{metric_order_1_eq_3} is a system of 40 individual equations for the 40 derivatives of $L$ with respect to the first derivatives of the metric tensor. The rank of this subsystem is full\footnote{If in doubt, such statements concerning our linear PDE systems can be verified without much computational effort by evaluation at randomly chosen points in the jet bundle. At worst, the rank at such points will be \emph{less} than at a generic point.}, which completely eliminates any possible dependency of $L$ on the first derivatives of $g$. The remaining system is equivalent to the zeroth-order system \eqref{metric_order_0_eq} with the unique solution $L=\sqrt{-\operatorname{det}g}$, demonstrating with a very quick derivation that there is no non-trivial diffeomorphism equivariant Lagrangian density of first derivative order for the metric tensor.
+
+Before proceeding with the next example, it should that the insights gained about metric gravitational theory compatible with Maxwell electrodynamics are not novel as fare as the \emph{results} are concerned. Rather, we have seen how the developed framework readily reproduces the known results without much effort and yet again confirms earlier derivations.
+
 \section{Example: area metric gravity}
 \begin{itemize}
 \item introduction to area metric gravity
@@ -124,4 +146,5 @@ While the system of equivariance equations alone admits a multitude of solutions
 \item principal polynomial(s)
 \item Gotay-Marsden coefficients, equivariance equations
 \end{itemize}
+
 
