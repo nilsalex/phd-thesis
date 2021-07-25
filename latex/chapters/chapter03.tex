@@ -163,7 +163,7 @@ which is generally irreducible and of rank 4. Consequently, the null surfaces ar
 Much of the remainder of this thesis is dedicated to the application of the construction algorithm to GLED, which should yield the gravitational theory completing general linear electrodynamics to a predictive theory of matter \emph{and} gravity. This new theory shall bear the name \emph{area metric gravity}.
 
 We again start with the definition of suitable intertwiners. It is often useful to interpret the components $G^{abcd}$ of an area metric, which consist of two antisymmetric pairs and is symmetric in these pairs, as symmetric 6 by 6 matrix
-\begin{equation}
+\begin{equation}\label{petrov}
   G^{[ab][cd]} =
   \begin{pmatrix}
     G^{0101} & G^{0102} & G^{0103} & G^{0112} & G^{0113} & G^{0123} \\
@@ -195,6 +195,14 @@ ore, using the spacetime representation,
 \gmc{abcd}{efgh}{n}{m} = 4 \delta^{[a\mid}_{\vphantom{f}m} \delta^{n}_{[e} \delta^{\mid b]}_{f]} \delta^{[c}_{[g} \delta^{d]}_{h]} \Bigg\rvert_{[ab] \leftrightarrow [cd]\atop [ef] \leftrightarrow [gh]},
 \end{equation}
 where $e_{XY} \big\rvert_{X \leftrightarrow Y} = \frac{1}{2} e_{XY} + \frac{1}{2} e_{YX}$ denotes idempotent symmetrization of the expression $e$ in $X$ and $Y$.
+
+Having computed the intertwiners and Gotay-Marsden coefficients, the equivariance equations \eqref{equivariance_eqn_1}--\eqref{equivariance_eqn_4} are ready to be set up. Since the second area metric jet bundle is of dimension
+\begin{equation}
+  \operatorname{dim}(J^2E_\text{area}) = 4 + 21 + 4\times 21 + \binom{4}{2}\times 21 = 319,
+\end{equation}
+the system of equivariance equations consists of 140 linear, first-order PDE for one function of 319 independent variables. The claim of covariant constructive gravity is that solutions to this system are candidates for gravitational Lagrangians. Unfortunately, it is computationally infeasible to present such a solution\footnote{Strictly speaking, two solutions are known: The scalar density $\omega_G$ defined in Eq.~\ref{metric_induced_area} and a different choice for $\omega_G$ which is computed from the determinant of the $6\times 6$ matrix \eqref{petrov}, which is also a valid scalar density. However, these solutions do not depend on derivatives of the area metric and as such would not yield \emph{dynamic} field equations if used as Lagrangian density.} and, unlike for metric gravity, there are no known curvature invariants for us to rely on.
+
+Therefore, we will resort to perturbation theory in order to derive results for weak gravitational fields in Chap.~\ref{chapter_weak_area} and also shortly explore the possibility of directly solving the cosmological sector of area metric gravity in Chap.~\ref{chapter_cosmo}.
 
 \section{Example: bimetric gravity}
 \begin{itemize}
