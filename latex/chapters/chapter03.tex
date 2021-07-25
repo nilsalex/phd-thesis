@@ -32,7 +32,7 @@ For a known solution, it is only a matter of applying Eq.~\ref{euler_lagrange_lo
 \section{Example: Einstein gravity}
 
 As already outlined in the introduction, Einstein gravity can be thought of as the gravitational closure of Maxwell electrodynamics in four dimensions. This theory provides dynamics for sections $A$ in the bundle $T^\ast M$ of one-forms, parameterized with sections $g$ in the bundle $S(T^2_0M)$ of contravariant\footnote{Many descriptions regard the covariant inverse metric as fundamental. In this case, the contravariant metric tensor appearing in the Lagrangian density \eqref{maxwell_lagrangian} is the inverse of the metric field. Both descriptions will yield slightly differing intermediate results during the construction procedure, but are fundamentally equivalent.} symmetric tensors of rank two. $A$ is commonly known as the \emph{electromagnetic potential}, $g$ as the \emph{metric tensor}. The dynamics of the electromagnetic field is given by the Lagrangian density
-\begin{equation}
+\begin{equation}\label{lagrangian_maxwell}
   L_\text{Maxwell} = \sqrt{-\operatorname{det} g} g^{ac}g^{bd} F_{ab} F_{cd},
 \end{equation}
 where the electromagnetic potential enters via the field strength tensor $F = \mathrm dA$ and we write ``$\operatorname{det}g$'' for the determinant of the \emph{covariant} metric tensor, which is the inverse of the metric tensor chosen here as fundamental field.
@@ -131,14 +131,70 @@ The same result holds for the equivariance equations restricted to the first jet
 \end{subequations}
 Equation \ref{metric_order_1_eq_3} is a system of 40 individual equations for the 40 derivatives of $L$ with respect to the first derivatives of the metric tensor. The rank of this subsystem is full\footnote{If in doubt, such statements concerning our linear PDE systems can be verified without much computational effort by evaluation at randomly chosen points in the jet bundle. At worst, the rank at such points will be \emph{less} than at a generic point.}, which completely eliminates any possible dependency of $L$ on the first derivatives of $g$. The remaining system is equivalent to the zeroth-order system \eqref{metric_order_0_eq} with the unique solution $L=\sqrt{-\operatorname{det}g}$, demonstrating with a very quick derivation that there is no non-trivial diffeomorphism equivariant Lagrangian density of first derivative order for the metric tensor.
 
-Before proceeding with the next example, it should that the insights gained about metric gravitational theory compatible with Maxwell electrodynamics are not novel as fare as the \emph{results} are concerned. Rather, we have seen how the developed framework readily reproduces the known results without much effort and yet again confirms earlier derivations.
+Before proceeding with the next example, it should that the insights gained about metric gravitational theory compatible with Maxwell electrodynamics are not new as fare as the \emph{results} are concerned. Rather, we have seen how the developed framework readily reproduces the known results without much effort and yet again confirms earlier derivations.
 
 \section{Example: area metric gravity}
-\begin{itemize}
-\item introduction to area metric gravity
-\item principal polynomial
-\item Gotay-Marsden coefficients, equivariance equations
-\end{itemize}
+
+As a first example for a modified theory of gravity that follows from covariant constructive gravity, we consider \emph{area metric gravity}. The starting point is a generalization of Maxwell electrodynamics.
+\begin{definition}[generalized linear electrodynamics]
+  Let $M$ be a four-dimensional spacetime manifold. The bundle $E_\text{area}$, constructed as a subbundle of $T^4_0M$ by imposing the linear conditions
+  \begin{equation}
+    G^{abcd} = G^{cdab} = -G^{bacd}
+  \end{equation}
+  on the tensor components, is called the area metric bundle. Given a scalar density $\omega$ of weight 1, sections $G$ of this bundle serve as coefficients for the Lagrangian density of generalized linear electrodynamics (GLED),
+  \begin{equation}\label{lagrangian_gled}
+    L_\text{GLED} = \omega_G G^{abcd} F_{ab} F_{cd}.
+  \end{equation}
+\end{definition}
+It is easy to see that GLED is a generalization of Maxwell electrodynamics by setting\footnote{Note that $\omega_G$ as defined above is a valid scalar density of weight 1 not only for this special choice of $G$, but also for general area metric fields. Without loss of generality, we will keep making use of this density---any other density is obtained by multiplication of $\omega_G$ with a scalar. See Sect.~\ref{??} for details.}
+\begin{equation}\label{metric_induced_area}
+  G^{abcd} = g^{ac} g^{bd} - g^{ad} g^{bc} + \frac{1}{\sqrt{-\operatorname{det}g}} \epsilon^{abcd}\quad\text{and}\quad \omega_G = \left(\frac{1}{24}\epsilon_{abcd}G^{abcd}\right)^{-1}
+\end{equation}
+in the GLED Lagrangian density \eqref{lagrangian_gled}, which reproduces the Maxwell Lagrangian density \eqref{lagrangian_maxwell}. Not restricting the area metric field to the specific form \eqref{metric_induced_area} but leaving all 21 independent components unconstrained yields, of course, a more general theory.
+
+GLED as generalization of Maxwell electrodynamics is the result of an axiomatic approach to classical eletrodynamics called \emph{premetric electrodynamics}\cite{hehl}. This approach makes a few assumptions like conversation of charge and magnetic flux, the existence of a Lorentz force law, and a superposition principle. As a consequence, the indeterminates of such a theory are reduced to the so-called \emph{constitutive tensor} $\chi$, which is already known from electrodynamics in media, but now also determines the behaviour of the electromagnetic field in \emph{in vacuo}. In our language, $\chi$ is the area metric $G$.
+
+The causality of GLED crucially depends on the area metric via the principle polynomial\cite{}
+\begin{equation}
+  \mathcal P_\text{GLED}(k) = -\frac{1}{24} \omega_G^2 \epsilon_{mnpq} \epsilon_{rstu} G^{mnra} G^{bpsc} G^{dqtu} k_a k_b k_c k_d,
+\end{equation}
+which is generally irreducible and of rank 4. Consequently, the null surfaces are no longer metric light cones, but more complex quartic surfaces. For example, $\mathcal P_\text{GLED}$ could factor into the product of two metrics, in which case the vanishing set at a point would be the union of two metric light cones with different opening angles. In this example, the phase velocity of a wave depends on the light cone in which the wave covector lies. The two options can be seen as new polarization degree of freedom, such that the speed of light is determined by the polarization---an effect commonly known as \emph{birefringence}. While in classical electrodynamics this is only possible in nonlinear media, GLED allows for birefringence \emph{in vacuo}.
+
+Much of the remainder of this thesis is dedicated to the application of the construction algorithm to GLED, which should yield the gravitational theory completing general linear electrodynamics to a predictive theory of matter \emph{and} gravity. This new theory shall bear the name \emph{area metric gravity}.
+
+We again start with the definition of suitable intertwiners. It is often useful to interpret the components $G^{abcd}$ of an area metric, which consist of two antisymmetric pairs and is symmetric in these pairs, as symmetric 6 by 6 matrix
+\begin{equation}
+  G^{[ab][cd]} =
+  \begin{pmatrix}
+    G^{0101} & G^{0102} & G^{0103} & G^{0112} & G^{0113} & G^{0123} \\
+    \cdot & G^{0202} & G^{0203} & G^{0212} & G^{0213} & G^{0223} \\
+    \cdot & \cdot & G^{0303} & G^{0312} & G^{0313} & G^{0323} \\
+    \cdot & \cdot & \cdot & G^{1212} & G^{1213} & G^{1223} \\
+    \cdot & \cdot & \cdot & \cdot & G^{1313} & G^{1323} \\
+    \cdot & \cdot & \cdot & \cdot & \cdot & G^{2323}
+  \end{pmatrix}^{[ab][cd]}.
+\end{equation}
+Intertwiners can then be chosen such that $I$ distributes abstract components $G^1,\dots,G^{21}$ over such a matrix, i.e.
+\begin{equation}
+  I^{[ab][cd]}_1 = \begin{pmatrix} 1 & 0 & 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 & 0 & 0 \end{pmatrix}^{[ab][cd]},\quad
+  I^{[ab][cd]}_2 = \begin{pmatrix} 0 & 1 & 0 & 0 & 0 & 0 \\ 1 & 0 & 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 & 0 & 0 \end{pmatrix}^{[ab][cd]},
+\end{equation}
+and so on. The surjections $J$ project back to abstract indices, where the multiplicities are either 4 for components like $G^{0123}$ or 8 for components like $G^{0101}$:
+\begin{equation}
+  J_{[ab][cd]}^1 = \begin{pmatrix} \frac{1}{4} & 0 & 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 & 0 & 0 \end{pmatrix}_{[ab][cd]},\quad
+  J_{[ab][cd]}^2 = \begin{pmatrix} 0 & \frac{1}{8} & 0 & 0 & 0 & 0 \\ \frac{1}{8} & 0 & 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 & 0 & 0 \end{pmatrix}_{[ab][cd]},
+\end{equation}
+et cetera.
+
+As usual, the Gotay-Marsden coefficients follow from Prop.~\ref{prop_gmc_intertwiner}. Since the fibre dimension of $T^4_0M$ is 4 and the tensors are purely contravariant, the coefficients are
+\begin{equation}
+  \gmc{A}{B}{n}{m} = 4 I^{pqrn}_B J^A_{pqrm},
+\end{equation}
+ore, using the spacetime representation,
+\begin{equation}
+\gmc{abcd}{efgh}{n}{m} = 4 \delta^{[a\mid}_{\vphantom{f}m} \delta^{n}_{[e} \delta^{\mid b]}_{f]} \delta^{[c}_{[g} \delta^{d]}_{h]} \Bigg\rvert_{[ab] \leftrightarrow [cd]\atop [ef] \leftrightarrow [gh]},
+\end{equation}
+where $e_{XY} \big\rvert_{X \leftrightarrow Y} = \frac{1}{2} e_{XY} + \frac{1}{2} e_{YX}$ denotes idempotent symmetrization of the expression $e$ in $X$ and $Y$.
 
 \section{Example: bimetric gravity}
 \begin{itemize}
