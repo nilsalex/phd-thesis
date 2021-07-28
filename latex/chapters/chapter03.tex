@@ -216,11 +216,11 @@ Let us consider two examples for bimetric matter theories. The first theory pres
   \end{equation}
   where $\phi$ and $\psi$ are smooth functions $\phi,\psi\colon M\rightarrow \mathbb R$ called \textbf{scalar fields} with nonnegative \textbf{masses} $m_\phi$ and $m_\psi$.
 \end{definition}
-As second example, we introduce a generalization of the Proca theory, a theory for a \emph{massive} electromagnetic potential.
-\begin{definition}[bimetric Proca theory]
+As second example, we use a generalization of the Proca theory, a theory for a \emph{massive} electromagnetic potential.
+\begin{definition}[bimetric Proca theory\cite{wierzba}]
   Consider again the bundle $E_\text{bimetric}$. Sections $(g,h)$ of this bundle together with a scalar density $\omega_{g,h}$ constructed from $g$ and $h$ serve as coefficients for the Lagrangian density of the \textbf{bimetric Proca theory}
   \begin{equation}
-    L_{\text{Proca}^\ast} = \omega_{g,h}\left( -g^{ac} g^{bd} F_{ab} F_{cd} + m^2 h^{ab} A_a A_b \right)
+    L_\text{bi-Proca} = \omega_{g,h}\left( -g^{ac} g^{bd} F_{ab} F_{cd} + m^2 h^{ab} A_a A_b \right)
   \end{equation}
   for an electromagnetic potential one-form $A$ with field strength $F=\mathrm dA$.
 \end{definition}
@@ -256,13 +256,11 @@ More scalars come easily to mind, like the contraction $g^{ab} h_{ab}$ (using th
 \end{equation}
 From the strong results about such system, which will be proven in the next chapter, we know that this premature analysis is by no means exhaustive---the number of functionally independent scalars that can be constructed from a bimetric tensor and its derivative up to second order must be $304-140=164$.
 
-By the second axiom of covariant constructive gravity, the space of admissible Lagrangians will be smaller than the solution space of the PDE system we just discussed.
+By the second axiom of covariant constructive gravity, the space of admissible Lagrangians will be smaller than the solution space of the PDE system we just discussed. The input we need from the matter theory is the principal polynomial. Quite surprisingly, the polynomials of the bimetric Klein-Gordon theory and the bimetric Proca theory coincide, given by the expression
+\begin{equation}\label{bimetric_poly}
+  \mathcal P_\text{bimetric}(k) = g(k,k) h(k,k).
+\end{equation}
+This is an intuitive result for the bimetric Klein-Gordon field, where the field equations for both scalar fields do not couple. For the bimetric Proca theory, however, a na\"ive inspection of the field equations seems to suggest that the principal polynomial is just given by the first metric which provides the coefficients for the kinetic term. Only after the field equations have been brought into involutive form, new equations emerge which ultimately yield the principal polynomial \eqref{bimetric_poly}.\cite{wierzba}
 
-
-\begin{itemize}
-\item what is bimetric gravity?
-\item principal polynomial(s)
-\item Gotay-Marsden coefficients, equivariance equations
-\end{itemize}
-
+As a consequence of this coincidence, the gravitational theories that are eligible for completing both matter theories are the same. This also restricts the causally relevant sectors of both theories to the sector where $g$ and $h$ are Lorentzian metrics with overlapping hyperbolicity cones. Only then is the product of both metrics a hyperbolic polynomial.
 
