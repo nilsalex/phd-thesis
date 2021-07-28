@@ -62,7 +62,7 @@ The intertwiner $I$ distributes the ten degrees of freedom for a symmetric tenso
 while $J$ projects such symmetrically distributed components back to the ten degrees of freedom, discarding possible antisymmetric contributions. Note that $I$ and $J$ could also be chosen such that the matrix representations coincide by using factors of $\frac{1}{\sqrt 2}$ for off-diagonal entries in both intertwiners. This has the apparent advantage that $I$ and $J$ do not need to be distinguished from each other. However, a disadvantage of using them interchangeably is that this would obscure the different roles that $I$ and $J$ play, especially if they are used not only in setting up the equivariance equations, but also for manipulating them. The irrational coefficients like $\frac{1}{\sqrt 2}$ would also further complicate the computer-aided treatment introduced in Chap.~\ref{chapter_perturbation}, which for purely rational intertwiners yields purely rational results.
 
 Prop.~\ref{prop_gmc_intertwiner} yields the Gotay-Marsden coefficients from $(I,J)$ as
-\begin{equation}
+\begin{equation}\label{gmc_metric}
   \gmc{A}{B}{n}{m} = 2 I^{pn}_B J^A_{pm}.
 \end{equation}
 Contracting with $I$ and $J$ yields the spacetime expression
@@ -86,7 +86,7 @@ Before proceeding, let us emphasize that there are only two things needed from t
   \item the principal polynomial $\mathcal P_\text{Maxwell}(k) = g(k,k)$.
 \end{enumerate}
 
-The equivariance equations \eqref{equivariance_eqn_1}--\eqref{equivariance_eqn_4} for the metric gravitational Lagrangian are a system of 140 PDEs for one variable dependent on 154 independent variables\footnote{The dimension of the second jet bundle over the metric bundle is $4+10+4\times 10 + \binom{4}{2}\times 10=154$.}. Because the system admits the aforementioned property called involutivity, which will play a major role and therefore will actually be proven in Chap.~\ref{chapter_perturbation}, we can make use of a very strong result about the solutions of this system\cite{seiler}: There are $154-140=14$ functions $\psi_\alpha$ of the independent variables, such that any solution of the homogeneous system
+The equivariance equations \eqref{equivariance_eqn_1}--\eqref{equivariance_eqn_4} for the metric gravitational Lagrangian are a system of 140 PDEs for one variable dependent on 154 independent variables\footnote{The dimension of the second jet bundle over the metric bundle is $4+10+4\times 10 + \binom{4 + 2 - 1}{2}\times 10=154$.}. Because the system admits the aforementioned property called involutivity, which will play a major role and therefore will actually be proven in Chap.~\ref{chapter_perturbation}, we can make use of a very strong result about the solutions of this system\cite{seiler}: There are $154-140=14$ functions $\psi_\alpha$ of the independent variables, such that any solution of the homogeneous system
 \begin{equation}
   0 = A^{Ij} u_{,j}
 \end{equation}
@@ -198,7 +198,7 @@ where $e_{XY} \big\rvert_{X \leftrightarrow Y} = \frac{1}{2} e_{XY} + \frac{1}{2
 
 Having computed the intertwiners and Gotay-Marsden coefficients, the equivariance equations \eqref{equivariance_eqn_1}--\eqref{equivariance_eqn_4} are ready to be set up. Since the second area metric jet bundle is of dimension
 \begin{equation}
-  \operatorname{dim}(J^2E_\text{area}) = 4 + 21 + 4\times 21 + \binom{4}{2}\times 21 = 319,
+  \operatorname{dim}(J^2E_\text{area}) = 4 + 21 + 4\times 21 + \binom{4 + 2 - 1}{2}\times 21 = 319,
 \end{equation}
 the system of equivariance equations consists of 140 linear, first-order PDE for one function of 319 independent variables. The claim of covariant constructive gravity is that solutions to this system are candidates for gravitational Lagrangians. Unfortunately, it is computationally infeasible to present such a solution\footnote{Strictly speaking, two solutions are known: The scalar density $\omega_G$ defined in Eq.~\ref{metric_induced_area} and a different choice for $\omega_G$ which is computed from the determinant of the $6\times 6$ matrix \eqref{petrov}, which is also a valid scalar density. However, these solutions do not depend on derivatives of the area metric and as such would not yield \emph{dynamic} field equations if used as Lagrangian density.} and, unlike for metric gravity, there are no known curvature invariants for us to rely on.
 
@@ -225,7 +225,39 @@ As second example, we introduce a generalization of the Proca theory, a theory f
   for an electromagnetic potential one-form $A$ with field strength $F=\mathrm dA$.
 \end{definition}
 
-Both examples couple matter fields to geometry defined on $E_\text{bimetric}$. Consequently, the first steps in executing the construction algorithm are identical: Define suitable intertwiners, calculate Gotay-Marsden coefficients, setup and solve the equivariance equations. A possible choice of intertwiners is to just reuse the intertwiners \eqref{inter_metric_I} and \eqref{inter_metric_J} defined for the metric bundle. Representing elements of the unrestricted bundle $T^2_0M\oplus T^2_0M$ as two matrices, $I_1^{ab},\dots,I_{10}^{ab}$ distribute the 10 degrees of freedom for the first metric over the first matrix, while $I_{11}^{ab},\dots,I_{20}^{ab}$ distribute the 10 degrees of freedom for the second metric over the second matrix. The intertwiner $J$ is defined equivalently.
+Both theories couple matter fields to geometry defined on $E_\text{bimetric}$. Consequently, the first steps in executing the construction algorithm are identical: Define suitable intertwiners, calculate Gotay-Marsden coefficients, setup and solve the equivariance equations. A possible choice of intertwiners is to just reuse the intertwiners \eqref{inter_metric_I} and \eqref{inter_metric_J} defined for the metric bundle. Representing elements of the unrestricted bundle $T^2_0M\oplus T^2_0M$ as two matrices, $I_1^{ab},\dots,I_{10}^{ab}$ distribute the 10 degrees of freedom for the first metric over the first matrix, while $I_{11}^{ab},\dots,I_{20}^{ab}$ distribute the 10 degrees of freedom for the second metric over the second matrix. The intertwiner $J$ is defined equivalently.
+
+Considering how one metric transforms with respect to diffeomorphisms,
+\begin{equation}
+  g^A \mapsto g^A + \gmc{A}{B}{n}{m}\xi^m_{,n},
+\end{equation}
+we can reuse the Gotay-Marsden coefficients \eqref{gmc_metric} for a single metric and obtain the transformation behaviour of two metrics as
+\begin{equation}\label{gmc_bimetric}
+  \begin{pmatrix}g^A \\ h^B\end{pmatrix} \mapsto \begin{pmatrix}g^A \\ h^B\end{pmatrix} + \begin{pmatrix}\gmc{A}{C}{n}{m}\xi^m_{,n} & 0 \\ 0 & \gmc{B}{D}{n}{m}\xi^m_{,n}\end{pmatrix} \begin{pmatrix}g^C \\ h^D\end{pmatrix}.
+\end{equation}
+The matrix introduced in this equation constitutes the Gotay-Marsden coefficients for the bimetric bundle. A lighter notation is to just write $G^A$ for the bimetric field, where indices $A$ range from 1 to 20 and split into two ranges, denoted by $\bar A$ (from 1 to 10) and $\bar{\bar A}$ (from 11 to 21), respectively. The original metrics $g$ and $h$ are included in $G$ as $G^{\bar A}$ and $G^{\bar{\bar A}}$. Using this notation, the matrix in Eq.~\ref{gmc_bimetric} is a block matrix representation of the bimetric Gotay-Marsden coefficients $\gmc{A}{B}{n}{m}$: The coefficients are zero if $A$ and $B$ come from different ranges, while for the same ranges, they amount to the metric coefficients.
+
+With the Gotay-Marsden coefficients at hand, we the equivariance equations \eqref{equivariance_eqn_1}--\eqref{equivariance_eqn_4} follow as usual. This time, the bimetric bundle is of dimension
+\begin{equation}
+  \operatorname{dim}(J^2E_\text{bimetric}) = 4 + 20 + 4\times 20 + \binom{4 + 2 - 1}{2}\times 20 = 304,
+\end{equation}
+making the system a PDE system with 140 equations for one function dependent on 304 independent variables. The same remarks as for the construction of area metric gravity apply: It is notoriously hard to solve such a system \emph{exactly}, but the method offers a lot of potential for perturbative or symmetry-reduced solutions. In the context of canonical gravitational closure, the former has already been pursued successfully, at least to first order in the perturbation expansion\cite{wierzba,beier}.
+
+\emph{Some} solutions are, of course, already known: The metric determinants are diffeomorphism invariant densities and the fourteen curvature invariants for each metric are diffeomorphism invariant scalars, i.e.~solutions to the homogeneous system. This gives generic solutions of the form
+\begin{equation}
+  \begin{aligned}
+  {}& \sqrt{-\operatorname{det}g}\cdot f(\psi^{(g)}_1,\dots,\psi^{(g)}_{14},\psi^{(h)}_1,\dots,\psi^{(h)}_{14}) \\
+    \text{or}\quad{}& \sqrt{-\operatorname{det}h}\cdot f(\psi^{(g)}_1,\dots,\psi^{(g)}_{14},\psi^{(h)}_1,\dots,\psi^{(h)}_{14}).
+  \end{aligned}
+\end{equation}
+More scalars come easily to mind, like the contraction $g^{ab} h_{ab}$ (using the inverse $h_{ab}$ of $h^{ab}$) and the ratio $\frac{\sqrt{-\operatorname{det}g}}{\sqrt{-\operatorname{det}h}}$. Adding these to the 28 curvature invariants, a more generic solution would be
+\begin{equation}
+  \sqrt{-\operatorname{det}h}\cdot f(\psi^{(g)}_1,\dots,\psi^{(g)}_{14},\psi^{(h)}_1,\dots,\psi^{(h)}_{14},g^{ab}h_{ab}, \frac{\sqrt{-\operatorname{det}g}}{\sqrt{-\operatorname{det}h}}).
+\end{equation}
+From the strong results about such system, which will be proven in the next chapter, we know that this premature analysis is by no means exhaustive---the number of functionally independent scalars that can be constructed from a bimetric tensor and its derivative up to second order must be $304-140=164$.
+
+By the second axiom of covariant constructive gravity, the space of admissible Lagrangians will be smaller than the solution space of the PDE system we just discussed.
+
 
 \begin{itemize}
 \item what is bimetric gravity?
