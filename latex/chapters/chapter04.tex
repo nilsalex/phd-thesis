@@ -1,15 +1,36 @@
 \chapter{Perturbative construction of gravitational theories}
 \label{chapter_perturbation}
 
+\textit{Following the presentation of the axioms of covariant constructive gravity and the construction algorithm, we now develop a perturbative approach for the implementation of both axioms. The equivariance equations turn out to lend themselves to an iterative solution strategy where the expansions coefficients of a power series ansatz are determined iteratively, power by power. A first approximation of the gravitational theory valid for weak fields is obtained already after the second iteration, which yields a quadratic Lagrangian with linear field equations. In a sense, this is the free theory without self-coupling. In order to investigate the lowest-order effects of self-coupling, which we will dare in the subsequent chapter, the next order is needed. Therefore, after establishing the general principle, we focus on the perturbation theory up to third order in the Lagrangian.}
+
+\textit{The development in this chapter follows closely the presentation in Ref.~\cite{ccg_paper}.}
+
 \textbf{take-home message: approach ideally suits itself for construction of theories which govern weak gravitational fields}
 
 \section{Perturbative implementation of axiom 1}
+
+Let us state again, for reference, the equivariance equations \eqref{equivariance_eqn_1}--\eqref{equivariance_eqn_4} we are going to solve perturbatively
+\begin{equation*}
+    \begin{aligned}
+      0 &{} = L_{,m} \\
+      0 &{} = L_{:A} \gmc{A}{B}{n}{m}u^B + L_{:A}^{\hphantom{:A}p}\left\lbrack\gmc{A}{B}{n}{m} \delta^q_p - \delta^A_B\delta^q_m\delta^n_p\right\rbrack u^{B}_{\hphantom Bq} \nonumber \\
+        &{} \hphantom{=} + L_{:A}^{\hphantom{:A}I} \left\lbrack\gmc{A}{B}{n}{m} \delta^J_I - 2 \delta^A_B J^{pn}_{I} I^J_{pm}\right\rbrack u^B_{\hphantom BJ} + L\delta^n_m \\
+      0 &{} = L_{:A}^{\hphantom{:A}(p\mid} \gmc{A}{B}{\mid n)}{m} u^B + L_{:A}^{\hphantom{:A}I}\left\lbrack\gmc{A}{B}{(n}{m} 2J^{p)q}_I - \delta^A_B J^{pn}_I \delta^q_m\right\rbrack u^B_{\hphantom Bq} \\
+      0 &{} = L_{:A}^{\hphantom{:A}I} \gmc{A}{B}{(n}{m} J^{pq)}_I u^B.
+    \end{aligned}
+\end{equation*}
+The rationale of perturbative covariant constructive gravity is to consider a formal power series ansatz
+\begin{equation}
+  L(p) = L_{(0)} + L_{(1)} 
+\end{equation}
+
 \begin{itemize}
 \item power series ansatz
 \item involution theory
 \item proof: equivariance equations are involutive
-\item Lorentz invariant ansätze
 \end{itemize}
+
+\section{Lorentz invariant ansätze}
 
 \section{Perturbative implementation of axiom 2}
 \begin{itemize}
