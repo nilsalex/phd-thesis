@@ -9,20 +9,40 @@
 
 \section{Perturbative implementation of axiom 1}
 
-Let us state again, for reference, the equivariance equations \eqref{equivariance_eqn_1}--\eqref{equivariance_eqn_4} we are going to solve perturbatively
+Let us state again, for reference, the equivariance equations \eqref{equivariance_eqn_2}--\eqref{equivariance_eqn_4} we are going to solve perturbatively
 \begin{equation*}
     \begin{aligned}
-      0 &{} = L_{,m} \\
       0 &{} = L_{:A} \gmc{A}{B}{n}{m}u^B + L_{:A}^{\hphantom{:A}p}\left\lbrack\gmc{A}{B}{n}{m} \delta^q_p - \delta^A_B\delta^q_m\delta^n_p\right\rbrack u^{B}_{\hphantom Bq} \nonumber \\
         &{} \hphantom{=} + L_{:A}^{\hphantom{:A}I} \left\lbrack\gmc{A}{B}{n}{m} \delta^J_I - 2 \delta^A_B J^{pn}_{I} I^J_{pm}\right\rbrack u^B_{\hphantom BJ} + L\delta^n_m \\
       0 &{} = L_{:A}^{\hphantom{:A}(p\mid} \gmc{A}{B}{\mid n)}{m} u^B + L_{:A}^{\hphantom{:A}I}\left\lbrack\gmc{A}{B}{(n}{m} 2J^{p)q}_I - \delta^A_B J^{pn}_I \delta^q_m\right\rbrack u^B_{\hphantom Bq} \\
       0 &{} = L_{:A}^{\hphantom{:A}I} \gmc{A}{B}{(n}{m} J^{pq)}_I u^B.
     \end{aligned}
 \end{equation*}
-The rationale of perturbative covariant constructive gravity is to consider a formal power series ansatz
+The first equivariance equation $0 = L_{,m}$ has been omitted, because we will consider it solved from now on by restricting the problem to Lagrangian densities $L$ which depend only on the fiber coordinates.
+
+Perturbation theory starts with choosing an expansion point $p\in J^2E$. Let $p$ have fibre coordinates $(N^A,N^A_{\hphantom Ap},N^A_{\hphantom AI})$. The deviation of any point $q\in J^2E$ with fibre coordinates $(G^A,G^A_{\hphantom Ap},G^A_{\hphantom AI})$ is then defined as the difference
 \begin{equation}
-  L(p) = L_{(0)} + L_{(1)} 
+  (H^A, H^A_{\hphantom Ap}, H^A_{\hphantom AI}) \vcentcolon= (G^A - N^A, G^A_{\hphantom Ap} - N^A_{\hphantom Ap}, G^A_{\hphantom AI} - H^A_{\hphantom AI}).
 \end{equation}
+Around $p$, the formal power series ansatz is
+\begin{equation}
+  \begin{aligned}
+    L &{} = a + a_A H^A + a_A^{\hphantom Ap} H^A_{\hphantom Ap} + a_A^{\hphantom AI} H^A_{\hphantom AI} \\
+      &{} \hphantom{=} + a_{AB} H^A H^B + a_{AB}^{\hphantom{AB}p} H^A H^B_{\hphantom Bp} + a_{AB}^{\hphantom{AB}I} H^A H^B_{\hphantom BI} \\
+      &{} \hphantom{=} + a_{A\hphantom{p}B}^{\hphantom Ap\hphantom{B}q} H^A_{\hphantom Ap} H^B_{\hphantom Bq} + a_{A\hphantom{p}B}^{\hphantom Ap\hphantom{B}I} H^A_{\hphantom Ap} H^B_{\hphantom BI} + a_{A\hphantom{I}B}^{\hphantom AI\hphantom{B}J} H^A_{\hphantom AI} H^B_{\hphantom BJ} \\
+      &{} \hphantom{=} + a_{ABC} H^A H^B H^C + \dots
+  \end{aligned}
+\end{equation}
+and is called \emph{formal} because at this point there is no assumption about the convergence of the power series. We do, however, make two assumptions about admissible expansion points, in order to justify the interpretation of perturbatively constructed theories as valid theories for \emph{weak} gravitational fields.
+\begin{enumerate}
+  \item{The expansion point represents a \emph{flat} instance of the gravitational field, i.e., both $N^A_{\hphantom Ap}$ and $N^A_{\hphantom AI}$ vanish.}
+  \item{At the expansion point, the matter theory that is used to bootstrap the construction procedure reduces to a theory that is equivalent to a matter theory on Minkowski spacetime.}
+\end{enumerate}
+Both restrictions for $p$ ensure that the limit of weak gravitational fields can match our observations for situations with weak gravity: Matter fields couple to flat geometry in the sense that there are coordinate charts where the geometric coefficients are constant and this geometry is determined by the Minkowski metric. Curvature effects of non-Lorentzian geometry are expected to arised as \emph{deviations} from this ground state. After all, we have formulated another consequence of the correspondence principle for modified gravity.
+
+The first assumption is easily implemented: In the chosen coordinate chart, $p$ takes the form $(N^A,0,0)$. The best way to make sense of the second assumption is by example:
+\begin{example}[Flat Lorentzian expansion points]
+\end{example}
 
 \begin{itemize}
 \item power series ansatz
