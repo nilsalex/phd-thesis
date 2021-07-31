@@ -41,7 +41,7 @@ and is called \emph{formal} because at this point there is no assumption about t
 Both restrictions for $p$ ensure that the limit of weak gravitational fields can match our observations for situations with weak gravity: Matter fields couple to flat geometry in the sense that there are coordinate charts where the geometric coefficients are constant and this geometry is determined by the Minkowski metric. Curvature effects of non-Lorentzian geometry are expected to arised as \emph{deviations} from this ground state. After all, we have formulated another consequence of the correspondence principle for modified gravity.
 
 The first assumption is easily implemented: In the chosen coordinate chart, $p$ takes the form $(N^A,0,0)$. The best way to make sense of the second assumption is by considering a few examples:
-\begin{example}[Flat Lorentzian expansion points]
+\begin{example}[flat Lorentzian expansion points]
   Let us choose appropriate expansion points $(N^A,0,0)$ for GLED and bimetric theories introduced in Sections \ref{section_gled} and \ref{section_bimetric}, respectively. In order to satisfy the second assumption made for expansion points, we construct $N^A$ from the Minkowski metric $\eta^{ab} = \operatorname{diag}(1,-1,-1,-1)^{ab}$ in the following ways.
   \begin{enumerate}
     \item{For bimetric theories, a suitable expansion point is given by $N^{\bar A} = J_{ab}^{\bar A} \eta^{ab}$ and $N^{\bar{\bar A}} = J_{ab}^{\bar{\bar A}} \eta^{ab}$, i.e.~setting both metrics $g$ and $h$ equal to $\eta$. Where a scalar density is needed, we choose $\omega = \sqrt{-\operatorname{det}\eta} = 1$. This choice reduceds the bimetric Klein-Gordon theory to the standard Klein-Gordon theory for two scalar fields on Minkowski spacetime
@@ -63,7 +63,10 @@ Both choices of expansion points ensure that the perturbatively constructed grav
 
 Having defined an expansion point, the equivariance equations can---in principle---be solved perturbatively by repeating the following process: All equations in the system contain derivatives of first order, so the expansion coefficient $a$ of zeroth order remain undetermined. In order to determine the expansion coefficients $a_A$, $a_A^{\hphantom Ap}$, and $a_A^{\hphantom aI}$, substitute the formal power series ansatz \eqref{power_series_ansatz} for the Lagrangian density $L$ in the equivariance equations, evaluate the result at $N$ (i.e.~set the deviation $H$ to zero) and solve the resulting linear equations for the first-order coefficients. Next, differentiate each PDE once with respect to every independent variable, substitute again the power series ansatz, evaluate at $N$ and solve the linear system for the expansion coefficients of second order. Now repeat this process of differentiation, substitution, evaluation, and solving of linear equations \emph{ad infinitum}---or up to the desired perturbation order.
 
-However, for this solution process to play out as desired, the PDE system must observe an important property: \emph{involution}.
+However, for this solution process to play out as desired, the PDE system must observe an important property: We need to be sure that each step really determines all expansion coefficients for the corresponding order to the extend that this is possible\footnote{Of course, the equivariance equations, in general, will not determine \emph{all} expansion coefficients. Rather, the solutions will be parameterized exactly by the coefficients that cannot be determined.}. This is not always guaranteed, as a simple example demonstrates.
+\begin{example}[integrability conditions\cite{seiler_habil}]
+  
+\end{example}
 
 \begin{itemize}
 \item power series ansatz
