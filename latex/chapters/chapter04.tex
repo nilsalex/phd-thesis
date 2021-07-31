@@ -25,7 +25,7 @@ Perturbation theory starts with choosing an expansion point $p\in J^2E$. Let $p$
   (H^A, H^A_{\hphantom Ap}, H^A_{\hphantom AI}) \vcentcolon= (G^A - N^A, G^A_{\hphantom Ap} - N^A_{\hphantom Ap}, G^A_{\hphantom AI} - H^A_{\hphantom AI}).
 \end{equation}
 Around $p$, the formal power series ansatz is
-\begin{equation}
+\begin{equation}\label{power_series_ansatz}
   \begin{aligned}
     L &{} = a + a_A H^A + a_A^{\hphantom Ap} H^A_{\hphantom Ap} + a_A^{\hphantom AI} H^A_{\hphantom AI} \\
       &{} \hphantom{=} + a_{AB} H^A H^B + a_{AB}^{\hphantom{AB}p} H^A H^B_{\hphantom Bp} + a_{AB}^{\hphantom{AB}I} H^A H^B_{\hphantom BI} \\
@@ -40,9 +40,28 @@ and is called \emph{formal} because at this point there is no assumption about t
 \end{enumerate}
 Both restrictions for $p$ ensure that the limit of weak gravitational fields can match our observations for situations with weak gravity: Matter fields couple to flat geometry in the sense that there are coordinate charts where the geometric coefficients are constant and this geometry is determined by the Minkowski metric. Curvature effects of non-Lorentzian geometry are expected to arised as \emph{deviations} from this ground state. After all, we have formulated another consequence of the correspondence principle for modified gravity.
 
-The first assumption is easily implemented: In the chosen coordinate chart, $p$ takes the form $(N^A,0,0)$. The best way to make sense of the second assumption is by example:
+The first assumption is easily implemented: In the chosen coordinate chart, $p$ takes the form $(N^A,0,0)$. The best way to make sense of the second assumption is by considering a few examples:
 \begin{example}[Flat Lorentzian expansion points]
+  Let us choose appropriate expansion points $(N^A,0,0)$ for GLED and bimetric theories introduced in Sections \ref{section_gled} and \ref{section_bimetric}, respectively. In order to satisfy the second assumption made for expansion points, we construct $N^A$ from the Minkowski metric $\eta^{ab} = \operatorname{diag}(1,-1,-1,-1)^{ab}$ in the following ways.
+  \begin{enumerate}
+    \item{For bimetric theories, a suitable expansion point is given by $N^{\bar A} = J_{ab}^{\bar A} \eta^{ab}$ and $N^{\bar{\bar A}} = J_{ab}^{\bar{\bar A}} \eta^{ab}$, i.e.~setting both metrics $g$ and $h$ equal to $\eta$. Where a scalar density is needed, we choose $\omega = \sqrt{-\operatorname{det}\eta} = 1$. This choice reduceds the bimetric Klein-Gordon theory to the standard Klein-Gordon theory for two scalar fields on Minkowski spacetime
+      \begin{equation}
+        L_\text{2KG}(N) = \eta^{ab} \phi_{,a} \phi_{,b} - m_\phi^2\phi^2 + \eta^{ab} \psi_{,a} \psi_{,b} - m_\psi^2\psi^2.
+      \end{equation}
+    Similarly, the refined Proca theory reduces to the standard Proca theory
+      \begin{equation}
+        L_\text{bi-Proca}(N) = -\eta^{ac}\eta^{bd}F_{ab}F_{cd} + m^2\eta^{ab}A_aA_b.
+      \end{equation}}
+    \item{For GLED, we choose the expansion point $N^A = J_{abcd}^A (\eta^{ac} \eta^{bd} - \eta^{ad} \eta^{bc} + \epsilon^{abcd})$. Using the density $\omega_G = (\frac{1}{24}\epsilon_{abcd}G^{abcd})^{-1}$, which at $G^A=N^A$ results in $\omega_N = 1$, the Lagrangian density for GLED reduces to
+        \begin{equation}\label{GLED_reduction}
+        L_\text{GLED} = 2 \eta^{ac}\eta^{bd} F_{ab}F_{cd},
+      \end{equation}
+    i.e.~Maxwell electrodynamics on Minkowski spacetime.\footnote{The term $\epsilon^{abcd}F_{ab}F_{cd}$ is a surface and thus does not contribute to the field equations. As such, it has been omitted in Eq.~\ref{GLED_reduction}}}
+  \end{enumerate}
 \end{example}
+Both choices of expansion points ensure that the perturbatively constructed gravitational theories provide to zeroth order in the deviation a background on which known physics is reproduced. Novel physics---the coupling of matter fields to non-metric geometries and the self-coupling of such geometries---should emerge as effect of first and higher orders in the deviation from the Minkowski background.
+
+Having defined an expansion point, the equivariance equations can---in principle---be solved perturbatively by repeating the following process: Substitute the formal power series ansatz \eqref{power_series_ansatz} for the Lagrangian density $L$ in the equivariance equations
 
 \begin{itemize}
 \item power series ansatz
