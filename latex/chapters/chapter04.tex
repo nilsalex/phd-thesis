@@ -56,12 +56,14 @@ The first assumption is easily implemented: In the chosen coordinate chart, $p$ 
         \begin{equation}\label{GLED_reduction}
         L_\text{GLED} = 2 \eta^{ac}\eta^{bd} F_{ab}F_{cd},
       \end{equation}
-    i.e.~Maxwell electrodynamics on Minkowski spacetime.\footnote{The term $\epsilon^{abcd}F_{ab}F_{cd}$ is a surface and thus does not contribute to the field equations. As such, it has been omitted in Eq.~\ref{GLED_reduction}}}
+    i.e.~Maxwell electrodynamics on Minkowski spacetime.\footnote{The term $\epsilon^{abcd}F_{ab}F_{cd}$ is a surface term and thus does not contribute to the field equations. As such, it has been omitted in Eq.~\ref{GLED_reduction}}}
   \end{enumerate}
 \end{example}
 Both choices of expansion points ensure that the perturbatively constructed gravitational theories provide to zeroth order in the deviation a background on which known physics is reproduced. Novel physics---the coupling of matter fields to non-metric geometries and the self-coupling of such geometries---should emerge as effect of first and higher orders in the deviation from the Minkowski background.
 
-Having defined an expansion point, the equivariance equations can---in principle---be solved perturbatively by repeating the following process: Substitute the formal power series ansatz \eqref{power_series_ansatz} for the Lagrangian density $L$ in the equivariance equations
+Having defined an expansion point, the equivariance equations can---in principle---be solved perturbatively by repeating the following process: All equations in the system contain derivatives of first order, so the expansion coefficient $a$ of zeroth order remain undetermined. In order to determine the expansion coefficients $a_A$, $a_A^{\hphantom Ap}$, and $a_A^{\hphantom aI}$, substitute the formal power series ansatz \eqref{power_series_ansatz} for the Lagrangian density $L$ in the equivariance equations, evaluate the result at $N$ (i.e.~set the deviation $H$ to zero) and solve the resulting linear equations for the first-order coefficients. Next, differentiate each PDE once with respect to every independent variable, substitute again the power series ansatz, evaluate at $N$ and solve the linear system for the expansion coefficients of second order. Now repeat this process of differentiation, substitution, evaluation, and solving of linear equations \emph{ad infinitum}---or up to the desired perturbation order.
+
+However, for this solution process to play out as desired, the PDE system must observe an important property: \emph{involution}.
 
 \begin{itemize}
 \item power series ansatz
