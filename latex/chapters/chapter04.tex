@@ -1,7 +1,7 @@
 \chapter{Perturbative construction of gravitational theories}
 \label{chapter_perturbation}
 
-\textit{Following the presentation of the axioms of covariant constructive gravity and the construction algorithm, we now develop a perturbative approach for the implementation of both axioms. The equivariance equations turn out to lend themselves to an iterative solution strategy where the expansions coefficients of a power series ansatz are determined iteratively, power by power. A first approximation of the gravitational theory valid for weak fields is obtained already after the second iteration, which yields a quadratic Lagrangian with linear field equations. In a sense, this is the free theory without self-coupling. In order to investigate the lowest-order effects of self-coupling, which we will dare in the subsequent chapter, the next order is needed. Therefore, after establishing the general principle, we focus on the perturbation theory up to third order in the Lagrangian.}
+\textit{Following the presentation of the axioms of covariant constructive gravity and the construction algorithm, we now develop a perturbative approach for the implementation of both axioms. The equivariance equations turn out to lend themselves to an iterative solution strategy where the expansion coefficients of a power series ansatz are determined iteratively, power by power. A first approximation of the gravitational theory valid for weak fields is obtained already after the second iteration, which yields a quadratic Lagrangian with linear field equations. In a sense, this is the free theory without self-coupling. In order to investigate the lowest-order effects of self-coupling, which we will dare in the subsequent chapter, the next order is indispensable. Therefore, after establishing the general principle, we focus on the perturbation theory up to third order in the Lagrangian.}
 
 \textit{The development in this chapter follows closely the presentation in Ref.~\cite{ccg_paper}.}
 
@@ -65,7 +65,32 @@ Having defined an expansion point, the equivariance equations can---in principle
 
 However, for this solution process to play out as desired, the PDE system must observe an important property: We need to be sure that each step really determines all expansion coefficients for the corresponding order to the extend that this is possible\footnote{Of course, the equivariance equations, in general, will not determine \emph{all} expansion coefficients. Rather, the solutions will be parameterized exactly by the coefficients that cannot be determined.}. This is not always guaranteed, as a simple example demonstrates.
 \begin{example}[integrability conditions\cite{seiler_habil}]
-  
+  Consider the linear, first-order PDE system
+  \begin{equation}\label{example_integrability_condition}
+    \begin{aligned}
+      u_{,z} + y u_{,x} &{} = 0, \\
+      u_{,y} &{} = 0
+    \end{aligned}
+  \end{equation}
+  for one function $u$ which depends on three independent variables $x,y,z$. Making a formal power series ansatz, inserting this ansatz into the system \label{example_integrability_condition}, and evaluating at the expansion point yields a linear system of rank two for the three expansion coefficients of first order.
+
+  There are, however, hidden equations governing the first order, which emerge after differentiating the first equation with respect to $y$ and the second equation with respect to $z$ and $x$. This gives new PDEs
+  \begin{equation}
+    \begin{aligned}
+      u_{,yz} + y u_{,xy} + u_{,x} &{} = 0, \\
+      u_{,xy} &{} = 0, \\
+      u_{,yz} &{} = 0.
+    \end{aligned}
+  \end{equation}
+  The second derivatives in the first equation can be cancelled using the second and third equation, yielding the first-order PDE $u_{,x} = 0$. This new equation is independent of the original PDEs \eqref{example_integrability_condition}. Including it in the first-order system and simplifying a bit, we get
+  \begin{equation}
+    \begin{aligned}
+      u_{,x} &{} = 0, \\
+      u_{,y} &{} = 0, \\
+      u_{,z} &{} = 0.
+    \end{aligned}
+  \end{equation}
+  Only after performing this procedure of making explicit the hidden first-order PDEs
 \end{example}
 
 \begin{itemize}
