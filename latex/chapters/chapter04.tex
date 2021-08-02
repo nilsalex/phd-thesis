@@ -3,7 +3,7 @@
 
 \textit{Following the presentation of the axioms of covariant constructive gravity and the construction algorithm, we now develop a perturbative approach for the implementation of both axioms. The equivariance equations turn out to lend themselves to an iterative solution strategy where the expansion coefficients of a power series ansatz are determined iteratively, power by power. A first approximation of the gravitational theory valid for weak fields is obtained already after the second iteration, which yields a quadratic Lagrangian with linear field equations. In a sense, this is the free theory without self-coupling. In order to investigate the lowest-order effects of self-coupling, which we will dare in the subsequent chapter, the next order is indispensable. Therefore, after establishing the general principle, we focus on the perturbation theory up to third order in the Lagrangian.}
 
-\textit{The development in this chapter follows closely the presentation in Ref.~\cite{ccg_paper}.}
+\textit{The development in this chapter follows closely the presentation in Ref.~\cite{ccg_paper}.}\textbf{or does it?}
 
 \textbf{take-home message: approach ideally suits itself for construction of theories which govern weak gravitational fields}
 
@@ -18,7 +18,7 @@ Let us state again, for reference, the equivariance equations \eqref{equivarianc
       0 &{} = L_{:A}^{\hphantom{:A}I} \gmc{A}{B}{(n}{m} J^{pq)}_I u^B.
     \end{aligned}
 \end{equation*}
-The first equivariance equation $0 = L_{,m}$ has been omitted, because we will consider it solved from now on by restricting the problem to Lagrangian densities $L$ which depend only on the fiber coordinates.
+The first equivariance equation $0 = L_{,m}$ has been omitted, because we will consider it solved from now on by restricting the problem to Lagrangian densities $L$ which depend only on the fibre coordinates.
 
 Perturbation theory starts with choosing an expansion point $p\in J^2E$. Let $p$ have fibre coordinates $(N^A,N^A_{\hphantom Ap},N^A_{\hphantom AI})$. The deviation of any point $q\in J^2E$ with fibre coordinates $(G^A,G^A_{\hphantom Ap},G^A_{\hphantom AI})$ is then defined as the difference
 \begin{equation}
@@ -38,7 +38,7 @@ and is called \emph{formal} because at this point there is no assumption about t
   \item{The expansion point represents a \emph{flat} instance of the gravitational field, i.e., both $N^A_{\hphantom Ap}$ and $N^A_{\hphantom AI}$ vanish.}
   \item{At the expansion point, the matter theory that is used to bootstrap the construction procedure reduces to a theory that is equivalent to a matter theory on Minkowski spacetime.}
 \end{enumerate}
-Both restrictions for $p$ ensure that the limit of weak gravitational fields can match our observations for situations with weak gravity: Matter fields couple to flat geometry in the sense that there are coordinate charts where the geometric coefficients are constant and this geometry is determined by the Minkowski metric. Curvature effects of non-Lorentzian geometry are expected to arised as \emph{deviations} from this ground state. After all, we have formulated another consequence of the correspondence principle for modified gravity.
+Both restrictions for $p$ ensure that the limit of weak gravitational fields can match our observations for situations with weak gravity: Matter fields couple to flat geometry in the sense that there are coordinate charts where the geometric coefficients are constant and this geometry is determined by the Minkowski metric. Curvature effects and effects from non-Lorentzian geometry are expected to arise as \emph{deviations} from this ground state. After all, this is just another incarnation of the correspondence principle for modified gravity.
 
 The first assumption is easily implemented: In the chosen coordinate chart, $p$ takes the form $(N^A,0,0)$. The best way to make sense of the second assumption is by considering a few examples:
 \begin{example}[flat Lorentzian expansion points]
@@ -62,9 +62,9 @@ The first assumption is easily implemented: In the chosen coordinate chart, $p$ 
 Both choices of expansion points ensure that the perturbatively constructed gravitational theories provide to zeroth order in the deviation a background on which known physics is reproduced. Novel physics---the coupling of matter fields to non-metric geometries and the self-coupling of such geometries---should emerge as effect of first and higher orders in the deviation from the Minkowski background.
 
 Having defined an expansion point, the equivariance equations can---in principle---be solved perturbatively by repeating the following process: All equations in the system contain derivatives of first order, so the expansion coefficient $a$ of zeroth order remain undetermined. In order to determine the expansion coefficients $a_A$, $a_A^{\hphantom Ap}$, and $a_A^{\hphantom aI}$, substitute the formal power series ansatz \eqref{power_series_ansatz} for the Lagrangian density $L$ in the equivariance equations, evaluate the result at $N$ (i.e.~set the deviation $H$ to zero) and solve the resulting linear equations for the first-order coefficients. Next, differentiate each PDE once with respect to every independent variable, substitute again the power series ansatz, evaluate at $N$ and solve the linear system for the expansion coefficients of second order. Now repeat this process of differentiation, substitution, evaluation, and solving of linear equations \emph{ad infinitum}---or up to the desired perturbation order.
-
-However, for this solution process to play out as desired, the PDE system must observe an important property: We need to be sure that each step really determines all expansion coefficients for the corresponding order to the extend that this is possible\footnote{Of course, the equivariance equations, in general, will not determine \emph{all} expansion coefficients. Rather, the solutions will be parameterized exactly by the coefficients that cannot be determined.}. This is not always guaranteed, as a simple example demonstrates.
-\begin{example}[integrability conditions\cite{seiler_habil}]
+\section{Involution analysis}
+For the previously described perturbative solution process to play out as desired, the PDE system must observe an important property: We need to be sure that each step really determines all expansion coefficients for the corresponding order to the extent that this is possible\footnote{Of course, the equivariance equations, in general, will not determine \emph{all} expansion coefficients. Rather, the solutions will be parameterized exactly by the coefficients that cannot be determined.}. This is not always guaranteed, as a simple example demonstrates.
+\begin{example}[integrability conditions\cite{seiler_habil}]\label{example_involution_1}
   Consider the linear, first-order PDE system
   \begin{equation}\label{example_integrability_condition}
     \begin{aligned}
@@ -82,7 +82,7 @@ However, for this solution process to play out as desired, the PDE system must o
       u_{,yz} &{} = 0.
     \end{aligned}
   \end{equation}
-  The second derivatives in the first equation can be cancelled using the second and third equation, yielding the first-order PDE $u_{,x} = 0$. This new equation is independent of the original PDEs \eqref{example_integrability_condition}. Including it in the first-order system and simplifying a bit, we get
+  The second derivatives in the first equation can be cancelled using the second and third equation, yielding the first-order PDE $u_{,x} = 0$. Such a new equation that is algebraically independent of the original PDEs \eqref{example_integrability_condition} is called an \textbf{integrability condition}. Including it in the first-order system and simplifying a bit, we get
   \begin{equation}
     \begin{aligned}
       u_{,x} &{} = 0, \\
@@ -92,12 +92,11 @@ However, for this solution process to play out as desired, the PDE system must o
   \end{equation}
   Only after performing this procedure of making explicit the hidden first-order PDEs, we know for sure that the expansion coefficients of first order are determined already after the first iteration. In this case, the resulting linear system has full rank, leaving no coefficient undetermined.
 \end{example}
+Luckily, the system of equivariance equations suffers none of these maladies, as we will prove in the following. The mathematical framework that allows to make such a statement is \emph{involution theory}\cite{seiler_involution}. Within this framework, a PDE of order $q$ is defined geometrically as fibred submanifold $R_q\subseteq J^qE$ of some jet bundle manifold $J^qE$.\footnote{Note that this jet bundle is \emph{not} the jet bundle on which the Lagrangian density is defined. For the equivariance equations, the order $q$ is 1 and the underlying bundle $E$ is $J^2E_\text{geometry}$.} A local coordinate representation of $R_q$ yields a system of equations, more closely resembling what a PDE looks like in the non-geometric picture. Note that we deliberately call $R_q$ a partial differential \emph{equation}, rather than using the plural, as this approach makes no difference between systems or scalar equations. A solution to a PDE is just a local section $\sigma$ of $E$ such that the image of $j^q\sigma$ is contained within $R_q$.
 
-\begin{itemize}
-\item power series ansatz
-\item involution theory
-\item proof: equivariance equations are involutive
-\end{itemize}
+Two geometric operations will be performed repeatedly on PDEs for their involution analysis: \emph{prolongation} and \emph{projection}. The former maps a PDE $R_q$ to some PDE $R_{q+r}$ by, in local coordinates, taking all possible derivatives of order $r$ of the individual equations---the geometric construction is a bit more involved. On the contrary, it is simpler to define projections geometrically, which is as bundle projections $R^{(r)}_{q-r} = \pi^q_{q-r}(R_q)$. Using a local representation of $R_q$, the projection is performed by eliminating derivatives of higher orders using only algebraic manipulations such that equations of order $q-r$ remain. The maximal set of such equations is a representation of $R_{q-r}$. For linear systems, the task of projecting a PDE to lower order is solved by linear algebra with tools like Gaussian elimination and has already been demonstrated earlier in Example \ref{example_involution_1}.
+
+
 
 \section{Lorentz invariant ansätze}
 
