@@ -94,11 +94,58 @@ For the previously described perturbative solution process to play out as desire
 \end{example}
 Luckily, the system of equivariance equations suffers none of these maladies, as we will prove in the following. The mathematical framework that allows to make such a statement is \emph{involution theory}\cite{seiler_involution}. Within this framework, a PDE of order $q$ is defined geometrically as fibred submanifold $R_q\subseteq J^qE$ of some jet bundle manifold $J^qE$.\footnote{Note that this jet bundle is \emph{not} the jet bundle on which the Lagrangian density is defined. For the equivariance equations, the order $q$ is 1 and the underlying bundle $E$ is $J^2E_\text{geometry}$.} A local coordinate representation of $R_q$ yields a system of equations, more closely resembling what a PDE looks like in the non-geometric picture. Note that we deliberately call $R_q$ a partial differential \emph{equation}, rather than using the plural, as this approach makes no difference between systems or scalar equations. A solution to a PDE is just a local section $\sigma$ of $E$ such that the image of $j^q\sigma$ is contained within $R_q$.
 
-Two geometric operations will be performed repeatedly on PDEs for their involution analysis: \emph{prolongation} and \emph{projection}. The former maps a PDE $R_q$ to some PDE $R_{q+r}$ by, in local coordinates, taking all possible derivatives of order $r$ of the individual equations---the geometric construction is a bit more involved. On the contrary, it is simpler to define projections geometrically, which is as bundle projections $R^{(r)}_{q-r} = \pi^q_{q-r}(R_q)$. Using a local representation of $R_q$, the projection is performed by eliminating derivatives of higher orders using only algebraic manipulations such that equations of order $q-r$ remain. The maximal set of such equations is a representation of $R_{q-r}$. For linear systems, the task of projecting a PDE to lower order is solved by linear algebra with tools like Gaussian elimination and has already been demonstrated earlier in Example \ref{example_involution_1}.
+Two geometric operations will be performed repeatedly on PDEs for their involution analysis: \emph{prolongation} and \emph{projection}. The former maps a PDE $R_q$ to some PDE $R_{q+r}$ by, in local coordinates, adding to $R_q$ all possible derivatives of order $r$ of the individual equations---the geometric construction is a bit more involved. On the contrary, it is simpler to define projections geometrically, which is as bundle projections $R^{(r)}_{q-r} = \pi^q_{q-r}(R_q)$. Using a local representation of $R_q$, the projection is performed by eliminating derivatives of higher orders using only algebraic manipulations such that equations of order $q-r$ remain. The maximal set of such equations is a representation of $R_{q-r}$. For linear systems, the task of projecting a PDE to lower order is solved by linear algebra with tools like Gaussian elimination and has already been demonstrated earlier in Example \ref{example_involution_1}.
 
+As a last ingredient, we need the definition of the \emph{geometric symbol} $M_q$. Using a coordinate representation, $M_q$ is obtained by differentiating the equations with respect to the highest derivatives of the unknown functions. With this, the main result can be established.
 
+\begin{theorem}[formal integrability of equivariance equations]\label{thm_formal_integrability}
+  The equivariance equations are a formally integrable partial differential equation $R_q$ with $q=1$, i.e.~it holds for all $r>0$ that $R^{(1)}_{q+r} = R_{q+r}$.
+\end{theorem}
+
+Formal integrability as defined in Thm.~\ref{thm_formal_integrability} captures in geometric terms the requirement a PDE must satisfy in order for the iterative solution strategy to succeed. Otherwise, a truncated power series solution---which will later serve as approximate solution for weak gravitational fields---could never be trusted, as prolongations of the PDE to higher orders could always yield additional constraints on the coefficients of the truncated series.
+
+\textbf{to be continued ...}
 
 \section{Lorentz invariant ansätze}
+
+In order to implement the second assumption for suitable expansion points in the power series ansatz, we choose coordinate representations where the flat geometry is Lorentz invariant, i.e.~satisfies the Lorentz invariance conditions
+\begin{equation}\label{lorentz_invariance_N}
+  0 = N^A \gmc{B}{A}{n}{m} (K_{(i)})^m_n,
+\end{equation}
+where $K_{(i)}$ are the 6 generators $\{ \eta^{m\lbrack r}\delta^{s\rbrack}_n \mid r < s \}$ of the Lorentz group. This special symmetry of the expansion point carries over to the equivariance equations and causes rank defects, for example in the second equivariance equation \eqref{equivariance_eqn_2}. At a generic (non-Lorentz invariant) point $p=(x^i,M^A,0,0)$, it reads
+\begin{equation}
+  0 = L_{:A}\rvert_p \gmc{A}{B}{n}{m} M^B + L\rvert_p \delta^n_m
+\end{equation}
+and is, in general, of rank 16. Evaluating the same equation at $p_0 = (x^i,N^A,0,0)$ and contracting with Lorentz generators $K_{(i)}$, we obtain the 6 vanishing linear combinations
+\begin{equation}
+  \begin{aligned}
+    0 &{} = L_{:A}\rvert_{p_0} \gmc{A}{B}{n}{m} N^B (K_{(i)})^m_n + L\rvert_{p_0} \delta^n_m (K_{(i)})^m_n \\
+      &{} = 0.
+  \end{aligned}
+\end{equation}
+In the end, only 10 equations remain linearly independent. While at the first glance this seems to reducefthe number of determinable expansion coefficients, the inverse is actually true: Consider again the second equivariance equation and calculate the prolongation with respect to the variables $u^A$. Evaluated at $p_0$, this gives
+\begin{equation}
+  0 = L_{:A:B}\rvert_{p_0} \gmc{B}{C}{n}{m} N^C + L_{:B}\rvert_{p_0} \gmc{B}{A}{n}{m} + L_{:A}\rvert_{p_0} \delta^n_m,
+\end{equation}
+which contracted with the Lorentz generators reduces again to first-order equations
+\begin{equation}
+  0 = L_{:B}\rvert_{p_0}\gmc{B}{A}{n}{m}(K_{(i)})^m_n.
+\end{equation}
+Comparing this equation with Eqn.~\ref{lorentz_invariance_N} emphasizes its significance: It mandates Lorentz invariance of the expansion coefficients $L_{:B}\rvert_{p_0} = a_B$.
+
+Similar results hold for all other expansion coefficients and are obtained exactly the same way: Calculate prolongations of the second equivariance equation, evaluate at the Lorentz invariant expansion point, and contract with the Lorentz generators. While this yields new independent equations of order $q$ by prolongation to order $q+1$ and subsequent projection, it is important not to conflate the Lorentz invariance conditions on expansion coefficients with integrability conditions from involution theory. The former are an artefact of the expansion point with additional symmetries and are as such only valid exactly there, while an integrability condition would not be restricted to singular points.
+
+When solving the equivariance equations iteratively, we could just include the Lorentz invariance conditions and solve them together with the original equations. A better way is to exploit the nature of the additional conditions and implement Lorentz invariance of the expansion coefficients \emph{before} substituting the ansatz in the equivariance equations. For example, working on the metric bundle, rather than including the 60 equations
+\begin{equation}
+  a_B \gmc{B}{A}{n}{m}(K_{(i)})^m_n
+\end{equation}
+for the 10-dimensional ansatz $a_B$, we implement Lorentz invariance by reducing $a_B$ to the ansatz
+\begin{equation}
+  a_B = c\cdot J_B^{ab} \eta_{ab}
+\end{equation}
+with just one undetermined coefficient. Not only did we get by without adding equations to the system, but we reduced the number of unknowns significantly.
+
+A particular reduction we can perform right now is to set expansion coefficients with an \emph{odd} number of indices to zero.\footnote{For field bundles that are defined as proper subbundle of some ``unrestricted'' tensor bundle, the number of indices refers to the rank of the latter.} Assuming that the number of indices on the geometry is even\footnote{Otherwise, we would not be able to define a Lorentz invariant expansion point to begin with.}, this removes all coefficients with odd total number of derivatives to zero, e.g.~$a_{A\hphantom pB}^{\hphantom Ap\hphantom BI}=0$.
 
 \section{Perturbative implementation of axiom 2}
 \begin{itemize}
