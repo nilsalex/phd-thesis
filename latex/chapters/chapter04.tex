@@ -145,10 +145,27 @@ for the 10-dimensional ansatz $a_B$, we implement Lorentz invariance by reducing
 \end{equation}
 with just one undetermined coefficient. Not only did we get by without adding equations to the system, but we reduced the number of unknowns significantly.
 
-A particular reduction we can perform right now is to set expansion coefficients with an \emph{odd} number of indices to zero.\footnote{For field bundles that are defined as proper subbundle of some ``unrestricted'' tensor bundle, the number of indices refers to the rank of the latter.} Assuming that the number of indices on the geometry is even\footnote{Otherwise, we would not be able to define a Lorentz invariant expansion point to begin with.}, this removes all coefficients with odd total number of derivatives to zero, e.g.~$a_{A\hphantom pB}^{\hphantom Ap\hphantom BI}=0$.
+A particular reduction we can perform right now is to set expansion coefficients with an \emph{odd} number of indices to zero.\footnote{For field bundles that are defined as proper subbundle of some ``unrestricted'' tensor bundle, the number of indices refers to the rank of the latter.} Assuming that the number of indices on the geometry is even\footnote{Otherwise, we would not be able to define a Lorentz invariant expansion point to begin with.}, this removes all coefficients with odd total number of derivatives from the ansatz, e.g.~$a_{A\hphantom pB}^{\hphantom Ap\hphantom BI}=0$.
 
 \section{Perturbative implementation of axiom 2}
-\begin{itemize}
-\item expansion of the principal polynomial
-\end{itemize}
 
+Before deriving consequences from the second axiom for the perturbatively constructed solutions, we can already infer restrictions on the perturbation \emph{ansatz}. As the matter Lagrangians considered here depend on the geometry only locally, and so do the corresponding principal polynomials, a matching gravitational polynomial must also depend on the geometry locally, i.e.~not via derivatives. In order to enforce this, we remove ansätze with a total number of derivatives greater than two and obtain
+\begin{equation}\label{ansatz_reduced}
+  \begin{aligned}
+    L &{} = a + a_A H^A + a_A^{\hphantom AI} H^A_{\hphantom AI} + a_{AB} H^A H^B + a_{AB}^{\hphantom{AB}I} H^A H^B_{\hphantom BI} \\
+      &{} \hphantom{=} + a_{ABC} H^A H^B H^C + a_{AB\hphantom pC}^{\hphantom{AB}p\hphantom Cq} H^A H^B_{\hphantom Bp} H^C_{\hphantom Cq} + a_{ABC}^{\hphantom{ABC}I} H^A H^B H^C_{\hphantom CI} + \dots
+  \end{aligned}
+\end{equation}
+as the general ansatz. As discussed before, all expansion coefficients are Lorentz invariant.
+
+Now, consider a solution of the equivariance equations for the ansatz \eqref{ansatz_reduced}, truncated at order $q+1$. The corresponding field equations will be of order $q$ and the principal symbol, consequently, of order $q-1$. The second axiom of covariant constructive gravity is implemented perturbatively by matching the expansion
+\begin{equation}\label{expansion_matter_poly}
+  \mathcal P_\text{mat} = (P^{(0)}_\text{mat}) + (P^{(1)}_\text{mat})_A H^A + \dots + (P^{(q-1)}_\text{mat})_{A_1\dots A_{q-1}} H^{A_1} \dots H^{A_{q-1}} + \mathcal O(q)
+\end{equation}
+of the matter polynomial with the expansion
+\begin{equation}\label{expansion_grav_poly}
+  \mathcal P_\text{grav} = (P^{(0)}_\text{grav}) + (P^{(1)}_\text{grav})_A H^A + \dots + (P^{(q-1)}_\text{grav})_{A_1\dots A_{q-1}} H^{A_1} \dots H^{A_{q-1}} + \mathcal O(q)
+\end{equation}
+of the gravitational polynomial. Note that a ``match'' does not necessarily mean that both polynomials coincide, but rather that the causalities are compatible in the sense of Def.~\ref{causal_compatibility_def}.
+
+While the expansion \eqref{expansion_matter_poly} generally follows from a closed form for the matter principal polynomial, we only have the currently constructed orders of the gravitational Lagrangian at our disposal when calculating terms from Eq.~\ref{expansion_grav_poly}. The process however is straightforward. We restrict our attention to the order $q=2$ in the field equations, which is the maximum order we will consider for a concrete example later, but the calculations can be generalized to higher orders if necessary.
