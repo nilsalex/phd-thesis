@@ -1,9 +1,50 @@
 \chapter{Application: gravitational radiation from birefringent matter dynamics}
 \label{chapter_weak_area}
 
-\textbf{take-home message: application to a refined matter theory yields interesting phenomenology}
+\textit{So far, we have developed the general framework of covariant constructive gravity and derived a perturbative equivalent. A few examples illustrated the constructions, but the presentation focused on broad applicability to various geometries, without any specific bundle or matter theory in mind. In this chapter, we shift our focus and consider in depth the application of the framework to generalized linear electrodynamics, a birefringent generalization of Maxwell electrodynamics introduced in Chapter \ref{chapter_construction_algorithm}. Applying the perturbative construction procedure to third order yields gravitational field equations to second order. We will carefully analyze a $3+1$ split for the linear part of this theory and restrict to a certain sector with, in a very specific sense, physically sane phenomenology. Afterwards, we solve the two-body problem to first order and obtain the orbits of a binary system in area metric gravity. Building up on this solution, the second order of the field equations is used to derive the emission of gravitational radiation from the binary system and the radiative loss, which causes spin-up of the system. The binary star subject to area metric gravity turns out to exhibit qualitatively new behaviour as compared to Einstein gravity, e.g.~additional massive modes of gravitational radiation or a modification of Kepler's third law.}
+
+\textit{To a large extent, the work presented in this chapter has been published as Ref.~\cite{grav_rad_paper}. The results on radiation loss are not part of the previous publication.}
+
+\section{Area metric gravity}
+The matter theory in question is generalized linear electrodynamics (GLED) as defined in Def.~\ref{def_gled} with the Lagrangian density
+\begin{equation}\label{lagrangian_gled}
+  L_\text{GLED} = \omega_G G^{abcd} F_{ab} F_{cd},
+\end{equation}
+where we choose without loss of generality the scalar density
+\begin{equation}
+  \omega_G = \left(\frac{1}{24}\epsilon_{abcd}G^{abcd}\right)^{-1}.
+\end{equation}
+The principal polynomial of GLED is quartic and takes the form
+\begin{equation}
+  \mathcal P_\text{GLED}(k) = -\frac{1}{24} \omega_G^2 \epsilon_{mnpq} \epsilon_{rstu} G^{mnra} G^{bpsc} G^{dqtu} k_a k_b k_c k_d.
+\end{equation}
+As appropriate Lorentz invariant expansion point constructed from the Minkowski metric $\eta$, we already determined in Example \ref{example_expansion_points}
+\begin{equation}
+  N^A = J_{abcd}^A (\eta^{ac} \eta^{bd} - \eta^{ad} \eta^{bc} + \epsilon^{abcd}).
+\end{equation}
+Before solving the system of equivariance equations perturbatively around $N$, let us consider the reduced power series ansatz \eqref{ansatz_reduced}. In addition to dropping terms with an odd total number of derivatives, a derivative total greater than 2, and non-Lorentz invariant expansion coefficients, we drop the linear term $a_A H^A$. This term would yield a constant in the Euler-Lagrange equations, such that the flat expansion point $N$ would no longer be a solution to the vacuum field equations. However, the perturbation ansatz stipulates that we perturb around a solution of the field equations. Since it is obvious that Equation \eqref{prolong_0} implies from vanishing coefficients $a_A$ that also the coefficient $a$ vanishes, we readily drop both and work with the further reduced ansatz
+\begin{equation}\label{ansatz_area_gravity}
+  \begin{aligned}
+    L &{} = a_A^{\hphantom AI} H^A_{\hphantom AI} \\
+      &{} \hphantom{=} + a_{AB} H^A H^B + a_{AB}^{\hphantom{AB}I} H^A H^B_{\hphantom BI} + a_{A\hphantom pB}^{\hphantom Ap\hphantom Bq} H^A_{\hphantom Ap} H^B_{\hphantom Bq} \\
+      &{} \hphantom{=} + a_{ABC} H^A H^B H^C + a_{AB\hphantom pC}^{\hphantom{AB}p\hphantom Cq} H^A H^B_{\hphantom Bp} H^C_{\hphantom Cq} + a_{ABC}^{\hphantom{ABC}I} H^A H^B H^C_{\hphantom CI} \\
+      &{} \hphantom{=} + \mathcal O(H^4).
+  \end{aligned}
+\end{equation}
 
 \section{Solving axiom 1}
+Step 1 of the perturbative construction algorithm \ref{perturbative_algorithm} consists in computing the Gotay-Marsden coefficients for the gravitational bundle. For area metric gravity, we found in Sect.~\ref{section_gled}
+\begin{equation}
+  \gmc{A}{B}{n}{m} = 4 I^{pqrn}_B J^A_{pqrm},
+\end{equation}
+which followed from the general result \eqref{gmc_contra} for purely contravariant tensor bundles.
+
+Proceeding with step 2, we need to construct a basis for the expansion coefficients
+\begin{equation}
+  (a_A^{\hphantom AI}, a_{AB}, a_{AB}^{\hphantom{AB}I}, a_{A\hphantom pB}^{\hphantom Ap\hphantom Bq}, a_{ABC}, a_{ABC}^{\hphantom{ABC}I}, a_{AB\hphantom pC}^{\hphantom{AB}p\hphantom Cq})
+\end{equation}
+in the ansatz \eqref{ansatz_area_gravity}. The Lorentz invariance of the coefficients is easily implemented
+
 \begin{itemize}
 \item ansätze + solution
 \item method: haskell program
@@ -29,3 +70,4 @@
 \item spin-up
 \end{itemize}
 
+\textbf{take-home message: application to a refined matter theory yields interesting phenomenology}

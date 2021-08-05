@@ -41,7 +41,7 @@ and is called \emph{formal} because at this point there is no assumption about t
 Both restrictions for $p$ ensure that the limit of weak gravitational fields can match our observations for situations with weak gravity: Matter fields couple to flat geometry in the sense that there are coordinate charts where the geometric coefficients are constant and this geometry is determined by the Minkowski metric. Curvature effects and effects from non-Lorentzian geometry are expected to arise as \emph{deviations} from this ground state. After all, this is just another incarnation of the correspondence principle for modified gravity.
 
 The first assumption is easily implemented: In the chosen coordinate chart, $p$ takes the form $(N^A,0,0)$. The best way to make sense of the second assumption is by considering a few examples:
-\begin{example}[flat Lorentzian expansion points]
+\begin{example}[flat Lorentzian expansion points]\label{example_expansion_points}
   Let us choose appropriate expansion points $(N^A,0,0)$ for GLED and bimetric theories introduced in Sections \ref{section_gled} and \ref{section_bimetric}, respectively. In order to satisfy the second assumption made for expansion points, we construct $N^A$ from the Minkowski metric $\eta^{ab} = \operatorname{diag}(1,-1,-1,-1)^{ab}$ in the following ways.
   \begin{enumerate}
     \item{For bimetric theories, a suitable expansion point is given by $N^{\bar A} = J_{ab}^{\bar A} \eta^{ab}$ and $N^{\bar{\bar A}} = J_{ab}^{\bar{\bar A}} \eta^{ab}$, i.e.~setting both metrics $g$ and $h$ equal to $\eta$. Where a scalar density is needed, we choose $\omega = \sqrt{-\operatorname{det}\eta} = 1$. This choice reduceds the bimetric Klein-Gordon theory to the standard Klein-Gordon theory for two scalar fields on Minkowski spacetime
@@ -153,7 +153,7 @@ A particular reduction we can perform right now is to set expansion coefficients
 Before deriving consequences from the second axiom for the perturbatively constructed solutions, we can already infer restrictions on the perturbation ansatz. As the matter Lagrangians considered here depend on the geometry only locally, and so do the corresponding principal polynomials, a matching gravitational polynomial must also depend on the geometry locally, i.e.~not via derivatives. In order to enforce this, we remove ansätze with a total number of derivatives greater than two and obtain the general ansatz
 \begin{equation}\label{ansatz_reduced}
   \begin{aligned}
-    L &{} = a + a_A H^A + a_A^{\hphantom AI} H^A_{\hphantom AI} + a_{AB} H^A H^B + a_{AB}^{\hphantom{AB}I} H^A H^B_{\hphantom BI} \\
+    L &{} = a + a_A H^A + a_A^{\hphantom AI} H^A_{\hphantom AI} + a_{AB} H^A H^B + a_{AB}^{\hphantom{AB}I} H^A H^B_{\hphantom BI} + a_{A\hphantom pB}^{\hphantom Ap\hphantom Bq} H^A_{\hphantom Ap} H^B_{\hphantom Bq} \\
       &{} \hphantom{=} + a_{ABC} H^A H^B H^C + a_{AB\hphantom pC}^{\hphantom{AB}p\hphantom Cq} H^A H^B_{\hphantom Bp} H^C_{\hphantom Cq} + a_{ABC}^{\hphantom{ABC}I} H^A H^B H^C_{\hphantom CI} + \dots \ .
   \end{aligned}
 \end{equation}
@@ -259,7 +259,7 @@ The perturbative approach has reduced most of the task of closing a matter field
 and expand to whichever order in $\epsilon$ is desired.
 
 Let us close with a list of the equivariance equations and their first prolongations evaluated at an expansion point $N = (N^A,0,0)$. We will perform the construction algorithm for the order $q=3$ in the following chapter, so it shall suffice here to limit ourselves to this order here as well. We use the reduced power series ansatz Eq.~\ref{ansatz_reduced}. The unprolonged equivariance equations evaluated at $N$ are
-\begin{equation}
+\begin{equation}\label{prolong_0}
   \begin{aligned}
     0 &{} = a_A \gmc{A}{B}{n}{m} N^B + a \delta^n_m, \\
     0 &{} = a_A^{\hphantom AI}\gmc{A}{B}{(n}{m} J^{pq)}_I N^B.
