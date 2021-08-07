@@ -22,11 +22,11 @@ As appropriate Lorentz invariant expansion point constructed from the Minkowski 
 \begin{equation}
   N^A = J_{abcd}^A (\eta^{ac} \eta^{bd} - \eta^{ad} \eta^{bc} + \epsilon^{abcd}).
 \end{equation}
-Before solving the system of equivariance equations perturbatively around $N$, let us consider the reduced power series ansatz \eqref{ansatz_reduced}. In addition to dropping terms with an odd total number of derivatives, a derivative total greater than 2, and non-Lorentz invariant expansion coefficients, we drop the linear term $a_A H^A$. This term would yield a constant in the Euler-Lagrange equations, such that the flat expansion point $N$ would no longer be a solution to the vacuum field equations. However, the perturbation ansatz stipulates that we perturb around a solution of the field equations. Since it is obvious that Equation \eqref{prolong_0} implies from vanishing coefficients $a_A$ that also the coefficient $a$ vanishes, we readily drop both and work with the further reduced ansatz
+Before solving the system of equivariance equations perturbatively around $N$, let us reconsider the reduced power series ansatz \eqref{ansatz_reduced}. In addition to dropping terms with a total number of derivatives that is odd or greater than 2, and dropping non-Lorentz invariant expansion coefficients, we can also discard the linear term $a_A H^A$. This term would yield a constant in the Euler-Lagrange equations, causing the flat expansion point $N$ to no longer constitute a solution to the vacuum field equations. However, the perturbation ansatz stipulates that we perturb around a solution of the field equations. Since it is obvious that Equation \eqref{prolong_0} implies from vanishing coefficients $a_A$ that also the coefficient $a$ vanishes, we readily drop both and make the further reduced ansatz
 \begin{equation}\label{ansatz_area_gravity}
   \begin{aligned}
     L &{} = a_A^{\hphantom AI} H^A_{\hphantom AI} \\
-      &{} \hphantom{=} + a_{AB} H^A H^B + a_{AB}^{\hphantom{AB}I} H^A H^B_{\hphantom BI} + a_{A\hphantom pB}^{\hphantom Ap\hphantom Bq} H^A_{\hphantom Ap} H^B_{\hphantom Bq} \\
+      &{} \hphantom{=} + a_{AB} H^A H^B + a_{A\hphantom pB}^{\hphantom Ap\hphantom Bq} H^A_{\hphantom Ap} H^B_{\hphantom Bq} + a_{AB}^{\hphantom{AB}I} H^A H^B_{\hphantom BI} \\
       &{} \hphantom{=} + a_{ABC} H^A H^B H^C + a_{AB\hphantom pC}^{\hphantom{AB}p\hphantom Cq} H^A H^B_{\hphantom Bp} H^C_{\hphantom Cq} + a_{ABC}^{\hphantom{ABC}I} H^A H^B H^C_{\hphantom CI} \\
       &{} \hphantom{=} + \mathcal O(H^4).
   \end{aligned}
@@ -39,11 +39,32 @@ Step 1 of the perturbative construction algorithm \ref{perturbative_algorithm} c
 \end{equation}
 which followed from the general result \eqref{gmc_contra} for purely contravariant tensor bundles.
 
-Proceeding with step 2, we need to construct a basis for the expansion coefficients
+Proceeding with step 2, we need to construct a basis for the Lorentz invariant expansion coefficients
 \begin{equation}
-  (a_A^{\hphantom AI}, a_{AB}, a_{AB}^{\hphantom{AB}I}, a_{A\hphantom pB}^{\hphantom Ap\hphantom Bq}, a_{ABC}, a_{ABC}^{\hphantom{ABC}I}, a_{AB\hphantom pC}^{\hphantom{AB}p\hphantom Cq})
+  (a_A^{\hphantom AI}, a_{AB}, a_{A\hphantom pB}^{\hphantom Ap\hphantom Bq}, a_{AB}^{\hphantom{AB}I}, a_{ABC}, a_{AB\hphantom pC}^{\hphantom{AB}p\hphantom Cq}, a_{ABC}^{\hphantom{ABC}I})
 \end{equation}
-in the ansatz \eqref{ansatz_area_gravity}. The Lorentz invariance of the coefficients is easily implemented
+in the ansatz \eqref{ansatz_area_gravity}. This task is solved using the Haskell library \texttt{sparse-tensor} \cite{sparse-tensor} discussed in Chapter \ref{}. The result is a basis of dimension 237, enumerated in full in Appendix \ref{} and summarized in Table \ref{}. It should be emphasized that the requirement of Lorentz invariance, which is not a direct stipulation but follows via the equivariance equations from a physically motivated assumption about the expansion point, drastically reduces the dimensionality of the ansatz from
+\begin{equation}
+  210 + \frac{21\cdot 22}{2} + 21\cdot 210 + \frac{84\cdot 85}{2} + \frac{21\cdot 22\cdot 23}{6} + \frac{21\cdot 22}{2} \cdot  210 + 21\cdot\frac{84\cdot 85}{2} = 133672
+\end{equation}
+to only 237. In principle, the correctness of the ansatz can be verified by showing that it is the most generic solution to the ansatz equations \ref{}. All we have to show is that the dimensionality of the ansatz equals the corank of the linear system of ansatz equations. For the ansatz including third-order coefficients, the system is quite large---considering that the coefficient space is already of dimension 133672---such that, on standard hardware, the rank cannot be computed naively by storing the matrix in memory and using methods like singular value decomposition or fraction-free gaussian elimination. It is rather easy, however, to use the aforementioned methods and work out the corank of the linear system determining the Lorentz invariant ansatz coefficients to second order, as the dimension of this ansatz space is only $210 + \frac{21\cdot 22}{2} + 21 \cdot 210 + \frac{84\cdot 85}{2} = 8421$. Confirming the number of obtained basis ansätze up to second order, the corank of the corresponding system is indeed 40. The computer code for this computation is published as Ref.~\cite{second-order-area-repo}.
+\begin{table}
+  \centering
+  \begin{tabular}{l r r}
+    \toprule
+    coefficient & dimension & gravitational constants \\
+    \midrule
+    $a_A^{\hphantom AI}$ & 3 & $(e_{38},\dots ,e_{40})$ \\ \addlinespace[2pt]
+    $a_{AB}$ & 6 & $(e_{1},\dots ,e_{6})$ \\ \addlinespace[2pt]
+    $a_{A\hphantom pB}^{\hphantom Ap\hphantom Bq}$ & 15 & $(e_{7},\dots ,e_{21})$ \\ \addlinespace[2pt]
+    $a_{AB}^{\hphantom{AB}I}$ & 16 & $(e_{22},\dots ,e_{37})$ \\ \addlinespace[2pt]
+    $a_{ABC}$ & 15 & $(e_{41},\dots ,e_{55})$ \\ \addlinespace[2pt]
+    $a_{AB\hphantom pC}^{\hphantom{AB}p\hphantom Cq}$ & 110 & $(e_{56},\dots ,e_{165})$ \\ \addlinespace[2pt]
+    $a_{ABC}^{\hphantom{ABC}I}$ & 72 & $(e_{166},\dots ,e_{237})$ \\ \addlinespace[2pt]
+    \bottomrule 
+  \end{tabular}
+  \caption{Summary of the Lorentz invariant expansion coefficients for the area metric gravity ansatz \eqref{ansatz_area_gravity} obtained from the Haskell library \texttt{sparse-tensor} \cite{}. The dimension is the number of linearly independent basis tensors returned from the computer program. Assigning labels from $1$ to $237$ to all basis tensors, an ansatz is represented by real numbers $e_1\dots e_{237}$ using its unique basis decomposition. These numbers parameterize the gravitational theory and are thus referred to as \emph{gravitational constants}. For a complete picture of the decomposition of ansätze using basis tensors, refer to Appendix \ref{} or the computer code in Ref.~\cite{second-order-area-repo}.}
+\end{table}
 
 \begin{itemize}
 \item ansätze + solution
