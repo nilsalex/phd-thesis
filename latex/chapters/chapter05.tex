@@ -68,6 +68,27 @@ to only 237. In principle, the correctness of the ansatz can be verified by show
 
 With the 237 ansatz coefficients at hand, solving the equivariance equations as required for step 5 is only a matter of inserting the ansatz in the system and its first two prolongations as displayed in Eqns.~\ref{prolong_0}--\ref{prolong_2}, extracting a system of linear equations for the gravitational constants, and solving this system. This task is again performed using efficient computer algebra, implemented in the Haskell library \texttt{safe-tensor}, which is introduced in Chapter \ref{}. The procedure is roughly as follows: A compatibility layer with \texttt{sparse-tensor} is used in order to construct the ansatz tensors and make them available as \texttt{Tensor} types with generalized rank (see Sect.~\ref{}). Together with predefined tensors like Kronecker deltas, intertwiners, Gotay-Marsden coefficients, or the Minkowski metric, the ansatz tensors are used in order to construct the (prolonged) equivariance equations evaluated at $N$ (Eqns.~\ref{prolong_0}--\ref{prolong_2}). Each tensorial equation is a value of type \texttt{Tensor} and, as such, can be evaluated into a list of its components. Every component is a linear equation for the 237 gravitational constants. Collecting all components for all tensorial equations, we obtain a matrix representing the linear system for the constants $e_1\dots e_{237}$. The system is small enough to be solved via fraction-free gaussian elimination using 64-bit integers\footnote{Exploiting the observation we made earlier that, using intertwiners with purely rational components, all coefficients in the system remain rational.}. Finally, we obtain a parameterization of the solution (displayed in full in Appendix \ref{}) by 50 independent gravitational constants. A subset of 16 constants governs \emph{linearized} area metric gravity (via the quadratic Lagrangian density), from which---as we will encounter later---only 11 independent linear combinations play a role for the Euler-Lagrange equations. The procedure outlined here is implemented in Haskell using both libraries \texttt{sparse-tensor} (for ansatz generation) as well as \texttt{safe-tensor} (for constructing and solving the equivariance equations), with the source code and results published as Ref.~\cite{second-order-area-repo}.
 
+Let us close with a walk-through for the solution of the linear expansion coefficient $a_A^{\hphantom AI}$.
+\begin{example}[solution of the equivariance equations to first order]
+  Having set $a_A = 0$, the remaining expansion coefficient for the linear order is $a_A^{\hphantom AI}$, which is determined in part by the second unprolonged equation \eqref{prolong_0}. A suitable basis for this coefficient is
+  \begin{equation}
+    a_A^{\hphantom AI} = J_A^{abcd} J_{pq}^I\lbrack e_1 \cdot \eta_{ac} \eta_{bd} \eta^{pq} + e_2 \cdot \eta_{ac} \delta_b^p \delta_d^q + e_3 \cdot \epsilon_{abcd} \eta^{pq} \rbrack
+  \end{equation}
+  with three gravitational constants $e_1,e_2,e_3$. Inserting this ansatz into the unprolonged equation
+  \begin{equation}
+    0 = a_A^{\hphantom AI} \gmc{A}{B}{(n}{m} J^{pq)}_I N^B =\vcentcolon T^{npq}_m
+  \end{equation}
+  yields a tensorial equation $0 = T^{npq}_m$ with 256 components. Each component is of the form
+  \begin{equation}
+    0 = c_1\cdot e_1  + c_2\cdot e_2 + c_3\cdot e_3.
+  \end{equation}
+  The collection of all components is a system of 256 linear equations for three variables. A lot of these equations are redundant, because they are trivial or linearly dependent. A naive reduction by eliminating trivial equations and choosing only one representative for equations that are multiples of each other already reduces the system to the single equation
+  \begin{equation}
+    0 = 2 e_1 + e_2 + 4 e_3.
+  \end{equation}
+  Setting e.g.~$e_2 = -2 e_1 -4 e_3$ solves the equivariance equation for the coefficient $a_A^{\hphantom AI}$, leaving it parameterized by two gravitational constants $e_1$ and $e_3$.
+\end{example}
+
 \section{Solving axiom 2}
 \begin{itemize}
 \item proof: causality match to second order follows from diffeo invariance
