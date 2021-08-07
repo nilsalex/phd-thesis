@@ -11,7 +11,7 @@ The matter theory in question is generalized linear electrodynamics (GLED) as de
   L_\text{GLED} = \omega_G G^{abcd} F_{ab} F_{cd},
 \end{equation}
 where we choose without loss of generality the scalar density
-\begin{equation}
+\begin{equation}\label{area_density}
   \omega_G = \left(\frac{1}{24}\epsilon_{abcd}G^{abcd}\right)^{-1}.
 \end{equation}
 The principal polynomial of GLED is quartic and takes the form
@@ -66,9 +66,8 @@ to only 237. In principle, the correctness of the ansatz can be verified by show
   \caption{Summary of the Lorentz invariant expansion coefficients for the area metric gravity ansatz \eqref{ansatz_area_gravity} obtained from the Haskell library \texttt{sparse-tensor} \cite{}. The dimension is the number of linearly independent basis tensors returned from the computer program. Assigning labels from $1$ to $237$ to all basis tensors, an ansatz is represented by real numbers $e_1\dots e_{237}$ using its unique basis decomposition. These numbers parameterize the gravitational theory and are thus referred to as \emph{gravitational constants}. For a complete picture of the decomposition of ansätze using basis tensors, refer to Appendix \ref{} or the computer code in Ref.~\cite{second-order-area-repo}.}
 \end{table}
 
-With the 237 ansatz coefficients at hand, solving the equivariance equations as required for step 5 is only a matter of inserting the ansatz in the system and its first two prolongations as displayed in Eqns.~\ref{prolong_0}--\ref{prolong_2}, extracting a system of linear equations for the gravitational constants, and solving this system. This task is again performed using efficient computer algebra, implemented in the Haskell library \texttt{safe-tensor}, which is introduced in Chapter \ref{}. The procedure is roughly as follows: A compatibility layer with \texttt{sparse-tensor} is used in order to construct the ansatz tensors and make them available as \texttt{Tensor} types with generalized rank (see Sect.~\ref{}). Together with predefined tensors like Kronecker deltas, intertwiners, Gotay-Marsden coefficients, or the Minkowski metric, the ansatz tensors are used in order to construct the (prolonged) equivariance equations evaluated at $N$ (Eqns.~\ref{prolong_0}--\ref{prolong_2}). Each tensorial equation is a value of type \texttt{Tensor} and, as such, can be evaluated into a list of its components. Every component is a linear equation for the 237 gravitational constants. Collecting all components for all tensorial equations, we obtain a matrix representing the linear system for the constants $e_1\dots e_{237}$. The system is small enough to be solved via fraction-free gaussian elimination using 64-bit integers\footnote{Exploiting the observation we made earlier that, using intertwiners with purely rational components, all coefficients in the system remain rational.}. Finally, we obtain a parameterization of the solution (displayed in full in Appendix \ref{}) by 50 independent gravitational constants. A subset of 16 constants governs \emph{linearized} area metric gravity (via the quadratic Lagrangian density), from which---as we will encounter later---only 11 independent linear combinations play a role for the Euler-Lagrange equations. The procedure outlined here is implemented in Haskell using both libraries \texttt{sparse-tensor} (for ansatz generation) as well as \texttt{safe-tensor} (for constructing and solving the equivariance equations), with the source code and results published as Ref.~\cite{second-order-area-repo}.
+With the 237 ansatz coefficients at hand, solving the equivariance equations as required for step 5 is only a matter of inserting the ansatz in the system and its first two prolongations as displayed in Eqns.~\ref{prolong_0}--\ref{prolong_2}, extracting a system of linear equations for the gravitational constants, and solving this system. This task is again performed using efficient computer algebra, implemented in the Haskell library \texttt{safe-tensor}, which is introduced in Chapter \ref{}. The procedure is roughly as follows: A compatibility layer with \texttt{sparse-tensor} is used in order to construct the ansatz tensors and make them available as \texttt{Tensor} types with generalized rank (see Sect.~\ref{}). Together with predefined tensors like Kronecker deltas, intertwiners, Gotay-Marsden coefficients, or the Minkowski metric, the ansatz tensors are used in order to construct the (prolonged) equivariance equations evaluated at $N$ (Eqns.~\ref{prolong_0}--\ref{prolong_2}). Each tensorial equation is a value of type \texttt{Tensor} and, as such, can be evaluated into a list of its components. Every component is a linear equation for the 237 gravitational constants. Collecting all components for all tensorial equations, we obtain a matrix representing the linear system for the constants $e_1\dots e_{237}$. The system is small enough to be brought into reduced row echelon form applying fraction-free gaussian elimination and backward substitution using 64-bit integers\footnote{Exploiting the observation we made earlier that, using intertwiners with purely rational components, all coefficients in the system remain rational.}, which yields a solution that parameterizes the constants with a few remaining indeterminate gravitational constants. As an example for the process, let us walk through the solution for the linear expansion coefficient $a_A^{\hphantom AI}$.
 
-Let us close with a walk-through for the solution of the linear expansion coefficient $a_A^{\hphantom AI}$.
 \begin{example}[solution of the equivariance equations to first order]
   Having set $a_A = 0$, the remaining expansion coefficient for the linear order is $a_A^{\hphantom AI}$, which is determined in part by the second unprolonged equation \eqref{prolong_0}. A suitable basis for this coefficient is
   \begin{equation}
@@ -89,10 +88,42 @@ Let us close with a walk-through for the solution of the linear expansion coeffi
   Setting e.g.~$e_2 = -2 e_1 -4 e_3$ solves the equivariance equation for the coefficient $a_A^{\hphantom AI}$, leaving it parameterized by two gravitational constants $e_1$ and $e_3$.
 \end{example}
 
+Applied to the whole system of equivariance equations, we obtain a parameterization of the solution (displayed in full in Appendix \ref{}) by 50 independent gravitational constants. A subset of 16 constants governs \emph{linearized} area metric gravity via the quadratic Lagrangian density, from which---as we will encounter later---only 11 independent linear combinations play a role for the Euler-Lagrange equations. The procedure outlined here is implemented in Haskell using the library \texttt{sparse-tensor} for ansatz generation as well as the library \texttt{safe-tensor} for constructing and solving the equivariance equations, with the source code and results published as Ref.~\cite{second-order-area-repo}.
+
 \section{Solving axiom 2}
-\begin{itemize}
-\item proof: causality match to second order follows from diffeo invariance
-\end{itemize}
+The pedestrian approach towards implementing causal compatibility of the just constructed gravitational theory with GLED is to carefully execute steps 6--12 of the perturbative construction algorithm. This way, we obtain an approximation of the area metric gravity principal polynomial and have to match the causal structure with a first-order expansion of the GLED principal polynomial. While entirely feasible, this approach is less illustrive than the \emph{constructive} approach we employ instead. The underlying realization behind this technique is that the diffeomorphism invariance of the gravitational theory dramatically restricts the possible principal polynomials. In fact, we will see that for third-order area metric Lagrangians, the admissible principal polynomials are already causally compatible with the corresponding expansion of the GLED polynomial. \emph{There is no causality mismatch left to be fixed.}
+
+To this end, recall the GLED polynomial \eqref{gled_polynomial}, which using the scalar density \eqref{area_density} assumes the form
+\begin{equation}
+  \mathcal P_\text{GLED}(k) = -\frac{1}{\frac{1}{24}(\epsilon_{abcd}G^{abcd})^2} \epsilon_{mnpq} \epsilon_{rstu} G^{mnra} G^{bpsc} G^{dqtu} k_a k_b k_c k_d.
+\end{equation}
+Expanding this expression to linear order in the perturbation yields
+\begin{equation}\label{gled_poly_first_order}
+  \begin{aligned}
+    \mathcal P_\text{GLED}(k) &{} = \left\{ \left\lbrack 1 - \frac{1}{24} \epsilon(H) \right\rbrack \eta(k,k) + \frac{1}{2} H(k,k) \right\}^2 + \mathcal O(H^2) \\
+                              &{} = \lbrack P^{(\leq 1)}_\text{GLED} \rbrack^2 + \mathcal O(H^2),
+  \end{aligned}
+\end{equation}
+where the abbreviations
+\begin{equation}
+  \epsilon(H) = \epsilon_{abcd} H^{abcd}\quad\text{and}\quad H(k,k) = \eta_{ac} H^{abcd} k_b k_d
+\end{equation}
+have been introduced. In the following, we will also make use of
+\begin{equation}
+  \eta(H) = \eta_{ac} \eta_{bd} H^{abcd}.
+\end{equation}
+Up to first order, we find that the GLED polynomial factors into the square of a metric polynomial $P^{(\leq 1)}_\text{GLED}$. This has a remarkable consequence: For weak gravitational fields, where the approxmiation to first order is sufficiently good, the physics of point particles adhering to GLED dynamics is indistinguishable from the Maxwellian setting with a metric perturbation $h$ by virtue of the identification
+\begin{equation}
+  h^{ab} = \left\lbrack 1 - \frac{1}{24} \epsilon(H) \right\rbrack \eta^{ab} + \frac{1}{2} \eta_{cd}H^{acbd} = (P^{(\leq 1)}_\text{GLED})^{ab}.
+\end{equation}
+This effect only holds in the limit of geometric optics---the GLED field equations do \emph{not} reduce to Maxwell equations with a metric perturbation. Consequently, even to first order in the area metric perturbation, non-metric effects can be observed. An in-depth study of classical and quantum electrodynamics on weakly birefringent backgrounds based on exactly this realization has been conducted in Ref.~\cite{quantum_gled}.
+
+We will now proceed to show that the possible principal polynomials arising from third-order area metric gravity Lagrangians as constructed in the previous section are only mildly more general than the effectively quadratic first-order GLED polynomial \eqref{gled_poly_first_order}. This issue is approached by first considering the corresponding Euler-Lagrange equations.
+
+\begin{proposition}
+
+\end{proposition}
+
 
 \section{3+1 decomposition}
 \begin{itemize}
