@@ -124,7 +124,7 @@ and is, in general, of rank 16. Evaluating the same equation at $p_0 = (x^i,N^A,
       &{} = 0.
   \end{aligned}
 \end{equation}
-In the end, only 10 equations remain linearly independent. While at the first glance this seems to reducefthe number of determinable expansion coefficients, the inverse is actually true: Consider again the second equivariance equation and calculate the prolongation with respect to the variables $u^A$. Evaluated at $p_0$, this gives
+In the end, only 10 equations remain linearly independent. While at the first glance this seems to reduce the number of determinable expansion coefficients, the inverse is actually true: Consider again the second equivariance equation and calculate the prolongation with respect to the variables $u^A$. Evaluated at $p_0$, this gives
 \begin{equation}
   0 = L_{:A:B}\rvert_{p_0} \gmc{B}{C}{n}{m} N^C + L_{:B}\rvert_{p_0} \gmc{B}{A}{n}{m} + L_{:A}\rvert_{p_0} \delta^n_m,
 \end{equation}
@@ -148,7 +148,7 @@ with just one undetermined coefficient. Not only did we get by without adding eq
 
 A particular reduction we can perform right now is to set expansion coefficients with an \emph{odd} number of indices to zero.\footnote{For field bundles that are defined as proper subbundle of some ``unrestricted'' tensor bundle, the number of indices refers to the rank of the latter.} Assuming that the number of indices on the geometry is even\footnote{Otherwise, we would not be able to define a Lorentz invariant expansion point to begin with.}, this removes all coefficients with odd total number of derivatives from the ansatz, e.g.~$a_{A\hphantom pB}^{\hphantom Ap\hphantom BI}=0$.
 
-\section{Perturbative implementation of axiom 2}
+\section{Perturbative implementation of axiom 2}\label{section_axiom2_perturb}
 
 Before deriving consequences from the second axiom for the perturbatively constructed solutions, we can already infer restrictions on the perturbation ansatz. As the matter Lagrangians considered here depend on the geometry only locally, and so do the corresponding principal polynomials, a matching gravitational polynomial must also depend on the geometry locally, i.e.~not via derivatives. In order to enforce this, we remove ansätze with a total number of derivatives greater than two and obtain the general ansatz
 \begin{equation}\label{ansatz_reduced}

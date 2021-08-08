@@ -120,21 +120,67 @@ This effect only holds in the limit of geometric optics---the GLED field equatio
 
 We will now proceed to show that the possible principal polynomials arising from third-order area metric gravity Lagrangians as constructed in the previous section are only mildly more general than the effectively quadratic first-order GLED polynomial \eqref{gled_poly_first_order}. This issue is approached by first considering the corresponding Euler-Lagrange equations.
 
-\begin{proposition}
-  Let $E\overset{\pi}{\longrightarrow}M$ be a sub-bundle of some tensor bundle over $M$. Consider a Lagrangian field theory on $J^2\pi$ that is degenerate in the sense that the Euler-Lagrange equations are of second derivative order, i.e.~are also defined on $J^2\pi$. If the Lagrangian field theory is diffeomorphism invariant with respect to the diffeomorphism action on the second jet bundle, it follows that also the Euler-Lagrange equations are diffeomorphism equivariant. In particular, a local representation of the Euler-Lagrange equations at a section $G$ of $\pi$
-  \begin{equation}
-    E_A = \lbrack L_{:A} - D_p L_{:A}^{\hphantom{:A}p} + I_I^{pq} D_p D_q L_{:A}^{\hphantom{:A}I}\rbrack \circ G
+\begin{proposition}\label{prop_euler_tensor}
+  Let $E\overset{\pi}{\longrightarrow}M$ be a sub-bundle of some tensor bundle over $M$. Consider a Lagrangian field theory on $J^2\pi$ that is degenerate in the sense that the Euler-Lagrange equations are of second derivative order, i.e.~are also defined on $J^2\pi$. If the Lagrangian field theory is diffeomorphism invariant with respect to the diffeomorphism action on the second jet bundle, it follows that also the Euler-Lagrange equations are diffeomorphism equivariant. In particular, a local representation of the Euler-Lagrange equations
+  \begin{equation}\label{euler_lagrange_local_repeat}
+  E_A = L_{:A} - D_p L_{:A}^{\hphantom{:A}p} + I_I^{pq} D_p D_q L_{:A}^{\hphantom{:A}I}
   \end{equation}
   exhibits the transformation behaviour
   \begin{equation}\label{trafo_euler_lagrange}
-    \delta_\xi E_A = E_A \xi^m_{,m} - E_B \gmc{B}{A}{n}{m} \xi^m_n,
+    \delta_\xi E_A = -E_A \xi^m_{,m} - E_B \gmc{B}{A}{n}{m} \xi^m_n,
   \end{equation}
   where $\gmc{B}{A}{n}{m}$ are the Gotay-Marsden coefficients corresponding to the field bundle. In other words, the Euler-Lagrange equations transform as tensor density of weight 1.
 \end{proposition}
 \begin{proof}
   The claim follows from expanding the left hand side of Eq.~\ref{trafo_euler_lagrange} as
   \begin{equation}
-    \delta_\xi E_A = E_{A:B} \delta_\xi G^B + E_{A:B}^{\hphantom{A:B}p} \delta_\xi G^B_{\hphantom B,p} + E_{A:B}^{\hphantom{A:B}I} \delta_\xi G^B_{\hphantom B,I}
+    \delta_\xi E_A = E_{A:B} \delta_\xi u^B + E_{A:B}^{\hphantom{A:B}p} \delta_\xi u^B_{\hphantom Bp} + E_{A:B}^{\hphantom{A:B}I} \delta_\xi u^B_{\hphantom BI},
+  \end{equation}
+  then replacing $E_A$ with its definition \eqref{euler_lagrange_local_repeat} and the result using the equivariance of the Lagrangian density $L$. Rather than performing this tedious calculation, we can alternatively consider the geometric definition \ref{global_lagrange_form} of the Euler-Lagrange form and deduce that it must transform covariantly (for a contravariant tensor bundle) with density weight of one, i.e.~according to the local expression \eqref{trafo_euler_lagrange}.
+\end{proof}
+This transformation behaviour carries over to the principal symbol of the Euler-Lagrange equations, which is also a tensor density of weight 1.
+\begin{proposition}
+  Consider the same bundle $\pi$ and Lagrangian density $L$ as in Prop.~\ref{prop_euler_tensor}. The principal symbol
+  \begin{equation}\label{trafo_symbol}
+    T_{AB}(k) = E_{A:B}^{\hphantom{A:B}I} J_I^{pq} k_p k_q
+  \end{equation}
+  of the corresponding Euler-Lagrange equations $E_A$, where $k \in T^\ast M$ denotes a covector, transforms as a tensor density of weight one, i.e.~it an infinitesimal diffeomorphism acts as
+  \begin{equation}
+    \delta_\xi T_{AB}(k) = - T_{AB}(k) \xi^m_{,m} - T_{CB}(k) \gmc{C}{A}{n}{m} \xi^m_{,n} - T_{AC}(k) \gmc{C}{B}{n}{m} \xi^m_{,n}.
+  \end{equation}
+\end{proposition}
+\begin{proof}
+  The idea of the proof is as before: We insert the just proven transformation behaviour of the Euler-Lagrange equations $E_A$ and of covectors $k$, which is
+  \begin{equation}
+    \delta_\xi k_a = - k_m \xi^n_{,a},
+  \end{equation}
+  into the transformation
+  \begin{equation}
+    \begin{aligned}
+      \delta_\xi T_{AB}(k) &{} = (T_{AB}(k))_{:C} \delta_\xi u^C + (T_{AB}(k))_{:C}^{\hphantom{:C}p} \delta_\xi u^C_{\hphantom Cp} + (T_{AB}(k))_{:C}^{\hphantom{:C}I} \delta_\xi u^C_{\hphantom CI} \\
+                           &{} \hphantom{=} + \frac{\partial T_{AB}}{\partial k_a}(k) \delta_\xi k_a.
+    \end{aligned}
+  \end{equation}
+  This time, the calculation is rather trivial and the claim \eqref{trafo_symbol} follows almost immediately.
+\end{proof}
+We are now in a position to prove the first part of the central result, which is that the principal polynomial of area metric gravity is a scalar density. Note that we restrict our considerations to the case of a principal symbol that is independent from the derivatives of the derivatives of the gravitational field, as otherwise the causality could not be matched anyway (see Sect.~\ref{section_axiom2_perturb}).
+\begin{theorem}
+  Let $\pi$ be the area metric bundle. Conside a degenerate Lagrangian field theory with a principal symbol that is independent from the derivatives of the area metric field. The principal polynomial $\mathcal P(k)$ corresponding to the symbol, as defined in Def.~\ref{def_principal_polynomial} is a scalar density of weight 57, i.e.~transforms locally under spacetime diffeomorphisms as
+  \begin{equation}
+    \delta_\xi \mathcal P(k) = -57 \cdot \mathcal P(k) \xi^m_{,m}.
+  \end{equation}
+\end{theorem}
+\begin{proof}
+  From the transformation behaviour of the area metric field and covectors, it follows that an infinitesimal diffeomorphism acts on generators $\chi^A_{(i)}(k) = \gmc{A}{B}{n}{i} u^B k_n$ of gauge transforms as
+  \begin{equation}
+    \delta_\xi \chi^A_{(i)}(k) = \gmc{A}{B}{n}{m} \chi^B_{(i)}(k) \xi^m_{,n} - \chi^A_{(m)}(k)\xi^m_{,i}.
+  \end{equation}
+  Now calculating the transformation behaviour of the numerator, $Q^{(A_1\dots A_4)(B_1\dots B_4)}$ (dropping the covector $k$ from the notation) we obtain
+  \begin{equation}
+    \begin{aligned}
+      \delta_\xi Q^{(A_1\dots A_4)(B_1\dots B_4)} &{} = \delta_\xi \frac{\partial^4 \operatorname{det} T}{\partial T_{A_1B_1}\dots\partial T_{A_4B_4}} \\
+                                                  &{} = \delta_\xi \left\lbrack \frac{4}{21!} \epsilon^{A_1\dots A_{21}} \epsilon^{B_1\dots B_{21}} T_{A_5B_5} \dots T_{A_{21}B_{21}}\right\rbrack
+    \end{aligned}
   \end{equation}
 \end{proof}
 
