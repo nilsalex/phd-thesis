@@ -165,9 +165,9 @@ This transformation behaviour carries over to the principal symbol of the Euler-
 \end{proof}
 We are now in a position to prove the first part of the central result, which is that the principal polynomial of area metric gravity is a scalar density. Note that we restrict our considerations to the case of a principal symbol that is independent from the derivatives of the derivatives of the gravitational field, as otherwise the causality could not be matched anyway (see Sect.~\ref{section_axiom2_perturb}).
 \begin{theorem}
-  Let $\pi$ be the area metric bundle. Conside a degenerate Lagrangian field theory with a principal symbol that is independent from the derivatives of the area metric field. The principal polynomial $\mathcal P(k)$ corresponding to the symbol, as defined in Def.~\ref{def_principal_polynomial} is a scalar density of weight 57, i.e.~transforms locally under spacetime diffeomorphisms as
+  Let $\pi$ be the area metric bundle. Conside a degenerate Lagrangian field theory with a principal symbol that is independent from the derivatives of the area metric field. The principal polynomial $\mathcal P(k)$ corresponding to the symbol, as defined in Def.~\ref{def_principal_polynomial} is a scalar density of weight 23, i.e.~transforms locally under spacetime diffeomorphisms as\footnote{Here, we fix a numerical---but inconsequential---error in the calculation presented in Ref.~\cite{paper}, where the factor was calculated to be 57 instead of 23.}
   \begin{equation}
-    \delta_\xi \mathcal P(k) = -57 \cdot \mathcal P(k) \xi^m_{,m}.
+    \delta_\xi \mathcal P(k) = -23 \cdot \mathcal P(k) \xi^m_{,m}.
   \end{equation}
 \end{theorem}
 \begin{proof}
@@ -176,14 +176,66 @@ We are now in a position to prove the first part of the central result, which is
     \delta_\xi \chi^A_{(i)}(k) = \gmc{A}{B}{n}{m} \chi^B_{(i)}(k) \xi^m_{,n} - \chi^A_{(m)}(k)\xi^m_{,i}.
   \end{equation}
   Now calculating the transformation behaviour of the numerator, $Q^{(A_1\dots A_4)(B_1\dots B_4)}$ (dropping the covector $k$ from the notation) we obtain
-  \begin{equation}
+  \begin{equation}\label{Q_trafo}
     \begin{aligned}
       \delta_\xi Q^{(A_1\dots A_4)(B_1\dots B_4)} &{} = \delta_\xi \frac{\partial^4 \operatorname{det} T}{\partial T_{A_1B_1}\dots\partial T_{A_4B_4}} \\
-                                                  &{} = \delta_\xi \left\lbrack \frac{4}{21!} \epsilon^{A_1\dots A_{21}} \epsilon^{B_1\dots B_{21}} T_{A_5B_5} \dots T_{A_{21}B_{21}}\right\rbrack
+                                                  &{} = \delta_\xi \left\lbrack \frac{4}{21!} \epsilon^{A_1\dots A_{21}} \epsilon^{B_1\dots B_{21}} T_{A_5B_5} \dots T_{A_{21}B_{21}}\right\rbrack \\
+                                                  &{} = \frac{4\cdot 17}{21!} \epsilon^{A_1\dots A_{21}} \epsilon^{B_1\dots B_{21}} \lbrack\delta_\xi T_{A_5B_5}\rbrack T_{A_6B_6}\dots T_{A_{21}B_{21}} \\
+                                                  &{} = -17\cdot \delta_\xi Q^{(A_1\dots A_4)(B_1\dots B_4)} \xi^m_{,m} \\
+                                                  &{} \hphantom{=} -\frac{4\cdot 17}{21!} \epsilon^{A_1\dots A_{21}} \gmc{A}{A_5}{n}{m} \epsilon^{B_1\dots B_{21}} T_{AB_5} \dots T_{A_{21}B_{21}} \xi^m_{,n} \\
+                                                  &{} \hphantom{=} -\frac{4\cdot 17}{21!} \epsilon^{A_1\dots A_{21}} \epsilon^{B_1\dots B_{21}} \gmc{B}{B_5}{n}{m} T_{A_5B} \dots T_{A_{21}B_{21}} \xi^m_{,n}.
     \end{aligned}
   \end{equation}
+  This is further simplified using the identity $0 = \epsilon^{\lbrack A_1\dots A_{21}} X^{A\rbrack\dots}$, from which we derive after a few index relabellings
+  \begin{equation}
+    \begin{aligned}
+      0 &{} = 22 \cdot \epsilon^{\lbrack A_1\dots A_{21}} \gmc{A\rbrack}{A_5}{n}{m} \epsilon^{B_1\dots B_21} T_{AB_5}T_{A_6B_6}\dots T_{A_{21}B_{21}} \xi^m_{,n} \\
+        &{} = 17 \cdot \epsilon^{A_1\dots A_{21}} \gmc{A}{A_5}{n}{m} \epsilon^{B_1\dots B_{21}} T_{AB_5}T_{A_6B_6}\dots T_{A_{21}B_{21}} \xi^m_{,n} \\
+        &{} \hphantom{=} - \gmc{A}{A}{n}{m} \epsilon^{A_1\dots A_{21}}\epsilon^{B_1\dots B_{21}} T_{A_5B_5}\dots T_{A_{21}B_{21}} \xi^m_{,n} \\
+        &{} \hphantom{=} + \epsilon^{AA_2A_3A_4\dots A_{21}} \gmc{A_1}{A}{n}{m} \epsilon^{B_1\dots B_{21}} T_{A_5B_5}T_{A_6B_6}\dots T_{A_{21}B_{21}} \xi^m_{,n} \\
+        &{} \hphantom{=} + \epsilon^{A_1AA_3A_4\dots A_{21}} \gmc{A_2}{A}{n}{m} \epsilon^{B_1\dots B_{21}} T_{A_5B_5}T_{A_6B_6}\dots T_{A_{21}B_{21}} \xi^m_{,n} \\
+        &{} \hphantom{=} + \epsilon^{A_1A_2AA_4\dots A_{21}} \gmc{A_3}{A}{n}{m} \epsilon^{B_1\dots B_{21}} T_{A_5B_5}T_{A_6B_6}\dots T_{A_{21}B_{21}} \xi^m_{,n} \\
+        &{} \hphantom{=} + \epsilon^{A_1A_2A_3A\dots A_{21}} \gmc{A_4}{A}{n}{m} \epsilon^{B_1\dots B_{21}} T_{A_5B_5}T_{A_6B_6}\dots T_{A_{21}B_{21}} \xi^m_{,n}. \\
+    \end{aligned}
+  \end{equation}
+  Applying the same technique to the index set $[B_1\dots B_{21} B]$ and carrying out the contraction $\gmc{A}{A}{n}{m} = 4\delta^{n}_{m}$, the identity can be applied to the second and third terms in Eq.~\ref{Q_trafo}, such that we finally obtain
+  \begin{equation}
+    \begin{aligned}
+      \delta_\xi Q^{(A_1\dots A_4)(B_1\dots B_4)} &{} = -25 \cdot Q^{(A_1\dots A_4)(B_1\dots B_4)} \xi^m_{,m} \\
+                                                  &{} \hphantom{=} + \gmc{A_1}{A}{n}{m} Q^{(AA_2A_3A_4)(B_1\dots B_4)} \xi^m_{,n} + \gmc{A_2}{A}{n}{m} Q^{(A_1AA_3A_4)(B_1\dots B_4)} \xi^m_{,n} \\
+                                                  &{} \hphantom{=} + \gmc{A_3}{A}{n}{m} Q^{(A_1A_2AA_4)(B_1\dots B_4)} \xi^m_{,n} + \gmc{A_4}{A}{n}{m} Q^{(A_1A_2A_3A)(B_1\dots B_4)} \xi^m_{,n} \\
+                                                  &{} \hphantom{=} + \gmc{B_1}{B}{n}{m} Q^{(A_1\dots A_4)(BB_2B_3B_4)} \xi^m_{,n} + \gmc{B_2}{B}{n}{m} Q^{(A_1\dots A_4)(B_1BB_3B_4)} \xi^m_{,n} \\
+                                                  &{} \hphantom{=} + \gmc{B_3}{B}{n}{m} Q^{(A_1\dots A_4)(B_1B_2BB_4)} \xi^m_{,n} + \gmc{B_4}{B}{n}{m} Q^{(A_1\dots A_4)(B_1B_2B_3B)} \xi^m_{,n}.
+    \end{aligned}
+  \end{equation}
+  A similar calculation yields the transformation of the denominator $f^{(A_1\dots A_4)(B_1\dots B_4)}$,
+  \begin{equation}
+    \begin{aligned}
+      \delta_\xi f^{(A_1\dots A_4)(B_1\dots B_4)} &{} = \delta_\xi\left\lbrack \epsilon^{a_1\dots a_4} \epsilon^{b_1\dots b_4} \prod_{i=1}^4 \chi^{A_i}_{(a_i)} \chi^{B_i}_{(b_i)} \right\rbrack \\
+                                                  &{} = -2 \cdot f^{(A_1\dots A_4)(B_1\dots B_4)} \xi^m_{,m} \\
+                                                  &{} \hphantom{=} + \gmc{A_1}{A}{n}{m} f^{(AA_2A_3A_4)(B_1\dots B_4)} \xi^m_{,n} + \gmc{A_2}{A}{n}{m} f^{(A_1AA_3A_4)(B_1\dots B_4)} \xi^m_{,n} \\
+                                                  &{} \hphantom{=} + \gmc{A_3}{A}{n}{m} f^{(A_1A_2AA_4)(B_1\dots B_4)} \xi^m_{,n} + \gmc{A_4}{A}{n}{m} f^{(A_1A_2A_3A)(B_1\dots B_4)} \xi^m_{,n} \\
+                                                  &{} \hphantom{=} + \gmc{B_1}{B}{n}{m} f^{(A_1\dots A_4)(BB_2B_3B_4)} \xi^m_{,n} + \gmc{B_2}{B}{n}{m} f^{(A_1\dots A_4)(B_1BB_3B_4)} \xi^m_{,n} \\
+                                                  &{} \hphantom{=} + \gmc{B_3}{B}{n}{m} f^{(A_1\dots A_4)(B_1B_2BB_4)} \xi^m_{,n} + \gmc{B_4}{B}{n}{m} f^{(A_1\dots A_4)(B_1B_2B_3B)} \xi^m_{,n}.
+    \end{aligned}
+  \end{equation}
+  Putting both numerator and denominator together proves the claim
+  \begin{equation}
+    \delta_\xi \mathcal P(k) = -23 \cdot \mathcal P(k) \xi^m_{,m}.
+  \end{equation}
 \end{proof}
+An equivalent formulation of the fact that $\mathcal P(k)$ is a density of weight 23 is that the symmetric coefficients\footnote{Recall that the principal polynomial for area metric gravity is homogeneous and of degree 26.} $P^{a_1\dots a_{26}}$ constitute a tensor density of the same weight, i.e.~live of the bundle of symmetric tensor densities of contravariant rank 26 with weight 23. For this geometry, the equivariance equations on the ``zeroth jet bundle'' (since the polynomial must not depend on derivatives of the geometry) are
+\begin{equation}
+  \begin{aligned}
+    P^{a_1\dots a_{26}}_{\hphantom{a_1\dots a_{26}},m} &{} = 0, \\
+    P^{a_1\dots a_{26}}_{\hphantom{a_1\dots a_{26}}:A} \gmc{A}{B}{n}{m} u^B &{} = - 23\cdot P^{a_1\dots a_{26}} \delta^n_m + 26\cdot P^{n(a_1\dots a_{25}} \delta^{a_{26})}_m.
+  \end{aligned}
+\end{equation}
+The second part of the central result follows from these equations. We will construct the perturbative solution to first order and see that it is impossible \emph{not} to have the causality match GLED causality to the same order.
 
+\begin{theorem}
+  The principal polynomial corresponding to the 
+\end{theorem}
 
 \section{3+1 decomposition}
 \begin{itemize}
