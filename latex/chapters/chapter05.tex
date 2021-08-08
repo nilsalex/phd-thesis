@@ -121,8 +121,22 @@ This effect only holds in the limit of geometric optics---the GLED field equatio
 We will now proceed to show that the possible principal polynomials arising from third-order area metric gravity Lagrangians as constructed in the previous section are only mildly more general than the effectively quadratic first-order GLED polynomial \eqref{gled_poly_first_order}. This issue is approached by first considering the corresponding Euler-Lagrange equations.
 
 \begin{proposition}
-
+  Let $E\overset{\pi}{\longrightarrow}M$ be a sub-bundle of some tensor bundle over $M$. Consider a Lagrangian field theory on $J^2\pi$ that is degenerate in the sense that the Euler-Lagrange equations are of second derivative order, i.e.~are also defined on $J^2\pi$. If the Lagrangian field theory is diffeomorphism invariant with respect to the diffeomorphism action on the second jet bundle, it follows that also the Euler-Lagrange equations are diffeomorphism equivariant. In particular, a local representation of the Euler-Lagrange equations at a section $G$ of $\pi$
+  \begin{equation}
+    E_A = \lbrack L_{:A} - D_p L_{:A}^{\hphantom{:A}p} + I_I^{pq} D_p D_q L_{:A}^{\hphantom{:A}I}\rbrack \circ G
+  \end{equation}
+  exhibits the transformation behaviour
+  \begin{equation}\label{trafo_euler_lagrange}
+    \delta_\xi E_A = E_A \xi^m_{,m} - E_B \gmc{B}{A}{n}{m} \xi^m_n,
+  \end{equation}
+  where $\gmc{B}{A}{n}{m}$ are the Gotay-Marsden coefficients corresponding to the field bundle. In other words, the Euler-Lagrange equations transform as tensor density of weight 1.
 \end{proposition}
+\begin{proof}
+  The claim follows from expanding the left hand side of Eq.~\ref{trafo_euler_lagrange} as
+  \begin{equation}
+    \delta_\xi E_A = E_{A:B} \delta_\xi G^B + E_{A:B}^{\hphantom{A:B}p} \delta_\xi G^B_{\hphantom B,p} + E_{A:B}^{\hphantom{A:B}I} \delta_\xi G^B_{\hphantom B,I}
+  \end{equation}
+\end{proof}
 
 
 \section{3+1 decomposition}
