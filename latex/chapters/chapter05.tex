@@ -298,7 +298,7 @@ The result now follows from multiplication of $\mathcal P_\text{area}^{(\leq 1)}
 Having fixed the causality of third-order perturbative area metric gravity---by proof, rather than by explicit calculation---the construction procedure up to this order is completed. Third-order area metric gravity\footnote{With second-order field equations and, therefore, a principal polynomial of first order.} is determined by the ansatz \eqref{ansatz_area_gravity} which is constructed from the Lorentz-invariant basis tensors \eqref{???}. From the 237 gravitational constants---the coefficients in the basis expansion---50 constants turn out to be independent, 11 of which govern the linearized field equations. The relations between gravitational constants are collected in Appendix \ref{}. In the following, we will examine the linear theory, which forms the basis for predicting first-order and, later on, second-order effects of area metric gravity.
 
 \section{3+1 decomposition}
-As remarked in Sect.~\ref{section_gled}, the expansion point should be an area metric of a certain subclass in order to guarantee hyperbolicity of the GLED principal polynomial---and, by the previous result, hyperbolicity of third-order area metric gravity. Indeed, $N$ is of subclass I according to the classification in Ref.~\ref{sergio}. Thus, we can turn to a $3+1$ formulation, starting with the definition of a slicing
+As remarked in Sect.~\ref{section_gled}, the expansion point should be an area metric of a certain subclass in order to guarantee hyperbolicity of the GLED principal polynomial---and, by the previous result, hyperbolicity of third-order area metric gravity. Indeed, $N$ is of subclass I according to the classification in Ref.~\ref{sergio}. Thus, we can turn to a $3+1$ formulation, starting with the definition of a slicing.
 \begin{definition}[slicing]
   Consider a spacetime manifold $M$ of dimension four. Any diffeomorphism
   \begin{equation}
@@ -318,10 +318,43 @@ where the vectors on the right are understood as pushforwards of holonomic basis
 \end{equation}
 for the cotangent spaces $T_{\phi(s,\lambda)}^\ast M$. The bundle $\pi_\text{area}$, constructed as subbundle of $T^4_0M$, inherits a $3+1$ split from the decomposition of tangent and cotangent spaces, and so does the second jet bundle of $\pi_\text{area}$.
 
+Based on a slicing, we now introduce an observer definition\footnote{see also Ref.~\ref{observer (giesel_schuller_witte_wohlfarth)}} for arbitrary tensor theories. Only the principal polynomial is needed for this notion.
+\begin{definition}[observer frame, lapse and shift]
+  Let $P$ be the principal polynomial of a field theory on a tensor bundle. An observer frame consists of a nonholonomic frame
+  \begin{equation}
+    (T, e_\alpha = \frac{\partial}{\partial x^\alpha})
+  \end{equation}
+  and a dual coframe
+  \begin{equation}
+    (n = \lambda\cdot \mathrm dt, \epsilon^{\alpha}),
+  \end{equation}
+  where the temporal direction and codirection must satisfy\footnote{$DP$ denotes the formal derivative of $P$ as a polynomial.}
+  \begin{equation}
+    P(n) = 1\quad\text{and}\quad T=\frac{1}{\operatorname{deg}P}\frac{DP(n)}{P(n)}.
+  \end{equation}
+  In the following, we assume $P(n) = 1$ to be solved by choosing an appropriate basis on $T\mathbb R$ and setting $\lambda = 1$.
+
+  The holonomic time direction $\frac{\partial}{\partial t}$ decomposes as
+  \begin{equation}
+    \frac{\partial}{\partial t} = NT + N^\alpha \frac{\partial}{\partial x^\alpha}
+  \end{equation}
+  with the lapse $N$ and shift $N^\alpha$.
+\end{definition}
+
+Essential for the $3+1$ split are the observer quantities that parameterize the components of the geometry in the holonomic frame. For example, using the completeness relation
+\begin{equation}
+  \delta^a_b = T^an_b + e^a_\alpha \epsilon^\alpha_b = \frac{1}{N}\delta^a_0 n_b - \frac{1}{N} N^a n_b + \delta^a_\alpha \epsilon^\alpha_b,
+\end{equation}
+a vector field $v$ decomposes as
+\begin{equation}
+  v(\mathrm dt) = v(n)\quad\text{and}\quad v(\mathrm dx^\alpha) = -\frac{1}{N}N^\alpha v(n) + v(\epsilon^\alpha),
+\end{equation}
+completely determining the field by virtue of $N$, $N^\alpha$, $v(n)$, and $v(\epsilon^\alpha)$. For the area metric field, we obtain the decomposition
+\begin{equation}
+  G(\mathrm dt,\mathrm dx^\alpha,\mathrm dt,\mathrm dx^\beta) = \frac{1}{N^2} G(n,\epsilon^\alpha,n,\epsilon^\beta)
+\end{equation}
+
 \begin{itemize}
-\item 3+1 split
-\item observer frame
-\item spatial fields
 \item gauge fixing
 \item reduction: schwarzschild solution + mode decoupling
 \end{itemize}
