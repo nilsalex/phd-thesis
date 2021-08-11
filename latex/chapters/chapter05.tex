@@ -19,7 +19,7 @@ The principal polynomial of GLED is quartic and takes the form
   \mathcal P_\text{GLED}(k) = -\frac{1}{24} \omega_G^2 \epsilon_{mnpq} \epsilon_{rstu} G^{mnra} G^{bpsc} G^{dqtu} k_a k_b k_c k_d.
 \end{equation}
 As appropriate Lorentz invariant expansion point constructed from the Minkowski metric $\eta$, we already determined in Example \ref{example_expansion_points}
-\begin{equation}
+\begin{equation}\label{area_expansion_point}
   N^A = J_{abcd}^A (\eta^{ac} \eta^{bd} - \eta^{ad} \eta^{bc} + \epsilon^{abcd}).
 \end{equation}
 Before solving the system of equivariance equations perturbatively around $N$, let us reconsider the reduced power series ansatz \eqref{ansatz_reduced}. In addition to dropping terms with a total number of derivatives that is odd or greater than 2, and dropping non-Lorentz invariant expansion coefficients, we can also discard the linear term $a_A H^A$. This term would yield a constant in the Euler-Lagrange equations, causing the flat expansion point $N$ to no longer constitute a solution to the vacuum field equations. However, the perturbation ansatz stipulates that we perturb around a solution of the field equations. Since it is obvious that Equation \eqref{prolong_0} implies from vanishing coefficients $a_A$ that also the coefficient $a$ vanishes, we readily drop both and make the further reduced ansatz
@@ -91,7 +91,7 @@ With the 237 ansatz coefficients at hand, solving the equivariance equations as 
 Applied to the whole system of equivariance equations, we obtain a parameterization of the solution (displayed in full in Appendix \ref{}) by 50 independent gravitational constants. A subset of 16 constants governs \emph{linearized} area metric gravity via the quadratic Lagrangian density, from which---as we will encounter later---only 11 independent linear combinations play a role for the Euler-Lagrange equations. The procedure outlined here is implemented in Haskell using the library \texttt{sparse-tensor} for ansatz generation as well as the library \texttt{safe-tensor} for constructing and solving the equivariance equations, with the source code and results published as Ref.~\cite{second-order-area-repo}.
 
 \section{Solving axiom 2}
-The pedestrian approach towards implementing causal compatibility of the just constructed gravitational theory with GLED is to carefully execute steps 6--12 of the perturbative construction algorithm. This way, we obtain an approximation of the area metric gravity principal polynomial and have to match the causal structure with a first-order expansion of the GLED principal polynomial. While entirely feasible, this approach is less illustrive than the \emph{constructive} approach we employ instead. The underlying realization behind this technique is that the diffeomorphism invariance of the gravitational theory dramatically restricts the possible principal polynomials. In fact, we will see that for third-order area metric Lagrangians, the admissible principal polynomials are already causally compatible with the corresponding expansion of the GLED polynomial. \emph{There is no causality mismatch left to be fixed.}
+The pedestrian approach towards implementing causal compatibility of the just constructed gravitational theory with GLED is to carefully execute steps 6--12 of the perturbative construction algorithm. This way, we obtain an approximation of the area metric gravity principal polynomial and have to match the causal structure with a first-order expansion of the GLED principal polynomial. While entirely feasible, this approach is less illustrative than the \emph{constructive} approach we employ instead. The underlying realization behind this technique is that the diffeomorphism invariance of the gravitational theory dramatically restricts the possible principal polynomials. In fact, we will see that for third-order area metric Lagrangians, the admissible principal polynomials are already causally compatible with the corresponding expansion of the GLED polynomial. \emph{There is no causality mismatch left to be fixed.}
 
 To this end, recall the GLED polynomial \eqref{gled_polynomial}, which using the scalar density \eqref{area_density} assumes the form
 \begin{equation}
@@ -108,7 +108,7 @@ where the abbreviations
 \begin{equation}
   \epsilon(H) = \epsilon_{abcd} H^{abcd}\quad\text{and}\quad H(k,k) = \eta_{ac} H^{abcd} k_b k_d
 \end{equation}
-have been introduced. In the following, we will also make use of
+have been introduced. In the following, we will also make use of the contraction
 \begin{equation}
   \eta(H) = \eta_{ac} \eta_{bd} H^{abcd}.
 \end{equation}
@@ -116,18 +116,18 @@ Up to first order, we find that the GLED polynomial factors into the square of a
 \begin{equation}
   h^{ab} = \left\lbrack 1 - \frac{1}{24} \epsilon(H) \right\rbrack \eta^{ab} + \frac{1}{2} \eta_{cd}H^{acbd} = (P^{(\leq 1)}_\text{GLED})^{ab}.
 \end{equation}
-This effect only holds in the limit of geometric optics---the GLED field equations do \emph{not} reduce to Maxwell equations with a metric perturbation. Consequently, even to first order in the area metric perturbation, non-metric effects can be observed. An in-depth study of classical and quantum electrodynamics on weakly birefringent backgrounds based on exactly this realization has been conducted in Ref.~\cite{quantum_gled}.
+This effect only holds in the limit of geometric optics---the GLED field equations do \emph{not} reduce to Maxwell equations with a metric perturbation. Consequently, even to first order in the area metric perturbation, nonmetric effects can be observed. An in-depth study of classical and quantum electrodynamics on weakly birefringent backgrounds based on exactly this realization has been conducted in Ref.~\cite{quantum_gled}.
 
 We will now proceed to show that the possible principal polynomials arising from third-order area metric gravity Lagrangians as constructed in the previous section are only mildly more general than the effectively quadratic first-order GLED polynomial \eqref{gled_poly_first_order}. This issue is approached by first considering the corresponding Euler-Lagrange equations.
 
 \begin{proposition}\label{prop_euler_tensor}
-  Let $E\overset{\pi}{\longrightarrow}M$ be a sub-bundle of some tensor bundle over $M$. Consider a Lagrangian field theory on $J^2\pi$ that is degenerate in the sense that the Euler-Lagrange equations are of second derivative order, i.e.~are also defined on $J^2\pi$. If the Lagrangian field theory is diffeomorphism invariant with respect to the diffeomorphism action on the second jet bundle, it follows that also the Euler-Lagrange equations are diffeomorphism equivariant. In particular, a local representation of the Euler-Lagrange equations
+  Let $E\overset{\pi}{\longrightarrow}M$ be a sub-bundle of some tensor bundle over $M$. Consider a Lagrangian field theory on $J^2\pi$ that is degenerate in the sense that the Euler-Lagrange equations are of second derivative order, i.e.~are also defined on $J^2\pi$. If the Lagrangian field theory is diffeomorphism invariant with respect to the diffeomorphism action on the second jet bundle, it follows that the Euler-Lagrange equations are diffeomorphism equivariant. In particular, a local representation of the Euler-Lagrange equations
   \begin{equation}\label{euler_lagrange_local_repeat}
   E_A = L_{:A} - D_p L_{:A}^{\hphantom{:A}p} + I_I^{pq} D_p D_q L_{:A}^{\hphantom{:A}I}
   \end{equation}
   exhibits the transformation behaviour
   \begin{equation}\label{trafo_euler_lagrange}
-    \delta_\xi E_A = -E_A \xi^m_{,m} - E_B \gmc{B}{A}{n}{m} \xi^m_n,
+    \delta_\xi E_A = -E_A \xi^m_{,m} - E_B \gmc{B}{A}{n}{m} \xi^m_{,n},
   \end{equation}
   where $\gmc{B}{A}{n}{m}$ are the Gotay-Marsden coefficients corresponding to the field bundle. In other words, the Euler-Lagrange equations transform as tensor density of weight 1.
 \end{proposition}
@@ -136,15 +136,15 @@ We will now proceed to show that the possible principal polynomials arising from
   \begin{equation}
     \delta_\xi E_A = E_{A:B} \delta_\xi u^B + E_{A:B}^{\hphantom{A:B}p} \delta_\xi u^B_{\hphantom Bp} + E_{A:B}^{\hphantom{A:B}I} \delta_\xi u^B_{\hphantom BI},
   \end{equation}
-  then replacing $E_A$ with its definition \eqref{euler_lagrange_local_repeat} and the result using the equivariance of the Lagrangian density $L$. Rather than performing this tedious calculation, we can alternatively consider the geometric definition \ref{global_lagrange_form} of the Euler-Lagrange form and deduce that it must transform covariantly (for a contravariant tensor bundle) with density weight of one, i.e.~according to the local expression \eqref{trafo_euler_lagrange}.
+  then replacing $E_A$ with its definition \eqref{euler_lagrange_local_repeat} and simplifying the result using the equivariance of the Lagrangian density $L$. Rather than performing this tedious calculation, we can alternatively consider the geometric definition \ref{global_lagrange_form} of the Euler-Lagrange form and deduce that it must transform covariantly (for a contravariant tensor bundle) with density weight of one, i.e.~according to the local expression \eqref{trafo_euler_lagrange}.
 \end{proof}
 This transformation behaviour carries over to the principal symbol of the Euler-Lagrange equations, which is also a tensor density of weight 1.
 \begin{proposition}
-  Consider the same bundle $\pi$ and Lagrangian density $L$ as in Prop.~\ref{prop_euler_tensor}. The principal symbol
+  Consider the same Lagrangian field theory as in Prop.~\ref{prop_euler_tensor}. The principal symbol
   \begin{equation}\label{trafo_symbol}
     T_{AB}(k) = E_{A:B}^{\hphantom{A:B}I} J_I^{pq} k_p k_q
   \end{equation}
-  of the corresponding Euler-Lagrange equations $E_A$, where $k \in T^\ast M$ denotes a covector, transforms as a tensor density of weight one, i.e.~it an infinitesimal diffeomorphism acts as
+  of the corresponding Euler-Lagrange equations $E_A$, where $k \in T^\ast M$ denotes a covector, transforms as a tensor density of weight one, i.e.~an infinitesimal diffeomorphism acts as
   \begin{equation}
     \delta_\xi T_{AB}(k) = - T_{AB}(k) \xi^m_{,m} - T_{CB}(k) \gmc{C}{A}{n}{m} \xi^m_{,n} - T_{AC}(k) \gmc{C}{B}{n}{m} \xi^m_{,n}.
   \end{equation}
@@ -164,8 +164,8 @@ This transformation behaviour carries over to the principal symbol of the Euler-
   This time, the calculation is rather trivial and the claim \eqref{trafo_symbol} follows almost immediately.
 \end{proof}
 We are now in a position to prove the first part of the central result, which is that the principal polynomial of area metric gravity is a scalar density. Note that we restrict our considerations to the case of a principal symbol that is independent from the derivatives of the derivatives of the gravitational field, as otherwise the causality could not be matched anyway (see Sect.~\ref{section_axiom2_perturb}).
-\begin{theorem}
-  Let $\pi$ be the area metric bundle. Conside a degenerate Lagrangian field theory with a principal symbol that is independent from the derivatives of the area metric field. The principal polynomial $\mathcal P(k)$ corresponding to the symbol, as defined in Def.~\ref{def_principal_polynomial} is a scalar density of weight 23, i.e.~transforms locally under spacetime diffeomorphisms as\footnote{Here, we fix a numerical---but inconsequential---error in the calculation presented in Ref.~\cite{paper}, where the factor was calculated to be 57 instead of 23.}
+\begin{theorem}\label{thm_poly_trafo}
+  Let $\pi$ be the area metric bundle. Conside a degenerate Lagrangian field theory with a principal symbol that is independent from the derivatives of the area metric field. The principal polynomial $\mathcal P(k)$ corresponding to the symbol, as defined in Def.~\ref{def_principal_polynomial} is a scalar density of weight 23, i.e.~transforms locally under infinitesimal spacetime diffeomorphisms as\footnote{Here, we correct a numerical---but inconsequential---error in the calculation presented in Ref.~\cite{paper}, where the factor was calculated to be 57 instead of 23.}
   \begin{equation}
     \delta_\xi \mathcal P(k) = -23 \cdot \mathcal P(k) \xi^m_{,m}.
   \end{equation}
@@ -175,7 +175,7 @@ We are now in a position to prove the first part of the central result, which is
   \begin{equation}
     \delta_\xi \chi^A_{(i)}(k) = \gmc{A}{B}{n}{m} \chi^B_{(i)}(k) \xi^m_{,n} - \chi^A_{(m)}(k)\xi^m_{,i}.
   \end{equation}
-  Now calculating the transformation behaviour of the numerator, $Q^{(A_1\dots A_4)(B_1\dots B_4)}$ (dropping the covector $k$ from the notation) we obtain
+  Now calculating the transformation behaviour of the principal polynomial numerator $Q^{(A_1\dots A_4)(B_1\dots B_4)}$ (dropping the covector $k$ from the notation) we obtain
   \begin{equation}\label{Q_trafo}
     \begin{aligned}
       \delta_\xi Q^{(A_1\dots A_4)(B_1\dots B_4)} &{} = \delta_\xi \frac{\partial^4 \operatorname{det} T}{\partial T_{A_1B_1}\dots\partial T_{A_4B_4}} \\
@@ -208,7 +208,7 @@ We are now in a position to prove the first part of the central result, which is
                                                   &{} \hphantom{=} + \gmc{B_3}{B}{n}{m} Q^{(A_1\dots A_4)(B_1B_2BB_4)} \xi^m_{,n} + \gmc{B_4}{B}{n}{m} Q^{(A_1\dots A_4)(B_1B_2B_3B)} \xi^m_{,n}.
     \end{aligned}
   \end{equation}
-  A similar calculation yields the transformation of the denominator $f^{(A_1\dots A_4)(B_1\dots B_4)}$,
+  A similar calculation, this time using the identity $0 = \epsilon^{\lbrack a_1a_2a_3a_4} X^{a\rbrack\dots}$, yields the transformation of the denominator $f^{(A_1\dots A_4)(B_1\dots B_4)}$,
   \begin{equation}
     \begin{aligned}
       \delta_\xi f^{(A_1\dots A_4)(B_1\dots B_4)} &{} = \delta_\xi\left\lbrack \epsilon^{a_1\dots a_4} \epsilon^{b_1\dots b_4} \prod_{i=1}^4 \chi^{A_i}_{(a_i)} \chi^{B_i}_{(b_i)} \right\rbrack \\
@@ -231,11 +231,19 @@ An equivalent formulation of the fact that $\mathcal P(k)$ is a density of weigh
     P^{a_1\dots a_{26}}_{\hphantom{a_1\dots a_{26}}:A} \gmc{A}{B}{n}{m} u^B &{} = - 23\cdot P^{a_1\dots a_{26}} \delta^n_m + 26\cdot P^{n(a_1\dots a_{25}} \delta^{a_{26})}_m.
   \end{aligned}
 \end{equation}
-The second part of the central result follows from these equations. We will construct the perturbative solution to first order and see that it is impossible \emph{not} to have the causality match GLED causality to the same order.
+
+The second part of the central result follows from these equations. All we have to do is construct the perturbative solution to first order and see that it is impossible \emph{not} to have the causality match GLED causality to the same order.
 
 \begin{theorem}
-  The principal polynomial corresponding to the 
+  Let $\mathcal P_\text{area}$ be the principal polynomial of area metric gravity as considered in Thm.~\ref{thm_poly_trafo}. To first order in the expansion $G = N + H$ of the area metric field, where $N$ is the Lorentz invariant expansion point \eqref{area_expansion_point}, $\mathcal P_\text{area}$ is equivalent to the GLED principal polynomial $\mathcal P_\text{GLED}$ in the sense that
+  \begin{equation}
+    \mathcal P_\text{area} = \lbrack \omega P_\text{GLED}^{(\leq 1)}\rbrack^{13} + \mathcal O(H^2),
+  \end{equation}
+  where $\omega$ denotes a density of weight $\frac{23}{13}$ on the area metric bundle and $P_\text{GLED}^{(\leq 1)}$ is the expansion of the GLED polynomial to first order. In particular, to first order in the perturbation, both principal polynomials describe the same null surfaces and hyperbolicity cones.
 \end{theorem}
+\begin{proof}
+  Knowing that the principal polynomial of area metric gravity transforms as a density of weight one
+\end{proof}
 
 \section{3+1 decomposition}
 \begin{itemize}
