@@ -298,6 +298,26 @@ The result now follows from multiplication of $\mathcal P_\text{area}^{(\leq 1)}
 Having fixed the causality of third-order perturbative area metric gravity---by proof, rather than by explicit calculation---the construction procedure up to this order is completed. Third-order area metric gravity\footnote{With second-order field equations and, therefore, a principal polynomial of first order.} is determined by the ansatz \eqref{ansatz_area_gravity} which is constructed from the Lorentz-invariant basis tensors \eqref{???}. From the 237 gravitational constants---the coefficients in the basis expansion---50 constants turn out to be independent, 11 of which govern the linearized field equations. The relations between gravitational constants are collected in Appendix \ref{}. In the following, we will examine the linear theory, which forms the basis for predicting first-order and, later on, second-order effects of area metric gravity.
 
 \section{3+1 decomposition}
+As remarked in Sect.~\ref{section_gled}, the expansion point should be an area metric of a certain subclass in order to guarantee hyperbolicity of the GLED principal polynomial---and, by the previous result, hyperbolicity of third-order area metric gravity. Indeed, $N$ is of subclass I according to the classification in Ref.~\ref{sergio}. Thus, we can turn to a $3+1$ formulation, starting with the definition of a slicing
+\begin{definition}[slicing]
+  Consider a spacetime manifold $M$ of dimension four. Any diffeomorphism
+  \begin{equation}
+    \phi\colon \Sigma\times\mathbb R \rightarrow M
+  \end{equation}
+  from a three-dimensional spatial manifold $\Sigma$ to $M$ is called a slicing of $M$.
+\end{definition}
+Such a slicing always exists, as we only consider matter theories that have a well-defined initial value problem. It is, however, not unique: Any diffeomorphism $\psi\colon M\rightarrow M$ yields a new slicing $\tilde\phi = \psi\circ\phi$. Since the spatial manifold is of dimension three and not four, working with slicings comes with new indices running from one to three. These will be denoted with lowercase greek letters, while lowercase latin letters represent spacetime indices running from zero to three.
+
+Every tangent space $T_{\phi(s,\lambda)}M$ has a holonomic basis
+\begin{equation}
+  \frac{\partial}{\partial x^a} = \left( \frac{\partial}{\partial t},\frac{\partial}{\partial x^\alpha}\right),
+\end{equation}
+where the vectors on the right are understood as pushforwards of holonomic basis vectors on $T_s\Sigma$ and $T_\lambda\mathbb R$. The same construction yields a holonomic basis
+\begin{equation}
+  \mathrm dx^a = (\mathrm dt, \mathrm dx^\alpha)
+\end{equation}
+for the cotangent spaces $T_{\phi(s,\lambda)}^\ast M$. The bundle $\pi_\text{area}$, constructed as subbundle of $T^4_0M$, inherits a $3+1$ split from the decomposition of tangent and cotangent spaces, and so does the second jet bundle of $\pi_\text{area}$.
+
 \begin{itemize}
 \item 3+1 split
 \item observer frame
