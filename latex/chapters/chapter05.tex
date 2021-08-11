@@ -225,7 +225,7 @@ We are now in a position to prove the first part of the central result, which is
   \end{equation}
 \end{proof}
 An equivalent formulation of the fact that $\mathcal P(k)$ is a density of weight 23 is that the symmetric coefficients\footnote{Recall that the principal polynomial for area metric gravity is homogeneous and of degree 26.} $P^{a_1\dots a_{26}}$ constitute a tensor density of the same weight, i.e.~live of the bundle of symmetric tensor densities of contravariant rank 26 with weight 23. For this geometry, the equivariance equations on the ``zeroth jet bundle'' (since the polynomial must not depend on derivatives of the geometry) are
-\begin{equation}
+\begin{equation}\label{polynomial_equivariance_eqns}
   \begin{aligned}
     P^{a_1\dots a_{26}}_{\hphantom{a_1\dots a_{26}},m} &{} = 0, \\
     P^{a_1\dots a_{26}}_{\hphantom{a_1\dots a_{26}}:A} \gmc{A}{B}{n}{m} u^B &{} = - 23\cdot P^{a_1\dots a_{26}} \delta^n_m + 26\cdot P^{n(a_1\dots a_{25}} \delta^{a_{26})}_m.
@@ -236,14 +236,66 @@ The second part of the central result follows from these equations. All we have 
 
 \begin{theorem}
   Let $\mathcal P_\text{area}$ be the principal polynomial of area metric gravity as considered in Thm.~\ref{thm_poly_trafo}. To first order in the expansion $G = N + H$ of the area metric field, where $N$ is the Lorentz invariant expansion point \eqref{area_expansion_point}, $\mathcal P_\text{area}$ is equivalent to the GLED principal polynomial $\mathcal P_\text{GLED}$ in the sense that
-  \begin{equation}
+  \begin{equation}\label{eq_thm_poly}
     \mathcal P_\text{area} = \lbrack \omega P_\text{GLED}^{(\leq 1)}\rbrack^{13} + \mathcal O(H^2),
   \end{equation}
   where $\omega$ denotes a density of weight $\frac{23}{13}$ on the area metric bundle and $P_\text{GLED}^{(\leq 1)}$ is the expansion of the GLED polynomial to first order. In particular, to first order in the perturbation, both principal polynomials describe the same null surfaces and hyperbolicity cones.
 \end{theorem}
 \begin{proof}
-  Knowing that the principal polynomial of area metric gravity transforms as a density of weight one
+  Knowing that the principal polynomial of area metric gravity transforms as a density of weight 23, we can construct possible candidates by solving the equivariance equations \eqref{polynomial_equivariance_eqns}. To this end, we make the ansatz
+  \begin{equation}\label{poly_ansatz}
+    \begin{aligned}
+      \mathcal P_\text{area}(k) &{} = \eta(k,k)^{13} \\
+                                &{} \hphantom{=} + A\cdot \epsilon(H) \eta(k,k)^{13} + B\cdot \eta(H) \eta(k,k)^{13} + C\cdot H(k,k)\eta(k,k)^{12} \\
+                                &{} \hphantom{=} + \mathcal O(H^2).
+    \end{aligned}
+  \end{equation}
+An overall factor would be irrelevant, so it has already been dropped when setting the coefficient of the constant term to 1. The generality of the ansatz can, as always, be verified by calculating the corank of the ansatz equations, which will yield 4---the number of ansatz tensors in Eq.~\eqref{poly_ansatz}. Evaluating the equivariance equation at the ansatz and contracting the 26 symmetric indices with covector components, for the sake of a cleaner presentation, yields an equation where we can cancel a common factor of $\eta(k,k)^{(12)}$. The remaining equation has a covariant and a contravariant spacetime index, such that a decomposition into the trace
+\begin{equation}
+  0 = \lbrack 24 A + 12 B + 3 C + 23 - \frac{13}{2}\rbrack \delta^n_m
+\end{equation}
+and the tracefree part
+\begin{equation}
+  0 = \lbrack 4 C - 26\rbrack [\eta^{na}\delta^b_m k_a k_b - \frac{1}{4} \delta^n_m\eta(k,k)]
+\end{equation}
+lends itself for a first attempt in order to retrieve scalar equations for the system. As it turns out, these two equations are already maximal. Parameterizing the solution with $B$ yields
+\begin{equation}\label{general_area_metric_gravity_poly}
+  \begin{aligned}
+    \mathcal P_\text{area}(k) &{} = \eta(k,k)^{13} \\
+                              &{} \hphantom{=} - \frac{3}{2} \epsilon(H)\eta(k,k)^{13} + B(\eta(H)-\frac{1}{2}\epsilon(H))\eta(k)^{13} + \frac{13}{2} H(k,k)\eta(k,k)^{12} \\ 
+                              &{} \hphantom{=} + \mathcal O(H^2) \\
+                              &{} = \left\{ \left\lbrack 1 - \frac{3}{2\cdot 13} \epsilon(H) + \frac{B}{13}\left(\eta(H) - \frac{1}{2}\epsilon(H) \right)\right\rbrack \eta(k,k) + \frac{1}{2} H(k,k) \right\}^{13} \\
+                              &{} \hphantom{=} + \mathcal O(H^2),
+  \end{aligned}
+\end{equation}
+where for the last equality we completed the thirteenth power as
+\begin{equation}
+  1 + \epsilon = \left( 1 + \frac{1}{13}\epsilon\right)^{13} + \mathcal O(\epsilon^2).
+\end{equation}
+
+In order to relate the quadratic polynomial that determines the first order of $\mathcal P_\text{area}(k)$ to $\mathcal P_\text{GLED}^{(\leq 1)}$ via a scalar density, as claimed in Eq.~\eqref{eq_thm_poly}, we consider the equivariance equations
+\begin{equation}
+  \begin{aligned}
+    \omega_{,m} &{} = 0, \\
+    \omega_{:A} \gmc{A}{B}{n}{m} u^B &{} = -\frac{23}{13}\,\omega \delta^n_m
+  \end{aligned}
+\end{equation}
+for such a density $\omega$ of weight $\frac{23}{13}$. This time, the Lorentz invariant ansatz is just
+\begin{equation}
+  \omega = 1 + A\cdot \epsilon(H) + B\cdot \eta(H) + \mathcal O(H^2)
+\end{equation}
+and reduces the equivariance equations to the single condition
+\begin{equation}
+  24A + 12B = -\frac{23}{13},
+\end{equation}
+such that the most general scalar density of weight $\frac{23}{13}$ is to first order given by
+\begin{equation}
+  \omega = 1 - \frac{23}{13\cdot 24} \epsilon(H) + B \lbrack \eta(H) - \frac{1}{2} \epsilon(H)\rbrack + \mathcal O(H^2).
+\end{equation}
+The result now follows from multiplication of $\mathcal P_\text{area}^{(\leq 1)}$ with $\omega$, which yields exactly the area metric gravity polynomial \eqref{general_area_metric_gravity_poly}. To first order, the principal polynomial of area metric gravity is determined by a quadratic polynomial which reduces to the quadratic first-order GLED polynomial \emph{up to a factor}. Because such an overall factor is irrelevant for vanishing sets and hyperbolicity cones, the polynomials must be considered identical for the purpose of comparing their causal structure.
 \end{proof}
+
+Having fixed the causality of third-order perturbative area metric gravity---by proof, rather than by explicit calculation---the construction procedure up to this order is completed. Third-order area metric gravity\footnote{With second-order field equations and, therefore, a principal polynomial of first order.} is determined by the ansatz \eqref{ansatz_area_gravity} which is constructed from the Lorentz-invariant basis tensors \eqref{???}. From the 237 gravitational constants---the coefficients in the basis expansion---50 constants turn out to be independent, 11 of which govern the linearized field equations. The relations between gravitational constants are collected in Appendix \ref{}. In the following, we will examine the linear theory, which forms the basis for predicting first-order and, later on, second-order effects of area metric gravity.
 
 \section{3+1 decomposition}
 \begin{itemize}
