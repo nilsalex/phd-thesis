@@ -329,7 +329,7 @@ Based on a slicing, we now introduce an observer definition\footnote{see also Re
     (n = \lambda\cdot \mathrm dt, \epsilon^{\alpha}),
   \end{equation}
   where the temporal direction and codirection must satisfy\footnote{$DP$ denotes the formal derivative of $P$ as a polynomial.}
-  \begin{equation}
+  \begin{equation}\label{frame_conditions}
     P(n) = 1\quad\text{and}\quad T=\frac{1}{\operatorname{deg}P}\frac{DP(n)}{P(n)}.
   \end{equation}
   In the following, we assume $P(n) = 1$ to be solved by choosing an appropriate basis on $T\mathbb R$ and setting $\lambda = 1$.
@@ -343,25 +343,94 @@ Based on a slicing, we now introduce an observer definition\footnote{see also Re
 
 Essential for the $3+1$ split are the observer quantities that parameterize the components of the geometry in the holonomic frame. For example, using the completeness relation
 \begin{equation}
-  \mathrm{id} = T\otimes n + e_\alpha \otimes \epsilon^\alpha,
+  \mathrm{id} = T\otimes n + e_\alpha \otimes \epsilon^\alpha = \frac{1}{N} \frac{\partial}{\partial t} \otimes n - \frac{1}{N} N^\alpha e_\alpha \otimes n + e_\alpha \otimes \epsilon^\alpha,
 \end{equation}
 a vector field $v$ decomposes as
 \begin{equation}
-  v = v\circ \mathrm{id} = v(n)\, T + v(\epsilon^\alpha)\, e_\alpha,
+  v = v\circ \mathrm{id} = v(n)\, T + v(\epsilon^\alpha)\, e_\alpha.
 \end{equation}
-such that the holonomic components are determined by observer quantities $N$, $N^\alpha$, $v(n)$, $v(\epsilon^\alpha)$ as
+The holonomic components are thus determined by the quantities $N$, $N^\alpha$, $v(n)$, $v(\epsilon^\alpha)$ as
 \begin{equation}
   v(\mathrm dt) = v(n)\quad\text{and}\quad v(\mathrm dx^\alpha) = -\frac{1}{N}N^\alpha v(n) + v(\epsilon^\alpha).
 \end{equation}
-For the area metric field, we obtain a similar decomposition
+Obviously, the information contained in $N$, $N^\alpha$, $v(n)$, and $v(\epsilon^\alpha)$ is redundant---four holonomic components are represented using 8 observer quantities. This is where the frame conditions \eqref{frame_conditions} come into play: Consider the decomposition of the area metric field into
 \begin{gather}
   G(\mathrm dt,\mathrm dx^\alpha,\mathrm dt,\mathrm dx^\beta) = \frac{1}{N^2} G(n,\epsilon^\alpha,n,\epsilon^\beta), \\
   G(\mathrm dt,\mathrm dx^\alpha, \mathrm dx^\beta, \mathrm dx^\gamma) = -\frac{2}{N^2} G(n,\epsilon^\alpha,n,\epsilon^{\lbrack\gamma})N^{\beta\rbrack} + \frac{1}{N} G(n,\epsilon^\alpha,\epsilon^\beta,\epsilon^\gamma), \\
   \begin{aligned}
     G(\mathrm dx^\alpha, \mathrm dx^\beta, \mathrm dx^\gamma, \mathrm dx^\delta) &{} = \frac{4}{N^2} N^{\lbrack\alpha}G(n,\epsilon^{\beta\rbrack},n,\epsilon^{\lbrack\delta})N^{\gamma\rbrack} + \frac{2}{N} N^{\lbrack\alpha}G(n,\epsilon^{\beta\rbrack},\epsilon^\gamma,\epsilon^\delta) \\
-                                                                                 &{} = + \frac{2}{N} N^{\lbrack\gamma}G(n,\epsilon^{\delta\rbrack},\epsilon^\alpha,\epsilon^\beta) + G(\epsilon^\alpha,\epsilon^\beta,\epsilon^\gamma,\epsilon^\delta),
+                                                                                 &{} \hphantom{=} + \frac{2}{N} N^{\lbrack\gamma}G(n,\epsilon^{\delta\rbrack},\epsilon^\alpha,\epsilon^\beta) + G(\epsilon^\alpha,\epsilon^\beta,\epsilon^\gamma,\epsilon^\delta).
   \end{aligned}
 \end{gather}
+So far, the situation seems to be similar---21 area metric components are determined by 25 observer quantities. The difference to the decomposition of a vector is that the frame conditions \eqref{frame_conditions} depend---via the principal polynomial---on the area metric, which introduces dependencies among area metric, lapse, and shift. To formulate these conditions, it is more convenient to redefine the observer quantities as
+\begin{equation}
+  \begin{aligned}
+    \hat{G}^{\alpha\beta}                  &{} = -G(n,\epsilon^\alpha,n,\epsilon^\beta), \\
+    \hat{G}^\alpha_{\hphantom\alpha\beta}  &{} = \frac{1}{2} (\omega_{\hat G})^{-1} \epsilon_{\beta\mu\nu} G(n, \epsilon^\alpha, \epsilon^\mu, \epsilon^\nu) - \delta^\alpha_{\hphantom\alpha\beta}, \\
+    \hat{G}_{\alpha\beta}                  &{} = \frac{1}{4} (\omega_{\hat G})^{-2} \epsilon_{\alpha\mu\nu} \epsilon_{\beta\rho\sigma} G(\epsilon^\mu, \epsilon^\nu, \epsilon^\rho, \epsilon^\sigma),
+  \end{aligned}
+\end{equation}
+with the spatial density
+\begin{equation}
+  \omega_{\hat G} = \sqrt{\operatorname{det}\hat G^{\cdot\cdot}}.
+\end{equation}
+By definition, $\hat G^{\alpha\beta}$ and $\hat G_{\alpha\beta}$ are symmetric. The frame conditions \eqref{frame_conditions} translate into the two additional properties
+\begin{equation}
+  0 = \hat G^\alpha_{\hphantom\alpha\alpha}\quad\text{and}\quad0 = \hat G^{\mu\lbrack\alpha} \hat G^{\beta\rbrack}_{\hphantom\beta\mu},
+\end{equation}
+i.e.~$\hat G^\alpha_{\hphantom\alpha\beta}$ is trace-free and symmetric with respect to $\hat G^{\alpha\beta}$. In total, the observer quantities $\hat G^{\alpha\beta}$, $\hat G^{\alpha}_{\hphantom\alpha\beta}$, $\hat G_{\alpha\beta}$, $N^\alpha$, $N$ have $6+5+6+3+1 = 21$ degrees of freedom, such that they are in one-to-one correspondence with the area metric field $G^{abcd}$. Note the similarity to the $3+1$ decomposition of the metric tensor $g^{ab}$ into shift $N^\alpha$, lapse $N$, and spatial metric $\hat g^{\alpha\beta}$---the purely temporal and spatio-temporal components of the metric are parameterized only by shift and lapse, due to the frame conditions \eqref{frame_conditions}.
+
+Around the perturbation point $N$, the area metric observer quantities expand as
+\begin{equation}
+  \begin{aligned}
+    N &{} = 1 + A, \\
+    N^\alpha &{} = b^\alpha, \\
+    \hat G^{\alpha\beta} &{} = \gamma^{\alpha\beta} + h^{\alpha\beta}, \\
+    \hat G^\alpha_{\hphantom\alpha\beta} &{} = k^\alpha_{\hphantom\alpha\beta}, \\
+    \hat G_{\alpha\beta} &{} = \gamma_{\alpha\beta} + l_{\alpha\beta}.
+  \end{aligned}
+\end{equation}
+With $\gamma$ we denote the positive-definite spatial part of the Minkowski metric, i.e.~$\eta^{\alpha\beta} = - \gamma^{\alpha\beta}$. From now on, spatial indices are raised and lowered at will using $\gamma$ and its inverse. The perturbations $A$, $b$, $h$, $k$, and $l$ are again in one-to-one correspondence with the 21 perturbations $H$, by virtue of
+\begin{equation}
+  \begin{aligned}
+    H^{0\alpha0\beta} &{} = 2 A \gamma^{\alpha\beta} - h^{\alpha\beta}, \\
+    H^{0\alpha\beta\gamma} &{} = -A \epsilon^{\alpha\beta\gamma} + 2 b^{\lbrack\beta} \gamma^{\gamma\rbrack\alpha} + \frac{1}{2} \epsilon^{\alpha\beta\gamma} \gamma_{\mu\nu} h^{\mu\nu} + \epsilon^{\mu\beta\gamma} k^\alpha_{\hphantom\alpha\mu}, \\
+    H^{\alpha\beta\gamma\delta} &{} = 2\gamma^{\alpha\lbrack\gamma}\gamma^{\delta\rbrack\beta} \gamma_{\mu\nu} h^{\mu\nu} + \epsilon^{\mu\alpha\beta} \epsilon^{\nu\gamma\delta} l_{\mu\nu}.
+  \end{aligned}
+\end{equation}
+A set of perturbations that is more convenient to work with is given by the linear combinations
+\begin{equation}
+  u^{\alpha\beta} = h^{\alpha\beta} - l^{\alpha\beta},\quad v^{\alpha\beta} = h^{\alpha\beta} + l^{\alpha\beta},\quad w^{\alpha\beta} = 2 k^{\alpha\beta}.
+\end{equation}
+Using these fields rather then the original ones, the field equations assume a particularly simple form. In fact, we find in Sect.~\ref{sect_area_linear_eom} that this choice yields \emph{decoupled} equations for the individual fields.
+
+Area metric gravity as constructed in the framework of covariant constructive gravity is---by the first axiom---diffeomorphism invariant. For the linear theory, this invariance manifests itself in the presence of a gauge symmetry
+\begin{equation}\label{area_gauge_transform}
+  H^{\prime A} = H^A + \gmc{A}{B}{n}{m} N^B \xi^n_{,m}
+\end{equation}
+generated by vector fields $\xi \in \Gamma(TM)$. As a result, the Euler-Lagrange equations are underdetermined, as solutions can only be obtained up to a gauge transform.
+
+In order to have a determined system for our following analysis, we fix the gauge by reducing the number of perturbation fields in a way that can always be reproduced using appropriate gauge transforms. The tool that makes the gauge fixing quite straightforward is Helmholtz' theorem\footnote{The Helmholtz theorem is only valid for certain classes of functions. Applicability to linearized area metric gravity is assumed.}, which allows us to decompose the spatial vector field $b$ into a so-called longitudinal scalar $B$ and a divergence-free transverse vector $B^\alpha$ satisfying $\partial_\alpha B^\alpha = 0$ as
+\begin{equation}
+  b^\alpha = \partial^\alpha B + B^\alpha.
+\end{equation}
+Applied to a tensor of rank 2, the Helmholtz theorem yields a decomposition
+\begin{equation}
+  u^{\alpha\beta} = U^{\alpha\beta} + 2\partial^{(\alpha}U^{\beta)} + \gamma^{\alpha\beta} \tilde U + \Delta^{\alpha\beta} U.
+\end{equation}
+In this decomposition, $U^{\alpha\beta}$ is the transverse traceless tensor satisfying $\partial_\alpha U^{\alpha\beta} = 0$ and $\gamma_{\alpha\beta}U^{\alpha\beta}=0$. The vector $U^\alpha$ is again a transverse vector, $U$ and $\tilde U$ are scalars, and $\Delta_{\alpha\beta} = \partial_\alpha\partial_\beta - \frac{1}{3}\gamma_{\alpha\beta}\Delta$, where $\Delta$ is the Laplacian, denotes the traceless Hessian. The same decomposition
+\begin{equation}
+  v^{\alpha\beta} = V^{\alpha\beta} + 2\partial^{(\alpha}V^{\beta)} + \gamma^{\alpha\beta} \tilde V + \Delta^{\alpha\beta} V.
+\end{equation}
+applies to $v^{\alpha\beta}$. Being traceless, the field $w^{\alpha\beta}$ is missing the trace scalar $\tilde W$, but otherwise admits a similar deconstruction into transverse traceless tensor $W^{\alpha\beta}$, transverse vector $W^\alpha$, and longitudinal scalar $W$. At last, we have the lapse perturbation $A$, which is already a scalar.
+
+Explicitly carrying out the gauge transform \eqref{area_gauge_transform} and carefully inspecting the components of $H^{\prime A}$, we find that the vector field $\xi$ can always be chosen such that the four gauge conditions
+\begin{equation}
+  0 = B,\quad 0 = U^\alpha - V^\alpha,\quad 0 = U + V
+\end{equation}
+are satisfied (see \ref{perturbation_paper}). This choice reduces the degrees of freedom to 17, wich are summarized in Table \ref{table_area_dof}. with 5 scalars $A$, $\tilde U$, $\tilde V$, $V$, $W$, 3 transverse vectors (with 2 degrees each) $B^\alpha$, $U^\alpha$, $W^\alpha$, and 3 transverse traceless tensors (also with 2 degrees each) $U^{\alpha\beta}$, $V^{\alpha\beta}$, $W^{\alpha\beta}$.
+
+\section{Linearized field equations}\label{sect_area_linear_eom}
 
 \begin{itemize}
 \item gauge fixing
