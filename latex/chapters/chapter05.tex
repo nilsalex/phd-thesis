@@ -391,7 +391,7 @@ Around the perturbation point $N$, the area metric observer quantities expand as
   \end{aligned}
 \end{equation}
 With $\gamma$ we denote the positive-definite spatial part of the Minkowski metric, i.e.~$\eta^{\alpha\beta} = - \gamma^{\alpha\beta}$. From now on, spatial indices are raised and lowered at will using $\gamma$ and its inverse. The perturbations $A$, $b$, $h$, $k$, and $l$ are again in one-to-one correspondence with the 21 perturbations $H$, by virtue of
-\begin{equation}
+\begin{equation}\label{area_metric_perturbation}
   \begin{aligned}
     H^{0\alpha0\beta} &{} = 2 A \gamma^{\alpha\beta} - h^{\alpha\beta}, \\
     H^{0\alpha\beta\gamma} &{} = -A \epsilon^{\alpha\beta\gamma} + 2 b^{\lbrack\beta} \gamma^{\gamma\rbrack\alpha} + \frac{1}{2} \epsilon^{\alpha\beta\gamma} \gamma_{\mu\nu} h^{\mu\nu} + \epsilon^{\mu\beta\gamma} k^\alpha_{\hphantom\alpha\mu}, \\
@@ -418,7 +418,7 @@ Applied to a tensor of rank 2, the Helmholtz theorem yields a decomposition
 \begin{equation}
   u^{\alpha\beta} = U^{\alpha\beta} + 2\partial^{(\alpha}U^{\beta)} + \gamma^{\alpha\beta} \tilde U + \Delta^{\alpha\beta} U.
 \end{equation}
-In this decomposition, $U^{\alpha\beta}$ is the transverse traceless tensor satisfying $\partial_\alpha U^{\alpha\beta} = 0$ and $\gamma_{\alpha\beta}U^{\alpha\beta}=0$. The vector $U^\alpha$ is again a transverse vector, $U$ and $\tilde U$ are scalars, and $\Delta_{\alpha\beta} = \partial_\alpha\partial_\beta - \frac{1}{3}\gamma_{\alpha\beta}\Delta$, where $\Delta$ is the Laplacian, denotes the traceless Hessian. The same decomposition
+In this decomposition, $U^{\alpha\beta}$ is the transverse traceless tensor satisfying $\partial_\alpha U^{\alpha\beta} = 0$ and $\gamma_{\alpha\beta}U^{\alpha\beta}=0$. The vector $U^\alpha$ is again a transverse vector, $U$ and $\tilde U$ are scalars, and $\Delta_{\alpha\beta} = \partial_\alpha\partial_\beta - \frac{1}{3}\gamma_{\alpha\beta}\Delta$, with the Laplacian $\Delta$, denotes the traceless Hessian. The same decomposition
 \begin{equation}
   v^{\alpha\beta} = V^{\alpha\beta} + 2\partial^{(\alpha}V^{\beta)} + \gamma^{\alpha\beta} \tilde V + \Delta^{\alpha\beta} V.
 \end{equation}
@@ -428,7 +428,47 @@ Explicitly carrying out the gauge transform \eqref{area_gauge_transform} and car
 \begin{equation}
   0 = B,\quad 0 = U^\alpha - V^\alpha,\quad 0 = U + V
 \end{equation}
-are satisfied (see \ref{perturbation_paper}). This choice reduces the degrees of freedom to 17, wich are summarized in Table \ref{table_area_dof}. with 5 scalars $A$, $\tilde U$, $\tilde V$, $V$, $W$, 3 transverse vectors (with 2 degrees each) $B^\alpha$, $U^\alpha$, $W^\alpha$, and 3 transverse traceless tensors (also with 2 degrees each) $U^{\alpha\beta}$, $V^{\alpha\beta}$, $W^{\alpha\beta}$.
+are satisfied (see \cite{perturbation_paper}). This choice reduces the degrees of freedom to 17, wich are summarized in Table \ref{table_area_dof}.
+\begin{table}
+  \centering
+  \begin{tabular}{l c c c}
+    \toprule
+    perturbation kind & dof per field & fields & total dof \\
+    \midrule
+    scalar & 1 & $A,\tilde U,\tilde V,V,W$ & 5 \\
+    transverse vector & 2 & $B^\alpha,U^\alpha,W^\alpha$ & 6 \\
+    transverse traceless tensor & 2 & $U^{\alpha\beta},V^{\alpha\beta},W^{\alpha\beta}$ & 6 \\
+    \bottomrule 
+  \end{tabular}
+  \caption{The 17 gauge-fixed degrees of freedom (dof) in linearized area metric gravity. Transverse vectors are divergence free, i.e.~satisfy $0 = \partial_\alpha U^\alpha$. Transverse traceless vectors are symmetric, tracefree, and divergence free, i.e.~$0 = U^{\lbrack\alpha\beta\rbrack}$, $0 = \gamma_{\alpha\beta} U^{\alpha\beta}$, and $0 = \partial_\alpha U^{\alpha\beta}$. Together with the four gauge-fixed fields $B=0$, $V^\alpha = U^\alpha$, and $U=-V$, the area metric perturbation in this particular gauge is reproduced using Eq.~\eqref{area_metric_perturbation}.}
+\end{table}
+
+Let us briefly collect the results of a similar decomposition and gauge fixing for metric gravity perturbed around the Minkowski metric. This will be of use later when we compare area metric gravity with metric gravity and highlight the differences. The metric tensor has 10 degrees of freedom and, as already remarked, decomposes into shift $N^\alpha$, lapse $N$, and spatial metric $\hat g^{\alpha\beta}$ by virtue of the relations
+\begin{equation}
+  \begin{aligned}
+    g(\mathrm dt,\mathrm dt) &{} = \frac{1}{N^2}, \\
+    g(\mathrm dt,\mathrm dx^\alpha) &{} = -\frac{N^\alpha}{N^2}, \\
+    g(\mathrm dx^\alpha,\mathrm dx^\beta) &{} = \frac{N^\alpha N^\beta}{N^2} - \hat g^{\alpha\beta}.
+  \end{aligned}
+\end{equation}
+Around $\eta$, the observer quantities expand as
+\begin{equation}
+  \begin{aligned}
+    N &{} = 1 + A, \\
+    N^\alpha &{} = b^\alpha, \\
+    \hat g^{\alpha\beta} &{} = \gamma^{\alpha\beta} + \varphi^{\alpha\beta}.
+  \end{aligned}
+\end{equation}
+Like before, we use the Helmholtz theorem to write
+\begin{equation}
+  b^\alpha = \partial^\alpha B + B^\alpha
+\end{equation}
+and
+\begin{equation}
+  \varphi^{\alpha\beta} = E^{\alpha\beta} + 2\partial^{(\alpha}V^{\beta)} + C \gamma^{\alpha\beta} + \Delta^{\alpha\beta} D.
+\end{equation}
+A possible choice of gauge conditions is to set $B$, $D$, and $V^\alpha$ to zero, leaving us with 6 degrees of freedom in the fields $A$, $B^\alpha$, $C$, and $E^{\alpha\beta}$.
+
 
 \section{Linearized field equations}\label{sect_area_linear_eom}
 
