@@ -343,16 +343,25 @@ Based on a slicing, we now introduce an observer definition\footnote{see also Re
 
 Essential for the $3+1$ split are the observer quantities that parameterize the components of the geometry in the holonomic frame. For example, using the completeness relation
 \begin{equation}
-  \delta^a_b = T^an_b + e^a_\alpha \epsilon^\alpha_b = \frac{1}{N}\delta^a_0 n_b - \frac{1}{N} N^a n_b + \delta^a_\alpha \epsilon^\alpha_b,
+  \mathrm{id} = T\otimes n + e_\alpha \otimes \epsilon^\alpha,
 \end{equation}
 a vector field $v$ decomposes as
 \begin{equation}
-  v(\mathrm dt) = v(n)\quad\text{and}\quad v(\mathrm dx^\alpha) = -\frac{1}{N}N^\alpha v(n) + v(\epsilon^\alpha),
+  v = v\circ \mathrm{id} = v(n)\, T + v(\epsilon^\alpha)\, e_\alpha,
 \end{equation}
-completely determining the field by virtue of $N$, $N^\alpha$, $v(n)$, and $v(\epsilon^\alpha)$. For the area metric field, we obtain the decomposition
+such that the holonomic components are determined by observer quantities $N$, $N^\alpha$, $v(n)$, $v(\epsilon^\alpha)$ as
 \begin{equation}
-  G(\mathrm dt,\mathrm dx^\alpha,\mathrm dt,\mathrm dx^\beta) = \frac{1}{N^2} G(n,\epsilon^\alpha,n,\epsilon^\beta)
+  v(\mathrm dt) = v(n)\quad\text{and}\quad v(\mathrm dx^\alpha) = -\frac{1}{N}N^\alpha v(n) + v(\epsilon^\alpha).
 \end{equation}
+For the area metric field, we obtain a similar decomposition
+\begin{gather}
+  G(\mathrm dt,\mathrm dx^\alpha,\mathrm dt,\mathrm dx^\beta) = \frac{1}{N^2} G(n,\epsilon^\alpha,n,\epsilon^\beta), \\
+  G(\mathrm dt,\mathrm dx^\alpha, \mathrm dx^\beta, \mathrm dx^\gamma) = -\frac{2}{N^2} G(n,\epsilon^\alpha,n,\epsilon^{\lbrack\gamma})N^{\beta\rbrack} + \frac{1}{N} G(n,\epsilon^\alpha,\epsilon^\beta,\epsilon^\gamma), \\
+  \begin{aligned}
+    G(\mathrm dx^\alpha, \mathrm dx^\beta, \mathrm dx^\gamma, \mathrm dx^\delta) &{} = \frac{4}{N^2} N^{\lbrack\alpha}G(n,\epsilon^{\beta\rbrack},n,\epsilon^{\lbrack\delta})N^{\gamma\rbrack} + \frac{2}{N} N^{\lbrack\alpha}G(n,\epsilon^{\beta\rbrack},\epsilon^\gamma,\epsilon^\delta) \\
+                                                                                 &{} = + \frac{2}{N} N^{\lbrack\gamma}G(n,\epsilon^{\delta\rbrack},\epsilon^\alpha,\epsilon^\beta) + G(\epsilon^\alpha,\epsilon^\beta,\epsilon^\gamma,\epsilon^\delta),
+  \end{aligned}
+\end{gather}
 
 \begin{itemize}
 \item gauge fixing
