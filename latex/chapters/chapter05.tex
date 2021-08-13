@@ -152,7 +152,7 @@ This transformation behaviour carries over to the principal symbol of the Euler-
 \begin{proof}
   The idea of the proof is as before: We insert the just proven transformation behaviour of the Euler-Lagrange equations $E_A$ and of covectors $k$, which is
   \begin{equation}
-    \delta_\xi k_a = - k_m \xi^n_{,a},
+    \delta_\xi k_a = - k_m \xi^m_{,a},
   \end{equation}
   into the transformation
   \begin{equation}
@@ -298,13 +298,13 @@ The result now follows from multiplication of $\mathcal P_\text{area}^{(\leq 1)}
 Having fixed the causality of third-order perturbative area metric gravity---by proof, rather than by explicit calculation---the construction procedure up to this order is completed. Third-order area metric gravity\footnote{With second-order field equations and, therefore, a principal polynomial of first order.} is determined by the ansatz \eqref{ansatz_area_gravity} which is constructed from the Lorentz-invariant basis tensors \eqref{???}. From the 237 gravitational constants---the coefficients in the basis expansion---50 constants turn out to be independent, 11 of which govern the linearized field equations. The relations between gravitational constants are collected in Appendix \ref{}. In the following, we will examine the linear theory, which forms the basis for predicting first-order and, later on, second-order effects of area metric gravity.
 
 \section{3+1 decomposition}
-As remarked in Sect.~\ref{section_gled}, the expansion point should be an area metric of a certain subclass in order to guarantee hyperbolicity of the GLED principal polynomial---and, by the previous result, hyperbolicity of third-order area metric gravity. Indeed, $N$ is of subclass I according to the classification in Ref.~\ref{sergio}. Thus, we can turn to a $3+1$ formulation, starting with the definition of a slicing.
+As remarked in Sect.~\ref{section_gled}, the expansion point should be an area metric of a certain subclass in order to guarantee hyperbolicity of the GLED principal polynomial---which encompasses, by the previously proven result, hyperbolicity of third-order area metric gravity. Indeed, $N$ is of subclass I according to the classification in Ref.~\ref{sergio}. Thus, we can turn to a $3+1$ formulation, starting with the definition of a slicing.
 \begin{definition}[slicing]
   Consider a spacetime manifold $M$ of dimension four. Any diffeomorphism
   \begin{equation}
     \phi\colon \Sigma\times\mathbb R \rightarrow M
   \end{equation}
-  from a three-dimensional spatial manifold $\Sigma$ to $M$ is called a slicing of $M$.
+  from a three-dimensional spatial manifold $\Sigma$ and the reals to $M$ is called a slicing of $M$.
 \end{definition}
 Such a slicing always exists, as we only consider matter theories that have a well-defined initial value problem. It is, however, not unique: Any diffeomorphism $\psi\colon M\rightarrow M$ yields a new slicing $\tilde\phi = \psi\circ\phi$. Since the spatial manifold is of dimension three and not four, working with slicings comes with new indices running from one to three. These will be denoted with lowercase greek letters, while lowercase latin letters represent spacetime indices running from zero to three.
 
@@ -334,14 +334,14 @@ Based on a slicing, we now introduce an observer definition\footnote{see also Re
   \end{equation}
   In the following, we assume $P(n) = 1$ to be solved by choosing an appropriate basis on $T\mathbb R$ and setting $\lambda = 1$.
 
-  The holonomic time direction $\frac{\partial}{\partial t}$ decomposes as
+  The holonomic time direction $\frac{\partial}{\partial t}$ decomposes in the observer frame as
   \begin{equation}
     \frac{\partial}{\partial t} = NT + N^\alpha \frac{\partial}{\partial x^\alpha}
   \end{equation}
   with the lapse $N$ and shift $N^\alpha$.
 \end{definition}
 
-Essential for the $3+1$ split are the observer quantities that parameterize the components of the geometry in the holonomic frame. For example, using the completeness relation
+Essential for the $3+1$ split is the parameterization of the geometry with quantities an observer can measure in her frame, as well as lapse and shift. For example, using the completeness relation
 \begin{equation}
   \mathrm{id} = T\otimes n + e_\alpha \otimes \epsilon^\alpha = \frac{1}{N} \frac{\partial}{\partial t} \otimes n - \frac{1}{N} N^\alpha e_\alpha \otimes n + e_\alpha \otimes \epsilon^\alpha,
 \end{equation}
@@ -349,11 +349,11 @@ a vector field $v$ decomposes as
 \begin{equation}
   v = v\circ \mathrm{id} = v(n)\, T + v(\epsilon^\alpha)\, e_\alpha.
 \end{equation}
-The holonomic components are thus determined by the quantities $N$, $N^\alpha$, $v(n)$, $v(\epsilon^\alpha)$ as
+The holonomic components are thus determined by lapse $N$, shift $N^\alpha$, and the observer quantities $v(n)$ and $v(\epsilon^\alpha)$ as
 \begin{equation}
   v(\mathrm dt) = v(n)\quad\text{and}\quad v(\mathrm dx^\alpha) = -\frac{1}{N}N^\alpha v(n) + v(\epsilon^\alpha).
 \end{equation}
-Obviously, the information contained in $N$, $N^\alpha$, $v(n)$, and $v(\epsilon^\alpha)$ is redundant---four holonomic components are represented using 8 observer quantities. This is where the frame conditions \eqref{frame_conditions} come into play: Consider the decomposition of the area metric field into
+Obviously, the information contained in $N$, $N^\alpha$, $v(n)$, and $v(\epsilon^\alpha)$ is redundant---four holonomic components are represented using 8 observer quantities. This is where the frame conditions \eqref{frame_conditions} come into play: Consider the decomposition of the area metric field into \cite{giesel_schuller_witte_wohlfarth}
 \begin{gather}
   G(\mathrm dt,\mathrm dx^\alpha,\mathrm dt,\mathrm dx^\beta) = \frac{1}{N^2} G(n,\epsilon^\alpha,n,\epsilon^\beta), \\
   G(\mathrm dt,\mathrm dx^\alpha, \mathrm dx^\beta, \mathrm dx^\gamma) = -\frac{2}{N^2} G(n,\epsilon^\alpha,n,\epsilon^{\lbrack\gamma})N^{\beta\rbrack} + \frac{1}{N} G(n,\epsilon^\alpha,\epsilon^\beta,\epsilon^\gamma), \\
@@ -362,7 +362,7 @@ Obviously, the information contained in $N$, $N^\alpha$, $v(n)$, and $v(\epsilon
                                                                                  &{} \hphantom{=} + \frac{2}{N} N^{\lbrack\gamma}G(n,\epsilon^{\delta\rbrack},\epsilon^\alpha,\epsilon^\beta) + G(\epsilon^\alpha,\epsilon^\beta,\epsilon^\gamma,\epsilon^\delta).
   \end{aligned}
 \end{gather}
-So far, the situation seems to be similar---21 area metric components are determined by 25 observer quantities. The difference to the decomposition of a vector is that the frame conditions \eqref{frame_conditions} depend---via the principal polynomial---on the area metric, which introduces dependencies among area metric, lapse, and shift. To formulate these conditions, it is more convenient to redefine the observer quantities as
+So far, the situation seems to be similar---21 area metric components are determined by 21 observer quantities plus lapse and shift. The difference to the decomposition of a vector is that the frame conditions \eqref{frame_conditions} depend---via the principal polynomial---on the area metric, which introduces dependencies among area metric, lapse, and shift. To formulate these conditions, it is more convenient to redefine the observer quantities as \cite{giesel_schuller_witte_wohlfarth}
 \begin{equation}
   \begin{aligned}
     \hat{G}^{\alpha\beta}                  &{} = -G(n,\epsilon^\alpha,n,\epsilon^\beta), \\
@@ -374,11 +374,11 @@ with the spatial density
 \begin{equation}
   \omega_{\hat G} = \sqrt{\operatorname{det}\hat G^{\cdot\cdot}}.
 \end{equation}
-By definition, $\hat G^{\alpha\beta}$ and $\hat G_{\alpha\beta}$ are symmetric. The frame conditions \eqref{frame_conditions} translate into the two additional properties
+By definition, $\hat G^{\alpha\beta}$ and $\hat G_{\alpha\beta}$ are symmetric. The frame conditions \eqref{frame_conditions} translate into the two additional properties\cite{giesel_schuller_witte_wohlfarth}
 \begin{equation}
   0 = \hat G^\alpha_{\hphantom\alpha\alpha}\quad\text{and}\quad0 = \hat G^{\mu\lbrack\alpha} \hat G^{\beta\rbrack}_{\hphantom\beta\mu},
 \end{equation}
-i.e.~$\hat G^\alpha_{\hphantom\alpha\beta}$ is trace-free and symmetric with respect to $\hat G^{\alpha\beta}$. In total, the observer quantities $\hat G^{\alpha\beta}$, $\hat G^{\alpha}_{\hphantom\alpha\beta}$, $\hat G_{\alpha\beta}$, $N^\alpha$, $N$ have $6+5+6+3+1 = 21$ degrees of freedom, such that they are in one-to-one correspondence with the area metric field $G^{abcd}$. Note the similarity to the $3+1$ decomposition of the metric tensor $g^{ab}$ into shift $N^\alpha$, lapse $N$, and spatial metric $\hat g^{\alpha\beta}$---the purely temporal and spatio-temporal components of the metric are parameterized only by shift and lapse, due to the frame conditions \eqref{frame_conditions}.
+i.e.~$\hat G^\alpha_{\hphantom\alpha\beta}$ is trace-free and symmetric with respect to $\hat G^{\alpha\beta}$. In total, lapse and shift and the observer quantities $\hat G^{\alpha\beta}$, $\hat G^{\alpha}_{\hphantom\alpha\beta}$, $\hat G_{\alpha\beta}$ have $1+3+6+5+6 = 21$ degrees of freedom, such that they are in one-to-one correspondence with the area metric field $G^{abcd}$. Note the similarity to the $3+1$ decomposition of the metric tensor $g^{ab}$ into shift $N^\alpha$, lapse $N$, and spatial metric $\hat g^{\alpha\beta}$---the purely temporal and spatio-temporal components of the metric are parameterized only by shift and lapse, due to the frame conditions \eqref{frame_conditions}.
 
 Around the perturbation point $N$, the area metric observer quantities expand as
 \begin{equation}
@@ -406,11 +406,11 @@ Using these fields rather then the original ones, the field equations assume a p
 
 Area metric gravity as constructed in the framework of covariant constructive gravity is---by the first axiom---diffeomorphism invariant. For the linear theory, this invariance manifests itself in the presence of a gauge symmetry
 \begin{equation}\label{area_gauge_transform}
-  H^{\prime A} = H^A + \gmc{A}{B}{n}{m} N^B \xi^n_{,m}
+  H^{\prime A} = H^A + \gmc{A}{B}{n}{m} N^B \xi^m_{,n}
 \end{equation}
 generated by vector fields $\xi \in \Gamma(TM)$. As a result, the Euler-Lagrange equations are underdetermined, as solutions can only be obtained up to a gauge transform.
 
-In order to have a determined system for our following analysis, we fix the gauge by reducing the number of perturbation fields in a way that can always be reproduced using appropriate gauge transforms. The tool that makes the gauge fixing quite straightforward is Helmholtz' theorem\footnote{The Helmholtz theorem is only valid for certain classes of functions. Applicability to linearized area metric gravity is assumed.}, which allows us to decompose the spatial vector field $b$ into a so-called longitudinal scalar $B$ and a divergence-free transverse vector $B^\alpha$ satisfying $\partial_\alpha B^\alpha = 0$ as
+In order to have a determined system for our following analysis, we fix the gauge by reducing the number of perturbation fields in a way that can always be reproduced using appropriate gauge transforms. The tool that makes the gauge fixing quite straightforward is Helmholtz' theorem\footnote{The Helmholtz theorem is only valid for certain classes of functions. Applicability to linearized area metric gravitay, i.e.~sufficiently well-behaved perturbations, is assumed.}, which allows us to decompose the spatial vector field $b$ into a so-called longitudinal scalar $B$ and a divergence-free transverse vector $B^\alpha$ satisfying $\partial_\alpha B^\alpha = 0$ as
 \begin{equation}
   b^\alpha = \partial^\alpha B + B^\alpha.
 \end{equation}
@@ -473,7 +473,6 @@ A possible choice of gauge conditions is to set $B$, $D$, and $V^\alpha$ to zero
 \section{Linearized field equations}\label{sect_area_linear_eom}
 
 \begin{itemize}
-\item gauge fixing
 \item reduction: schwarzschild solution + mode decoupling
 \end{itemize}
 
