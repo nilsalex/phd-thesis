@@ -477,36 +477,35 @@ For the linearized field equations, we automatically obtain a Helmholtz decompos
 Performing the $3+1$ split is a computationally heavy task. Essentially, the perturbation \eqref{area_metric_perturbation} has to be inserted into the Ansätze (see Appendix \ref{appendix}), the resulting expression must be simplified, then varied with respect to the different modes, and simplified again. In order to gain confidence in the result, speed up the computation, and---very importantly---have a calculation that can be reproduced and amended, the task has been offloaded to the computer algebra system \texttt{cadabra}\cite{cadabra}. The code is available at Ref.~\cite{area_metric_gravity_code} and, in parts, in Appendix \ref{}.
 
 Because the linearized field equations are a central result of this thesis and constitute the basis for upcoming predictions, is is worth displaying them in their entirety. Let us start with the scalar equations, which feature ten independent linear combinations $s_i$ of the gravitational constants (see Appendix \ref{}), and read
-\begin{equation}\label{scalar_equations}
-  \begin{aligned}
-    \left\lbrack\frac{\delta L}{\delta u^{\alpha\beta}}\right\rbrack^\text{S-TF} = {} & \Delta_{\alpha\beta} \left\lbrack s_1 A -\frac{s_1}{4} \tilde U + s_3 \tilde V + s_4 \ddot V - \frac{s_4}{3} \Delta V + s_6 \ddot W - \frac{s_6}{3} \Delta W\right\rbrack, \\
-    \left\lbrack\frac{\delta L}{\delta v^{\alpha\beta}}\right\rbrack^\text{S-TF} = {} & \Delta_{\alpha\beta} \left\lbrack (s_1 + 4s_4) A + (\frac{s_1}{4} + s_4) \tilde U + (\frac{3s_1}{4} + 3 s_4) \tilde V \right. \\ & + \left. s_{11} \ddot V - (\frac{s_1}{3} + \frac{4s_4}{3} + s_{11}) \Delta V + s_{13} V + s_{14} \Box W + s_{16} W \right\rbrack, \\
-    \left\lbrack\frac{\delta L}{\delta w^{\alpha\beta}}\right\rbrack^\text{S-TF} = {} & \Delta_{\alpha\beta} \left\lbrack 4s_6 A + s_6 \tilde U + 3 s_6 \tilde V \right. \\ & + \left. (-s_6 + s_{14}) \ddot V - (\frac{s_6}{3} + s_{14}) \Delta V + s_{16} V - (\frac{s_1}{4} + s_4 + s_{11}) \Box W - s_{13} W \right\rbrack, \\
-    \left\lbrack\frac{\delta L}{\delta u^{\alpha\beta}}\right\rbrack^\text{S-TR} = {} & \gamma_{\alpha\beta} \left\lbrack -\frac{2s_1}{3} \Delta A -\frac{s_1}{2} \ddot{\tilde U} + \frac{s_1}{6} \Delta\tilde U + (-\frac{3s_1}{4} + s_3) \ddot{\tilde V} -\frac{2s_3}{3} \Delta\tilde V \right. \\ & \left. + \frac{s_1}{3} \Delta\ddot V + \frac{2s_4}{9} \Delta\Delta V + \frac{2s_6}{9} \Delta\Delta W\right\rbrack, \\
-    \left\lbrack\frac{\delta L}{\delta v^{\alpha\beta}}\right\rbrack^\text{S-TR} = {} & \gamma_{\alpha\beta} \left\lbrack (-s_1 + \frac{4s_3}{3}) \Delta A + (-\frac{3s_1}{4} + s_3) \ddot{\tilde U} - \frac{2s_3}{3} \Delta\tilde U \right. \\ & \left. + s_{37} \ddot{\tilde V} - (\frac{3s_1}{2} - 2s_3 + s_{37}) \Delta\tilde V + s_{39} \tilde V \right. \\ & \left. + (\frac{s_1}{2} - \frac{2s_3}{3}) \Delta\ddot V + (\frac{s_1}{6} + \frac{2s_3}{9} + \frac{2s_4}{3}) \Delta\Delta V + \frac{2s_6}{3} \Delta\Delta W\right\rbrack, \\
-    \left\lbrack\frac{\delta L}{\delta b^{\alpha}}\right\rbrack^\text{S} = {} & \partial_\alpha \partial_t \left\lbrack -2s_1\tilde U + (-3s_1 + 4s_3) \tilde V + (\frac{4s_1}{3} + \frac{8s_4}{3}) \Delta V + \frac{8s_6}{3} \Delta W\right\rbrack, \\
-    \frac{\delta L}{\delta A} = {} & -2s_1 \Delta\tilde U + (-3s_1 + 4s_3) \Delta\tilde V + (\frac{4s_1}{3} + \frac{8s_4}{3}) \Delta\Delta V + \frac{8s_6}{3} \Delta\Delta W.
-  \end{aligned}
-\end{equation}
+\begingroup\allowdisplaybreaks
+\begin{align}
+  \bigg\lbrack\frac{\delta L}{\delta u^{\alpha\beta}}\bigg\rbrack^\text{S-TF} = {} & \Delta_{\alpha\beta} \bigg\lbrack s_1 A -\frac{s_1}{4} \tilde U + s_3 \tilde V + s_4 \ddot V - \frac{s_4}{3} \Delta V + s_6 \ddot W - \frac{s_6}{3} \Delta W\bigg\rbrack, \nonumber \\
+  \bigg\lbrack\frac{\delta L}{\delta v^{\alpha\beta}}\bigg\rbrack^\text{S-TF} = {} & \Delta_{\alpha\beta} \bigg\lbrack (s_1 + 4s_4) A + (\frac{s_1}{4} + s_4) \tilde U + (\frac{3s_1}{4} + 3 s_4) \tilde V \\ & + s_{11} \ddot V - (\frac{s_1}{3} + \frac{4s_4}{3} + s_{11}) \Delta V + s_{13} V + s_{14} \Box W + s_{16} W \bigg\rbrack, \nonumber \\
+  \bigg\lbrack\frac{\delta L}{\delta w^{\alpha\beta}}\bigg\rbrack^\text{S-TF} = {} & \Delta_{\alpha\beta} \bigg\lbrack 4s_6 A + s_6 \tilde U + 3 s_6 \tilde V \\ & + (-s_6 + s_{14}) \ddot V - (\frac{s_6}{3} + s_{14}) \Delta V + s_{16} V - (\frac{s_1}{4} + s_4 + s_{11}) \Box W - s_{13} W \bigg\rbrack, \nonumber \\
+  \bigg\lbrack\frac{\delta L}{\delta u^{\alpha\beta}}\bigg\rbrack^\text{S-TR} = {} & \gamma_{\alpha\beta} \bigg\lbrack -\frac{2s_1}{3} \Delta A -\frac{s_1}{2} \ddot{\tilde U} + \frac{s_1}{6} \Delta\tilde U + (-\frac{3s_1}{4} + s_3) \ddot{\tilde V} -\frac{2s_3}{3} \Delta\tilde V \\ & + \frac{s_1}{3} \Delta\ddot V + \frac{2s_4}{9} \Delta\Delta V + \frac{2s_6}{9} \Delta\Delta W\bigg\rbrack, \nonumber \\
+  \bigg\lbrack\frac{\delta L}{\delta v^{\alpha\beta}}\bigg\rbrack^\text{S-TR} = {} & \gamma_{\alpha\beta} \bigg\lbrack (-s_1 + \frac{4s_3}{3}) \Delta A + (-\frac{3s_1}{4} + s_3) \ddot{\tilde U} - \frac{2s_3}{3} \Delta\tilde U \\ & + s_{37} \ddot{\tilde V} - (\frac{3s_1}{2} - 2s_3 + s_{37}) \Delta\tilde V + s_{39} \tilde V \\ & + (\frac{s_1}{2} - \frac{2s_3}{3}) \Delta\ddot V + (\frac{s_1}{6} + \frac{2s_3}{9} + \frac{2s_4}{3}) \Delta\Delta V + \frac{2s_6}{3} \Delta\Delta W\bigg\rbrack, \nonumber \\
+  \bigg\lbrack\frac{\delta L}{\delta b^{\alpha}}\bigg\rbrack^\text{S} = {} & \partial_\alpha \partial_t \bigg\lbrack -2s_1\tilde U + (-3s_1 + 4s_3) \tilde V + (\frac{4s_1}{3} + \frac{8s_4}{3}) \Delta V + \frac{8s_6}{3} \Delta W\bigg\rbrack, \nonumber \\
+  \frac{\delta L}{\delta A} = {} & -2s_1 \Delta\tilde U + (-3s_1 + 4s_3) \Delta\tilde V + (\frac{4s_1}{3} + \frac{8s_4}{3}) \Delta\Delta V + \frac{8s_6}{3} \Delta\Delta W. \label{scalar_equations}
+\end{align}%
+\endgroup
 The label $(\text{S-TF})$ denotes the projection of a tensor onto the tracefree scalar, $(\text{S-TR})$ means the projection onto the trace.
 
 Seven of the ten constants $s_i$ parameterize the vector field equations
-\begin{equation}
- \begin{aligned}
-    \left\lbrack\frac{\delta L}{\delta u^{\alpha\beta}}\right\rbrack^\text{V} = {} & \partial_t \partial_{(\alpha} \left\lbrack s_1 B_{\beta)} - 2s_4 \dot U_{\beta)} - 2s_6 \epsilon_{\beta)}^{\hphantom{\beta)}\mu\nu} U_{\mu,\nu} + 2s_6 \dot W_{\beta)} + (-\frac{s_1}{2} - 2s_4) \epsilon_{\beta)}^{\hphantom{\beta)}\mu\nu} W_{\mu,\nu} \right\rbrack, \\
-    \left\lbrack\frac{\delta L}{\delta v^{\alpha\beta}}\right\rbrack^\text{V} = {} & \partial_{(\alpha} \left\lbrack (-s_1 - 4s_4) \dot B_{\beta)} + 4s_6 \epsilon_{\beta)}^{\hphantom{\beta)}\mu\nu} B_{\mu,\nu} \right. \\ & + (s_1 + 4s_4 + 2s_{11}) \ddot U_{\beta)} + (-\frac{3s_1}{2} - 6s_4 - 2s_{11}) \Delta U_{\beta)} + 2s_6 \epsilon_{\beta)}^{\hphantom{\beta)}\mu\nu} \dot U_{\mu,\nu} + 2s_{13} U_{\beta)} \\ & \left. + 2 s_{14} \Box W_{\beta)} + 2 s_{16} W_{\beta)} \right\rbrack, \\
-    \left\lbrack\frac{\delta L}{\delta w^{\alpha\beta}}\right\rbrack^\text{V} = {} & \partial_{(\alpha} \left\lbrack 4s_6 \dot B_{\beta)} + (s_1 + 4s_4) \epsilon_{\beta)}^{\hphantom{\beta)}\mu\nu} B_{\mu,\nu} \right. \\ & + (2s_6 + 2 s_{14}) \ddot U_{\beta)} - 2 s_{14} \Delta U_{\beta)} + (\frac{s_1}{2} + 2 s_4) \epsilon_{\beta)}^{\hphantom{\beta)}\mu\nu} \dot U_{\mu,\nu} + 2 s_{16} U_{\beta)} \\ & \left. + (-\frac{3s_1}{2} - 6s_4 - 2s_{11}) \Box W_{\beta)} - 2s_{13} W_{\beta)} \right\rbrack, \\
-    \left\lbrack\frac{\delta L}{\delta b^\alpha}\right\rbrack^\text{V} = {} & \Delta\left\lbrack 2s_1 B_{\alpha} - 4s_4 \dot U_{\alpha} - 4s_6 \epsilon_{\alpha}^{\hphantom{\alpha}\mu\nu} U_{\mu,\nu} + 4s_6 \dot W_{\alpha} + (-s_1 - 4s_4) \epsilon_{\alpha}^{\hphantom{\alpha}\mu\nu} W_{\mu,\nu} \right\rbrack,
-  \end{aligned}
-\end{equation}
+\begingroup\allowdisplaybreaks
+\begin{align}
+ \bigg\lbrack\frac{\delta L}{\delta u^{\alpha\beta}}\bigg\rbrack^\text{V} = {} & \partial_t \partial_{(\alpha} \bigg\lbrack s_1 B_{\beta)} - 2s_4 \dot U_{\beta)} - 2s_6 \epsilon_{\beta)}^{\hphantom{\beta)}\mu\nu} U_{\mu,\nu} + 2s_6 \dot W_{\beta)} + (-\frac{s_1}{2} - 2s_4) \epsilon_{\beta)}^{\hphantom{\beta)}\mu\nu} W_{\mu,\nu} \bigg\rbrack, \nonumber \\
+ \bigg\lbrack\frac{\delta L}{\delta v^{\alpha\beta}}\bigg\rbrack^\text{V} = {} & \partial_{(\alpha} \bigg\lbrack (-s_1 - 4s_4) \dot B_{\beta)} + 4s_6 \epsilon_{\beta)}^{\hphantom{\beta)}\mu\nu} B_{\mu,\nu} \nonumber \\ & + (s_1 + 4s_4 + 2s_{11}) \ddot U_{\beta)} + (-\frac{3s_1}{2} - 6s_4 - 2s_{11}) \Delta U_{\beta)} + 2s_6 \epsilon_{\beta)}^{\hphantom{\beta)}\mu\nu} \dot U_{\mu,\nu} + 2s_{13} U_{\beta)} \nonumber \\ & + 2 s_{14} \Box W_{\beta)} + 2 s_{16} W_{\beta)} \bigg\rbrack, \nonumber \\
+ \bigg\lbrack\frac{\delta L}{\delta w^{\alpha\beta}}\bigg\rbrack^\text{V} = {} & \partial_{(\alpha} \bigg\lbrack 4s_6 \dot B_{\beta)} + (s_1 + 4s_4) \epsilon_{\beta)}^{\hphantom{\beta)}\mu\nu} B_{\mu,\nu} \nonumber \\ & + (2s_6 + 2 s_{14}) \ddot U_{\beta)} - 2 s_{14} \Delta U_{\beta)} + (\frac{s_1}{2} + 2 s_4) \epsilon_{\beta)}^{\hphantom{\beta)}\mu\nu} \dot U_{\mu,\nu} + 2 s_{16} U_{\beta)} \nonumber \\ & + (-\frac{3s_1}{2} - 6s_4 - 2s_{11}) \Box W_{\beta)} - 2s_{13} W_{\beta)} \bigg\rbrack, \nonumber \\
+ \bigg\lbrack\frac{\delta L}{\delta b^\alpha}\bigg\rbrack^\text{V} = {} & \Delta\bigg\lbrack 2s_1 B_{\alpha} - 4s_4 \dot U_{\alpha} - 4s_6 \epsilon_{\alpha}^{\hphantom{\alpha}\mu\nu} U_{\mu,\nu} + 4s_6 \dot W_{\alpha} + (-s_1 - 4s_4) \epsilon_{\alpha}^{\hphantom{\alpha}\mu\nu} W_{\mu,\nu} \bigg\rbrack, \label{vector_equations}
+\end{align}%
+\endgroup
 as well as the transverse traceless tensor field equations
-\begin{equation}
-  \begin{aligned}
-    \left\lbrack\frac{\delta L}{\delta u^{\alpha\beta}}\right\rbrack^\text{TT} = {} & \frac{s_1}{4} \Box U_{\alpha\beta}  \\ &  + (\frac{s_1}{4} + s_4) \ddot V_{\alpha\beta} + (\frac{s_1}{4} + s_4) \Delta V_{\alpha\beta} - 2s_6 \epsilon_{(\alpha}^{\hphantom{(\alpha}\mu\nu} \dot V_{\beta)\mu,\nu} \\ & + s_6 \ddot W_{\alpha\beta} + s_6 \Delta W_{\alpha\beta} + (\frac{s_1}{2} + 2 s_4) \epsilon_{(\alpha}^{\hphantom{(\alpha}\mu\nu} \dot W_{\beta)\mu,\nu}, \\
-    \left\lbrack\frac{\delta L}{\delta v^{\alpha\beta}}\right\rbrack^\text{TT} = {} & (\frac{s_1}{4} + s_4) \ddot U_{\alpha\beta} + (\frac{s_1}{4} + s_4) \Delta U_{\alpha\beta} + 2s_6 \epsilon_{(\alpha}^{\hphantom{(\alpha}\mu\nu} \dot U_{\beta)\mu,\nu}  \\ &  + (\frac{s_1}{4} + s_4 + s_{11}) \Box V_{\alpha\beta} + s_{13} V_{\alpha\beta} + s_{14} \Box W_{\alpha\beta} + s_{16} W_{\alpha\beta}, \\
-    \left\lbrack\frac{\delta L}{\delta w^{\alpha\beta}}\right\rbrack^\text{TT} = {} & s_6 \ddot U_{\alpha\beta} + s_6 \Delta U_{\alpha\beta} - (\frac{s_1}{2} + 2 s_4) \epsilon_{(\alpha}^{\hphantom{(\alpha}\mu\nu} \dot U_{\beta)\mu,\nu}  \\ &  + s_{14} \Box V_{\alpha\beta} + s_{16} V_{\alpha\beta} - (\frac{s_1}{4} + s_4 + s_{11}) \Box W_{\alpha\beta} - s_{13} W_{\alpha\beta}.
-  \end{aligned}
-\end{equation}
+\begingroup\allowdisplaybreaks
+\begin{align}
+ \bigg\lbrack\frac{\delta L}{\delta u^{\alpha\beta}}\bigg\rbrack^\text{TT} = {} & \frac{s_1}{4} \Box U_{\alpha\beta} \nonumber \\ &  + (\frac{s_1}{4} + s_4) \ddot V_{\alpha\beta} + (\frac{s_1}{4} + s_4) \Delta V_{\alpha\beta} - 2s_6 \epsilon_{(\alpha}^{\hphantom{(\alpha}\mu\nu} \dot V_{\beta)\mu,\nu} \nonumber \\ & + s_6 \ddot W_{\alpha\beta} + s_6 \Delta W_{\alpha\beta} + (\frac{s_1}{2} + 2 s_4) \epsilon_{(\alpha}^{\hphantom{(\alpha}\mu\nu} \dot W_{\beta)\mu,\nu}, \nonumber \\
+ \bigg\lbrack\frac{\delta L}{\delta v^{\alpha\beta}}\bigg\rbrack^\text{TT} = {} & (\frac{s_1}{4} + s_4) \ddot U_{\alpha\beta} + (\frac{s_1}{4} + s_4) \Delta U_{\alpha\beta} + 2s_6 \epsilon_{(\alpha}^{\hphantom{(\alpha}\mu\nu} \dot U_{\beta)\mu,\nu} \nonumber \\ &  + (\frac{s_1}{4} + s_4 + s_{11}) \Box V_{\alpha\beta} + s_{13} V_{\alpha\beta} + s_{14} \Box W_{\alpha\beta} + s_{16} W_{\alpha\beta}, \nonumber \\
+ \bigg\lbrack\frac{\delta L}{\delta w^{\alpha\beta}}\bigg\rbrack^\text{TT} = {} & s_6 \ddot U_{\alpha\beta} + s_6 \Delta U_{\alpha\beta} - (\frac{s_1}{2} + 2 s_4) \epsilon_{(\alpha}^{\hphantom{(\alpha}\mu\nu} \dot U_{\beta)\mu,\nu}\nonumber \\ &  + s_{14} \Box V_{\alpha\beta} + s_{16} V_{\alpha\beta} - (\frac{s_1}{4} + s_4 + s_{11}) \Box W_{\alpha\beta} - s_{13} W_{\alpha\beta}. \label{scalar_equations}
+\end{align}
 
 \begin{itemize}
 \item reduction: schwarzschild solution + mode decoupling
