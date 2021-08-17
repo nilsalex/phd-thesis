@@ -552,7 +552,7 @@ This statement concerns the metric limit of area metric gravity, which is reache
   \end{aligned}
 \end{equation}
 from which we read off the induced perturbations
-\begin{equation}
+\begin{equation}\label{induced_perturbations}
   u^{\alpha\beta} = 2\varphi^{\alpha\beta},\quad v^{\alpha\beta} = 0,\quad w^{\alpha\beta} = 0.
 \end{equation}
 If the metric perturbation is now given by the expansion of the Schwarzschild solution\cite{schwarzschild} to first order,
@@ -648,15 +648,37 @@ with constants
 \begin{equation}
   \nu^2 = \frac{s_{11}s_{13}+s_{14}s_{16}}{s_{11}^2+s_{14}^2}\quad\text{and}\quad\sigma = \frac{s_{11}s_{16} - s_{13} s_{14}}{s_{11}^2 + s_{14}^2}.
 \end{equation}
-Performing a spatial Fourier transform of the system \label{coupled_wave_equations}, we can translate it into a system of linear, first-order ordinary differential equations for the modes $\tilde v(t,k)$ and $\tilde w(t,k)$
+Performing a spatial Fourier transform of the vacuum scalar equations \ref{coupled_wave_equations}, we can translate them into a system of linear, first-order ordinary differential equations for the modes $\tilde v(t,k)$ and $\tilde w(t,k)$
 \begin{equation}
   \frac{\mathrm d}{\mathrm dt}\begin{pmatrix}\tilde v \\ \tilde w \\ \dot{\tilde v} \\ \dot{\tilde w}\end{pmatrix} = \begin{pmatrix}0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 1 \\ -(k^2 + \nu^2) & -\sigma & 0 & 0 \\ \sigma & -(k^2 + \nu^2) & 0 & 0\end{pmatrix}\begin{pmatrix}\tilde v \\ \tilde w \\ \dot{\tilde v} \\ \dot{\tilde w}\end{pmatrix}.
 \end{equation}
 What is now interesting about this system are the eigenvalues of the time evolution, which are given by
 \begin{equation}
-  \lambda = \pm \mathrm i \sqrt{(k^2 + \nu^2) \pm \mathrm i\sigma}.
+  \lambda_k = \pm \mathrm i \sqrt{(k^2 + \nu^2) \pm \mathrm i\sigma}.
 \end{equation}
-From this observation, we derive a second condition for the gravitational constants to yield a theory with plausible phenomenology: 
+Most importantly, there are always $\lambda_k$ such that $\operatorname{Re}(\lambda_k)>0$ \emph{unless} $\sigma$ vanishes. As a consequence, there will always be diverging modes under time evolution if $\sigma$ is not zero. This is not restricted to the scalar modes we analyzed, but also holds for the vector and transverse traceless tensor modes that are coupled in the same way. Such a theory would not only be physically \emph{implausible}, it would be fundamentally broken. We set $\sigma$ to zero by imposing the additional condition
+\begin{equation}
+  s_{11} s_{16} - s_{13} s_{14} = 0
+\end{equation}
+and have thus reduced linearized area metric gravity to a theory parameterized by seven remaining gravitational constants, of which there are five combinations that determine the results obtained above: The two constants $\mu$ and $\nu$ appear as \emph{masses} in wave equations and screened Poisson equations, respectively, and three constants $\alpha$, $\beta$, and $\gamma$ further parameterize the linearized Schwarzschild solution.
+
+Note that with $\sigma=0$ the wave equations for $W$, $V$, $U^\alpha$, $V^\alpha$, $W^{\alpha\beta}$, and $W^{\alpha\beta}$ \emph{decouple}, e.g.~the system of transverse traceless tensor equations can be transformed into
+\begingroup\allowdisplaybreaks
+\begin{align}\footnotesize
+  \bigg\lbrack\frac{\delta L}{\delta u^{\alpha\beta}}\bigg\rbrack^\text{TT} = {} & \frac{s_1}{4} \Box U_{\alpha\beta}, \nonumber \\
+  \frac{s_{11}}{s_{11}^2 + s_{14}^2} \bigg\lbrack\frac{\delta L}{\delta v^{\alpha\beta}}\bigg\rbrack^\text{TT} + \frac{s_{14}}{s_{11}^2 + s_{14}^2} \bigg\lbrack\frac{\delta L}{\delta w^{\alpha\beta}}\bigg\rbrack^\text{TT} = {} & \Box V_{\alpha\beta} + \nu^2 V_{\alpha\beta}, \label{tensor_equations_decoupled} \\
+  \frac{s_{14}}{s_{11}^2 + s_{14}^2} \bigg\lbrack\frac{\delta L}{\delta v^{\alpha\beta}}\bigg\rbrack^\text{TT} - \frac{s_{11}}{s_{11}^2 + s_{14}^2} \bigg\lbrack\frac{\delta L}{\delta w^{\alpha\beta}}\bigg\rbrack^\text{TT} = {} & \Box W_{\alpha\beta} + \nu^2 W_{\alpha\beta}. \nonumber
+\end{align}
+\endgroup
+Similar decoupled wave equations are obtained for the mentioned vector and scalar modes. It is also possible to find a linear combination of scalar field equations \eqref{scalar_equations_reduced} such that the mode $\tilde V$ obeys a massive wave equation\footnote{Not denoting linear combinations of Lagrangian variations explicitly but just referring to them as \emph{source terms}.}
+\begin{equation}
+  \text{(source terms)} = \Box \tilde V + \mu^2 \tilde V.
+\end{equation}
+Counting the wave equations we already found, there are at least 13 propagating degrees of freedom. This is already the maximum number, because our system for 17 degrees of freedom must exhibit four constraint equations arising from the gauge symmetry\cite{}. In fact, the four remaining degrees $B^\alpha$, $\tilde U$, and $A$ are determined by field equations with less than two time derivatives, as can be read off from Eqns.~\eqref{scalar_equations_reduced}--\eqref{tensor_equations_reduced}. Such equations as part of an initial value problem are usually associated with constraints, as they are not capable to \emph{evolve} initial data, but only to \emph{constrain} it.\cite{}
+
+Summing up, the phenomenologically relevant subsector of linearized area metric gravity admits two massless propagating degrees of freedom in the form of the tensor mode $U^{\alpha\beta}$. Furthermore, there are 11 massive propagating degrees of freedom with mass $\mu$, represented by the fields $W$, $V$, $\tilde V$, $U^\alpha$, $W^\alpha$, $V^{\alpha\beta}$, and $W^{\alpha\beta}$. The remaining four degrees of freedom $A$, $\tilde U$, and $B^\alpha$ do not propagate but follow from constraints.
+
+This again constitutes an important sanity check: The count of propagating degrees of freedom is as expected and yields $21 - 2\times 4 = 13$, just like in general relativity we have $10 - 2\times 4 = 2$. In the latter theory, only the transverse traceless part of the spatial metric tensor propagates and does so according to a massless wave equation. For area metric gravity, the only massless propagating modes turn out to be the transverse traceless tensor $U^{\alpha\beta}$, \emph{which is exactly the perturbation induced by the propagating metric modes} (see \eqref{induced_perturbations}).
 
 \section{binary pulsar}
 \begin{itemize}
