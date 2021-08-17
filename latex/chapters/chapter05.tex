@@ -600,9 +600,63 @@ where we redefined the relevant gravitational constants using the more convenien
   \end{aligned}
 \end{equation}
 
-\begin{itemize}
-\item reduction: schwarzschild solution + mode decoupling
-\end{itemize}
+With the reduction from ten to eight gravitational constants, the linearized field equations assume a simpler form. We have reduced scalar field equations
+\begingroup\allowdisplaybreaks
+\begin{align}\footnotesize
+  \bigg\lbrack\frac{\delta L}{\delta u^{\alpha\beta}}\bigg\rbrack^\text{S-TF} = {} & \Delta_{\alpha\beta} \bigg\lbrack s_1 A -\frac{s_1}{4} \tilde U + s_3 \tilde V - \frac{s_1}{4} \ddot V + \frac{s_1}{12} \Delta V \bigg\rbrack, \nonumber \\
+  \bigg\lbrack\frac{\delta L}{\delta v^{\alpha\beta}}\bigg\rbrack^\text{S-TF} = {} & \Delta_{\alpha\beta} \bigg\lbrack s_{11} \Box V + s_{13} V + s_{14} \Box W + s_{16} W \bigg\rbrack, \nonumber \\
+  \bigg\lbrack\frac{\delta L}{\delta w^{\alpha\beta}}\bigg\rbrack^\text{S-TF} = {} & \Delta_{\alpha\beta} \bigg\lbrack s_{14} \Box V + s_{16} V - s_{11} \Box W - s_{13} W \bigg\rbrack, \nonumber \\
+  \bigg\lbrack\frac{\delta L}{\delta u^{\alpha\beta}}\bigg\rbrack^\text{S-TR} = {} & \gamma_{\alpha\beta} \bigg\lbrack -\frac{2s_1}{3} \Delta A -\frac{s_1}{2} \ddot{\tilde U} + \frac{s_1}{6} \Delta\tilde U + (-\frac{3s_1}{4} + s_3) \ddot{\tilde V} -\frac{2s_3}{3} \Delta\tilde V \nonumber \\ & + \frac{s_1}{3} \Delta\ddot V - \frac{s_1}{18} \Delta\Delta V \bigg\rbrack, \label{scalar_equations_reduced} \\
+  \bigg\lbrack\frac{\delta L}{\delta v^{\alpha\beta}}\bigg\rbrack^\text{S-TR} = {} & \gamma_{\alpha\beta} \bigg\lbrack (-s_1 + \frac{4s_3}{3}) \Delta A + (-\frac{3s_1}{4} + s_3) \ddot{\tilde U} - \frac{2s_3}{3} \Delta\tilde U \nonumber \\ & + s_{37} \ddot{\tilde V} - (\frac{3s_1}{2} - 2s_3 + s_{37}) \Delta\tilde V + s_{39} \tilde V \nonumber \\ & + (\frac{s_1}{2} - \frac{2s_3}{3}) \Delta\ddot V + \frac{2s_3}{9} \Delta\Delta V\bigg\rbrack, \nonumber \\
+  \bigg\lbrack\frac{\delta L}{\delta b^{\alpha}}\bigg\rbrack^\text{S} = {} & \partial_\alpha \partial_t \bigg\lbrack -2s_1\tilde U + (-3s_1 + 4s_3) \tilde V + \frac{2s_1}{3} \Delta V\bigg\rbrack, \nonumber \\
+  \frac{\delta L}{\delta A} = {} & -2s_1 \Delta\tilde U + (-3s_1 + 4s_3) \Delta\tilde V + \frac{2s_1}{3} \Delta\Delta V, \nonumber
+\end{align}
+\endgroup
+vector field equations
+\begingroup\allowdisplaybreaks
+\begin{align}\footnotesize
+  \bigg\lbrack\frac{\delta L}{\delta u^{\alpha\beta}}\bigg\rbrack^\text{V} = {} & \frac{s_1}{2} \partial_t \partial_{(\alpha} \bigg\lbrack 2 B_{\beta)} + \dot U_{\beta)}\bigg\rbrack, \nonumber \\
+  \bigg\lbrack\frac{\delta L}{\delta v^{\alpha\beta}}\bigg\rbrack^\text{V} = {} & 2 \partial_{(\alpha} \bigg\lbrack  s_{11} \Box U_{\beta)} + s_{13} U_{\beta)} +  s_{14} \Box W_{\beta)} +  s_{16} W_{\beta)} \bigg\rbrack, \nonumber \\
+  \bigg\lbrack\frac{\delta L}{\delta w^{\alpha\beta}}\bigg\rbrack^\text{V} = {} & 2 \partial_{(\alpha} \bigg\lbrack s_{14} \Box U_{\beta)} + s_{16} U_{\beta)} - s_{11} \Box W_{\beta)} - s_{13} W_{\beta)} \bigg\rbrack, \label{vector_equations_reduced} \\
+  \bigg\lbrack\frac{\delta L}{\delta b^\alpha}\bigg\rbrack^\text{V} = {} & s_1 \Delta\bigg\lbrack 2 B_{\alpha} + \dot U_{\alpha} \bigg\rbrack, \nonumber
+\end{align}
+\endgroup
+and traceless tensor field equations
+\begingroup\allowdisplaybreaks
+\begin{align}\footnotesize
+  \bigg\lbrack\frac{\delta L}{\delta u^{\alpha\beta}}\bigg\rbrack^\text{TT} = {} & \frac{s_1}{4} \Box U_{\alpha\beta}, \nonumber \\
+  \bigg\lbrack\frac{\delta L}{\delta v^{\alpha\beta}}\bigg\rbrack^\text{TT} = {} & s_{11} \Box V_{\alpha\beta} + s_{13} V_{\alpha\beta} + s_{14} \Box W_{\alpha\beta} + s_{16} W_{\alpha\beta}, \label{tensor_equations_reduced} \\
+  \bigg\lbrack\frac{\delta L}{\delta w^{\alpha\beta}}\bigg\rbrack^\text{TT} = {} & s_{14} \Box V_{\alpha\beta} + s_{16} V_{\alpha\beta} - s_{11} \Box W_{\alpha\beta} - s_{13} W_{\alpha\beta}. \nonumber
+\end{align}
+\endgroup
+
+The second observation we want to make concerns the subset
+\begin{equation}
+  \begin{aligned}
+  \bigg\lbrack\frac{\delta L}{\delta v^{\alpha\beta}}\bigg\rbrack^\text{S-TF} = {} & \Delta_{\alpha\beta} \bigg\lbrack s_{11} \Box V + s_{13} V + s_{14} \Box W + s_{16} W \bigg\rbrack, \\
+  \bigg\lbrack\frac{\delta L}{\delta w^{\alpha\beta}}\bigg\rbrack^\text{S-TF} = {} & \Delta_{\alpha\beta} \bigg\lbrack s_{14} \Box V + s_{16} V - s_{11} \Box W - s_{13} W \bigg\rbrack
+  \end{aligned}
+\end{equation}
+of the reduced scalar equations \eqref{scalar_equations_reduced}, whose pattern is repeated in the vector equations \eqref{vector_equations_reduced} for the modes $U^\alpha$ and $W^\alpha$ as well as in the tensor equations \eqref{tensor_equations_reduced} for the modes $V^{\alpha\beta}$ and $W^{\alpha\beta}$. Linear combinations of these equations \emph{in vacuo} yield the equivalent system
+\begin{equation}\label{coupled_wave_equations}
+  \begin{aligned}
+    0 = {} & \Box V + \nu^2 V + \sigma W, \\
+    0 = {} & \Box W + \nu^2 W - \sigma V,
+  \end{aligned}
+\end{equation}
+with constants
+\begin{equation}
+  \nu^2 = \frac{s_{11}s_{13}+s_{14}s_{16}}{s_{11}^2+s_{14}^2}\quad\text{and}\quad\sigma = \frac{s_{11}s_{16} - s_{13} s_{14}}{s_{11}^2 + s_{14}^2}.
+\end{equation}
+Performing a spatial Fourier transform of the system \label{coupled_wave_equations}, we can translate it into a system of linear, first-order ordinary differential equations for the modes $\tilde v(t,k)$ and $\tilde w(t,k)$
+\begin{equation}
+  \frac{\mathrm d}{\mathrm dt}\begin{pmatrix}\tilde v \\ \tilde w \\ \dot{\tilde v} \\ \dot{\tilde w}\end{pmatrix} = \begin{pmatrix}0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 1 \\ -(k^2 + \nu^2) & -\sigma & 0 & 0 \\ \sigma & -(k^2 + \nu^2) & 0 & 0\end{pmatrix}\begin{pmatrix}\tilde v \\ \tilde w \\ \dot{\tilde v} \\ \dot{\tilde w}\end{pmatrix}.
+\end{equation}
+What is now interesting about this system are the eigenvalues of the time evolution, which are given by
+\begin{equation}
+  \lambda = \pm \mathrm i \sqrt{(k^2 + \nu^2) \pm \mathrm i\sigma}.
+\end{equation}
+From this observation, we derive a second condition for the gravitational constants to yield a theory with plausible phenomenology: 
 
 \section{binary pulsar}
 \begin{itemize}
