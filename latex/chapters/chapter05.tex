@@ -470,7 +470,15 @@ and
 A possible choice of gauge conditions is to set $B$, $D$, and $V^\alpha$ to zero, leaving us with 6 degrees of freedom in the fields $A$, $B^\alpha$, $C$, and $E^{\alpha\beta}$.
 
 \section{Linearized field equations}\label{sect_area_linear_eom}
-Applying the $3+1$ decomposition of the area metric field to the Lagrangian density constructed in Sect.~\ref{sect_area_lagrangian} yields an expression that is determined only by lapse, shift, and observer quantities. The corresponding field equations are obtained by variation with respect to all of these fields---as opposed to the ``single'' variation with respect to the area metric in the spacetime picture.
+Applying the $3+1$ decomposition of the area metric field to the Lagrangian density constructed in Sect.~\ref{sect_area_lagrangian} yields an expression that is determined only by lapse, shift, and observer quantities. The corresponding field equations are obtained by the variations
+\begin{equation}
+  \frac{\delta L}{\delta N},\ \frac{\delta L}{\delta N^\alpha},\ \frac{\delta L}{\delta G^{\alpha\beta}},\ \frac{\delta L}{\delta G^\alpha_{\hphantom\alpha\beta}},\ \frac{\delta L}{\delta G_{\alpha\beta}}
+\end{equation}
+with respect to all of these fields---as opposed to the ``single'' variation
+\begin{equation}
+  \frac{\delta L}{\delta G^{abcd}}
+\end{equation}
+with respect to the area metric in the spacetime picture.
 
 For the linearized field equations, we automatically obtain a Helmholtz decomposition of the Euler-Lagrange equations: The variation with respect to the lapse $N$ is a scalar and contains only contributions from scalars, the variation with respect to the shift $N^\alpha$ is a vector and contains only contributions from vectors. The same holds for the scalar and vector constituents of the observer quantities $\hat G$. Also the variations with respect to transverse traceless tensors are again tensors and only comprised of tensors. As a result, the field equations already decouple to a large extent. For this reason, the terminology of the individual scalar, vector, and tensor fields as \emph{modes} of the gravitational field is justified.
 
@@ -507,7 +515,7 @@ as well as the transverse traceless tensor field equations
  \bigg\lbrack\frac{\delta L}{\delta w^{\alpha\beta}}\bigg\rbrack^\text{TT} = {} & s_6 \ddot U_{\alpha\beta} + s_6 \Delta U_{\alpha\beta} - (\frac{s_1}{2} + 2 s_4) \epsilon_{(\alpha}^{\hphantom{(\alpha}\mu\nu} \dot U_{\beta)\mu,\nu}\nonumber \\ &  + s_{14} \Box V_{\alpha\beta} + s_{16} V_{\alpha\beta} - (\frac{s_1}{4} + s_4 + s_{11}) \Box W_{\alpha\beta} - s_{13} W_{\alpha\beta}. \label{tensor_equations}
 \end{align}
 
-The second noether theorem \eqref{}
+The second Noether theorem \eqref{}
 \begin{equation}
   0 = D_n \mathcal T^n_m = - D_n \big\lbrack\frac{\delta L}{\delta u^A} \gmc{A}{B}{n}{m} u^B\big\rbrack
 \end{equation}
@@ -515,15 +523,15 @@ provides a sanity check for the constructed field equations by virtue of its exp
 \begin{equation}
   0 = -\big\lbrack D_n \frac{\delta L}{\delta u^A}\big\rbrack_{N+H} \gmc{A}{B}{n}{m} N^B + \mathcal O(H^2).
 \end{equation}
-Inverting the relation \eqref{area_metric_perturbation} between spacetime area metric and observer fields, we can make use of the chain rule in order to express the variations with respect to the area metric in terms of variations with respect to the observer quantities. This renders the perturbative expansion of the noether theorem in the particularly simple form
+Inverting the relation \eqref{area_metric_perturbation} between spacetime area metric and observer fields, we can make use of the chain rule in order to express the variations with respect to the area metric in terms of variations with respect to the observer quantities. This renders the perturbative expansion of the Noether theorem in the particularly simple form
 \begin{equation}
   0 = \partial_t \frac{\delta L}{\delta A} - \partial_\alpha \frac{\delta L}{\delta b_\alpha}\quad\text{and}\quad 0 = \partial_t\frac{\delta L}{\delta b^\alpha} - 4\partial_\beta\frac{\delta L}{\delta u_{\alpha\beta}},
 \end{equation}
-which is indeed satisfied by the system \eqref{scalar_equations}--\eqref{tensor_equations}. As a consequence of diffeomorphism invariance of the theory, the field equations have four dependencies among themselves. This is, of course, expected---not only from the noether theorem, but also from the fact that gauge-fixing the observer quantities by constraining four fields reduces the 21 unknowns by four. In order for the system of 21 field equations not to be overdetermined, it must express additional dependencies. These considerations are reminiscent of the rich field of constraint analysis\footnote{See e.g.~\cite{}}, which is predominantly studied in the Hamiltonian picture and also plays a role in canonical constructive gravity. For some results in the context of covariant constructive gravity, limited to first-derivative-order theories, see Ref.~\cite{}.
+which is indeed satisfied by the system \eqref{scalar_equations}--\eqref{tensor_equations}. As a consequence of the diffeomorphism invariance of the theory, the field equations have four dependencies among themselves. This is, of course, expected---not only from the Noether theorem, but also from the fact that gauge-fixing the observer quantities by constraining four fields reduces the 21 unknowns by four. In order for the system of 21 field equations not to be overdetermined, it must express additional dependencies. These considerations are reminiscent of the rich field of constraint analysis\footnote{See e.g.~\cite{}}, which is predominantly studied in the Hamiltonian picture and also plays a role in canonical constructive gravity. For some results in the context of covariant constructive gravity, limited to first-derivative-order theories, see Ref.~\cite{}.
 
-While the Noether identities are an expected and, in fact, indispensable, a thorough analysis of the linearized field equations reveals further properties that are impossible to reconcile with our premises. After all, the axioms of covariant constructive gravity are only \emph{necessary} conditions for a theory to be viable. Any such constructed theory needs to be further specified by finding appropriate values for the gravitational constants. This also applies to Einstein gravity---the Newtonian and cosmological constants only match observations for specific ranges, and other ranges, like a negative Newtonian constant, can be dismissed outright.
+While the Noether identities are expected and, in fact, indispensable, a thorough analysis of the linearized field equations reveals further properties that are impossible to reconcile with our premises. After all, the axioms of covariant constructive gravity are only \emph{necessary} conditions for a theory to be viable. Any such constructed theory needs to be further specified by finding appropriate values for the gravitational constants. This also applies to Einstein gravity---the Newtonian and cosmological constants only match observations for specific ranges, where some possibilities like a negative Newtonian constant can be dismissed outright.
 
-The first restriction we will make is to match the weak gravitational field sourced by a point mass with a modest generalization of the Einstein equivalent. More specifically, we consider the gravitational field sourced by a point mass $M$ which is at rest at the coordinate origin and thus describes the world line
+The first restriction of the area metric gravity parameter range we will make is to match the weak gravitational field sourced by a point mass with a modest generalization of the Einstein equivalent. More specifically, we consider the gravitational field sourced by a point mass $M$ which is at rest at the coordinate origin and thus describes the world line
 \begin{equation}\label{stationary_worldline}
   \gamma^a(\lambda) = \lambda \delta^a_0.
 \end{equation}
@@ -531,7 +539,7 @@ If the point particle $M$ is an idealization of a matter field that obeys GLED d
 \begin{equation}
   S_\text{matter}\lbrack\gamma\rbrack = -M \int \mathrm d\lambda \mathcal P_\text{GLED}(\mathcal L^{-1}(\dot\gamma(\lambda)))^{-\frac{1}{4}},
 \end{equation}
-where $\mathcal L^{-1}$ is the inverse of the Legendre map associated with the principal polynomial. In the Einstein equivalent, this action coincides with the common notion of the length of the particle worldline as measured using the covariant metric tensor. The full expansion for arbitrary curves $\gamma$ is considered in the following chapter, it suffices here to consider the special case \eqref{stationary_worldline} and find the only non-vanishing contribution
+where $\mathcal L^{-1}$ is the inverse of the Legendre map associated with the principal polynomial. In the Einstein equivalent, this action coincides with the common notion of the length of the particle worldline as measured using the covariant metric tensor. The full expansion for arbitrary curves $\gamma$ is employed in the following section, it suffices here to consider the special case \eqref{stationary_worldline} and find the only non-vanishing contribution
 \begin{equation}\label{scalar_source}
   \frac{\delta S_\text{matter}}{\delta A(x)} = -M\delta^{(3)}(x).
 \end{equation}
@@ -541,9 +549,9 @@ With the matter distribution being stationary, we consider a stationary ansatz f
 \end{equation}
 for constant coefficients $a_{ij}, b_{ij}, c_{ij}$ and scalar fields $S^{(i)}$.
 
-As solution to the scalar equations we obtain\footnote{\textbf{calculate?}} certain combinations of long-ranging Coulomb solutions $\propto \frac{1}{r}$ and short-ranging Yukawa solutions $\propto \frac{1}{r} \mathrm e^{-r}$. While the coefficients of these combinations depend in an intricate way on the gravitational constants and are impossible to present in general, it is possible to make a generic argument concerning the phenomenology of the linearized result: \emph{The solution to the scalar field equations corresponds to the linearized Schwarzschild solution of general relativity for a central mass $M$ corrected by short-ranging Yukawa potentials if and only if two linear conditions on the gravitational constants $s_i$ hold.}
+As solution to the scalar equations we obtain\footnote{\textbf{calculate?}} certain combinations of long-ranging Coulomb solutions $\propto \frac{1}{r}$ and short-ranging Yukawa solutions $\propto \frac{1}{r} \mathrm e^{-\mu r}$. While the coefficients of these combinations depend in an intricate way on the gravitational constants and are impossible to present in general, it \emph{is} feasible to make a generic argument concerning the phenomenology of the linearized result: \emph{The solution to the scalar field equations corresponds to the linearized Schwarzschild solution of general relativity for a central mass $M$ corrected by short-ranging Yukawa potentials if and only if two linear conditions on the gravitational constants $s_i$ hold.}
 
-This statement concerns the metric limit of area metric gravity, which is reached using the metrically induced area metric \eqref{metric_induced_area}. Inserting the metric $3+1$ decomposition \eqref{metric_three_plus_one} and perturbative expansion \eqref{metric_expansion} in the expression for the induced area metric yields
+This statement concerns the metric limit of area metric gravity, which is reached using the metrically induced area metric \eqref{metric_induced_area}. Inserting the metric $3+1$ decomposition \eqref{metric_three_plus_one} and its perturbative expansion \eqref{metric_expansion} in the expression for the induced area metric yields
 \begin{equation}
   \begin{aligned}
     \hat G^{\alpha\beta} &{} = \hat g^{\alpha\beta} = \gamma^{\alpha\beta} + \varphi^{\alpha\beta}, \\
@@ -557,7 +565,7 @@ from which we read off the induced perturbations
 \end{equation}
 If the metric perturbation is now given by the expansion of the Schwarzschild solution\cite{schwarzschild} to first order,
 \begin{equation}
-  A \propto \frac{1}{3}\quad\text{and}\quad \varphi^{\alpha\beta} = 2A\gamma^{\alpha\beta},
+  A \propto \frac{1}{r}\quad\text{and}\quad \varphi^{\alpha\beta} = 2A\gamma^{\alpha\beta},
 \end{equation}
 the metrically induced area metric scalar fields amount to first order to
 \begin{equation}
@@ -600,7 +608,7 @@ where we redefined the relevant gravitational constants using the more convenien
   \end{aligned}
 \end{equation}
 
-With the reduction from ten to eight gravitational constants, the linearized field equations assume a simpler form. We have reduced scalar field equations
+With the reduction from ten to eight gravitational constants, the linearized field equations assume a simpler form. There are reduced scalar field equations
 \begingroup\allowdisplaybreaks
 \begin{align}\footnotesize
   \bigg\lbrack\frac{\delta L}{\delta u^{\alpha\beta}}\bigg\rbrack^\text{S-TF} = {} & \Delta_{\alpha\beta} \bigg\lbrack s_1 A -\frac{s_1}{4} \tilde U + s_3 \tilde V - \frac{s_1}{4} \ddot V + \frac{s_1}{12} \Delta V \bigg\rbrack, \nonumber \\
@@ -652,7 +660,7 @@ Performing a spatial Fourier transform of the vacuum scalar equations \ref{coupl
 \begin{equation}
   \frac{\mathrm d}{\mathrm dt}\begin{pmatrix}\tilde v \\ \tilde w \\ \dot{\tilde v} \\ \dot{\tilde w}\end{pmatrix} = \begin{pmatrix}0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 1 \\ -(k^2 + \nu^2) & -\sigma & 0 & 0 \\ \sigma & -(k^2 + \nu^2) & 0 & 0\end{pmatrix}\begin{pmatrix}\tilde v \\ \tilde w \\ \dot{\tilde v} \\ \dot{\tilde w}\end{pmatrix}.
 \end{equation}
-What is now interesting about this system are the eigenvalues of the time evolution, which are given by
+What is now interesting about this system are the eigenvalues of the time evolution, which are the four complex roots
 \begin{equation}
   \lambda_k = \pm \mathrm i \sqrt{(k^2 + \nu^2) \pm \mathrm i\sigma}.
 \end{equation}
@@ -662,7 +670,7 @@ Most importantly, there are always $\lambda_k$ such that $\operatorname{Re}(\lam
 \end{equation}
 and have thus reduced linearized area metric gravity to a theory parameterized by seven remaining gravitational constants, of which there are five combinations that determine the results obtained above: The two constants $\mu$ and $\nu$ appear as \emph{masses} in wave equations and screened Poisson equations, respectively, and three constants $\alpha$, $\beta$, and $\gamma$ further parameterize the linearized Schwarzschild solution.
 
-Note that with $\sigma=0$ the wave equations for $W$, $V$, $U^\alpha$, $V^\alpha$, $W^{\alpha\beta}$, and $W^{\alpha\beta}$ \emph{decouple}, e.g.~the system of transverse traceless tensor equations can be transformed into
+Note that with $\sigma=0$ the wave equations for $W$, $V$, $U^\alpha$, $V^\alpha$, $U^{\alpha\beta}$, $V^{\alpha\beta}$, and $W^{\alpha\beta}$ \emph{decouple}, e.g.~the system of transverse traceless tensor equations can be transformed by taking linear combinations into
 \begingroup\allowdisplaybreaks
 \begin{align}\footnotesize
   \bigg\lbrack\frac{\delta L}{\delta u^{\alpha\beta}}\bigg\rbrack^\text{TT} = {} & \frac{s_1}{4} \Box U_{\alpha\beta}, \nonumber \\
@@ -680,7 +688,7 @@ Summing up, the phenomenologically relevant subsector of linearized area metric 
 
 This again constitutes an important sanity check: The count of propagating degrees of freedom is as expected and yields $21 - 2\times 4 = 13$, just like in general relativity where we have $10 - 2\times 4 = 2$ degrees of freedom. In the latter theory, only the transverse traceless part of the spatial metric tensor propagates and does so according to a massless wave equation. For area metric gravity, the only massless propagating modes turn out to be the transverse traceless tensor $U^{\alpha\beta}$, \emph{which is exactly the perturbation induced by the propagating metric modes} (see \eqref{induced_perturbations}).
 
-All other modes, which are not inducible by the propagating metric modes, follow massive wave equations with mass $\mu$. In the following section, it will become clear that the generation of such modes from matter distributions is suppressed, e.g.~a binary star only radiates on non-metric tensor modes or on vector or scalar modes when its angular velocity exceeds a certain threshold. This is another realization of the correspondence principle, which demands that Einstein gravity approximate area metric gravity in certain limits.
+All other modes, which are not inducible by the propagating metric modes, follow massive wave equations with mass $\mu$. In the next section, it will become clear that the generation of such modes from matter distributions is suppressed, e.g.~a binary star only radiates on non-metric tensor modes or on vector or scalar modes when its angular velocity exceeds a certain threshold. This is another realization of the correspondence principle, which demands that Einstein gravity approximate area metric gravity in certain limits.
 
 \section{binary star}
 \begin{itemize}
