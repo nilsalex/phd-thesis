@@ -756,8 +756,20 @@ Einstein gravity completes Eq.~\eqref{metric_matter} to a predictive model by pr
   S_\text{gravity}\lbrack g\rbrack = \frac{c^3}{16\pi G}\int\mathrm d^4x \sqrt{-\operatorname{det}g}R.
 \end{equation}
 We use the parameterization $\gamma_{(i)}^0(\lambda) = ct$ and obtain by variation the Euler-Lagrange equations
+\begin{equation}\label{einstein_equation}
+  \sqrt{-\operatorname{det}g}\left\lbrack R^{ab} - \frac{1}{2} g^{ab} R\right\rbrack = \frac{8\pi G}{c^3} \sum_{i=1,2} m_i \delta^{(3)}(\vec x-\vec\gamma_{(i)}(t))\frac{\dot\gamma^a_{(i)}\dot\gamma^b_{(i)}}{\sqrt{g^{-1}(\dot\gamma_{(i)},\dot\gamma_{(i)})}}
+\end{equation}
+and
+\begin{equation}\label{geodesic_equation}
+  0 = \ddot\gamma^a_{(i)} + \Gamma^a_{\hphantom abc}\dot\gamma^b_{(i)}\gamma^c_{(i)}.
+\end{equation}
+The first equation \label{einstein_equation} consists of the densitized Einstein tensor on the right-hand side and the stress-energy-momentum tensor of the point particle on the left-hand side. Eq.~\eqref{geodesic_equation} is the geodesic equation on a pseudo-Riemannian manifold with the Christoffel symbols $\Gamma^a_{\hphantom abc}$. Using the slow-motion condition
 \begin{equation}
-  \sqrt{-\operatorname{det}g}\left\lbrack R^{ab} - \frac{1}{2} g^{ab} R\right\rbrack = \frac{8\pi G}{c^3} \sum_{i=1,2} m_i \delta^{(3)}(\vec x-\vec\gamma_{(i)}(t))\frac{\dot\gamma^a_{(i)}\dot\gamma^b_{(i)}{\sqrt{g^{(-1)}(\dot\gamma_{(i)},\dot\gamma_{(i)})}}
+  \frac{1}{c} \dot\gamma^\alpha_{(i)} \ll 1,
+\end{equation}
+the geodesic equation simplifies to
+\begin{equation}
+  \dot\gamma^0_{(i)} = c\quad\text{and}\quad\frac{1}{c^2}\ddot\gamma^\alpha_{(i)} = - \Gamma^\alpha_{\hphantom\alpha 00}.
 \end{equation}
 
 \section{Spin-Up}
