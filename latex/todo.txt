@@ -1,0 +1,3 @@
+dependency -> dependence
+order up to or only kappa^0 or kappa^1 ??
+upright differentials

@@ -1,9 +1,9 @@
 \chapter{Application: gravitational radiation from birefringent matter dynamics}
 \label{chapter_weak_area}
 
-\textit{So far, we have developed the general framework of covariant constructive gravity and derived a perturbative equivalent. A few examples illustrated the constructions, but the presentation focused on broad applicability to various geometries, without any specific bundle or matter theory in mind. In this chapter, we shift our focus and consider in depth the application of the framework to generalized linear electrodynamics, a birefringent generalization of Maxwell electrodynamics introduced in Chapter \ref{chapter_construction_algorithm}. Applying the perturbative construction procedure to third order yields gravitational field equations to second order. We will carefully analyze a $3+1$ split for the linear part of this theory and restrict to a certain sector with, in a very specific sense, physically sane phenomenology. Afterwards, we solve the two-body problem to first order and obtain the orbits of a binary system in area metric gravity. Building up on this solution, the second order of the field equations is used to derive the emission of gravitational radiation from the binary system and the radiative loss, which causes spin-up of the system. The binary star subject to area metric gravity turns out to exhibit qualitatively new behaviour as compared to Einstein gravity, e.g.~additional massive modes of gravitational radiation or a modification of Kepler's third law.}
+\textit{So far, we have developed the general framework of covariant constructive gravity and derived a perturbative equivalent. A few examples illustrated the constructions, but the presentation focused on broad applicability to various geometries, without any specific bundle or matter theory in mind. In this chapter, we shift our focus and consider in depth the application of the framework to generalized linear electrodynamics, a birefringent generalization of Maxwell electrodynamics introduced in Chapter \ref{chapter_construction_algorithm}. Applying the perturbative construction procedure to third order yields gravitational field equations to second order. We will carefully analyze a $3+1$ split for the linear part of this theory and restrict to a certain sector with, in a very specific sense, physically sane phenomenology. Afterwards, we solve the two-body problem to first order and obtain the orbits of a binary system in area metric gravity. Building up on this solution, the second order of the field equations is used to derive the emission of gravitational radiation from the binary system and the radiative loss, which causes spin-up of the system. The binary star subject to area metric gravity turns out to exhibit qualitatively new behaviour as compared to Einstein gravity, e.g.~additional massive modes of gravitational radiation and a modification of Kepler's third law.}
 
-\textit{To a large extent, the work presented in this chapter has been published as Ref.~\cite{grav_rad_paper}. The results on radiation loss are not part of the previous publication.}
+\textit{To a large extent, the work presented in this chapter has been published as Ref.~\cite{grav_rad_paper}. The results on radiation loss are not part of this publication.}
 
 \section{Area metric gravity}
 The matter theory in question is generalized linear electrodynamics (GLED) as defined in Def.~\ref{def_gled} with the Lagrangian density
@@ -362,7 +362,7 @@ Obviously, the information contained in $N$, $N^\alpha$, $v(n)$, and $v(\epsilon
                                                                                  &{} \hphantom{=} + \frac{2}{N} N^{\lbrack\gamma}G(n,\epsilon^{\delta\rbrack},\epsilon^\alpha,\epsilon^\beta) + G(\epsilon^\alpha,\epsilon^\beta,\epsilon^\gamma,\epsilon^\delta).
   \end{aligned}
 \end{gather}
-So far, the situation seems to be similar---21 area metric components are determined by 21 observer quantities plus lapse and shift. The difference to the decomposition of a vector is that the frame conditions \eqref{frame_conditions} depend---via the principal polynomial---on the area metric, which introduces dependencies among area metric, lapse, and shift. To formulate these conditions, it is more convenient to redefine the observer quantities as \cite{giesel_schuller_witte_wohlfarth}
+So far, the situation seems to be similar---21 area metric components are determined by 21 observer quantities plus lapse and shift. The difference to the decomposition of a vector is that the frame conditions \eqref{frame_conditions} depend---via the principal polynomial---on the area metric, which introduces dependences among area metric, lapse, and shift. To formulate these conditions, it is more convenient to redefine the observer quantities as \cite{giesel_schuller_witte_wohlfarth}
 \begin{equation}
   \begin{aligned}
     \hat{G}^{\alpha\beta}                  &{} = -G(n,\epsilon^\alpha,n,\epsilon^\beta), \\
@@ -527,7 +527,7 @@ Inverting the relation \eqref{area_metric_perturbation} between spacetime area m
 \begin{equation}
   0 = \partial_t \frac{\delta L}{\delta A} - \partial_\alpha \frac{\delta L}{\delta b_\alpha}\quad\text{and}\quad 0 = \partial_t\frac{\delta L}{\delta b^\alpha} - 4\partial_\beta\frac{\delta L}{\delta u_{\alpha\beta}},
 \end{equation}
-which is indeed satisfied by the system \eqref{scalar_equations}--\eqref{tensor_equations}. As a consequence of the diffeomorphism invariance of the theory, the field equations have four dependencies among themselves. This is, of course, expected---not only from the Noether theorem, but also from the fact that gauge-fixing the observer quantities by constraining four fields reduces the 21 unknowns by four. In order for the system of 21 field equations not to be overdetermined, it must express additional dependencies. These considerations are reminiscent of the rich field of constraint analysis\footnote{See e.g.~\cite{}}, which is predominantly studied in the Hamiltonian picture and also plays a role in canonical constructive gravity. For some results in the context of covariant constructive gravity, limited to first-derivative-order theories, see Ref.~\cite{}.
+which is indeed satisfied by the system \eqref{scalar_equations}--\eqref{tensor_equations}. As a consequence of the diffeomorphism invariance of the theory, the field equations have four dependences among themselves. This is, of course, expected---not only from the Noether theorem, but also from the fact that gauge-fixing the observer quantities by constraining four fields reduces the 21 unknowns by four. In order for the system of 21 field equations not to be overdetermined, it must express additional dependences. These considerations are reminiscent of the rich field of constraint analysis\footnote{See e.g.~\cite{}}, which is predominantly studied in the Hamiltonian picture and also plays a role in canonical constructive gravity. For some results in the context of covariant constructive gravity, limited to first-derivative-order theories, see Ref.~\cite{}.
 
 While the Noether identities are expected and, in fact, indispensable, a thorough analysis of the linearized field equations reveals further properties that are impossible to reconcile with our premises. After all, the axioms of covariant constructive gravity are only \emph{necessary} conditions for a theory to be viable. Any such constructed theory needs to be further specified by finding appropriate values for the gravitational constants. This also applies to Einstein gravity---the Newtonian and cosmological constants only match observations for specific ranges, where some possibilities like a negative Newtonian constant can be dismissed outright.
 
@@ -690,7 +690,78 @@ This again constitutes an important sanity check: The count of propagating degre
 
 All other modes, which are not inducible by the propagating metric modes, follow massive wave equations with mass $\mu$. In the next section, it will become clear that the generation of such modes from matter distributions is suppressed, e.g.~a binary star only radiates on non-metric tensor modes or on vector or scalar modes when its angular velocity exceeds a certain threshold. This is another realization of the correspondence principle, which demands that Einstein gravity approximate area metric gravity in certain limits.
 
-\section{Iterative solution strategy}
+\section{Iterative solution strategy for the field equations}
+Covariant constructive gravity closes matter theories by providing previously unknown dynamics for geometry to which the matter field couples. Let $\phi$ be the matter field in question, coupling locally to a geometric field $G$. Starting from the matter action\footnote{Round parentheses indicate local dependences.} $S_\text{matter}\lbrack\phi, G)$, the closure procedure yields the joint action
+\begin{equation}
+  S\lbrack G,\phi\rbrack = S_\text{gravity}\lbrack G\rbrack + \kappa S_\text{matter}\lbrack\phi, G),
+\end{equation}
+where $S_\text{gravity}$ is the action of the constructed theory compatible with the matter theory. The constant $\kappa$ controls the scale of coupling between both fields. Abbreviated as
+\begin{equation}
+  e\lbrack G\rbrack = \frac{\delta S_\text{grav}}{\delta G},\quad T\lbrack\phi, G) = \frac{\delta S_\text{mat}}{\delta G},\quad f\lbrack\phi,G) = \frac{\delta S_\text{mat}}{\delta \phi},
+\end{equation}
+the variations with respect to the matter field and the gravitational field yield the Euler-Lagrange equations
+\begin{equation}\label{coupled_euler_lagrange}
+  e\lbrack G\rbrack = -\kappa T\lbrack\phi, G)\quad\text{and}\quad f\lbrack\phi,G) = 0.
+\end{equation}
+Such a tightly coupled system is hard to solve in general. Fortunately, it is not our objective to obtain exact solutions---we have expanded the field equations up to second order and only seek to derive effects up to this finite order. Proceeding similarly as in Ref.~\ref{poisson}, a solution is constructed iteratively by expanding the geometry formally as
+\begin{equation}
+  G = N + \sum_{k=1}^\infty\kappa^k H_{(k)}.
+\end{equation}
+Truncations of the expansion at order $k$ yield approxmiations $G_{(k)}$ of the geometry. We expand the constituents $e$ and $T$ of the Euler-Lagrange equations expand as
+\begin{equation}
+  \begin{aligned}
+    e\lbrack N + H\rbrack = {} & e_{(0)} + e_{(1)}\lbrack H\rbrack + e_{(2)}\lbrack H\rbrack H + \mathcal O(H^3), \\
+    T\lbrack\phi, N + H) = {} & T_{(0)}\lbrack\phi\rbrack + T_{(1)}\lbrack\phi,H) + \mathcal O(H^2),
+  \end{aligned}
+\end{equation}
+where $H$ contributes linearly to the first-order terms and quadratically to the second-order terms. We now solve the equations for the gravitational field up to second order by considering the orders zero to two in $\kappa$.
+
+For the \emph{zeroth} iteration, the Euler-Lagrange equations \eqref{coupled_euler_lagrange} are evaluated at $G_{(0)} = N$, resulting in the equation
+\begin{equation}\label{zeroth_order}
+  e\lbrack N\rbrack = e_{(0)} = 0.
+\end{equation}
+This just enforces that the expansion point $N$ must solve the gravitational field equations \emph{in vacuo}. Since we explicitly consider this condition when perturbatively constructing theories, Eq.~\eqref{zeroth_order} is solved trivially.
+
+Proceeding with the \emph{first} iteration, we evaluate at $G_{(1)} = N + \kappa H_{(1)}$. Since $e_{(0)} = 0$ already holds from the previous iteration, the first of the two equations simplifies to
+\begin{equation}
+  e_{(1)}\lbrack H_{(1)}\rbrack = -T_{(0)} \lbrack\phi\rbrack.
+\end{equation}
+Figuratively speaking, the first correction of the gravitational field is sourced by the matter content on a flat background. Having solved this equation for $H_{(1)}$, the perturbation may be used in order to solve the second equation
+\begin{equation}\label{fix_phi}
+  f\lbrack\phi,G_{(1)}) = 0 + \mathcal O(\kappa^2).
+\end{equation}
+The interpretation is similar: A deviation from the flat gravitational field, caused by the presence of matter, makes the matter field deviate from its unperturbed configuration.
+
+The \emph{second} iteration yields an equation for the second-order perturbation $H_{(2)}$ by inserting $G_{(2)} = N + \kappa H_{(1)} + \kappa^2 H_{(2)}$ in the first field equation and simplifying using the lower-order equations. We obtain the result
+\begin{equation}
+  e_{(1)}\lbrack H_{(2)}\rbrack = -\kappa^{-1}T_{(0)}\lbrack\phi\rbrack - T_{(1)}\lbrack\phi,H_{(1)}) - e_{(2)}\lbrack H_{(1)}\rbrack + \mathcal O(k),
+\end{equation}
+where it has to be noted that $\phi$, having been fixed in Eq.~\eqref{fix_phi}, has a dependence on $\kappa H_{(1)}$. Therefore, contributions from $T_{(0)}\lbrack\phi\rbrack$ must only be considered up to order $\kappa^1$ and contributions from $T_{(1)}\lbrack\phi,H_{(1)})$ only up to order $\kappa^0$.
+
+The second-order perturbation $H_{(2)}$ is thus sourced by both the first-order deviations of the gravitational field and the induced motion of the matter field, as will become clear when explicitly solving the binary star in the following section. Aborting the iterative solution procedure at this point, we have found the approximation
+\begin{equation}
+  G_{(2)} = N + \kappa H_{(1)} + \kappa^2 H_{(2)}
+\end{equation}
+of the geometry G coupled to $\phi$ and, as a side effect, the trajectory of the matter field $\phi$ on the linearized background $G_{(1)}$.
+
+\section{Gravitational radiation from a binary star}
+Before proceeding to make use of the iterative solution strategy and solve the binary star in area metric gravity, let us consider the same problem in Einstein gravity. We will, of course, only reproduce well-established results, but also gain confidence in the approach and become acquainted with the calculations. It is also advantageous to have the metric theory at hand in order to distinguish the uniquely area metric features later on. State-of-the-art methods derived from Einstein gravity (see e.g.~Ref.~\ref{poisson}) extend to higher perturbation orders and much more complex matter configurations than the relatively simple case considered here, but they are not applicable to area metric gravity. Rather, we make use of our hand-crafted approach that accommodates non-metric geometries just as well.
+
+A binary star consists of two slowly moving point masses $m_i$ describing two world lines $\gamma_i\colon\mathbb R\rightarrow M$. The metric field is a section $g$ of the metric bundle and defines the matter action $S_\text{matter}$ via the length functional\footnote{From now on, we do not use geometrized units but state every occurence of the speed of light $c$ and Newton's constant $G$ explicitly.}
+\begin{equation}\label{metric_matter}
+  S_\text{matter}(\gamma_{(1)},\gamma_{(2)},g) = \sum_{i=1,2} m_i c \int \mathrm d\lambda \sqrt{g^{-1}(\dot\gamma_{(i)}(\lambda),\dot\gamma_{(i)}(\lambda)}.
+\end{equation}
+Einstein gravity completes Eq.~\eqref{metric_matter} to a predictive model by providing dynamics for the metric $g$ in terms of the Einstein-Hilbert action
+\begin{equation}
+  S_\text{gravity}\lbrack g\rbrack = \frac{c^3}{16\pi G}\int\mathrm d^4x \sqrt{-\operatorname{det}g}R.
+\end{equation}
+We use the parameterization $\gamma_{(i)}^0(\lambda) = ct$ and obtain by variation the Euler-Lagrange equations
+\begin{equation}
+  \sqrt{-\operatorname{det}g}\left\lbrack R^{ab} - \frac{1}{2} g^{ab} R\right\rbrack = \frac{8\pi G}{c^3} \sum_{i=1,2} m_i \delta^{(3)}(\vec x-\vec\gamma_{(i)}(t))\frac{\dot\gamma^a_{(i)}\dot\gamma^b_{(i)}{\sqrt{g^{(-1)}(\dot\gamma_{(i)},\dot\gamma_{(i)})}}
+\end{equation}
+
+\section{Spin-Up}
+
 \begin{itemize}
 \item gravitational radiation
 \item spin-up
