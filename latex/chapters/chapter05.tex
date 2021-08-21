@@ -756,14 +756,14 @@ Einstein gravity completes Eq.~\eqref{metric_matter} to a predictive model by pr
   S_\text{gravity}\lbrack g\rbrack = \frac{c^3}{16\pi G}\int\mathrm d^4x \sqrt{-\operatorname{det}g}R.
 \end{equation}
 We use the parameterization $\gamma_{(i)}^0(\lambda) = ct$ and obtain by variation the Euler-Lagrange equations
-\begin{equation}\ref{einstein_equation}
+\begin{equation}\label{einstein_equation}
   \sqrt{-\operatorname{det}g}\left\lbrack R^{ab} - \frac{1}{2} g^{ab} R\right\rbrack = \frac{8\pi G}{c^3} \sum_{i=1,2} m_i \delta^{(3)}(\vec x-\vec\gamma_{(i)}(t))\frac{\dot\gamma^a_{(i)}\dot\gamma^b_{(i)}}{\sqrt{g^{-1}(\dot\gamma_{(i)},\dot\gamma_{(i)})}}
 \end{equation}
 and
 \begin{equation}\label{geodesic_equation}
   0 = \ddot\gamma^a_{(i)} + \Gamma^a_{\hphantom abc}\dot\gamma^b_{(i)}\gamma^c_{(i)}.
 \end{equation}
-The first equation \label{einstein_equation} consists of the densitized Einstein tensor on the right-hand side and the stress-energy-momentum tensor of the point particle on the left-hand side. Eq.~\eqref{geodesic_equation} is the geodesic equation on a pseudo-Riemannian manifold with the Christoffel symbols $\Gamma^a_{\hphantom abc}$. Using the slow-motion condition
+The first equation \eqref{einstein_equation} consists of the densitized Einstein tensor on the right-hand side and the stress-energy-momentum tensor of the point particle on the left-hand side. Eq.~\eqref{geodesic_equation} is the geodesic equation on a pseudo-Riemannian manifold with the Christoffel symbols $\Gamma^a_{\hphantom abc}$. Using the slow-motion condition
 \begin{equation}
   \frac{1}{c} \dot\gamma^\alpha_{(i)} \ll 1,
 \end{equation}
@@ -789,7 +789,7 @@ The first-order equation
   e_{(1)}\lbrack h_{(1)}\rbrack = -T_{(0)}\lbrack\gamma_{(1)},\gamma_{(2)}\rbrack
 \end{equation}
 is obtained from the full Euler-Lagrange equations \eqref{einstein_equation} using the well-known expansion of the Einstein tensor to linear order\footnote{See e.g.~\ref{}. The prefactor given by the metric determinant is irrelevant: It expands as $1 + \frac{1}{2}\eta_{\alpha\beta} h^{\alpha\beta}$ and contributes only to zeroth order, because the expansion of the Einstein tensor has \emph{no} zeroth order.} for the right-hand side and---since the left-hand side already contains a factor $G$---the zeroth order of the matter distribution. Split into spatial and temporal contributions, we get
-\begin{equation}
+\begin{equation}\label{three_plus_one_metric_lhs}
   \begin{aligned}
     e^{00}_{(1)}\lbrack h\rbrack = {} & \Delta C, \\
     e^{0\alpha}_{(1)}\lbrack h\rbrack = {} & -\frac{1}{2} \Delta B^\alpha - \partial^\alpha \dot C, \\
@@ -862,10 +862,81 @@ that span the \emph{orbit-adapted} frame\cite{poisson}. Both masses reside in th
 \end{equation}
 
 Based on this configuration of matter content and gravitational field, the second iteration yields the corrections sourced by both the first-order gravitational field itself and by the influence of the gravitational field on the masses. We are only concerned with the propagating degrees of freedom, as our interest lies in radiation emitted into the far zone, so it suffices to consider the purely spatial part from Eq.~\eqref{second_order}\footnote{Note that the labels on the world lines $\gamma_{(i)}$ do not denote perturbation orders but the individual stars.}
-\begin{equation}
+\begin{equation}\label{second_iteration_spatial}
   e^{\alpha\beta}_{(1)}\lbrack h_{(2)}\rbrack = -G^{-1} T^{\alpha\beta}_{(0)}\lbrack\gamma_{(1)},\gamma_{(2)}\rbrack - T^{\alpha\beta}_{(1)}\lbrack\gamma_{(1)},\gamma_{(2)},h_{(1)}) - e^{\alpha\beta}_{(2)}\lbrack h_{(1)}\rbrack + \mathcal O(G).
 \end{equation}
 Again the functionals $e^{\alpha\beta}_{(.)}$ can be read off from the left-hand side of the full Euler-Lagrange equations \eqref{einstein_equation} and the functionals $T^{\alpha\beta}_{(.)}$ follow from the right-hand side.
+
+The contribution from $e^{\alpha\beta}_{(1)}\lbrack h_{(2)}\rbrack$ is already known from Eq.~\eqref{three_plus_one_metric_lhs}. Its projection to the transverse traceless tensor part is given by
+\begin{equation}
+  e^{\alpha\beta}_{(1)}\lbrack h_{(2)}\rbrack^{\text{TT}} = -\frac{1}{2} \Box E^{\alpha\beta}.
+\end{equation}
+We find that the first-order matter functional $T^{\alpha\beta}_{(1)}\lbrack\gamma_{(1)},\gamma_{(2)},h_{(1)})$ does not contribute, because each derivative of a spatial trajectory comes with a factor $\omega$, such that the whole functional is proportional to $\omega^2\propto G$. This is already of higher order than considered in the second iteration equation \eqref{second_iteration_spatial}. Reading off the term $T^{\alpha\beta}_{(0)}\lbrack\gamma_{(1)},\gamma_{(2)}\rbrack$ and projecting onto the transverse traceless tensor mode, we arrive at the intermediate expression
+\begin{equation}\label{metric_second_order_wave_equation}
+  \Box E^{\alpha\beta} = -\frac{16\pi}{Gc^4}\left\lbrack\sum_{i=1,2}m_i\delta^{(3)}(\vec x-\vec\gamma_{(i)}(t))\dot\gamma^\alpha_{(i)}\dot\gamma^\beta_{(i)}\right\rbrack^\text{TT} + 2 e^{\alpha\beta}_{(2)}\lbrack h_{(1)}\rbrack^\text{TT}.
+\end{equation}
+
+It remains to derive the contribution from $e^{\alpha\beta}_{(2)}\lbrack h_{(1)}\rbrack$. This is the first and only time where the second order of the Einstein field equations is needed. Thankfully, the field equations have to be evaluated at the result of the first iteration, $h_{(1)}$, which assumes a particularly simple form where all fields are derived from only the Newtonian potential $\phi$. Evaluation of the Einstein field equations at this solution\footnote{Using \texttt{cadabra}, for the corresponding code see Appendix \ref{appendix_cadabra}.} yields the transverse traceless tensor part
+\begin{equation}
+  e^{\alpha\beta}_{(2)}\lbrack h_{(1)}\rbrack^\text{TT} = -\frac{2}{c^4}\left\lbrack\partial^\alpha\phi\partial^\beta\phi - 2\partial^\alpha(\phi\partial^\beta\phi) \right\rbrack^\text{TT}.
+\end{equation}
+
+We are thus left with the wave equation \eqref{metric_second_order_wave_equation}, which is of the kind
+\begin{equation}
+  \Box\psi(\vec x,t) = 4\pi\varphi(\vec x,t).
+\end{equation}
+Such an equation is solved by convolution of the source with the retarded Green's function\cite{}
+\begin{equation}
+  \psi(\vec x,t) = \int\mathrm d^3\vec y\frac{\varphi(\tau,\vec y)}{\lvert\vec x-\vec y\rvert},
+\end{equation}
+where the source is evaluated at the retarded time
+\begin{equation}
+  \tau = t - \frac{1}{c}\lvert\vec x-\vec y\rvert.
+\end{equation}
+For radiation into the far zone, we are only interested in the result at points in spacetime with $R=\lvert\vec x\rvert\gg r$. A first approximation in this regime is given by the zeroth order $\vec x - \vec y \approx R$, which yields the simplified integral
+\begin{equation}
+  \psi(\vec x,t) = \frac{1}{R}\int\mathrm d^3\vec y\varphi(\tau,\vec y),
+\end{equation}
+where from now on $\tau = t-R/c$. This approximation is valid to lowest order, because for the first part of the source (the first summand in Eq.~\eqref{metric_second_order_wave_equation}), the integration variable $\vec y$ is confined to the matter distribution, a region of radius $r$, such that
+\begin{equation}
+  \lvert\vec x-\vec y\rvert \leq \lvert\vec x\rvert + \lvert\vec y\rvert \leq \lvert\vec x\rvert + r = R(1 + \frac{r}{R}) \xrightarrow{\frac{r}{R}\to 0} R.
+\end{equation}
+For the second part, the source occupies an unbounded region but decreases in magnitude with $\lvert\vec y\rvert^{-4}$, allowing for a similar argument.
+
+The integrals that remain to evaluate are
+\begin{equation}
+  K^{\alpha\beta} = \int\mathrm d^3\vec y\sum_{i=1,2}\rho_{(i)}(\tau,\vec y)\dot\gamma^\alpha_{(i)}\dot\gamma^\beta_{(i)}
+\end{equation}
+and, after dropping a boundary term,
+\begin{equation}
+    U^{\alpha\beta} = \int\mathrm d^3\vec y\partial^\alpha\phi\partial^\beta\phi.
+\end{equation}
+Evaluating $K^{\alpha\beta}$, whose integrand is a simple delta distribution, gives
+\begin{equation}
+  K^{\alpha\beta} = \frac{G\eta m^2}{r}\lambda^\alpha\lambda^\beta.
+\end{equation}
+Here, the reduced mass
+\begin{equation}
+  \eta = \frac{m_1m_2}{m^2}
+\end{equation}
+makes its first appearance. In order to evaluate the second integral, we first substitute the Newtonian potential with the unevaluated integral expression \eqref{newtonian_potential}, such that
+\begin{equation}
+  U^{\alpha\beta} = \int\mathrm d^3\vec y\int\mathrm d^3\vec{y^\prime}\int\mathrm d^3\vec{y^{\prime\prime}} \frac{\rho(\vec{y^\prime})\rho(\vec{y^{\prime\prime}})}{\lvert\vec y-\vec{y^\prime}\rvert^3 \lvert\vec y-\vec{y^{\prime\prime}}\rvert^3} (y^\alpha - y^{\prime\alpha}) (y^\beta - y^{\prime\prime\beta}).
+\end{equation}
+The integration over $\vec y$ now yields
+\begin{equation}
+  U^{\alpha\beta} = 2\pi \int\mathrm d^3\vec{y^\prime} \rho(\vec{y^\prime}) \int\mathrm d^3\vec{y^{\prime\prime}}\frac{\rho(\vec{y^{\prime\prime}})}{\lvert\vec{y^\prime}-\vec{y^{\prime\prime}}\rvert} \left\lbrack \gamma^{\alpha\beta} - \frac{(y^{\prime\alpha} - y^{\prime\prime\alpha})(y^{\prime\beta} - y^{\prime\prime\beta})}{\lvert\vec{y^\prime}-\vec{y^{\prime\prime}}\rvert^2}\right\rbrack,
+\end{equation}
+whose inner integrand is a delta distribution, which after evaluation yields a delta distribution as outer integrand. Making sure not to include diverging terms, as explained earlier, the evaluation yields
+\begin{equation}
+  U^{\alpha\beta} = \frac{4\pi\eta m^2}{r}\lbrack\gamma^{\alpha\beta} - n^\alpha n^\beta\rbrack.
+\end{equation}
+
+We finally put together both parts with the proper constants and the prefactor of $1/R$. The result is the lowest non-trivial order of the gravitational field that is radiated away into the far zone from a binary star in circular motion,
+\begin{equation}
+  G^2h^{\alpha\beta}_{(2)} = \frac{4\eta}{c^4 R} \frac{(Gm)^2}{r}\lbrack\lambda^\alpha\lambda^\beta - n^\alpha n^\beta\rbrack^\text{TT},
+\end{equation}
+parameterized by properties of the matter distribution (total mass $m$, reduced mass $\eta$, separation $r$), the speed of light $c$, and Newton's gravitational constant $G$. This is in exact accordance with the literature\cite{poisson} and, of course, no surprise: Contemporary methods employ what is called post-Minkowskian and post-Newtonian theory\cite{poisson}, which provides a framework for more complex calculations. However, our pedestrian approach is derived from the same full theory and is thus equally valid.
 
 \section{Spin-Up}
 
