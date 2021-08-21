@@ -5,7 +5,7 @@
 
 \textit{To a large extent, the work presented in this chapter has been published as Ref.~\cite{grav_rad_paper}. The results on radiation loss are not part of this publication.}
 
-\section{Area metric gravity}
+\section{Construction of the third-order area metric Lagrangian}
 The matter theory in question is generalized linear electrodynamics (GLED) as defined in Def.~\ref{def_gled} with the Lagrangian density
 \begin{equation}\label{lagrangian_gled}
   L_\text{GLED} = \omega_G G^{abcd} F_{ab} F_{cd},
@@ -32,7 +32,7 @@ Before solving the system of equivariance equations perturbatively around $N$, l
   \end{aligned}
 \end{equation}
 
-\section{Solving axiom 1}\label{sect_area_lagrangian}
+\subsection{Solving axiom 1}\label{sect_area_lagrangian}
 Step 1 of the perturbative construction algorithm \ref{perturbative_algorithm} consists in computing the Gotay-Marsden coefficients for the gravitational bundle. For area metric gravity, we found in Sect.~\ref{section_gled}
 \begin{equation}
   \gmc{A}{B}{n}{m} = 4 I^{pqrn}_B J^A_{pqrm},
@@ -90,7 +90,7 @@ With the 237 ansatz coefficients at hand, solving the equivariance equations as 
 
 Applied to the whole system of equivariance equations, we obtain a parameterization of the solution (displayed in full in Appendix \ref{}) by 50 independent gravitational constants. A subset of 16 constants governs \emph{linearized} area metric gravity via the quadratic Lagrangian density, from which---as we will encounter later---only 11 independent linear combinations play a role for the Euler-Lagrange equations. The procedure outlined here is implemented in Haskell using the library \texttt{sparse-tensor} for ansatz generation as well as the library \texttt{safe-tensor} for constructing and solving the equivariance equations, with the source code and results published as Ref.~\cite{second-order-area-repo}.
 
-\section{Solving axiom 2}
+\subsection{Solving axiom 2}
 The pedestrian approach towards implementing causal compatibility of the just constructed gravitational theory with GLED is to carefully execute steps 6--12 of the perturbative construction algorithm. This way, we obtain an approximation of the area metric gravity principal polynomial and have to match the causal structure with a first-order expansion of the GLED principal polynomial. While entirely feasible, this approach is less illustrative than the \emph{constructive} approach we employ instead. The underlying realization behind this technique is that the diffeomorphism invariance of the gravitational theory dramatically restricts the possible principal polynomials. In fact, we will see that for third-order area metric Lagrangians, the admissible principal polynomials are already causally compatible with the corresponding expansion of the GLED polynomial. \emph{There is no causality mismatch left to be fixed.}
 
 To this end, recall the GLED polynomial \eqref{gled_polynomial}, which using the scalar density \eqref{area_density} assumes the form
@@ -297,7 +297,7 @@ The result now follows from multiplication of $\mathcal P_\text{area}^{(\leq 1)}
 
 Having fixed the causality of third-order perturbative area metric gravity---by proof, rather than by explicit calculation---the construction procedure up to this order is completed. Third-order area metric gravity\footnote{With second-order field equations and, therefore, a principal polynomial of first order.} is determined by the ansatz \eqref{ansatz_area_gravity} which is constructed from the Lorentz-invariant basis tensors \eqref{???}. From the 237 gravitational constants---the coefficients in the basis expansion---50 constants turn out to be independent, 11 of which govern the linearized field equations. The relations between gravitational constants are collected in Appendix \ref{}. In the following, we will examine the linear theory, which forms the basis for predicting first-order and, later on, second-order effects of area metric gravity.
 
-\section{3+1 decomposition}
+\subsection{3+1 decomposition}
 As remarked in Sect.~\ref{section_gled}, the expansion point should be an area metric of a certain subclass in order to guarantee hyperbolicity of the GLED principal polynomial---which encompasses, by the previously proven result, hyperbolicity of third-order area metric gravity. Indeed, $N$ is of subclass I according to the classification in Ref.~\ref{sergio}. Thus, we can turn to a $3+1$ formulation, starting with the definition of a slicing.
 \begin{definition}[slicing]
   Consider a spacetime manifold $M$ of dimension four. Any diffeomorphism
@@ -469,7 +469,7 @@ and
 \end{equation}
 A possible choice of gauge conditions is to set $B$, $D$, and $V^\alpha$ to zero, leaving us with 6 degrees of freedom in the fields $A$, $B^\alpha$, $C$, and $E^{\alpha\beta}$.
 
-\section{Linearized field equations}\label{sect_area_linear_eom}
+\subsection{Linearized field equations}\label{sect_area_linear_eom}
 Applying the $3+1$ decomposition of the area metric field to the Lagrangian density constructed in Sect.~\ref{sect_area_lagrangian} yields an expression that is determined only by lapse, shift, and observer quantities. The corresponding field equations are obtained by the variations
 \begin{equation}
   \frac{\delta L}{\delta N},\ \frac{\delta L}{\delta N^\alpha},\ \frac{\delta L}{\delta G^{\alpha\beta}},\ \frac{\delta L}{\delta G^\alpha_{\hphantom\alpha\beta}},\ \frac{\delta L}{\delta G_{\alpha\beta}}
@@ -690,7 +690,9 @@ This again constitutes an important sanity check: The count of propagating degre
 
 All other modes, which are not inducible by the propagating metric modes, follow massive wave equations with mass $\mu$. In the next section, it will become clear that the generation of such modes from matter distributions is suppressed, e.g.~a binary star only radiates on nonmetric tensor modes or on vector or scalar modes when its angular velocity exceeds a certain threshold. This is another realization of the correspondence principle, which demands that Einstein gravity approximate area metric gravity in certain limits.
 
-\section{Iterative solution strategy for the field equations}
+\section{The binary star}
+
+\subsection{Iterative solution strategy for gravitational field equations}
 Covariant constructive gravity closes matter theories by providing previously unknown dynamics for geometry to which the matter field couples. Let $\phi$ be the matter field in question, coupling locally to a geometric field $G$. Starting from the matter action\footnote{Round parentheses indicate local dependences.} $S_\text{matter}\lbrack\phi, G)$, the closure procedure yields the joint action
 \begin{equation}
   S\lbrack G,\phi\rbrack = S_\text{gravity}\lbrack G\rbrack + \kappa S_\text{matter}\lbrack\phi, G),
@@ -744,7 +746,7 @@ The second-order perturbation $H_{(2)}$ is thus sourced by both the first-order 
 \end{equation}
 of the geometry G coupled to $\phi$ and, as a side effect, the trajectory of the matter field $\phi$ on the linearized background $G_{(1)}$.
 
-\section{Gravitational radiation from a binary star}
+\subsection{Solution in Einstein gravity}
 Before proceeding to make use of the iterative solution strategy and solve the binary star in area metric gravity, let us consider the same problem in Einstein gravity. We will, of course, only reproduce well-established results, but also gain confidence in the approach and become acquainted with the calculations. It is also advantageous to have the metric theory at hand in order to distinguish the uniquely area metric features later on. State-of-the-art methods derived from Einstein gravity (see e.g.~Ref.~\ref{poisson}) extend to higher perturbation orders and much more complex matter configurations than the relatively simple case considered here, but they are not applicable to area metric gravity. Rather, we make use of our hand-crafted approach that accommodates nonmetric geometries just as well.
 
 A binary star consists of two slowly moving point masses $m_i$ describing two world lines $\gamma_i\colon\mathbb R\rightarrow M$. The metric field is a section $g$ of the metric bundle and defines the matter action $S_\text{matter}$ via the length functional\footnote{From now on, we do not use geometrized units but state every occurence of the speed of light $c$ and Newton's constant $G$ explicitly.}
@@ -933,12 +935,18 @@ whose inner integrand is a delta distribution, which after evaluation yields a d
 \end{equation}
 
 We finally put together both parts with the proper constants and the prefactor of $1/R$. The result is the lowest non-trivial order of the gravitational field that is radiated away into the far zone from a binary star in circular motion,
-\begin{equation}
+\begin{equation}\label{metric_radiation}
   G^2h^{\alpha\beta}_{(2)} = \frac{4\eta}{c^4 R} \frac{(Gm)^2}{r}\lbrack\lambda^\alpha\lambda^\beta - n^\alpha n^\beta\rbrack^\text{TT},
 \end{equation}
-parameterized by properties of the matter distribution (total mass $m$, reduced mass $\eta$, separation $r$), the speed of light $c$, and Newton's gravitational constant $G$. This is in exact accordance with the literature\cite{poisson} and, of course, no surprise: Contemporary methods employ what is called post-Minkowskian and post-Newtonian theory\cite{poisson}, which provides a framework for more complex calculations. However, our pedestrian approach is derived from the same full theory and is thus equally valid.
+parameterized by properties of the matter distribution (total mass $m$, reduced mass $\eta$, separation $r$), the speed of light $c$, and Newton's gravitational constant $G$. This is in exact accordance with the literature\cite{poisson} and, of course, no surprise: Contemporary methods employ what is called post-Minkowskian and post-Newtonian theory\cite{poisson}, which provides a framework for more complex calculations. However, the pedestrian approach presented here is derived from the same full theory and is thus equally valid.
 
-\section{Spin-Up}
+The strength of this solution procedure is that it does not presuppose knowledge of the exact (i.e.~unperturbed) dynamics and is not restricted to metric theories. Both properties are important for the analysis of the binary star in area metric gravity, a non-metric theory of gravity for which there are no known exact dynamics. Even though we followed a top-down approach and derived the perturbative expansion of the Einstein field equations from its full form, it would have been possible to construct this expansion from the bottom up, order by order. In the following section, this will be the \emph{only} option.
+
+Finally, it should be noted (see also the discussion in Ref.~\cite{poisson}) that the radiation emitted by the binary star is indeed an effect of second order. The presence of the masses alone sources a gravitational field, which to first order is given by the Newtonian potential. Under the influence of this field, the masses are confined to circular orbits---a first-order effect. \emph{This} refined motion, together with the first order of the gravitational field\footnote{Via the contribution $e_{(2)}\lbrack h_{(1)}\rbrack$, where the second order of the field equations enters.}, is the source of the gravitational radiation produced in the second iteration. Knowledge of the first-order field equations is not sufficient in order to derive the result \eqref{metric_radiation}, contrary to the impression that the reading of derivations in the older literature might leave \cite{mtw?}. Whoever arrives at the conclusion \eqref{metric_radiation}, or its generalization for more general matter configurations called \emph{quadrupole formula}, using only the linearized gravitational field equations either did so out of pure luck, by silently slipping in knowledge about the second order, or by having inadvertently constructed this order during the process. If, for example, the derivation involves some basic assumptions about the theory, such as restrictions concerning derivative orders, and also diffeorphism invariance, it is no surprise that a correct formula may be obtained---after all, as discussed in Chapter \ref{chapter_construction_algorithm}, Einstein gravity is \emph{unique} if certain assumptions are met.
+
+\subsection{Solution in area metric gravity}
+
+\subsection{Spin-Up}
 
 \begin{itemize}
 \item gravitational radiation
