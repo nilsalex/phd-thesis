@@ -464,7 +464,7 @@ Like before, we use the Helmholtz theorem to write
   b^\alpha = \partial^\alpha B + B^\alpha
 \end{equation}
 and
-\begin{equation}
+\begin{equation}\label{metric_split}
   \varphi^{\alpha\beta} = E^{\alpha\beta} + 2\partial^{(\alpha}V^{\beta)} + C \gamma^{\alpha\beta} + \Delta^{\alpha\beta} D.
 \end{equation}
 A possible choice of gauge conditions is to set $B$, $D$, and $V^\alpha$ to zero, leaving us with 6 degrees of freedom in the fields $A$, $B^\alpha$, $C$, and $E^{\alpha\beta}$.
@@ -539,7 +539,7 @@ If the point particle $M$ is an idealization of a matter field that obeys GLED d
 \begin{equation}
   S_\text{matter}\lbrack\gamma\rbrack = -M \int \mathrm d\lambda \mathcal P_\text{GLED}(\mathcal L^{-1}(\dot\gamma(\lambda)))^{-\frac{1}{4}},
 \end{equation}
-where $\mathcal L^{-1}$ is the inverse of the Legendre map associated with the principal polynomial. In the Einstein equivalent, this action coincides with the common notion of the length of the particle worldline as measured using the covariant metric tensor. The full expansion for arbitrary curves $\gamma$ is employed in the following section, it suffices here to consider the special case \eqref{stationary_worldline} and find the only non-vanishing contribution
+where $\mathcal L^{-1}$ is the inverse of the Legendre map associated with the principal polynomial. In the Einstein equivalent, this action coincides with the common notion of the length of the particle worldline as measured using the covariant metric tensor. The full expansion for arbitrary curves $\gamma$ is employed in the following section, it suffices here to consider the special case \eqref{stationary_worldline} and find the only nonvanishing contribution
 \begin{equation}\label{scalar_source}
   \frac{\delta S_\text{matter}}{\delta A(x)} = -M\delta^{(3)}(x).
 \end{equation}
@@ -688,7 +688,7 @@ Summing up, the phenomenologically relevant subsector of linearized area metric 
 
 This again constitutes an important sanity check: The count of propagating degrees of freedom is as expected and yields $21 - 2\times 4 = 13$, just like in general relativity where we have $10 - 2\times 4 = 2$ degrees of freedom. In the latter theory, only the transverse traceless part of the spatial metric tensor propagates and does so according to a massless wave equation. For area metric gravity, the only massless propagating modes turn out to be the transverse traceless tensor $U^{\alpha\beta}$, \emph{which is exactly the perturbation induced by the propagating metric modes} (see \eqref{induced_perturbations}).
 
-All other modes, which are not inducible by the propagating metric modes, follow massive wave equations with mass $\mu$. In the next section, it will become clear that the generation of such modes from matter distributions is suppressed, e.g.~a binary star only radiates on non-metric tensor modes or on vector or scalar modes when its angular velocity exceeds a certain threshold. This is another realization of the correspondence principle, which demands that Einstein gravity approximate area metric gravity in certain limits.
+All other modes, which are not inducible by the propagating metric modes, follow massive wave equations with mass $\mu$. In the next section, it will become clear that the generation of such modes from matter distributions is suppressed, e.g.~a binary star only radiates on nonmetric tensor modes or on vector or scalar modes when its angular velocity exceeds a certain threshold. This is another realization of the correspondence principle, which demands that Einstein gravity approximate area metric gravity in certain limits.
 
 \section{Iterative solution strategy for the field equations}
 Covariant constructive gravity closes matter theories by providing previously unknown dynamics for geometry to which the matter field couples. Let $\phi$ be the matter field in question, coupling locally to a geometric field $G$. Starting from the matter action\footnote{Round parentheses indicate local dependences.} $S_\text{matter}\lbrack\phi, G)$, the closure procedure yields the joint action
@@ -745,7 +745,7 @@ The second-order perturbation $H_{(2)}$ is thus sourced by both the first-order 
 of the geometry G coupled to $\phi$ and, as a side effect, the trajectory of the matter field $\phi$ on the linearized background $G_{(1)}$.
 
 \section{Gravitational radiation from a binary star}
-Before proceeding to make use of the iterative solution strategy and solve the binary star in area metric gravity, let us consider the same problem in Einstein gravity. We will, of course, only reproduce well-established results, but also gain confidence in the approach and become acquainted with the calculations. It is also advantageous to have the metric theory at hand in order to distinguish the uniquely area metric features later on. State-of-the-art methods derived from Einstein gravity (see e.g.~Ref.~\ref{poisson}) extend to higher perturbation orders and much more complex matter configurations than the relatively simple case considered here, but they are not applicable to area metric gravity. Rather, we make use of our hand-crafted approach that accommodates non-metric geometries just as well.
+Before proceeding to make use of the iterative solution strategy and solve the binary star in area metric gravity, let us consider the same problem in Einstein gravity. We will, of course, only reproduce well-established results, but also gain confidence in the approach and become acquainted with the calculations. It is also advantageous to have the metric theory at hand in order to distinguish the uniquely area metric features later on. State-of-the-art methods derived from Einstein gravity (see e.g.~Ref.~\ref{poisson}) extend to higher perturbation orders and much more complex matter configurations than the relatively simple case considered here, but they are not applicable to area metric gravity. Rather, we make use of our hand-crafted approach that accommodates nonmetric geometries just as well.
 
 A binary star consists of two slowly moving point masses $m_i$ describing two world lines $\gamma_i\colon\mathbb R\rightarrow M$. The metric field is a section $g$ of the metric bundle and defines the matter action $S_\text{matter}$ via the length functional\footnote{From now on, we do not use geometrized units but state every occurence of the speed of light $c$ and Newton's constant $G$ explicitly.}
 \begin{equation}\label{metric_matter}
@@ -771,6 +771,80 @@ the geodesic equation simplifies to
 \begin{equation}
   \dot\gamma^0_{(i)} = c\quad\text{and}\quad\frac{1}{c^2}\ddot\gamma^\alpha_{(i)} = - \Gamma^\alpha_{\hphantom\alpha 00}.
 \end{equation}
+
+In order to construct the second-order solution for the metric tensor in this setting, we expand $g$ as
+\begin{equation}
+  g^{ab} = \eta^{ab} + h^{ab} = \eta^{ab} + G h^{ab}_{(1)} + G^2 h^{ab}_{(2)} + \mathcal O(G^3),
+\end{equation}
+using the Newtonian constant $G$ as coupling constant. Adopting the $3+1$ decomposition \eqref{metric_three_plus_one}--\eqref{metric_split} for the metric tensor as well as the gauge $B=D=0$ and $V^\alpha=0$, the perturbation is given by
+\begin{equation}
+  h^{00} = -2A, \quad h^{0\alpha} = B^\alpha,\quad h^{\alpha\beta} = - E^{\alpha\beta} - \gamma^{\alpha\beta} C,
+\end{equation}
+with scalar modes $A$ and $C$, vector modes $B^\alpha$, and transverse traceless tensor modes $E^{\alpha\beta}$.
+
+Since the variation $e\lbrack g\rbrack$ of the Einstein-Hilber Lagrangian with respect to the metric tensor is given by the Einstein tensor, which is derived from the Riemann curvature tensor, the zeroth-order equation $e\lbrack \eta\rbrack = 0$ is already solved---the flat Minkowski metric $\eta$ has zero curvature.
+
+The first-order equation
+\begin{equation}
+  e_{(1)}\lbrack h_{(1)}\rbrack = -T_{(0)}\lbrack\gamma_{(1)},\gamma_{(2)}\rbrack
+\end{equation}
+is obtained from the full Euler-Lagrange equations \eqref{einstein_equation} using the well-known expansion of the Einstein tensor to linear order\footnote{See e.g.~\ref{}. The prefactor given by the metric determinant is irrelevant: It expands as $1 + \frac{1}{2}\eta_{\alpha\beta} h^{\alpha\beta}$ and contributes only to zeroth order, because the expansion of the Einstein tensor has \emph{no} zeroth order.} for the right-hand side and---since the left-hand side already contains a factor $G$---the zeroth order of the matter distribution. Split into spatial and temporal contributions, we get
+\begin{equation}
+  \begin{aligned}
+    e^{00}_{(1)}\lbrack h\rbrack = {} & \Delta C, \\
+    e^{0\alpha}_{(1)}\lbrack h\rbrack = {} & -\frac{1}{2} \Delta B^\alpha - \partial^\alpha \dot C, \\
+    e^{\alpha\beta}_{(1)}\lbrack h\rbrack = {} & -\frac{1}{2} \Box E^{\alpha\beta} + \partial^{(\alpha} \dot B^{\beta)} + \gamma^{\alpha\beta}\left\lbrack \ddot C - \frac{2}{3}\Delta(-A + \frac{1}{2} C)\right\rbrack + \Delta^{\alpha\beta}\left\lbrack -A + \frac{1}{2} C\right\rbrack,
+  \end{aligned}
+\end{equation}
+and the only nonzero contribution\footnote{Implementing the slow-motion condition.}
+\begin{equation}
+  \begin{aligned}
+    T^{00}\lbrack\gamma_{(1)},\gamma_{(2)}\rbrack =\hphantom{\vcentcolon} {} & -\frac{8\pi}{c^2}\sum_{i=1,2}m_i\delta^{(3)}(\vec x-\vec \gamma_{(i)}(t)) \\
+    =\vcentcolon {} & -\frac{8\pi}{c^2} \rho(\vec x,t),
+  \end{aligned}
+\end{equation}
+such that the first iteration boils down to the Poisson equation
+\begin{equation}\label{poisson_equation}
+  \Delta C_{(1)} = \frac{8\pi}{c^2}\sum_{i=1,2}m_i\delta^{(3)}(\vec x-\vec \gamma_{(i)}(t)).
+\end{equation}
+The remaining equations are not sourced by matter and, thus, yield the trivial results $A_{(1)} = \frac{1}{2} C_{(1)}$ and $B_{(1)}^\alpha = 0$. For $E_{(1)}^{\alpha\beta}$, we obtain the massless wave equation \emph{in vacuo},
+\begin{equation}
+  0 = \Box E_{(1)}^{\alpha\beta},
+\end{equation}
+which we solve by setting $E_{(1)}^{\alpha\beta}$ to zero.\footnote{Allowing for nonvanishing solutions would place the binary star not on a flat background but on a background filled with gravitational radiation. As long as this radiation is weak enough in order not to interfere with the second-order field equations, they can be included without affecting the phenomenology. For simplicity, however, it is customary to choose the zero solution.}
+
+Solving Eq.~\eqref{poisson_equation} yields the linearized solution
+\begin{equation}\label{metric_linear_solution}
+  E^{\alpha\beta}_{(1)} = 0,\quad B^\alpha_{(1)} = 0,\quad A_{(1)} = \frac{1}{c^2}\phi,\quad C_{(1)} = \frac{2}{c^2} \phi,
+\end{equation}
+effectively composed of one scalar field, the Newtonian potential
+\begin{equation}\label{newtonian_potential}
+  \begin{aligned}
+    \phi(\vec x,t) = {} & - \int \mathrm d^3\vec y\frac{\rho(\vec y,t)}{\lvert\vec x-\vec y\rvert} \\
+    = {} & - \frac{m_1}{\lvert\vec x-\vec\gamma_{(1)}(t)\rvert} - \frac{m_2}{\lvert\vec x-\vec\gamma_{(2)}(t)\rvert}.
+  \end{aligned}
+\end{equation}
+
+According to the iterative solution procedure, the world lines $\gamma_{(i)}$ can now be fixed by solving their equations of motion \eqref{geodesic_equation} on the linearized background \eqref{metric_linear_solution}. These equations are governed by the Christoffel symbols, which expand as
+\begin{equation}
+  \Gamma^\alpha_{\hphantom\alpha 00} = -\frac{1}{2}\partial^\alpha h_{00} + \dot h^{\alpha}_{\hphantom\alpha 0} + \mathcal O(h^2),
+\end{equation}
+such that on the linearized background provided by the first iteration
+\begin{equation}\label{newton_equation}
+  \begin{aligned}
+    \ddot \gamma^\alpha_{(i)} = {} & c^2 \Gamma^\alpha_{\hphantom\alpha 00} \\
+    = {} & -G \partial^\alpha \phi + \mathcal O(G^2).
+  \end{aligned}
+\end{equation}
+After all, slowly moving matter obeys---to first order---the Newtonian laws of gravity!
+
+This comes with the same inconsistencies that plague Newtonian gravity: As is obvious from the formula \eqref{newtonian_potential}, the potential sourced by a point mass diverges at the very location of the mass itself. Consequently, whenever a particle ``feels'' its own field, which is certainly the case in Eq.~\eqref{newton_equation}, infinities are involved. The culprit is the idealization of the matter distribution as point masses. One of the remedies pointed out in Ref.~\ref{poisson} is to forgo this idealization and model the stars as extended fluids---taking the limit of negligible extension where necessary. Alternatively, the diverging integrals may be regularized, which has the same impact on the results. Effectivley, both approaches are implemented the same way: We keep the point mass idealization but discard diverging integrals, i.e.~when solving for the trajectory of the first particle, the diverging term
+\begin{equation}
+  m_1 \int\mathrm d^3\vec y \frac{\delta^{(3)}(\vec y - \vec\gamma_{(1)}(t))}{\lvert\vec\gamma_{(1)}(t) - \vec y\rvert}
+\end{equation}
+does not contribute. The same holds \emph{mutatis mutandis} for the second particle.
+
+Having accomodated 
 
 \section{Spin-Up}
 
