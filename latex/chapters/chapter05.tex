@@ -733,7 +733,7 @@ Figuratively speaking, the first correction of the gravitational field is source
 The interpretation is similar: A deviation from the flat gravitational field, caused by the presence of matter, makes the matter field deviate from its unperturbed configuration.
 
 The \emph{second} iteration yields an equation for the second-order perturbation $H_{(2)}$ by inserting $G_{(2)} = N + \kappa H_{(1)} + \kappa^2 H_{(2)}$ in the first field equation and simplifying using the lower-order equations. We obtain the result
-\begin{equation}
+\begin{equation}\label{second_order}
   e_{(1)}\lbrack H_{(2)}\rbrack = -\kappa^{-1}T_{(0)}\lbrack\phi\rbrack - T_{(1)}\lbrack\phi,H_{(1)}) - e_{(2)}\lbrack H_{(1)}\rbrack + \mathcal O(k),
 \end{equation}
 where it has to be noted that $\phi$, having been fixed in Eq.~\eqref{fix_phi}, has a dependence on $\kappa H_{(1)}$. Therefore, contributions from $T_{(0)}\lbrack\phi\rbrack$ must only be considered up to order $\kappa^1$ and contributions from $T_{(1)}\lbrack\phi,H_{(1)})$ only up to order $\kappa^0$.
@@ -756,7 +756,7 @@ Einstein gravity completes Eq.~\eqref{metric_matter} to a predictive model by pr
   S_\text{gravity}\lbrack g\rbrack = \frac{c^3}{16\pi G}\int\mathrm d^4x \sqrt{-\operatorname{det}g}R.
 \end{equation}
 We use the parameterization $\gamma_{(i)}^0(\lambda) = ct$ and obtain by variation the Euler-Lagrange equations
-\begin{equation}\label{einstein_equation}
+\begin{equation}\ref{einstein_equation}
   \sqrt{-\operatorname{det}g}\left\lbrack R^{ab} - \frac{1}{2} g^{ab} R\right\rbrack = \frac{8\pi G}{c^3} \sum_{i=1,2} m_i \delta^{(3)}(\vec x-\vec\gamma_{(i)}(t))\frac{\dot\gamma^a_{(i)}\dot\gamma^b_{(i)}}{\sqrt{g^{-1}(\dot\gamma_{(i)},\dot\gamma_{(i)})}}
 \end{equation}
 and
@@ -844,7 +844,28 @@ This comes with the same inconsistencies that plague Newtonian gravity: As is ob
 \end{equation}
 does not contribute. The same holds \emph{mutatis mutandis} for the second particle.
 
-Having accomodated 
+With this regularization, the stars are subject to the equations of motion
+\begin{equation}
+  \ddot\gamma^\alpha_{(i)} = -G \sum_{j\neq i} m_j \frac{\gamma^\alpha_{(i)} - \gamma^\alpha_{(j)}}{\prescript{\hphantom{3}}{}\lvert\vec\gamma_{(i)} - \vec\gamma_{(j)}\rvert^3},
+\end{equation}
+which is the centuries-old Kepler problem. The solutions are given by the various conic sections, depending on the initial conditions. We will consider the bound states and within this sector the configurations with exactly circular orbits. As it will turn out, the additional complexity introduced by excentricities is immaterial for at least some of the new effects that come with the area metric generalization. In this configuration, the bodies have constant separation $r$ and move on trajectories
+\begin{equation}
+  \vec\gamma_{(1)}(t) = \frac{m_2}{m} r\vec n,\quad \vec\gamma_{(2)}(t) = -\frac{m_1}{m} r\vec n,
+\end{equation}
+where $m = m_1 + m_2$ denotes the total mass. The vector $\vec n$ is one of the three basis vectors
+\begin{equation}
+  \vec n = \begin{pmatrix} \operatorname{cos}\omega t \\ \operatorname{sin}\omega t \\ 0 \end{pmatrix},\quad \vec \lambda = \begin{pmatrix} -\operatorname{sin}\omega t \\ \operatorname{cos}\omega t \\ 0 \end{pmatrix},\quad \vec e_z = \begin{pmatrix}0 \\ 0 \\ 1\end{pmatrix}
+\end{equation}
+that span the \emph{orbit-adapted} frame\cite{poisson}. Both masses reside in the orbital plane spanned by $\vec n$ and $\vec\lambda$, to which $\vec e_z$ is perpendicular. The frame rotates around the axis $\vec e_z$ with angular frequency $\omega$ according to Kepler's third law
+\begin{equation}
+  \omega^2 = \frac{Gm}{r^3}.
+\end{equation}
+
+Based on this configuration of matter content and gravitational field, the second iteration yields the corrections sourced by both the first-order gravitational field itself and by the influence of the gravitational field on the masses. We are only concerned with the propagating degrees of freedom, as our interest lies in radiation emitted into the far zone, so it suffices to consider the purely spatial part from Eq.~\eqref{second_order}\footnote{Note that the labels on the world lines $\gamma_{(i)}$ do not denote perturbation orders but the individual stars.}
+\begin{equation}
+  e^{\alpha\beta}_{(1)}\lbrack h_{(2)}\rbrack = -G^{-1} T^{\alpha\beta}_{(0)}\lbrack\gamma_{(1)},\gamma_{(2)}\rbrack - T^{\alpha\beta}_{(1)}\lbrack\gamma_{(1)},\gamma_{(2)},h_{(1)}) - e^{\alpha\beta}_{(2)}\lbrack h_{(1)}\rbrack + \mathcal O(G).
+\end{equation}
+Again the functionals $e^{\alpha\beta}_{(.)}$ can be read off from the left-hand side of the full Euler-Lagrange equations \eqref{einstein_equation} and the functionals $T^{\alpha\beta}_{(.)}$ follow from the right-hand side.
 
 \section{Spin-Up}
 
