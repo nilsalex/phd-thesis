@@ -906,7 +906,7 @@ where from now on $\tau = t-R/c$. This approximation is valid to lowest order, b
 \end{equation}
 For the second part, the source occupies an unbounded region but decreases in magnitude with $\lvert\vec y\rvert^{-4}$, allowing for a similar argument.
 
-The integrals that remain to evaluate are
+The integrals that remain to be evaluated are
 \begin{equation}
   K^{\alpha\beta} = \int\mathrm d^3\vec y\sum_{i=1,2}m_i\delta^{(3)}(\vec y-\vec\gamma_{(i)}(\tau))\dot\gamma^\alpha_{(i)}\dot\gamma^\beta_{(i)}
 \end{equation}
@@ -1013,11 +1013,45 @@ For the second part of the first iteration, the matter trajectories have to be f
 \end{equation}
 where the integrals \eqref{area_schwarzschild_integral} have to be regularized by, effectively, dropping the divergent terms (see Sect.~\ref{section_einstein_waves}).
 
-The equations of motion \eqref{newton_equation_area} constitute a refined Kepler problem. Instead of the Newtonian potential $\propto \frac{1}{r}$, the stars move in refined potentials with additional Yukawa terms $\propto \frac{1}{r} \mathrm e^{-\mu r}$. Still, this potential has a spherical symmetry and circular orbits remain solutions to the geodesic equations. This is seen by making the ansatz \eqref{circular_orbit} and solving for the angular frequency $\omega$, which yields the refined relation
+The equations of motion \eqref{newton_equation_area} constitute a refined Kepler problem. Instead of the Newtonian potential $\propto \frac{1}{r}$, the stars move in modified potentials with additional Yukawa terms $\propto \frac{1}{r} \mathrm e^{-\mu r}$. Still, this potential has a spherical symmetry and circular orbits remain solutions to the geodesic equations. This is seen by making the ansatz \eqref{circular_orbit} and solving for the angular frequency $\omega$, which yields the refined relation
 \begin{equation}
   \omega^2 = \frac{(G\alpha) m}{r^3}\left\lbrack 1 + \frac{\beta}{\alpha}\mathrm e^{-\mu r}(1 + \mu r)\right\rbrack,
 \end{equation}
 i.e.~a modification of Kepler's third law.
+
+Let us start solving the second iteration by considering the massless transverse traceless tensor mode $U^{\alpha\beta}_{(2)}$. The contribution $e_{(1)}\lbrack H_{(2)}\rbrack$ follows from the first of the linearized transverse traceless tensor field equations \eqref{tensor_equations_reduced}, which reads
+\begin{equation}
+  \bigg\lbrack\frac{\delta L}{\delta u^{\alpha\beta}}\bigg\rbrack^\text{TT} = \frac{1}{8\alpha} \Box U_{\alpha\beta}.
+\end{equation}
+As before, when solving the metric problem, the vectors tangent to the worldlines contribute a factor of $\sqrt{G}$ each, such that there is no contribution from $T_{(1)}\lbrack\gamma_{(1)},\gamma_{(2)},H_{(1)})$, but only from the lower order $T_{(0)}\lbrack\gamma_{(1)},\gamma_{(2)}\rbrack$. Evaluating this term by variation of the matter action \eqref{area_linearized_matter_action} with respect to the field $u^{\alpha\beta}$, we obtain the equation
+\begin{equation}\label{area_massless_tt_equation}
+  -\frac{c^3G}{16\pi} \frac{1}{8\alpha} \Box U^{\alpha\beta}_{(2)} = \left\{\frac{1}{4c}\sum_{i=1,2} m_i \delta^{(3)}(\vec x-\vec\gamma_{(i)}(t))\dot\gamma^\alpha_{(i)}\dot\gamma^\beta_{(i)} + \left(\frac{\delta S_\text{gravity}}{\delta u_{\alpha\beta}}\right)_{(2)}\lbrack GH_{(1)}\rbrack \right\}^\text{TT}.
+\end{equation}
+
+The contribution from the second-order field equations is again calculated using \texttt{cadabra}. The process is roughly as follows: First, the the third-order ansätze (see Appendix \ref{}) and the corresponding coefficient relations (see Appendix \ref{}) are loaded into the programme. Then, the Lagrangian is decomposed into observer quantities, shift, and lapse, according to the $3+1$ decomposition introduced in Sect.~\ref{sect_three_plus_one}. All fields, except for the field $u^{\alpha\beta}$ which will be varied, are replaced with the solution from the first iteration, using abbreviations
+\begin{equation}
+  \begin{aligned}
+    X = &{} \int\mathrm d^3\vec y\rho(\vec y)\frac{1}{\lvert\vec x-\vec y\rvert}, \\
+    Y = &{} \int\mathrm d^3\vec y\rho(\vec y)\frac{\mathrm e^{-\mu\lvert\vec x-\vec y\rvert}}{\lvert\vec x-\vec y\rvert}.
+  \end{aligned}
+\end{equation}
+This simplifies the Lagrangian significantly, because it only depends on the scalar fields $X$ and $Y$, as well as the field $u^{\alpha\beta}$. Performing the variation with respect to the remaining tensorial field, projecting the result onto the transverse traceless tensor mode, and further simplifying finally yields
+\begin{equation}
+  \left(\frac{\delta S_\text{gravity}}{\delta u_{\alpha\beta}}\right)^\text{TT}_{(2)}\lbrack GH_{(1)}\rbrack = \frac{G}{16\pi c}\lbrack\alpha\partial^\alpha X\partial^\beta X + \beta\partial^\alpha Y\partial^\beta Y\rbrack^\text{TT}.
+\end{equation}
+
+Being also a massless wave equation, the differential equation \eqref{area_massless_tt_equation} is solved like before in Sect.~\ref{section_einstein_waves}, by convolution of the right-hand side with the retarded Green's function of the d'Alembert operator. Taking the same limit for the far zone, the solution is
+\begin{equation}
+  U^{\alpha\beta}_{(2)} = -\frac{\alpha}{c^4R}\left\lbrack \frac{8}{G} K^{\alpha\beta} + \frac{2\alpha}{\pi}\Phi^{\alpha\beta}_{(0)} + \frac{2\beta}{\pi}\Phi^{\alpha\beta}_{(\mu)} \right\rbrack^\text{TT},
+\end{equation}
+with a kinetic term
+\begin{equation}
+  K^{\alpha\beta} = \int\mathrm d^3\vec y\sum_{i=1,2}m_i\delta^{(3)}(\vec y-\vec\gamma_{(i)}(\tau))\dot\gamma^\alpha_{(i)}\dot\gamma^\beta_{(i)}
+\end{equation}
+and the potential terms
+\begin{equation}
+  \Phi_{(\mu)\alpha\beta} = \int\mathrm d^3\vec y \int\mathrm d^3\vec{y^\prime} \int\mathrm d^3\vec{y^{\prime\prime}} \rho(\vec{y^\prime}) \rho(\vec{y^{\prime\prime}}) \left(\partial_\alpha\frac{\mathrm e^{-\mu\lvert\vec z\rvert}}{\lvert\vec z\rvert}\right)_{\vec z=\vec y-\vec{y^\prime}} \left(\partial_\beta\frac{\mathrm e^{-\mu\lvert\vec z\rvert}}{\lvert\vec z\rvert}\right)_{\vec z=\vec y-\vec{y^{\prime\prime}}}.
+\end{equation}
 
 \subsection{Spin-Up}
 
