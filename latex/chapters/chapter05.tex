@@ -5,7 +5,7 @@
 
 \textit{To a large extent, the work presented in this chapter has been published as Ref.~\cite{grav_rad_paper}. The results on radiation loss are not part of this publication.}
 
-\section{Construction of the third-order area metric Lagrangian}
+\section{Construction of third-order area metric Lagrangians}\label{section_area_construction}
 The matter theory in question is generalized linear electrodynamics (GLED) as defined in Def.~\ref{def_gled} with the Lagrangian density
 \begin{equation}\label{lagrangian_gled}
   L_\text{GLED} = \omega_G G^{abcd} F_{ab} F_{cd},
@@ -298,6 +298,7 @@ The result now follows from multiplication of $\mathcal P_\text{area}^{(\leq 1)}
 Having fixed the causality of third-order perturbative area metric gravity---by proof, rather than by explicit calculation---the construction procedure up to this order is completed. Third-order area metric gravity\footnote{With second-order field equations and, therefore, a principal polynomial of first order.} is determined by the ansatz \eqref{ansatz_area_gravity} which is constructed from the Lorentz-invariant basis tensors \eqref{???}. From the 237 gravitational constants---the coefficients in the basis expansion---50 constants turn out to be independent, 11 of which govern the linearized field equations. The relations between gravitational constants are collected in Appendix \ref{}. In the following, we will examine the linear theory, which forms the basis for predicting first-order and, later on, second-order effects of area metric gravity.
 
 \subsection{3+1 decomposition}
+\label{sect_three_plus_one}
 As remarked in Sect.~\ref{section_gled}, the expansion point should be an area metric of a certain subclass in order to guarantee hyperbolicity of the GLED principal polynomial---which encompasses, by the previously proven result, hyperbolicity of third-order area metric gravity. Indeed, $N$ is of subclass I according to the classification in Ref.~\ref{sergio}. Thus, we can turn to a $3+1$ formulation, starting with the definition of a slicing.
 \begin{definition}[slicing]
   Consider a spacetime manifold $M$ of dimension four. Any diffeomorphism
@@ -589,7 +590,7 @@ These conditions are equivalent to the vanishing of the linear combinations
   s_1 + 4 s_4 = 0\quad\text{and}\quad s_6 = 0,
 \end{equation}
 which we from now on implement, reducing the number of first-order gravitational constants by two to eight. Thus, we have ruled out the possibility of deviating \emph{too much}\footnote{In the specific sense explained above.} from Einstein gravity already in the regime of weak birefringence and restricted perturbative area metric gravity to a phenomenologically plausible sector. In this subtheory, the scalar fields around a point mass reduce to
-\begin{equation}
+\begin{equation}\label{linearized_schwarzschild_solution}
   \begin{aligned}
     V(x) &{} = 0, \\
     W(x) &{} = 0, \\
@@ -599,7 +600,7 @@ which we from now on implement, reducing the number of first-order gravitational
   \end{aligned}
 \end{equation}
 where we redefined the relevant gravitational constants using the more convenient set
-\begin{equation}
+\begin{equation}\label{schwarzschild_constants}
   \begin{aligned}
     \mu^2 &{} = \frac{8s_1s_{39}}{9s_1^2 - 24s_1s_3 + 8s_1s_{37} + 16s_3^2}, \\
     \alpha &{} = \frac{1}{2s_1}, \\
@@ -692,7 +693,7 @@ All other modes, which are not inducible by the propagating metric modes, follow
 
 \section{The binary star}
 
-\subsection{Iterative solution strategy for gravitational field equations}
+\subsection{Iterative solution strategy for gravitational field equations}\label{section_iterative_solution}
 Covariant constructive gravity closes matter theories by providing previously unknown dynamics for geometry to which the matter field couples. Let $\phi$ be the matter field in question, coupling locally to a geometric field $G$. Starting from the matter action\footnote{Round parentheses indicate local dependences.} $S_\text{matter}\lbrack\phi, G)$, the closure procedure yields the joint action
 \begin{equation}
   S\lbrack G,\phi\rbrack = S_\text{gravity}\lbrack G\rbrack + \kappa S_\text{matter}\lbrack\phi, G),
@@ -746,12 +747,12 @@ The second-order perturbation $H_{(2)}$ is thus sourced by both the first-order 
 \end{equation}
 of the geometry G coupled to $\phi$ and, as a side effect, the trajectory of the matter field $\phi$ on the linearized background $G_{(1)}$.
 
-\subsection{Solution in Einstein gravity}
+\subsection{Solution in Einstein gravity}\label{section_einstein_waves}
 Before proceeding to make use of the iterative solution strategy and solve the binary star in area metric gravity, let us consider the same problem in Einstein gravity. We will, of course, only reproduce well-established results, but also gain confidence in the approach and become acquainted with the calculations. It is also advantageous to have the metric theory at hand in order to distinguish the uniquely area metric features later on. State-of-the-art methods derived from Einstein gravity (see e.g.~Ref.~\ref{poisson}) extend to higher perturbation orders and much more complex matter configurations than the relatively simple case considered here, but they are not applicable to area metric gravity. Rather, we make use of our hand-crafted approach that accommodates nonmetric geometries just as well.
 
 A binary star consists of two slowly moving point masses $m_i$ describing two world lines $\gamma_i\colon\mathbb R\rightarrow M$. The metric field is a section $g$ of the metric bundle and defines the matter action $S_\text{matter}$ via the length functional\footnote{From now on, we do not use geometrized units but state every occurence of the speed of light $c$ and Newton's constant $G$ explicitly.}
 \begin{equation}\label{metric_matter}
-  S_\text{matter}(\gamma_{(1)},\gamma_{(2)},g) = \sum_{i=1,2} m_i c \int \mathrm d\lambda \sqrt{g^{-1}(\dot\gamma_{(i)}(\lambda),\dot\gamma_{(i)}(\lambda)}.
+  S_\text{matter}\lbrack\gamma_{(1)},\gamma_{(2)},g) = \sum_{i=1,2} m_i c \int \mathrm d\lambda \sqrt{g^{-1}(\dot\gamma_{(i)}(\lambda),\dot\gamma_{(i)}(\lambda)}.
 \end{equation}
 Einstein gravity completes Eq.~\eqref{metric_matter} to a predictive model by providing dynamics for the metric $g$ in terms of the Einstein-Hilbert action
 \begin{equation}
@@ -829,12 +830,12 @@ effectively composed of one scalar field, the Newtonian potential
 
 According to the iterative solution procedure, the world lines $\gamma_{(i)}$ can now be fixed by solving their equations of motion \eqref{geodesic_equation} on the linearized background \eqref{metric_linear_solution}. These equations are governed by the Christoffel symbols, which expand as
 \begin{equation}
-  \Gamma^\alpha_{\hphantom\alpha 00} = -\frac{1}{2}\partial^\alpha h_{00} + \dot h^{\alpha}_{\hphantom\alpha 0} + \mathcal O(h^2),
+  \Gamma^\alpha_{\hphantom\alpha 00} = -\frac{1}{2}\partial^\alpha h^{00} - \dot h^{\alpha 0} + \mathcal O(h^2),
 \end{equation}
 such that on the linearized background provided by the first iteration
 \begin{equation}\label{newton_equation}
   \begin{aligned}
-    \ddot \gamma^\alpha_{(i)} = {} & c^2 \Gamma^\alpha_{\hphantom\alpha 00} \\
+    \ddot \gamma^\alpha_{(i)} = {} & - c^2 \Gamma^\alpha_{\hphantom\alpha 00} \\
     = {} & -G \partial^\alpha \phi + \mathcal O(G^2).
   \end{aligned}
 \end{equation}
@@ -851,7 +852,7 @@ With this regularization, the stars are subject to the equations of motion
   \ddot\gamma^\alpha_{(i)} = -G \sum_{j\neq i} m_j \frac{\gamma^\alpha_{(i)} - \gamma^\alpha_{(j)}}{\prescript{\hphantom{3}}{}\lvert\vec\gamma_{(i)} - \vec\gamma_{(j)}\rvert^3},
 \end{equation}
 which is the centuries-old Kepler problem. The solutions are given by the various conic sections, depending on the initial conditions. We will consider the bound states and within this sector the configurations with exactly circular orbits. As it will turn out, the additional complexity introduced by excentricities is immaterial for at least some of the new effects that come with the area metric generalization. In this configuration, the bodies have constant separation $r$ and move on trajectories
-\begin{equation}
+\begin{equation}\label{circular_orbit}
   \vec\gamma_{(1)}(t) = \frac{m_2}{m} r\vec n,\quad \vec\gamma_{(2)}(t) = -\frac{m_1}{m} r\vec n,
 \end{equation}
 where $m = m_1 + m_2$ denotes the total mass. The vector $\vec n$ is one of the three basis vectors
@@ -907,7 +908,7 @@ For the second part, the source occupies an unbounded region but decreases in ma
 
 The integrals that remain to evaluate are
 \begin{equation}
-  K^{\alpha\beta} = \int\mathrm d^3\vec y\sum_{i=1,2}\rho_{(i)}(\tau,\vec y)\dot\gamma^\alpha_{(i)}\dot\gamma^\beta_{(i)}
+  K^{\alpha\beta} = \int\mathrm d^3\vec y\sum_{i=1,2}m_i\delta^{(3)}(\vec y-\vec\gamma_{(i)}(\tau))\dot\gamma^\alpha_{(i)}\dot\gamma^\beta_{(i)}
 \end{equation}
 and, after dropping a boundary term,
 \begin{equation}
@@ -945,6 +946,78 @@ The strength of this solution procedure is that it does not presuppose knowledge
 Finally, it should be noted (see also the discussion in Ref.~\cite{poisson}) that the radiation emitted by the binary star is indeed an effect of second order. The presence of the masses alone sources a gravitational field, which to first order is given by the Newtonian potential. Under the influence of this field, the masses are confined to circular orbits---a first-order effect. \emph{This} refined motion, together with the first order of the gravitational field\footnote{Via the contribution $e_{(2)}\lbrack h_{(1)}\rbrack$, where the second order of the field equations enters.}, is the source of the gravitational radiation produced in the second iteration. Knowledge of the first-order field equations is not sufficient in order to derive the result \eqref{metric_radiation}, contrary to the impression that the reading of derivations in the older literature might leave \cite{mtw?}. Whoever arrives at the conclusion \eqref{metric_radiation}, or its generalization for more general matter configurations called \emph{quadrupole formula}, using only the linearized gravitational field equations either did so out of pure luck, by silently slipping in knowledge about the second order, or by having inadvertently constructed this order during the process. If, for example, the derivation involves some basic assumptions about the theory, such as restrictions concerning derivative orders, and also diffeorphism invariance, it is no surprise that a correct formula may be obtained---after all, as discussed in Chapter \ref{chapter_construction_algorithm}, Einstein gravity is \emph{unique} if certain assumptions are met.
 
 \subsection{Solution in area metric gravity}
+In the area metric gravity scenario, the point masses are subject to the action
+\begin{equation}\label{area_matter_action}
+  S_\text{matter}\lbrack\gamma_{(1)},\gamma_{(2)},G) = \sum_{i=1,2} m_i c\int\mathrm d\lambda \mathcal P_\text{GLED}(L^{-1}(\dot\gamma_{(i)}(\lambda)))^{-\frac{1}{4}},
+\end{equation}
+which we already encountered when discussing the linearized Schwarzschild solution. This time, the masses are not at rest, such that the ``full'' linearized expression for generic worldlines is needed. It comes in very handy that the GLED polynomial is to first order equivalent to the quadratic polynomial (see Eq.~\eqref{gled_poly_first_order})
+\begin{equation}
+  P^{(\leq 1)}_\text{GLED}(k) = [1-\frac{1}{24}\epsilon(H)] \eta(k,k) + \frac{1}{2} H(k,k),
+\end{equation}
+which using the $3+1$ split introduced in Sect.~\ref{sect_three_plus_one} decomposes into
+\begin{equation}\label{area_metric_linearized_poly}
+    P^{(\leq 1)}_\text{GLED}(k) = \eta(k,k) + \lbrack -2A\rbrack (k_0)^2 + \lbrack -2b^\alpha\rbrack k_0 k_\alpha + \lbrack -\frac{1}{2} u^{\alpha\beta} - \frac{1}{2} \gamma_{\mu\nu} v^{\mu\nu} \gamma^{\alpha\beta} \rbrack k_\alpha k_\beta.
+\end{equation}
+Since the causality is effectively metric, the integrand in the point particle action \eqref{area_matter_action} is given by the inverse of this metric \cite{sergio}. To linear order, the inverse is calculated as
+\begin{equation}\label{area_matter_linearized_poly}
+  \lbrack\eta + h\rbrack^{-1}_{\hphantom{-1}ab} = \eta_{ab} - \eta_{ap}\eta_{pq} h^{pq} + \mathcal O(h^2),
+\end{equation}
+such that we obtain the linearized action
+\begin{equation}\label{area_linearized_matter_action}
+  \begin{aligned}
+    S_\text{matter}\lbrack\gamma_{(1)},\gamma_{(2)},N+H) = {} & \sum_{i=1,2} m_i c\int\mathrm d\lambda \Big\{ \eta_{ab}\dot\gamma^a_{(i)}\dot\gamma^b_{(i)} + 2A\dot\gamma^0_{(i)}\dot\gamma^0_{(i)} - 2b_\alpha\dot\gamma^0_{(i)}\dot\gamma^\alpha_{(i)} \\
+    {} & \quad\quad + \left\lbrack\frac{1}{2}u_{\alpha\beta} + \frac{1}{2}\gamma^{\mu\nu}v_{\mu\nu}\gamma^{\alpha\beta}\right\rbrack \dot\gamma^\alpha_{(i)} \dot\gamma^\beta_{(i)} \Big\} + \mathcal O(H^2).
+  \end{aligned}
+\end{equation}
+
+In addition to the linearized matter action \eqref{area_linearized_matter_action}, we also need the gravitational action expanded to third order in the area metric perturbation. Sect.~\ref{section_area_construction} was dedicated to the construction of third-order area metric Lagrangian densities $\mathcal L = L \mathrm d^4x$. The result of this construction procedure will be used here in the action
+\begin{equation}
+  S_\text{gravity}\lbrack N+H\rbrack = \frac{c^3}{16\pi G}\int \mathrm d^4x \mathcal L + \mathcal O(H^4).
+\end{equation}
+
+Like before, the zeroth iteration is already solved by construction---the flat instance $N$ of the area metric field solves the vacuum field equations.
+
+Due to the slow-motion condition, the first-order field equations
+\begin{equation}
+  e_{(1)}\lbrack H_{(1)}\rbrack = - T_{(0)}\lbrack\gamma_{(1)},\gamma_{(2)}\rbrack,
+\end{equation}
+which where derived in Sect.~\ref{section_iterative_solution}, are only sourced by the variation of the matter action \eqref{area_linearized_matter_action} with respect to the lapse, via the equation
+\begin{equation}
+  \left(\frac{\delta S_\text{matter}}{\delta A}\right)_{(1)}\lbrack H_{(1)}\rbrack = c \rho(\vec x,t).
+\end{equation}
+This is similar to the stationary case considered in Sect.~\ref{sect_area_linear_eom}, with the difference that the delta distribution is not centered at the origin but given as
+\begin{equation}
+  \rho(\vec x,t) = \sum_{i=1,2} m_i \delta^{(3)}(\vec x - \vec\gamma_{(i)}(t)).
+\end{equation}
+Since the vector and transverse traceless tensor equations are not sourced at all, we solve these by setting the respective modes to zero. Again, it is possible to add background radiation to the solution, as long as it remains negligible. The scalar modes are solved by superposition of the linearized Schwarzschild solutions \eqref{linearized_schwarzschild_solution}, in the integral representation as
+\begin{equation}\label{area_schwarzschild_integral}
+  \begin{aligned}
+    A_{(1)} = {} & -\frac{1}{c^2} \int\mathrm d^3\vec y\rho(\vec y)\left\lbrack\frac{\alpha}{\lvert\vec x-\vec y\rvert} + \frac{\beta\mathrm e^{-\mu\lvert\vec x-\vec y\rvert}}{\lvert\vec x-\vec y\rvert} \right\rbrack, \\
+    \tilde V_{(1)} = {} & -\frac{1}{c^2} \int\mathrm d^3\vec y\rho(\vec y)\left\lbrack\frac{\gamma\mathrm e^{-\mu\lvert\vec x-\vec y\rvert}}{\lvert\vec x-\vec y\rvert} \right\rbrack, \\
+    \tilde U_{(1)} = {} & 4 A_{(1)} - (3 + 8 \frac{\beta}{\gamma})\tilde V_{(1)},
+  \end{aligned}
+\end{equation}
+or in the evaluated form
+\begin{equation}
+  \begin{aligned}
+    A_{(1)} = {} & -\frac{1}{c^2} \sum_{i=1,2} m_i \left\lbrack\frac{\alpha}{\lvert\vec x-\vec\gamma_{(i)}(t)\rvert} + \frac{\beta\mathrm e^{-\mu\lvert\vec x-\vec\gamma_{(i)}(t)\rvert}}{\lvert\vec x-\vec\gamma_{(i)}(t)\rvert} \right\rbrack, \\
+    \tilde V_{(1)} = {} & -\frac{1}{c^2} \sum_{i=1,2} m_i \left\lbrack\frac{\gamma\mathrm e^{-\mu\lvert\vec x-\vec\gamma_{(i)}(t)\rvert}}{\lvert\vec x-\vec\gamma_{(i)}(t)\rvert} \right\rbrack, \\
+    \tilde U_{(1)} = {} & 4 A_{(1)} - (3 + 8 \frac{\beta}{\gamma})\tilde V_{(1)}.
+  \end{aligned}
+\end{equation}
+The constants $\alpha$, $\beta$, $\gamma$, and $\mu$ are the four relevant first-order gravitational constants \eqref{schwarzschild_constants} for stationary or slowly moving matter configurations.
+
+For the second part of the first iteration, the matter trajectories have to be fixed. We again exploit the fact that the matter action is effectively metric, because as a consequence of this circumstance, the stars are to this order subject to the same geodesic equation \eqref{newton_equation} as in Einstein gravity. The Christoffel symbols are derived from the effective metric \eqref{area_matter_linearized_poly} with $h^{00} = -2A$, such that
+\begin{equation}\label{newton_equation_area}
+  \ddot \gamma^{\alpha}_{(i)} = - c^2 G \partial^\alpha A_{(1)},
+\end{equation}
+where the integrals \eqref{area_schwarzschild_integral} have to be regularized by, effectively, dropping the divergent terms (see Sect.~\ref{section_einstein_waves}).
+
+The equations of motion \eqref{newton_equation_area} constitute a refined Kepler problem. Instead of the Newtonian potential $\propto \frac{1}{r}$, the stars move in refined potentials with additional Yukawa terms $\propto \frac{1}{r} \mathrm e^{-\mu r}$. Still, this potential has a spherical symmetry and circular orbits remain solutions to the geodesic equations. This is seen by making the ansatz \eqref{circular_orbit} and solving for the angular frequency $\omega$, which yields the refined relation
+\begin{equation}
+  \omega^2 = \frac{(G\alpha) m}{r^3}\left\lbrack 1 + \frac{\beta}{\alpha}\mathrm e^{-\mu r}(1 + \mu r)\right\rbrack,
+\end{equation}
+i.e.~a modification of Kepler's third law.
 
 \subsection{Spin-Up}
 
