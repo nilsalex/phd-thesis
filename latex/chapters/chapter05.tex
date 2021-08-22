@@ -379,7 +379,7 @@ By definition, $\hat G^{\alpha\beta}$ and $\hat G_{\alpha\beta}$ are symmetric. 
 \begin{equation}
   0 = \hat G^\alpha_{\hphantom\alpha\alpha}\quad\text{and}\quad0 = \hat G^{\mu\lbrack\alpha} \hat G^{\beta\rbrack}_{\hphantom\beta\mu},
 \end{equation}
-i.e.~$\hat G^\alpha_{\hphantom\alpha\beta}$ is trace-free and symmetric with respect to $\hat G^{\alpha\beta}$. In total, lapse and shift and the observer quantities $\hat G^{\alpha\beta}$, $\hat G^{\alpha}_{\hphantom\alpha\beta}$, $\hat G_{\alpha\beta}$ have $1+3+6+5+6 = 21$ degrees of freedom, such that they are in one-to-one correspondence with the area metric field $G^{abcd}$. Note the similarity to the $3+1$ decomposition of the metric tensor $g^{ab}$ into shift $N^\alpha$, lapse $N$, and spatial metric $\hat g^{\alpha\beta}$---the purely temporal and spatio-temporal components of the metric are parameterized only by shift and lapse, due to the frame conditions \eqref{frame_conditions}.
+i.e.~$\hat G^\alpha_{\hphantom\alpha\beta}$ is tracefree and symmetric with respect to $\hat G^{\alpha\beta}$. In total, lapse and shift and the observer quantities $\hat G^{\alpha\beta}$, $\hat G^{\alpha}_{\hphantom\alpha\beta}$, $\hat G_{\alpha\beta}$ have $1+3+6+5+6 = 21$ degrees of freedom, such that they are in one-to-one correspondence with the area metric field $G^{abcd}$. Note the similarity to the $3+1$ decomposition of the metric tensor $g^{ab}$ into shift $N^\alpha$, lapse $N$, and spatial metric $\hat g^{\alpha\beta}$---the purely temporal and spatio-temporal components of the metric are parameterized only by shift and lapse, due to the frame conditions \eqref{frame_conditions}.
 
 Around the perturbation point $N$, the area metric observer quantities expand as
 \begin{equation}
@@ -1039,6 +1039,7 @@ This simplifies the Lagrangian significantly, because it only depends on the sca
 \begin{equation}
   \left(\frac{\delta S_\text{gravity}}{\delta u_{\alpha\beta}}\right)^\text{TT}_{(2)}\lbrack GH_{(1)}\rbrack = \frac{G}{16\pi c}\lbrack\alpha\partial^\alpha X\partial^\beta X + \beta\partial^\alpha Y\partial^\beta Y\rbrack^\text{TT}.
 \end{equation}
+The \texttt{cadabra} code can be found in Ref.~\cite{area_metric_gravity_code} and in Appendix \ref{}.
 
 Being also a massless wave equation, the differential equation \eqref{area_massless_tt_equation} is solved like before in Sect.~\ref{section_einstein_waves}, by convolution of the right-hand side with the retarded Green's function of the d'Alembert operator. Taking the same limit for the far zone, the solution is
 \begin{equation}
@@ -1050,8 +1051,77 @@ with a kinetic term
 \end{equation}
 and the potential terms
 \begin{equation}
-  \Phi_{(\mu)\alpha\beta} = \int\mathrm d^3\vec y \int\mathrm d^3\vec{y^\prime} \int\mathrm d^3\vec{y^{\prime\prime}} \rho(\vec{y^\prime}) \rho(\vec{y^{\prime\prime}}) \left(\partial_\alpha\frac{\mathrm e^{-\mu\lvert\vec z\rvert}}{\lvert\vec z\rvert}\right)_{\vec z=\vec y-\vec{y^\prime}} \left(\partial_\beta\frac{\mathrm e^{-\mu\lvert\vec z\rvert}}{\lvert\vec z\rvert}\right)_{\vec z=\vec y-\vec{y^{\prime\prime}}}.
+  \Phi_{(\mu)\alpha\beta} = \int\mathrm d^3\vec y \int\mathrm d^3\vec{y^\prime} \int\mathrm d^3\vec{y^{\prime\prime}} \rho(\vec{y^\prime}) \rho(\vec{y^{\prime\prime}}) \left(\partial_\alpha\frac{\mathrm e^{-\mu\lvert\vec z\rvert}}{\lvert\vec z\rvert}\right)_{\!\!\vec z=\vec y-\vec{y^\prime}} \left(\partial_\beta\frac{\mathrm e^{-\mu\lvert\vec z\rvert}}{\lvert\vec z\rvert}\right)_{\!\!\vec z=\vec y-\vec{y^{\prime\prime}}}.
 \end{equation}
+
+Working out the integrals results in a first prediction for the gravitational radiation produced by a binary star subject to area metric gravity. On the massless transverse traceless tensor mode, radiation is emitted into the far zone $R\gg r$ according to the formula
+\begin{equation}\label{area_metric_radiation_massless}
+  G^2 U^{\alpha\beta}_{(2)} = -\frac{8\eta}{c^4 R} \frac{(G\alpha m)^2}{r}\lbrack 1+f(r)\rbrack \lbrack\lambda^\alpha\lambda^\beta - n^\alpha n^\beta\rbrack^\text{TT},
+\end{equation}
+where the correction term $f(r)$ is given by
+\begin{equation}
+    f(r) = \frac{\beta}{\alpha}(1 + \mu r)\mathrm e^{-\mu r}.
+\end{equation}
+
+In order to point out the significance of Eq.~\eqref{area_metric_radiation_massless}, let us come back to the metric radiation formula \eqref{metric_radiation} for the modes $E^{\alpha\beta}$. The area metric result amounts to the metric result up to a correction proportional to $f(r)$, which---being of Yukawa type---falls off exponentially with the separation $r$. In formulae,
+\begin{equation}
+  G^2 U^{\alpha\beta}_{(2)} = 2 (\alpha G)^2 E^{\alpha\beta}_{(2)}\lbrack 1 + f(r)\rbrack.
+\end{equation}
+Considering that the area metric perturbation induced by the metric perturbation \eqref{metric_radiation} has the only non-vanishing modes $U_{(2)}^{\alpha\beta} = 2 E_{(2)}^{\alpha\beta}$, we arrive at the remarkable conclusion that---on the metrically inducible modes and in the far zone---the radiation emitted by a binary star in circular motion is qualitatively the same, but quantitatively \emph{refined}. Both Kepler's third law and the amplitude of the emitted waves pick up Yukawa corrections, which originate from the presence of mass terms in the scalar field equations for stationary and slowly moving sources. These corrections can become arbitrarily small---by restricting the parameter range or considering large enough radii $r$. In this sense, gravitational radiation as predicted in Einstein gravity is contained within the area metric result.
+
+The remaining propagating modes of the area metric perturbation have all shown to be governed by massive wave equations (see Sect.~\ref{sect_area_linear_eom}). Let us first consider the traceless modes, i.e.~the massive transverse traceless tensors, the vectors, and the traceless scalars. Since the coefficients in the relevant wave equations \eqref{scalar_equations_reduced}--\eqref{tensor_equations_reduced} are the same for all of these modes, regardless of whether the equations are of scalar, vector, or tensor type, all propagating traceless modes can be considered on the same footing.
+
+We define the tracefree auxiliary field $\tilde v^{\alpha\beta} = v^{\alpha\beta} - \frac{1}{3}\gamma^{\alpha\beta}\gamma_{\mu\nu}v^{\mu\nu}$. Taking appropriate linear combinations of the linearized field equations (see e.g.~\eqref{tensor_equations_decoupled}), the modes $\tilde v^{\alpha\beta}$ decouple from the modes $w^{\alpha\beta}$, such that the left-hand side $e_{(1)}\lbrack H_{(2)}\rbrack$ of the second iteration equations is given by $\Box\tilde v^{\alpha\beta}_{(2)} + \nu^2\tilde v^{\alpha\beta}_{(2)}$ and $\Box w^{\alpha\beta}_{(2)} + \nu^2 w^{\alpha\beta}_{(2)}$, respectively. Because the linearized matter action \eqref{area_linearized_matter_action} does only depend on the trace of $v^{\alpha\beta}$ and is entirely independent of $w^{\alpha\beta}$, there is no matter contribution to the second iteration. A calculation of the contribution $e_{(2)}\lbrack H_{(1)}\rbrack$, employing the previously outlined \texttt{cadabra}-based technique, yields the wave equations
+\begin{equation}\label{tracefree_second_order}
+  \begin{aligned}
+    \Box\tilde v^{\alpha\beta}_{(2)} + \nu^2\tilde v^{\alpha\beta}_{(2)} = {} & \delta \lbrack\partial^\alpha X\partial^\beta Y\rbrack^\text{TF}, \\
+    \Box w^{\alpha\beta}_{(2)} + \nu^2w^{\alpha\beta}_{(2)} = {} & \epsilon \lbrack\partial^\alpha X\partial^\beta Y\rbrack^\text{TF}.
+  \end{aligned}
+\end{equation}
+The label $[\cdot]^\text{TF}$ denotes the idempotent projection
+\begin{equation}
+  \lbrack t^{\alpha\beta}\rbrack^\text{TF} = t^{(\alpha\beta)} - \frac{1}{3}\gamma_{\mu\nu}t^{\mu\nu}\gamma^{\alpha\beta}
+\end{equation}
+onto the tracefree symmetric part. Both $\delta$ and $\epsilon$ are combinations of gravitational constants that include genuine third-order constants, i.e.~coefficients for the third order in the area metric Lagrangian expansion that are not solely determined by second-order coefficients.\footnote{This has been the case earlier: For the massless mode, the second iteration equation---although derived from the third-order expansion---was completely determined by second-order coefficients of the Lagrangian expansion. The perturbative equivariance equations can, and in general will, in each iteration determine some higher-order coefficients by lower-order coefficients.}
+
+Solving the wave equations \eqref{tracefree} is again a matter of convoluting the source terms with a retarded Green's function. This time, the differential equation is of the kind
+\begin{equation}
+  (\Box + m^2)\psi(x) = 4\pi\varphi(x)
+\end{equation}
+and thus solved by the massive propagator\cite{}
+\begin{equation}
+  G_\text{ret}(x,y) = \theta(x^0-y^0)\int\frac{\mathrm d^3\vec k}{(2\pi)^3}\frac{\operatorname{sin}\lbrack\omega_k(x^0-y^0)\rbrack}{\omega_k} \mathrm e^{\mathrm i\vec k\cdot(\vec x-\vec y)},
+\end{equation}
+where $\theta$ is the Heaviside step function and the massive dispersion relation
+\begin{equation}
+  \omega_k = \sqrt{\lvert\vec k\rvert^2 + m^2}
+\end{equation}
+holds. The convolution integrals work out differently this time, depending on the value of $\omega_0 \vcentcolon= 2\omega$.
+\begin{enumerate}
+  \item \underline{nonradiating solution}: $\omega_0 < c\nu$ \\ The gravitational fields decay exponentially with distance $R$ from the binary system, e.g.~in the orbit-adapted frame they are given as
+    \begin{equation}\label{nonradiation_solution}
+      G^2\tilde v^{\alpha\beta}_{(2)} = \frac{\delta\eta}{c^4R}\frac{(Gm)^2}{r} g(r) \left\lbrack 3\mathrm e^{-\tilde\nu R}\begin{pmatrix}\operatorname{cos}\omega_0t & \operatorname{sin}\omega_0t & 0 \\ \operatorname{sin}\omega_0t & -\operatorname{cos}\omega_0t \\ 0 & 0 & 0 \end{pmatrix} + \mathrm e^{-\nu R} \begin{pmatrix}\frac{1}{2}\hspace{2em}\\\hspace{0.5em}\frac{1}{2}\hspace{0.5em}\\\hspace{1.5em}-1\end{pmatrix}\right\rbrack^{\alpha\beta}
+    \end{equation}
+    with the abbreviations
+    \begin{equation}
+      \begin{aligned}
+        g(r) = {} & \frac{1 - \lbrack 1 + \mu r + \frac{1}{3}(\mu r)^2\mathrm e^{-\mu r}\rbrack}{(\mu r)^2}, \\
+        \tilde\nu = {} & \sqrt{\nu^2 - \left(\frac{\omega_0}{c}\right)^2}.
+      \end{aligned}
+    \end{equation}
+    For the traceless modes $w^{\alpha\beta}$, we obtain the same solution, but with prefactor $\epsilon$ instead of $\delta$. Note that the oscillating part has a ``direct'' dependence on the coordinate time $t$. Characteristic behaviour of a radiating solution would be a dependence through the retarded time $\tau$.
+  \item \underline{radiating solution}: $\omega_0 > c\nu$ \\ The nonoscillating part of the previous solution \eqref{nonradiation_solution} is not affected. Since it decreases exponentially with $R$ and we are interested in the far zone $R \gg r$, it will be dropped from now on---being shadowed by another contribution that is proportional to $\frac{1}{R}$. This term \emph{radiates} according to
+    \begin{equation}
+      G^2\tilde v^{\alpha\beta}_{(2)} = \frac{3\delta\eta}{c^4R}\frac{(Gm)^2}{r}g(r)\lbrack n^\alpha n^\beta - \lambda^\alpha\lambda^\beta\rbrack,
+    \end{equation}
+    where the phase of the orbit-adapted frame is now $\frac{\varphi}{2}$ with
+    \begin{equation}\label{retardation}
+      \varphi = \omega_0t-\sqrt{\omega_0^2 - (c\nu)^2} \frac{R}{c} =\vcentcolon \omega_0t - \tilde\omega\frac{R}{c}.
+    \end{equation}
+    Earlier, for the massless modes, we had $\varphi = \omega_0t$, or equivalently $\frac{\varphi}{2} = \omega t$. Again, the solution for $w^{\alpha\beta}$ is the same up to the prefactor of $\delta$, which has to be replaced with $\epsilon$. The dependence on coordinate time is only via a retardation term \eqref{retardation}.
+\end{enumerate}
+
+That radiation is ``switched on'' only above a certain angular frequency threshold is an expected and welcome property. It is \emph{expected} because of the mass $\nu$ in the wave equations. An analogy would be a massive particle in relativistic quantum field theory, which requires a minimum energy---its mass---in order to be created. Earlier results \cite{} in area metric gravity discovered a similar behaviour for electromagnetically bound binaries, this has now been shown to extend to gravitationally bound systems, where radiation is an effect of gravitational self-coupling. The result is certainly encouraging for the viability of area metric gravity, as it once again keeps the theory very close to Einstein gravity and introduces only modest modifications, assuming that parameters are chosen appropriately. Without this property, it would be impossible to reconcile area metric gravity with the metric theory, ruling it out as a candidate for a modified theory of gravity. On the other hand, we observe a new \emph{quality}: propagation of massive gravitational waves on nonmetric\footnote{In the sense of not inducible by a metric tensor.} modes.
 
 \subsection{Spin-Up}
 
