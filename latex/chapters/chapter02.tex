@@ -398,7 +398,7 @@ Eq.~\ref{first_noether_eq} defines a current which is conserved \emph{on shell},
     \end{multlined}
   \end{equation}
   Putting together \eqref{sem_calculation_current}--\eqref{sem_calculation_1st_deriv} finally gives
-  \begin{equation}
+  \begin{equation}\label{sem_last_calc}
     \begin{aligned}
       \int_\Sigma i_\Sigma^\ast\boldsymbol{j}(\sigma) &{} =\, \int_\Sigma \big\{ L\delta^n_m - L_{:A}^{\hphantom{:A}n}\sigma^A_{,m} - 2 L_{:A}^{\hphantom{:A}I}J_I^{np} I^J_{mp} \sigma^A_{,J} + \big(L_{:A}^{\hphantom{:A}I}\sigma^B_{,I} \\
                                                         &{} \hphantom{=\, \int_\Sigma\big\{} + L_{:A}^{\hphantom{:A}j}\sigma^B_{,j} + D_j L_{:A}^{\hphantom{:A}j}\sigma^B - D_j D_p L_{:A}^{\hphantom{:A}I}J_I^{jp} \sigma^B \big)\gmc{A}{B}{n}{m} \big\} \xi^m \omega_n \\
@@ -413,6 +413,29 @@ Eq.~\ref{first_noether_eq} defines a current which is conserved \emph{on shell},
 \end{proof}
 
 According to \eqref{sem_tensor_result}, the Gotay-Marsden stress-energy-momentum tensor density vanishes identically \emph{on-shell}, i.e.~for sections solving the Euler-Lagrange equations---a recurring theme in the analysis of generally covariant theories. The first-order version of Thm.~\ref{sem_thm}, proven in Ref.~\cite{goma}, settled a long-standing debate about SEM tensors densities by providing a definition which is based on Noether theory and naturally satisfies a \emph{generalized Belinfante-Rosenfeld formula}\footnote{For general relativity, the Belinfante-Rosenfeld formula\cite{Belinfante,Rosenfeld} relates the SEM tensor density obtained from Noether theory by considering translations to the Hilbert SEM tensor density, which is defined as the source density of the Einstein equations.\cite{GoMa} This comes with a seemingly \emph{ad hoc} symmetrization of the Noether SEM tensor density. The generalized Belinfante-Rosenfeld formula\cite{GoMa} relates the Gotay-Marsden SEM tensor density \eqref{sem_tensor_result} to the Noether SEM tensor density without such choices, just by considering currents and spacetime diffeomorphisms.}.
+
+In addition, the Gotay-Marsden SEM tensor density lends itself for a concise formulation of Noether's second theorem, based on a previous result \cite{goma} for first-order theories.
+\begin{theorem}[Second Noether theorem]\label{thm_second_noether}
+  Consider a second-derivative-order Lagrangian with local representative $L$ on a tensor field bundle. If the Lagrangian is invariant with respect to diffeomorphisms, the corresponding Gotay-Marsden stress-energy-momentum tensor density $\mathcal T^n_m$ satisfies the differential relation
+  \begin{equation}\label{second_noether}
+    D_n \mathcal T^n_m = \frac{\delta L}{\delta u^A} u^A_{\hphantom Am}.
+  \end{equation}
+\end{theorem}
+\begin{proof}
+  Starting from the first expression for $\mathcal T^n_m$ obtained in Eq.~\eqref{sem_last_calc}, which is
+  \begin{equation}
+    \begin{aligned}
+      \mathcal T^n_m = {} & L\delta^n_m - L_{:A}^{\hphantom{:A}n}u^A_{\hphantom Am} - 2 L_{:A}^{\hphantom{:A}I}J_I^{np} I^J_{mp} u^A_{\hphantom AJ} \\
+      {} & + \big\lbrack L_{:A}^{\hphantom{:A}I}u^B_{\hphantom BI} + L_{:A}^{\hphantom{:A}j}u^B_{\hphantom Bj} + D_j L_{:A}^{\hphantom{:A}j}u^B - D_j D_p L_{:A}^{\hphantom{:A}I}J_I^{jp} u^B \big\rbrack\gmc{A}{B}{n}{m},
+    \end{aligned}
+  \end{equation}
+  the identity \eqref{second_noether} follows via a direct computation of the divergence. Two terms in the intermediate result are reduced using the equivariance equations \eqref{equivariance_eqn_3} and \eqref{equivariance_eqn_4}.
+\end{proof}
+An expansion the Gotay-Marsden SEM tensor density in Eq.~\eqref{second_noether} reveals indeed a differential relation
+\begin{equation}
+  -D_n \left(\frac{\delta L}{\delta u^A}\gmc{A}{B}{n}{m}u^B\right) = \frac{\delta L}{\delta u^A} u^A_{\hphantom Am}
+\end{equation}
+for the \emph{Euler-Lagrange equations}, which is exactly the statement of Noether's second theorem \cite{}. The identity holds \emph{off-shell}, i.e.~for any section of the tensor bundle regardless of whether it satisfies Euler-Lagrange equations.
 
 \section{Axiom II: causal compatibility}
 \textit{This section follows very closely Sect.~II.B of Ref.~\cite{ccg paper}.}
