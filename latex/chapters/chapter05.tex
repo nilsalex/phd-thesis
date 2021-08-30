@@ -525,7 +525,7 @@ provides a sanity check for the constructed field equations by virtue of its exp
   0 = -\big\lbrack D_n \frac{\delta L}{\delta u^A}\big\rbrack_{N+H} \gmc{A}{B}{n}{m} N^B + \mathcal O(H^2).
 \end{equation}
 Inverting the relation \eqref{area_metric_perturbation} between spacetime area metric and observer fields, we can make use of the chain rule in order to express the variations with respect to the area metric in terms of variations with respect to the observer quantities. This renders the perturbative expansion of the Noether theorem in the particularly simple form
-\begin{equation}
+\begin{equation}\label{second_noether_area_linear}
   0 = \partial_t \frac{\delta L}{\delta A} - \partial_\alpha \frac{\delta L}{\delta b_\alpha}\quad\text{and}\quad 0 = \partial_t\frac{\delta L}{\delta b^\alpha} - 4\partial_\beta\frac{\delta L}{\delta u_{\alpha\beta}},
 \end{equation}
 which is indeed satisfied by the system \eqref{scalar_equations}--\eqref{tensor_equations}. As a consequence of the diffeomorphism invariance of the theory, the field equations have four dependences among themselves. This is, of course, expected---not only from the Noether theorem, but also from the fact that gauge-fixing the observer quantities by constraining four fields reduces the 21 unknowns by four. In order for the system of 21 field equations not to be overdetermined, it must express additional dependences. These considerations are reminiscent of the rich field of constraint analysis\footnote{See e.g.~\cite{}}, which is predominantly studied in the Hamiltonian picture and also plays a role in canonical constructive gravity. For some results in the context of covariant constructive gravity, limited to first-derivative-order theories, see Ref.~\cite{}.
@@ -1162,20 +1162,127 @@ While the gravitational radiation that causes geodesic deviation is produced as 
 
 An effect that cannot be observed in a solely linearized setting is \emph{radiation reaction}: during the iterative solution procedure, the matter trajectories have been fixed to first order, which provides the background for the second-order gravitational field we were interested in. This is by no means necessary---it is possible to solve for higher orders $n$ before fixing the matter fields, which then enables the prediction of the gravitational field to order $n+1$. The modern treatment of post-Newtonian and post-Minkowskian general relativity proceeds in exactly this way \cite{poisson}. Doing so, the matter trajectories accumulate corrections, which are \emph{backreactions} from the gravitational field sourced by the matter content itself. In the context of a gravitationally bound matter distribution which emits gravitational radiation to second order, these backreactions are often referred to as radiation reaction.
 
-In general relativity, the aforementioned modern perturbative treatment yields detailed predictions for the deviation of a binary system from the kepler orbits. These calculation are quite intricate, taking into account not only higher perturbation orders but also the internal structure of the binaries. For a tentative qualitative result, however, we do not need to go there. Noether's second theorem (see Thm.~\ref{thm_second_noether}) provides us with a tool that resembles energy conservation equations.\footnote{The notion of \emph{energy} in general relativity and, more specifically, \emph{energy conservation} is subject to many debates. General relativity does not exhibit the kind of time-translation symmetry that is usually the justification for the definition of energy. In the setting considered here, where the matter content is localized to a specific region of spacetime and the geometry is asymptotically flat, such a notion can be recovered from symmetries that hold asymptotically. \cite{} For our purposes, we do not rely on the interpretation of certain quantities as energies or momenta. They are just derived quantities from the fundamental fields. Changes in these quantities are interesting insofar as they pertain to changes in the underlying fields.} Loosely speaking, gravitational waves radiate away energy from the system, decimating the radius of the kepler orbits, which results---via Kepler's third law---in the binary star \emph{spinning up}. The qualitative analysis from ``energy conservation'' yields a rate of change for the angular velocity but cannot predict how exactly the trajectories are effected, e.g.~how the phase shifts. Still, the prediction\footnote{Considering, of course, the excentric case with the appropriate parameters.} for the orbital period decrease $\mathrm dP/\mathrm dt$ of the Hulse-Taylor pulsar $\text{PSR} 1913+6$ is in very strong agreement with the measurement, as the ratio amounts to \cite{poisson}
+In general relativity, the aforementioned modern perturbative treatment yields detailed predictions for the deviation of a binary system from the kepler orbits. These calculation are quite intricate, taking into account not only higher perturbation orders but also the internal structure of the binaries. For a tentative qualitative result, however, we do not need to go there. Noether's second theorem (see Thm.~\ref{thm_second_noether}) provides us with a tool that resembles energy conservation equations.\footnote{The notion of \emph{energy} in general relativity and, more specifically, \emph{energy conservation} is subject to many debates. General relativity does not exhibit the kind of time-translation symmetry that is usually the justification for the definition of energy. In the setting considered here, where the matter content is localized to a specific region of spacetime and the geometry is asymptotically flat, such a notion can be recovered from symmetries that hold asymptotically. \cite{} For our purposes, we do not rely on the interpretation of certain quantities as energies or momenta. They are just derived quantities from the fundamental fields. Changes in these quantities are interesting insofar as they pertain to changes in the underlying fields.} Loosely speaking, gravitational waves radiate away energy from the system, decimating the radius of the kepler orbits, which results---via Kepler's third law---in the binary star \emph{spinning up}. The qualitative analysis from ``energy conservation'' yields a rate of change for the angular velocity but cannot predict how exactly the trajectories are affected, e.g.~how the phase shifts. Still, the prediction\footnote{Considering, of course, the excentric case with the appropriate parameters.} for the orbital period decrease $\mathrm dP/\mathrm dt$ of the Hulse-Taylor pulsar $\text{PSR} 1913+6$ is in very strong agreement with the measurement, as the ratio amounts to \cite{poisson}
 \begin{equation}
   \frac{(\mathrm dP/\mathrm dt)_\text{observed}}{(\mathrm dP/\mathrm dt)_\text{predicted}} = 0.997 \pm 0.002.
 \end{equation}
 
-Again, let us first illustrate the calculation for metric gravity before diving into area metric gravity. The total Lagrangian density of Einstein gravity and Maxwell electrodynamics is
-\begin{equation}
-  L = L_\text{gravity} + L_\text{Maxwell}.
+Again, let us first illustrate the calculation for metric gravity before diving into area metric gravity. The total Lagrangian density of Maxwell electrodynamics and Einstein gravity is
+\begin{equation}\label{metric_noether}
+  L = L_\text{matter} + L_\text{gravity}.
 \end{equation}
-When the Euler-Lagrange equations hold, the following integral over a spatial slice $\Sigma$ vanishes:
+Following a normal coordinate argument\footnote{For the metric tensor bundle, there are always local coordinates such that $g^{ab}_{\hphantom{ab},p}=0$. In this coordinate chart, the divergence of the SEM tensor density vanishes. Being a tensor density, it follows that the components vanish in \emph{any} coordinate chart.} from Ref.~\ref{gotay}, the second Noether identity \eqref{second_noether} reduces to the vanishing of the divergence of the Gotay-Marsden stress-energy-momentum tensor density, i.e.~
+\begin{equation}
+  0 = \partial_n\left\lbrack\mathcal  T^n_m(g)\right\rbrack.
+\end{equation}
+If the section $g$ of the metric bundle satisfies the Euler-Lagrange equations, the integral equation
 \begin{equation}
   \begin{aligned}
     0 = {} & \int_\Sigma \partial_0\left\lbrack \gmc{A}{B}{0}{0} g^B \frac{\delta L}{\delta g^A}\right\rbrack\mathrm d^3x \\
-      = {} & \int_\Sigma \partial_0\left\lbrack \gmc{A}{B}{0}{0} g^B \frac{\delta L}{\delta g^A}\right\rbrack\mathrm d^3x
+    = {} & \int_\Sigma \partial_0\left\lbrack \gmc{A}{B}{0}{0} g^B \frac{\delta L_\text{matter}}{\delta g^A}\right\rbrack\mathrm d^3x + \int_\Sigma \partial_0\left\lbrack \gmc{A}{B}{0}{0} g^B \frac{\delta L_\text{gravity}}{\delta g^A}\right\rbrack\mathrm d^3x
+  \end{aligned}
+\end{equation}
+for a spatial slice $\Sigma$ vanishes. Renaming the first term and making use of the Noether identity \eqref{metric_noether} for the second term, this yields
+\begin{equation}
+  \begin{aligned}
+    0 = {} & \partial_0 \underbrace{\int_\Sigma \gmc{A}{B}{0}{0} g^B \frac{\delta L_\text{matter}}{\delta g^A}\mathrm d^3x}_{=\vcentcolon \mathcal H_\text{matter}} + \int_\Sigma \partial_0\left\lbrack \gmc{A}{B}{0}{0} g^B \frac{\delta L_\text{gravity}}{\delta g^A}\right\rbrack\mathrm d^3x \\
+    = {} & \frac{1}{c} \dot{\mathcal H}_\text{matter} - \int_\Sigma \partial_\alpha\left\lbrack \gmc{A}{B}{\alpha}{0} g^B \frac{\delta L_\text{gravity}}{\delta g^A}\right\rbrack\mathrm d^3x.
+  \end{aligned}
+\end{equation}
+Finally, we apply the Gauß theorem to the second integral, such that
+\begin{equation}\label{first_balance_equation}
+  \dot{\mathcal H}_\text{matter} = c \int_{S_\infty} \gmc{A}{B}{\alpha}{0} g^B \frac{\delta L_\text{gravity}}{\delta g^A} \mathrm dS_\alpha,
+\end{equation}
+which should be understood as the limit of surface integrals over a family of appropriate closed surfaces that approach infinity.
+
+The variations of both Lagrangian have already been worked out for Eq.~\eqref{einstein_equation}. For the matter part, we obtain to lowest non-trivial order
+\begin{equation}
+  \mathcal H_\text{matter} = 2\int_\Sigma g^{0a}\frac{\delta L_\text{matter}}{\delta g^{0a}}\mathrm d^3x \approx -\frac{1}{c} \lbrack mc^2 + \frac{1}{2}m\eta r^2\omega^2\rbrack = \frac{1}{c}\lbrack E_0 + E\rbrack
+\end{equation}
+with the constant energy $E_0 = -mc^2$ for the system at rest and the first-order energy
+\begin{equation}
+  E = -\frac{1}{2}m\eta r^2\omega^2 = -\frac{1}{2} \eta \frac{Gm^2}{r}.
+\end{equation}
+Thus, the left-hand side of the balance equation \eqref{first_balance_equation} is given as
+\begin{equation}\label{balance_lhs}
+  \dot{\mathcal H}_\text{matter} = \frac{1}{c}\dot E = \frac{1}{2c}\eta G m^2 \frac{\dot r}{r^2}.
+\end{equation}
+For the right hand side, we have the full densitized Einstein tensor $\mathcal G^{ab} = \frac{16\pi G}{c^3} \frac{\delta L_\text{gravity}}{\delta g_{ab}}$ at our disposal. To lowest order, the integral amounts to
+\begin{equation}\label{metric_spindown_rhs}
+  \begin{aligned}
+    c\int_{S_\infty} \gmc{A}{B}{\alpha}{0} \frac{\delta L_\text{gravity}}{\delta g^A}g^B\mathrm dS_\alpha = {} & \frac{c^4}{8\pi G}\int_{S_\infty} g_{0a} \mathcal G^{a\alpha}\mathrm dS_\alpha \\
+    \approx {} & \frac{c^4}{8\pi G} \int_{S_\infty} \mathcal G^{0\alpha} \mathrm dS_\alpha.
+  \end{aligned}
+\end{equation}
+Since the integral is evaluated at infinity, only the radiation part is relevant. But this part is given by transverse traceless tensor perturbations, such that divergences and traces of the spatial perturbation $h^{\mu\nu}$ can readily be dropped when extracting the lowest non-vanishing order of the integral \eqref{metric_spindown_rhs}. Doing so, we arrive at
+\begin{equation}
+  \begin{aligned}
+    \int_{S_\infty} \mathcal G^{0\alpha}\mathrm dS_\alpha = {} & -\frac{1}{4} \int_{S_\infty} \lbrack \partial^\alpha h_{\mu\nu}\partial_0 h^{\mu\nu} + 2\partial_0\partial^\alpha h_{\mu\nu} h^{\mu\nu}\rbrack \mathrm dS_\alpha \\
+    = {} & \frac{1}{4c^2} \int_{S_\infty} \lbrack \dot h_{\mu\nu}\dot h^{\mu\nu} + 2\ddot h_{\mu\nu} h^{\mu\nu}\rbrack \mathrm dS \\
+  = {} & -\frac{1}{4c^2} \int_{S_\infty} \dot h_{\mu\nu}\dot h^{\mu\nu} \mathrm dS + \frac{1}{4c^2}\int_{S_\infty} \lbrack h_{\mu\nu}h^{\mu\nu}\rbrack^{\scalebox{1.5}{$\cdot\cdot$}} \mathrm dS,
+  \end{aligned}
+\end{equation}
+which we further simplified using the identity (letting $N^\alpha = \frac{1}{R}x^\alpha$)
+\begin{equation}
+  \partial_\alpha h^{\mu\nu} = -N^\alpha \dot h^{\mu\nu} + \mathcal O\left(\frac{1}{R^2}\right)
+\end{equation}
+for radiation terms $\propto\frac{1}{R}f(\omega(ct-R))$.
+
+It is now time to take the concrete form of the metric perturbation into account. Earlier, we arrived at the result \eqref{metric_radiation}
+\begin{equation}
+  h^{\mu\nu} = \frac{4\eta}{c^4 R}\frac{(Gm)^2}{r}\lbrack n^\alpha n^\beta-\lambda^\alpha\lambda^\beta\rbrack^{\scalebox{1.5}{$\cdot$}} (\mathrm{TT})^{\mu\nu}_{\hphantom{\mu\nu}\alpha\beta},
+\end{equation}
+where this time the projection onto the transverse traceless tensor mode is made explicit using the projector (see \cite{poisson})
+\begin{equation}
+  \begin{aligned}
+    (\mathrm{TT})^{\mu\nu}_{\hphantom{\mu\nu}\alpha\beta} = {} & P^{(\mu}_{\hphantom{(\mu}\alpha} P^{\nu)}_{\hphantom{\nu}\beta} - \frac{1}{2} P^{\mu\nu} P_{\alpha\beta}, \\
+    P^{\alpha}_{\hphantom{\alpha}\beta} = {} & \delta^\alpha_\beta - N^\alpha N_\beta.
+  \end{aligned}
+\end{equation}
+Under these circumstances, the contraction $h_{\mu\nu} h^{\mu\nu}$ is constant with respect to coordinate time and thus does not contribute to the integral. The vectors $n$ and $\lambda$ only depend on the radius $R$ and coordinate time $t$, such that the angular dependence is completely contained within the TT projector. This reduces the integral to
+\begin{equation}
+  \int_{S_\infty}\mathcal G^{0\alpha}\mathrm dS_\alpha = -\frac{256\pi\eta^2(Gm)^5}{c^{10}r^5} n^\alpha n_\mu \lambda^\beta \lambda_\mu \langle(\mathrm{TT})^{\mu\nu}_{\hphantom{\mu\nu}\alpha\beta}\rangle,
+\end{equation}
+where only the spherical average
+\begin{equation}
+  \langle X\rangle \vcentcolon= \frac{1}{4\pi}\int_S X \mathrm d\Omega
+\end{equation}
+of the projector remains to be calculated. Referring to Ref.~\ref{poisson} for the details, we just make use of the result
+\begin{equation}
+  \langle(\mathrm{TT})^{\mu\nu}_{\hphantom{\mu\nu}\alpha\beta}\rangle = \frac{2}{5} \delta^{(\mu}_\alpha\delta^{\nu)}_\beta
+\end{equation}
+and arrive at
+\begin{equation}
+  \int_{S_\infty}\mathcal G^{0\alpha}\mathrm dS_\alpha = -\frac{256\pi}{5}\eta^2\left(\frac{Gm}{c^2r}\right)^5.
+\end{equation}
+Together with the left-hand side \eqref{balance_lhs} of the balance equation \eqref{first_balance_equation}, this yields a first approximation for the spin-up of a binary star due to radiation loss. The separation $r$ of the stars decreases with the rate
+\begin{equation}
+  \dot r = -\frac{64}{5}\eta c\left(\frac{Gm}{c^2r}\right)^3,
+\end{equation}
+which translates into an increase of the angular velocity $\omega$, according to Kepler's third law.
+
+This result for the lowest-order radiation loss approximation is in agreement with the literature \cite{poisson}. While we had prior knowledge of the full Lagrangian and the corresponding Einstein equations, the approach is not restricted to such theories. A perturbatively constructed third-order Lagrangian can be used just as well and will yield a comparable prediction of binary star spin-up in area metric gravity.
+
+The area metric calculation starts out similarly. Even though the right-hand side of the Noether identity \eqref{second_noether} does not vanish this time, it can be neglected because it is always of one order higher than the lowest order of the left-hand side, due to the appearance of $G^A_{,m} = H^A_{,m}$. Let us also consider only radiation on the massless TT mode $U^{\alpha\beta}$. This is sufficient in order to derive a non-trivial effect and it can be interpreted as the phase of binary spin-up during which the angular velocity is not yet high enough in order for the system to produce massive waves on the nonmetric modes.
+
+As we did before when deriving Eq.~\eqref{second_noether_area_linear}, we start by inverting the relation \eqref{area_metric_perturbation} between the spacetime area metric perturbation and the perturbed observer quantities. For the matter contribution on the left-hand side of the balance equation, this allows us to calculate the variation by only varying with respect to $A$, as
+\begin{equation}
+  \gmc{A}{B}{0}{0}G^B\frac{\delta L_\text{matter}}{\delta G^A} = -4 \frac{\delta L_\text{matter}}{\delta A} + \mathcal O(H^2).
+\end{equation}
+The second variation in question behaves similarly, reducing the relevant variation of the gravity Lagrangian to
+\begin{equation}
+  \gmc{A}{B}{\alpha}{0}G^B\frac{\delta L_\text{gravity}}{\delta G^A} = 4 \frac{\delta L_\text{gravity}}{\delta b_\alpha} + \mathcal O(H^2).
+\end{equation}
+Roughly the same result as for metric gravity is obtained for the matter part,
+\begin{equation}
+  \mathcal H_\text{matter} = \frac{4}{c}\lbrack E_0 + E\rbrack
+\end{equation}
+where $E_0 = -mc^2$ and $E = -\frac{1}{2} m \eta r^2\omega^2$. For the gravity part, we again use \texttt{cadabra} in order to derive the contributions from the transverse traceless $U^{\alpha\beta}$ modes \eqref{area_metric_radiation_massless} to $\frac{\delta L_\text{gravity}}{\delta b^\alpha}$. This yields via a similar calculation as before
+\begin{equation}
+  \begin{aligned}
+    4 c \int_{S_\infty} \frac{\delta L_\text{gravity}}{\delta b_\alpha} \mathrm dS_\alpha = {} & \frac{c^2}{4\pi G} \int_{S_\infty} \left\lbrack (-\frac{1}{8\alpha})\dot U_{\alpha\beta}\dot U^{\alpha\beta} + (\frac{1}{4\alpha}-4k_{12})\left(U_{\alpha\beta}\dot U^{\alpha\beta}\right)^{\scalebox{1.5}{$\cdot$}}\right\rbrack \mathrm dS \\
+    = {} & -\frac{c^2}{32\pi\alpha G} \int_{S_\infty}\dot U_{\alpha\beta}\dot U^{\alpha\beta}\mathrm dS \\
+    = {} & -\frac{128}{5} m \eta^2 \frac{(1+f(r))^3}{r^5}\frac{(\alpha Gm)^4}{c^6}.
   \end{aligned}
 \end{equation}
 
