@@ -4,3 +4,4 @@ upright differentials
 & {} = -> = {} &
 k_{12}
 scalebox
+g(r)
