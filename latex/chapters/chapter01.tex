@@ -3,7 +3,7 @@
 \section{The r\^ole of gravity in physics}
 As the title suggests, this thesis is primarily concerned with \emph{gravity}. In the ensemble of physical theories, gravity plays a special r\^ole. It serves a different purpose than the theories we will call \emph{matter theories}. The latter are subject to direct observations: photons---quanta of the electomagnetic field---hit the observers retina, allowing her to make inferences about the source of the particles. Charged fermions---again quanta of a corresponding matter field---induce signals in a semiconductor detector. Specific signatures in the signals may be associated with certain events that contributed to the production of the incident fermions, such that the statistics of these observations is able to falsify hypotheses about the underlying mechanisms.
 
-How does gravity fit into this picture? The revolution of a binary star about its center of mass, commonly known to be caused by gravity, is not observed directly. Neither are its gravitational spin-up and eventual merger. Rather, the stars emit photons that are picked up by the astronomer, who concludes details about the trajectories. When the LIGO and Virgo Collaborations announced the first observation of gravitational waves \cite{ligo}, the ground-breaking detection was earth-bound, but in a certain sense not \emph{direct}: it amounts to the analysis of interference patterns from photons that bounced off of mirrors at the end of the detector arms. General relativity predicts that these arms should expand and contract under the influence of incident gravitational waves. Eventually, the signature in the interference pattern was found to match the predictions for a binary black hole merger.
+How does gravity fit into this picture? The revolution of a binary star about its centre of mass, commonly known to be caused by gravity, is not observed directly. Neither are its gravitational spin-up and eventual merger. Rather, the stars emit photons that are picked up by the astronomer, who concludes details about the trajectories. When the LIGO and Virgo Collaborations announced the first observation of gravitational waves \cite{ligo}, the ground-breaking detection was earth-bound, but in a certain sense not \emph{direct}: it amounts to the analysis of interference patterns from photons that bounced off of mirrors at the end of the detector arms. General relativity predicts that these arms should expand and contract under the influence of incident gravitational waves. Eventually, the signature in the interference pattern was found to match the predictions for a binary black hole merger.
 
 \begin{figure}
   \begin{center}
@@ -40,16 +40,48 @@ Einstein's theory provides the missing link between matter and gravity, completi
 Of course, the division of physical theories into matter theories and gravity is only a \emph{metaphysical} notion. Both make testable predictions about the outcome of experiments; both have been shown to accurately describe reality in a variety of circumstances. But exactly in this metaphysical idea lies the mindset of \emph{constructive gravity}, which seeks to address the search for other (more?) complete pictures of matter and gravity.
 
 \section{Modified gravity from refined matter theories}
-Under certain assumptions, Einstein's general relativity is the unique theory that completes the SMPP to a predictive theory of matter and gravity.\cite{lovelock,hkt,deser} Only two unknown parameters need to be fixed: Newton's gravitational constant and the cosmological constant.
+Under certain assumptions, Einstein's general relativity is the unique theory that completes the SMPP to a predictive theory of matter and gravity.\cite{lovelock,hkt,deser} The only two unknown parameters that need to be fixed are Newton's gravitational constant and the cosmological constant. This remarkable finding constrains the search for modified theories of gravity: if the mentioned assumptions are taken for granted, the standard model of particle physics can only be completed by general relativity. It is, however, well established that the joint theory of the SMPP and Einstein gravity cannot be universal, due to several inconsistencies.
 
-\begin{itemize}
-\item motto: matter tells gravity how to curve, gravity tells matter how to move -> lift to theory level
-\item 2d plot of theories?
-\item what could hint at the existence of refined matter theories?
-\item dark matter
-\end{itemize}
+One example are extreme circumstances, such as the beginning of the universe or the presence of black holes, where the whole formalism breaks down \cite{}. This is one of the justifications for the efforts of finding a quantum theory of gravity.
+
+Even in more benign situations, the observations do not always coincide with the predictions from the SMPP and general relativity. The observed rotation curves of galaxies, for example, do not match the expectations calculated from the visible matter distributions. Starting from a certain minimum distance from the galaxy centre, stars and other matter content rotate with higher velocities than expected. \cite{} This discrepancy generally increases with the radius. \cite{} All proposed solutions \cite{} that may cure this inconsistency have one thing in common---they modify or extend the currently accepted theories of matter and gravity.
+
+There are more observations \cite{} that demonstrate the need for modifications. However such adjustments play out, they are constrained by the uniqueness of Einstein's general relativity in one of the following ways:
+\begin{enumerate}
+  \item Additional or modified matter fields that make use of the same metric tensor $g$ as the existing matter theories will still couple to general relativity.
+  \item Additional or modified matter fields that couple to new geometry---e.g.~a second metric tensor or a tensor of higher rank---render general relativity as theory for a single metric tensor meaningless. A completely new description of gravity is needed, \emph{which may be subject to similar uniqueness theorems}.
+  \item Modifications to general realativity itself are incompatible with the uniqueness theorem. This means that either the assumptions from which uniqueness follows must be dropped or that the matter theories have to be modified accordingly---if at all possible.
+\end{enumerate}
+All three approaches are pursued, as they should be for a systematic search of modified theories. Constructive gravity, the subject of this thesis, is a framework for the structured treatment of approach number two. In most regards, its assumptions are very conservative, as it tries to deviate only ever so slightly from the established models. For example, where standard general relativity is restricted to field equations of second derivative, constructive gravity keeps this restriction. This is not because other efforts are not deemed worthwile---they certainly are, but different approaches towards modified gravity research should be explored \emph{ceteris paribus}, only making one change at a time. The focus of constructive gravity lies on novel matter theories coupling to nonmetric geometries and the corresponding gravitational implications \emph{within the existing meta-theory of classical physics}. Most importantly, because the framework is kept so close to the standard models, a similar uniqueness theorem can be derived for nonmetric geometries. It will not be as strong as for the SMPP and general relativity, but nevertheless provide a useful parameterization of modified theories of gravity that fall into the second category.
+
+As far as the framework is concerned, any matter theory that satisfies certain formal requirements (e.g.~has field equations of second derivative order) is fair game. The relevance of this framework, however, crucially depends on the kind of matter theory that is chosen. A complete overhaul of physics is generally not desired---the existing models work very well in certain sectors. Any new theory must reproduce this phenomenology in order to be epistemically significant. For this reason, constructive gravity is considered as a tool that guides the construction of modified gravity from \emph{refined} matter theories.
 
 \section{Canonical and covariant approaches to constructive gravity}
+\begin{figure}
+  \begin{center}
+    \begin{tikzpicture}[%
+      auto,
+      block1/.style={rectangle,thick,draw=blue,fill=blue!20,align=center,rounded corners,minimum width=17em,minimum height=4em},
+      block2/.style={rectangle,thick,draw=orange,fill=orange!20,align=center,rounded corners,minimum width=17em,minimum height=4em},
+      pics/carc/.style args={#1:#2:#3}{code={\draw[pic actions] (#1:#3) arc(#1:#2:#3);}}
+      ]
+      \draw (0,2.5) node[block1,align=center] (G) {gravity: $S_\text{gravity}\lbrack G\rbrack$};
+      \draw (0,-2.5) node[block2,align=center] (S) {matter theory: $S_\text{matter}\lbrack\phi,G)$};
+      \draw (-2.5,0) pic[latex-,ultra thick]{carc=120:240:2.5};
+      \draw (2.5,0) pic[latex-,ultra thick]{carc=-60:60:2.5};
+      \draw (-5.9,0) node[align=center] {sources\\gravity};
+      \draw (6.2,0) node[align=center] {provides\\background};
+      \draw [thick,draw=purple,fill=purple!20] (-0.3,-1.5) -- (-0.3,0.9) -- (-0.7,0.9) -- (0,1.5) -- (0.7,0.9) -- (0.3,0.9) -- (0.3,-1.5) -- (-0.3,-1.5);
+      \draw (1.4,0) node[align=center] {determines\\candidates};
+      \draw (0,-6.5) node[block2,align=center,minimum width=8em] (O) {observer};
+      \draw [thick,draw=orange,fill=orange!20] (-0.3,-5.5) -- (-0.3,-4.1) -- (-0.7,-4.1) -- (0,-3.5) -- (0.7,-4.1) -- (0.3,-4.1) -- (0.3,-5.5) -- (-0.3,-5.5);
+      \draw (1.1,-4.7) node[align=center] {falsifies\\theories};
+    \end{tikzpicture}
+  \end{center}
+  \label{figure_matter_gravity}
+  \caption{Rationale of constructive gravity. The matter theory $S_\text{matter}$, which couples the matter field $\phi$ to some geometry $G$, determines the structure of the gravitational theory $S_\text{gravity}$. In general, this result will not be unique but parameterized, which results in a lot of candidates. Via the interdependence of matter and gravity, each candidate yields phenomenology that can be used by the observer for tests of the theory.}
+\end{figure}
+The rationale of constructive gravity is pictured in Fig.~\ref{figure_matter_gravity}.
 
 \begin{itemize}
 \item canonical approach: implementing the constraint algebra
@@ -57,9 +89,5 @@ Under certain assumptions, Einstein's general relativity is the unique theory th
 \item covariant view: equivalent and complementary
 \item simpler?
 \end{itemize}
-
-Two kinds of inconsistencies: Within the SMs -> quantum gravity inevitable? But also pheno that does not match SM -> closure?
-
-We only ever so slightly deviate from the established models about matter and gravity. For example, where the standard model is restricted to field equations of second derivative, we keep this restriction. This is not because other efforts are not deemed worthwile---they certainly are, but should be explored \emph{ceteris paribus}, one at a time. Our focus lies on novel matter theories and their gravitational implications \emph{within the existing meta-theory of classical physics}.
 
 \textbf{game plan: structure of the thesis}
