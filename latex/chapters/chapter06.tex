@@ -7,9 +7,9 @@
 
 \section{Construction of third-order area metric Lagrangians}\label{section_area_construction}
 The matter theory in question is generalized linear electrodynamics (GLED) as defined in Def.~\ref{def_gled} with the Lagrangian density
-\begin{equation}\label{lagrangian_gled}
+\begin{equation*}
   L_\text{GLED} = \omega_G G^{abcd} F_{ab} F_{cd},
-\end{equation}
+\end{equation*}
 where we choose without loss of generality the scalar density
 \begin{equation}\label{area_density}
   \omega_G = \left(\frac{1}{24}\epsilon_{abcd}G^{abcd}\right)^{-1}.
@@ -299,7 +299,7 @@ Having fixed the causality of third-order perturbative area metric gravity---by 
 
 \subsection{3+1 decomposition}
 \label{sect_three_plus_one}
-As remarked in Sect.~\ref{section_gled}, the expansion point should be an area metric of a certain subclass in order to guarantee hyperbolicity of the GLED principal polynomial---which encompasses, by the previously proven result, hyperbolicity of third-order area metric gravity. Indeed, $N$ is of subclass I according to the classification in Ref.~\ref{Schuller_2010}. Thus, we can turn to a $3+1$ formulation, starting with the definition of a slicing.
+As remarked in Sect.~\ref{section_gled}, the expansion point should be an area metric of a certain subclass in order to guarantee hyperbolicity of the GLED principal polynomial---which encompasses, by the previously proven result, hyperbolicity of third-order area metric gravity. Indeed, $N$ is of subclass I according to the classification in Ref.~\cite{Schuller_2010}. Thus, we can turn to a $3+1$ formulation, starting with the definition of a slicing.
 \begin{definition}[slicing]
   Consider a spacetime manifold $M$ of dimension four. Any diffeomorphism
   \begin{equation}
@@ -319,7 +319,7 @@ where the vectors on the right are understood as pushforwards of holonomic basis
 \end{equation}
 for the cotangent spaces $T_{\phi(s,\lambda)}^\ast M$. The bundle $\pi_\text{area}$, constructed as subbundle of $T^4_0M$, inherits a $3+1$ split from the decomposition of tangent and cotangent spaces, and so does the second jet bundle of $\pi_\text{area}$.
 
-Based on a slicing, we now introduce an observer definition\footnote{see also Ref.~\ref{Giesel_2012}} for arbitrary tensor theories. Only the principal polynomial is needed for this notion.
+Based on a slicing, we now introduce an observer definition\footnote{see also Ref.~\cite{Giesel_2012}} for arbitrary tensor theories. Only the principal polynomial is needed for this notion.
 \begin{definition}[observer frame, lapse and shift]
   Let $P$ be the principal polynomial of a field theory on a tensor bundle. An observer frame consists of a nonholonomic frame
   \begin{equation}
@@ -442,6 +442,7 @@ are satisfied (see \cite{Schneider_2017}). This choice reduces the degrees of fr
     \bottomrule 
   \end{tabular}
   \caption{The 17 gauge-fixed degrees of freedom (dof) in linearized area metric gravity. Transverse vectors are divergence free, i.e.~satisfy $0 = \partial_\alpha U^\alpha$. Transverse traceless vectors are symmetric, tracefree, and divergence free, i.e.~$0 = U^{\lbrack\alpha\beta\rbrack}$, $0 = \gamma_{\alpha\beta} U^{\alpha\beta}$, and $0 = \partial_\alpha U^{\alpha\beta}$. Together with the four gauge-fixed fields $B=0$, $V^\alpha = U^\alpha$, and $U=-V$, the area metric perturbation in this particular gauge is reproduced using Eq.~\eqref{area_metric_perturbation}.}
+  \label{table_area_dof}
 \end{table}
 
 Let us briefly collect the results of a similar decomposition and gauge fixing for metric gravity perturbed around the Minkowski metric. This will be of use later when we compare area metric gravity with metric gravity and highlight the differences. The metric tensor has 10 degrees of freedom and, as already remarked, decomposes into shift $N^\alpha$, lapse $N$, and spatial metric $\hat g^{\alpha\beta}$ by virtue of the relations
@@ -1084,7 +1085,7 @@ The label $[\cdot]^\text{TF}$ denotes the idempotent projection
 \end{equation}
 onto the tracefree symmetric part. Both $\delta$ and $\epsilon$ are combinations of gravitational constants that include genuine third-order constants, i.e.~coefficients for the third order in the area metric Lagrangian expansion that are not solely determined by second-order coefficients.\footnote{This has been the case earlier: For the massless mode, the second iteration equation---although derived from the third-order expansion---was completely determined by second-order coefficients of the Lagrangian expansion. The perturbative equivariance equations can, and in general will, in each iteration determine some higher-order coefficients by lower-order coefficients.}
 
-Solving the wave equations \eqref{tracefree} is again a matter of convoluting the source terms with a retarded Green's function. This time, the differential equation is of the kind
+Solving the wave equations \eqref{tracefree_second_order} is again a matter of convoluting the source terms with a retarded Green's function. This time, the differential equation is of the kind
 \begin{equation}
   (\Box + m^2)\psi(x) = 4\pi\varphi(x)
 \end{equation}
@@ -1171,7 +1172,7 @@ Again, let us first illustrate the calculation for metric gravity before diving 
 \begin{equation}\label{metric_noether}
   L = L_\text{matter} + L_\text{gravity}.
 \end{equation}
-Following a normal coordinate argument\footnote{For the metric tensor bundle, there are always local coordinates such that $g^{ab}_{\hphantom{ab},p}=0$. In this coordinate chart, the divergence of the SEM tensor density vanishes. Being a tensor density, it follows that the components vanish in \emph{any} coordinate chart.} from Ref.~\ref{gotay}, the second Noether identity \eqref{second_noether} reduces to the vanishing of the divergence of the Gotay-Marsden stress-energy-momentum tensor density, i.e.~
+Following a normal coordinate argument\footnote{For the metric tensor bundle, there are always local coordinates such that $g^{ab}_{\hphantom{ab},p}=0$. In this coordinate chart, the divergence of the SEM tensor density vanishes. Being a tensor density, it follows that the components vanish in \emph{any} coordinate chart.} from Ref.~\cite{Gotay_1992}, the second Noether identity \eqref{second_noether} reduces to the vanishing of the divergence of the Gotay-Marsden stress-energy-momentum tensor density, i.e.~
 \begin{equation}
   0 = \partial_n\left\lbrack\mathcal  T^n_m(g)\right\rbrack.
 \end{equation}
