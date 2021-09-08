@@ -5,3 +5,4 @@ upright differentials
 k_{12}
 scalebox
 g(r)
+Giesel_2012: check observer quantities, observer def
