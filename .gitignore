@@ -6,3 +6,9 @@
 *.fls
 *.pdf
 *.synctex.gz
+*.bib.bak
+*.bib.sav
+*.bbl
+*.bcf
+*.blg
+*.run.xml
