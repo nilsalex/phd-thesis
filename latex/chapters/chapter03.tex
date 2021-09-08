@@ -26,7 +26,7 @@ Let us comment on the algorithm step by step: The first step, calculating the Go
 \begin{equation}
   0 = A^j_i x^i u_{,j} + B u,
 \end{equation}
-$u$ is the dependent variable, $x^i$ are the independent variables and the coefficients $A^j_i$ and $B$ are constants. Conceptually, it is clear how to solve such PDEs\cite{seiler}, albeit in most cases practically infeasible, due to the sheer size of the system and the number of independent variables. However, as we will see in a later chapter, the system admits a property called \emph{involutivity}, from which we can infer strong results about solutions and derive a perturbative solution strategy.
+$u$ is the dependent variable, $x^i$ are the independent variables and the coefficients $A^j_i$ and $B$ are constants. Conceptually, it is clear how to solve such PDEs\cite{Seiler_2010}, albeit in most cases practically infeasible, due to the sheer size of the system and the number of independent variables. However, as we will see in a later chapter, the system admits a property called \emph{involutivity}, from which we can infer strong results about solutions and derive a perturbative solution strategy.
 
 For a known solution, it is only a matter of applying Eq.~\ref{euler_lagrange_local} to the Lagrangian in order to compute the Euler-Lagrange equations for step 4. Restricting to second-derivative-order field equations, as required by step 5, could be done now by imposing that higher-derivative-order terms vanish. In practice, however, such restrictions will be placed at an earlier stage, in order to rule out higher orders from the beginning. A similar pattern emerges for steps 6 and 7: placing restrictions on the computed entities is possible, but may be hard to enforce after the fact. So it is worth keeping this requirement in mind early on.
 
@@ -87,7 +87,7 @@ Before proceeding, let us emphasize that there are only two things needed from t
   \item the principal polynomial $\mathcal P_\text{Maxwell}(k) = g(k,k)$.
 \end{enumerate}
 
-The equivariance equations \eqref{equivariance_eqn_1}--\eqref{equivariance_eqn_4} for the metric gravitational Lagrangian are a system of 140 PDEs for one variable dependent on 154 independent variables\footnote{The dimension of the second jet bundle over the metric bundle is $4+10+4\times 10 + \binom{4 + 2 - 1}{2}\times 10=154$.}. Because the system admits the aforementioned property called involutivity, which will play a major role and therefore will actually be proven in Chap.~\ref{chapter_perturbation}, we can make use of a very strong result about the solutions of this system\cite{seiler}: There are $154-140=14$ functions $\psi_\alpha$ of the independent variables, such that any solution of the homogeneous system
+The equivariance equations \eqref{equivariance_eqn_1}--\eqref{equivariance_eqn_4} for the metric gravitational Lagrangian are a system of 140 PDEs for one variable dependent on 154 independent variables\footnote{The dimension of the second jet bundle over the metric bundle is $4+10+4\times 10 + \binom{4 + 2 - 1}{2}\times 10=154$.}. Because the system admits the aforementioned property called involutivity, which will play a major role and therefore will actually be proven in Chap.~\ref{chapter_perturbation}, we can make use of a very strong result about the solutions of this system\cite{Seiler_2010}: There are $154-140=14$ functions $\psi_\alpha$ of the independent variables, such that any solution of the homogeneous system
 \begin{equation}
   0 = A^{Ij} u_{,j}
 \end{equation}
@@ -110,7 +110,7 @@ from which we readily recognise two solutions,
 \end{equation}
 The constants $\kappa$ and $\Lambda$ are known as gravitational constant and cosmological constant, respectively, and $R$ is the Ricci scalar curvature. Together with the homogeneous solution $\psi_1=R$, the remaining 13 homogeneous solutions $\psi_2,\dots,\psi_{14}$ are known in the literature as the fourteen \emph{curvature invariants}\cite{Narlikar_1949,Zakhary_1997}.
 
-While the system of equivariance equations alone admits a multitude of solutions \eqref{general_metric_solution}, it has been shown by Lovelock\cite{} that only Einstein general relativity \eqref{einstein_hilbert} admits second-order-derivative field equations. Step 5 of the construction algorithm therefore restricts the gravitational theory closing Maxwell electrodynamics to general relativity with its two undetermined constants \emph{exactly}. The causality conditions do not have to be implemented anymore, since they follow trivially---the causal structures of Maxwell electrodynamics and Einstein gravity coincide\cite{??}.
+While the system of equivariance equations alone admits a multitude of solutions \eqref{general_metric_solution}, it has been shown by Lovelock\cite{Lovelock_1969,Lovelock_1971,Lovelock_1972} that only Einstein general relativity \eqref{einstein_hilbert} admits second-order-derivative field equations. Step 5 of the construction algorithm therefore restricts the gravitational theory closing Maxwell electrodynamics to general relativity with its two undetermined constants \emph{exactly}. The causality conditions do not have to be implemented anymore, since they follow trivially---the causal structures of Maxwell electrodynamics and Einstein gravity coincide.
 
 There is another interesting result that follows from the equivariance equations. Restricting to the zeroth jet bundle and switching from abstract indices to indices inherited from the tangent bundle, the equations are
 \begin{equation}\label{metric_order_0_eq}
@@ -222,7 +222,7 @@ Let us consider two examples for bimetric matter theories. The first theory pres
   where $\phi$ and $\psi$ are smooth functions $\phi,\psi\colon M\rightarrow \mathbb R$ called \textbf{scalar fields} with nonnegative \textbf{masses} $m_\phi$ and $m_\psi$.
 \end{definition}
 As second example, we use a generalization of the Proca theory, a theory for a \emph{massive} electromagnetic potential.
-\begin{definition}[bimetric Proca theory\cite{wierzba}]
+\begin{definition}[bimetric Proca theory\cite{Wierzba_2018}]
   Consider again the bundle $E_\text{bimetric}$. Sections $(g,h)$ of this bundle together with a scalar density $\omega_{g,h}$ constructed from $g$ and $h$ serve as coefficients for the Lagrangian density of the \textbf{bimetric Proca theory}
   \begin{equation}
     L_\text{bi-Proca} = \omega_{g,h}\left( -g^{ac} g^{bd} F_{ab} F_{cd} + m^2 h^{ab} A_a A_b \right)
@@ -246,7 +246,7 @@ With the Gotay-Marsden coefficients at hand, we the equivariance equations \eqre
 \begin{equation}
   \operatorname{dim}(J^2E_\text{bimetric}) = 4 + 20 + 4\times 20 + \binom{4 + 2 - 1}{2}\times 20 = 304,
 \end{equation}
-making the system a PDE system with 140 equations for one function dependent on 304 independent variables. The same remarks as for the construction of area metric gravity apply: It is notoriously hard to solve such a system \emph{exactly}, but the method offers a lot of potential for perturbative or symmetry-reduced solutions. In the context of canonical gravitational closure, the former has already been pursued successfully, at least to first order in the perturbation expansion\cite{wierzba,beier}.
+making the system a PDE system with 140 equations for one function dependent on 304 independent variables. The same remarks as for the construction of area metric gravity apply: It is notoriously hard to solve such a system \emph{exactly}, but the method offers a lot of potential for perturbative or symmetry-reduced solutions. In the context of canonical gravitational closure, the former has already been pursued successfully, at least to first order in the perturbation expansion\cite{Wierzba_2018,Beier_2018}.
 
 \emph{Some} solutions are, of course, already known: The metric determinants are diffeomorphism invariant densities and the fourteen curvature invariants for each metric are diffeomorphism invariant scalars, i.e.~solutions to the homogeneous system. This gives generic solutions of the form
 \begin{equation}
@@ -265,7 +265,7 @@ By the second axiom of covariant constructive gravity, the space of admissible L
 \begin{equation}\label{bimetric_poly}
   \mathcal P_\text{bimetric}(k) = g(k,k) h(k,k).
 \end{equation}
-This is an intuitive result for the bimetric Klein-Gordon field, where the field equations for both scalar fields do not couple. For the bimetric Proca theory, however, a na\"ive inspection of the field equations seems to suggest that the principal polynomial is just given by the first metric which provides the coefficients for the kinetic term. Only after the field equations have been brought into involutive form, new equations emerge which ultimately yield the principal polynomial \eqref{bimetric_poly}.\cite{wierzba}
+This is an intuitive result for the bimetric Klein-Gordon field, where the field equations for both scalar fields do not couple. For the bimetric Proca theory, however, a na\"ive inspection of the field equations seems to suggest that the principal polynomial is just given by the first metric which provides the coefficients for the kinetic term. Only after the field equations have been brought into involutive form, new equations emerge which ultimately yield the principal polynomial \eqref{bimetric_poly}.\cite{Wierzba_2018}
 
 As a consequence of this coincidence, the gravitational theories that are eligible as completions for both discussed bimetric matter theories are the same. This also restricts the causally relevant sectors of both theories to the sector where $g$ and $h$ are Lorentzian metrics with overlapping hyperbolicity cones---only then is the product of both metrics a hyperbolic polynomial.
 
