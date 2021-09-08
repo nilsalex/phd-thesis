@@ -1,4 +1,4 @@
-\chapter{Introduction to the constructive gravity programme}
+\chapter{Introduction to the constructive gravity programme}\label{chapter_introduction}
 
 \section{The r\^ole of gravity in physics}
 As the title suggests, this thesis is primarily concerned with \emph{gravity}. In the ensemble of physical theories, gravity plays a special r\^ole. It serves a different purpose than the theories we will call \emph{matter theories}. The latter are subject to direct observations: photons---quanta of the electomagnetic field---hit the observers retina, allowing her to make inferences about the source of the particles. Charged fermions---again quanta of a corresponding matter field---induce signals in a semiconductor detector. Specific signatures in the signals may be associated with certain events that contributed to the production of the incident fermions, such that the statistics of these observations is able to falsify hypotheses about the underlying mechanisms.
@@ -21,8 +21,8 @@ How does gravity fit into this picture? The revolution of a binary star about it
       \draw (6.2,0) node[align=center] {provides\\background};
     \end{tikzpicture}
   \end{center}
-  \label{figure_smpp_gr}
   \caption{Interplay of the standard model theories and general relativity. Matter content sources the gravitational field equations. The gravitational field, in turn, provides the background on which matter fields propagate. Together, this yields a highly accurate fundamental description of the universe.}
+  \label{figure_smpp_gr}
 \end{figure}
 
 From this point of view, gravity sets the stage for the propagation of matter fields. This is witnessed by the dynamics for matter fields, one example of which is the electromagnetic potential in Maxwell electrodynamics. Its field equations are derived from the action functional
@@ -78,8 +78,8 @@ As far as the framework is concerned, any matter theory that satisfies certain f
       \draw (1.1,-4.7) node[align=center] {falsifies\\theories};
     \end{tikzpicture}
   \end{center}
-  \label{figure_matter_gravity}
   \caption{Rationale of constructive gravity. The matter theory $S_\text{matter}$, which couples the matter field $\phi$ to some geometry $G$, determines the structure of the gravitational theory $S_\text{gravity}$. In general, this theory will not be unique but parameterized by a set of constants or functions, which results in multiple candidates. Via the interdependence of matter and gravity, each candidate yields phenomenology that can be used by the observer for tests of the theory.}
+  \label{figure_matter_gravity}
 \end{figure}
 The rationale of constructive gravity is pictured in Fig.~\ref{figure_matter_gravity}. A matter theory, prescribed by the action $S_\text{matter}\lbrack\phi,G)$ serves as input. The round bracket next to the geometry $G$ indicates that the action functional depends on $G$ only locally, i.e.~not via a derivative, while the matter fields $\phi$ enter with derivatives, typically of first order.
 
@@ -108,5 +108,12 @@ On the other hand, the approach should complement the canonical framework. Gener
 
 \section{Outline}
 
-This thesis is dedicated to the development of the covariant approach and aims to provide a complete picture of the 
+This thesis is dedicated to the development of the covariant approach. It aims to provide a complete picture of the current state of research, from the foundations to the construction procedure to testable predictions for an exemplary theory. At the end, every part of Fig.~\ref{figure_matter_gravity} will have been addressed.
+
+After this chapter has introduced the rationale of covariant constructive gravity, Chap.~\ref{chapter_axioms} will be concerned with the mathematical foundations. We will walk through Lagrangian field theory in the jet bundle formulation, which allows a precise definition of the first axiom as equivariance condition for the Lagrangian with respect to spacetime diffeomorphisms. This condition is locally equivalent to a system of first-order, linear partial differential equations, the \emph{equivariance equations}. For the derivation, we will make a detour to the global version of the Lagrangian variation problem, which comes with the definition of the so-called \emph{Cartan form}. The Cartan form allows a quite elegant presentation of Noether's first and second theorem---especially the second theorem will prove to be useful later on. Afterwards, we introduce the notions necessary for a formulation of the second axiom. Causal compatibility will be phrased as conditions on certain geometric constructs that arise from the causality of the field equations.
+
+In chapter \ref{chapter_construction_algorithm}, we turn to the implementation of the axioms. While deriving the mathematical formalism, we already laid out most of the implementation details, so it suffices to give a short summary. This will be in the form of a \emph{construction algorithm}. We then consider three examples of matter theories and discuss how the construction algorithm could be applied. The first example will be Maxwell's electrodynamics, for which we recover general relativity as the unique solution. The other two examples, a birefringent generalization of Maxwell's electrodynamics and a bimetric Klein-Gordon theory, have no known generic solution, but we can nevertheless derive some interesting results.
+
+
+
 
