@@ -1,13 +1,13 @@
 \chapter{The axioms of covariant constructive gravity}\label{chapter_axioms}
+\textit{In this chapter, we will cast the two axioms of covariant constructive gravity in precise mathematical language. The basis for our theory is Lagrangian field theory defined in terms of jet bundles, whose basic notions we collect first. In particular, we will encounter the Cartan form, which is central for the global, coordinate-independent treatment of the Lagrangian variation problem. With this machinery at hand, we define the first axiom as equivariance condition for the Lagrangian with respect to spacetime diffeomorphisms. We then derive a few consequences that follow from this axiom: most importantly, a system of partial differential equations for a local representative of the Lagrangian, but also the existence of a stress-energy-momentum tensor. The former is fundamental for an algorithmic approach towards implementing the axiom, the latter is very useful for proving Noether's theorems in this setting. At the end of this chapter, we show how the relevant objects for a mathematical formulation of the second axiom are constructed. Finally, we present the second axiom using the terminology established so far.}
 
-\textbf{take-home message: two conditions on gravitational dynamics determined by coupled matter theory}
+The two axioms of covariant constructive gravity have been motivated in Sect.~\ref{section_intro_ccg}. Let us recall the informal definitions as phrased in Ref.~\cite{Alex_2020}.
 
-This chapter is concerned with the two axioms of covariant constructive gravity. Their informal formulation is as follows:
-\begin{axiom}[Diffeomorphism invariance]
-  The dynamical laws that govern gravity are invariant under spacetime diffeomorphisms. \cite{Alex_2020}
+\begin{axiom}[Diffeomorphism invariance \cite{Alex_2020}]
+  The dynamical laws that govern gravity are invariant under spacetime diffeomorphisms.
 \end{axiom}
-\begin{axiom}[Causal compatibility]
-  Provided that spacetime is additionally inhabited by matter fields, their dynamics is causally compatible with the gravitational dynamics. \cite{Alex_2020}
+\begin{axiom}[Causal compatibility \cite{Alex_2020}]
+  Provided that spacetime is additionally inhabited by matter fields, their dynamics is causally compatible with the gravitational dynamics.
 \end{axiom}
 
 For a more precise formulation of the axioms, which will enable us to derive their consequences for gravitational theories coupled to novel matter, an introduction of the basic concepts of Lagrangian field theory is in order.
@@ -18,16 +18,16 @@ For the purpose of the present work, a \emph{Lagrangian field theory} will be a 
 \begin{example}
   Two examples for Lagrangian field theories are
   \begin{itemize}
-    \item Einstein gravity on the symmetric sub-bundle of $T^2_0M$ of inverse metric tensors\footnote{The equivalent formulation as a theory for a metric tensor fields takes place on the bundle $T^0_2M$.} with dynamical laws given by the Einstein equations action, and
+    \item Einstein gravity on the symmetric sub-bundle of $T^2_0M$ of inverse metric tensors\footnote{The equivalent formulation as a theory for a metric tensor fields takes place on the bundle $T^0_2M$.} with dynamical laws given by the Einstein equations, and
     \item Maxwell electrodynamics on the bundle $T^\ast M$ of potential one-forms with dynamical laws given by the Maxwell equations.
   \end{itemize}
 \end{example}
 
 Both theories are \emph{Lagrangian} because they derive their dynamical laws in a certain geometric manner. The mechanism will be explained in the following, but first, let us fix some of the notation involved.
 
-A bundle is denoted as $E\overset{\pi}{\longrightarrow}M$, where $E$ is the total space, $M$ is the base manifold $M$, $\pi$ is the submersion. As a shorthand, it is common to write just $\pi$---it is then understood that total space and base manifold are domain and co-domain of $\pi$, respectively. The dimension of $M$ is written as $n$, the dimension of a typical fibre $F$ of $\pi$ as $m$. Coordinate functions on $E$ are denoted by $(x^i,u^A)$. Such coordinates extend to the $k$th jet bundle $J^kE \overset{\pi_k}{\longrightarrow}M$ over $\pi$ as $(x^i,\allowbreak u^A,\allowbreak u^A_{i_1},\allowbreak u^A_{i_1i_2},\allowbreak \dots,\allowbreak u^A_{i_1\dots i_k})$. The literature on jet bundles mostly employs multi-indices for higher-order jet bundles (see e.g.~Ref.~\cite{Saunders_1989}), which is certainly the right approach for studying the properties of jet bundles, but for practical calculations on the second-order jet bundle performed below the intertwiner technique (see Def.~\ref{def_intertwiner}) will be used which also takes care of ambiguities regarding symmetric indices. Prolongations of sections $\sigma$ are denoted with $j^k(\sigma)$, projections between jet bundles of different order with $\pi_{k,k^\prime}(\sigma)$. The latter are submersions in their own right and thus also define bundle projections. Throughout, the Einstein summation convention is used.
+A bundle is denoted as $E\overset{\pi}{\longrightarrow}M$, where $E$ is the total space, $M$ is the base manifold $M$, $\pi$ is the submersion. As a shorthand, it is common to write just $\pi$---it is then understood that total space and base manifold are domain and co-domain of $\pi$, respectively. The dimension of $M$ is written as $n$, the dimension of a typical fibre $F$ of $\pi$ as $m$. Coordinate functions on $E$ are denoted by $(x^i,u^A)$. Such coordinates extend to the $k$th jet bundle $J^kE \overset{\pi_k}{\longrightarrow}M$ over $\pi$ as $(x^i,\allowbreak u^A,\allowbreak u^A_{i_1},\allowbreak u^A_{i_1i_2},\allowbreak \dots,\allowbreak u^A_{i_1\dots i_k})$. The literature on jet bundles mostly employs multi-indices for higher-order jet bundles (see e.g.~Ref.~\cite{Saunders_1989}), which is certainly the right approach for studying the properties of jet bundles, but for practical calculations on the second-order jet bundle performed below the intertwiner technique (see Def.~\ref{def_intertwiner}) will be used. This technique is equally able to take care of ambiguities regarding symmetric indices. Prolongations of sections $\sigma$ are denoted with $j^k(\sigma)$, projections between jet bundles of different order with $\pi_{k,k^\prime}(\sigma)$. The latter are submersions in their own right and thus also define bundle projections. Total derivatives are written as $D_i$. Throughout, the Einstein summation convention is used.
 
-\begin{definition}[Lagrangian]
+\begin{definition}[Lagrangian \cite{Saunders_1989}]
   Let $M$ be a smooth manifold of dimension $n$ and $E \overset{\pi}{\longrightarrow} M$ a smooth fibre bundle over $M$ with typical fibre $F$. A \textbf{Lagrangian} $\mathscr L$ of order $k$ is an element
   \begin{equation}
     \mathscr L \in \textstyle\bigwedge^n_0\pi_k.
@@ -42,14 +42,14 @@ Assuming $M$ to be orientable with volume form $\Omega\in\Lambda^nM$, a Lagrangi
 
 The claim of \eqref{lagrangian_density} becomes apparent in local coordinates, where a horizontal $n$-form on $\pi_k$ appears as
 \begin{equation}\label{lagrangian_local}
-  \textstyle\bigwedge^n_0\pi_k\ni \mathscr L = \mathscr L(x^i,u^A,u^A_i,\dots) dx^1\wedge \dots \wedge dx^n.
+  \textstyle\bigwedge^n_0\pi_k\ni \mathscr L = \mathscr L(x^i,u^A,u^A_i,\dots) \mathrm dx^1\wedge \dots \wedge \mathrm dx^n.
 \end{equation}
-From \eqref{lagrangian_local} and \eqref{lagrangian_density}, it is also clear how the notion of a Lagrangian as a horizontal $n$-form captures in a geometric way the notion used elsewhere as a bundle map $J^kE \rightarrow \Lambda^nM$ (see Refs.~\cite{Saunders_1989,Gotay_1992,Alex_2020}).
+From \eqref{lagrangian_local} and \eqref{lagrangian_density}, it is also clear how the notion of a Lagrangian as a horizontal $n$-form captures in a geometric way the notion used elsewhere as a bundle map $J^kE \rightarrow \Lambda^nM$ (see \cite{Saunders_1989,Gotay_1992,Alex_2020}).
 
 
 From now on, we will consider smooth, orientable base manifolds $M$ and smooth bundles over the base manifold. Depending on the context, the symbol $\Omega$ will denote either the form on $M$ or the pullback to various bundles over $M$.
 
-\begin{definition}{(local action functional)}
+\begin{definition}[local action functional \cite{Saunders_1989}]
   Given a Lagrangian $\mathscr L \in \bigwedge^n_0\pi_k$ and a compact $n$-dimensional submanifold $C \subset M$, the \textbf{local action functional} is defined as the map
   \begin{equation}
     \sigma \mapsto S\lbrack\sigma\rbrack = \int_C (j^k\sigma)^\ast\mathscr L
@@ -57,22 +57,22 @@ From now on, we will consider smooth, orientable base manifolds $M$ and smooth b
 for all local sections $\sigma$ of $\pi$ with support on $C$.
 \end{definition}
 
-Lagrangian field theory now stipulates that sections $\sigma\in\Gamma(\pi)$ are physical if they are extremals of the action functional\cite{}. The well-known \emph{Euler-Lagrange} equations from the calculus of variations provide a necessary condition in local coordinates which such sections extremals must satisfy.
-\begin{proposition}
+Lagrangian field theory now stipulates that sections $\sigma\in\Gamma(\pi)$ are physical if they are extremals of the action functional \cite{Saunders_1989}. The well-known \emph{Euler-Lagrange equations} from the calculus of variations provide a necessary condition in local coordinates which such sections extremals must satisfy.
+\begin{proposition}[\cite{Saunders_1989}]
   Let $L\in C^\infty(J^k\pi)$ be a Lagrangian density. Let $C$ be a compact submanifold of $M$ and $\sigma$ be a local section of $\pi$ such that the local action functional $S\lbrack\sigma\rbrack$ is defined. If $\sigma$ is an extremal of $S$, it satisfies the \textbf{Euler-Lagrange equations}
   \begin{equation}\label{euler_lagrange_local}
     (j^{2k}\sigma)^\ast\left( \sum_{l=0}^{k} (-1)^l D_{i_1} \cdots D_{i_l} \frac{\partial L}{\partial u^A_{i_1\cdots i_l}}\right) = 0.
   \end{equation}
 \end{proposition}
 \begin{proof}
-  See Saunders 1989 or older, original work
+  See \cite{Saunders_1989}.
 \end{proof}
 
 The intrinsic equivalent to the Euler-Lagrange equations in local coordinates introduces a new object, the \emph{Cartan form}, which plays a central role in the geometrization of Lagrangian field theory.
-\begin{proposition}
-  Given a Lagrangian $\mathscr L = L\Omega \in \bigwedge^n_0\pi_k$, there exists an $n+1$ form $\Theta_L\in\bigwedge^{n}_0\pi_{2k-1,k-1}\cap\bigwedge^{n}_{1}\pi_{2k-1}$, such that, globally, the variation of the Lagrangian is given by
+\begin{proposition}[\cite{Saunders_1989}]
+  Given a Lagrangian $\mathscr L = L\Omega \in \bigwedge^n_0\pi_k$, there exists an $n$-form $\Theta_L\in\bigwedge^{n}_0\pi_{2k-1,k-1}\cap\bigwedge^{n}_{1}\pi_{2k-1}$, such that, globally, the variation of the Lagrangian is given by
   \begin{equation}\label{global_lagrange_form}
-    \delta L = \pi^\ast_{2k,k} \left( dL\wedge\Omega\right) + d_h \Theta_L
+    \delta L = \pi^\ast_{2k,k} \left( \mathrm dL\wedge\Omega\right) + \mathrm d_h \Theta_L
   \end{equation}
   and extremals of $\mathscr L$ are extremals of $\Theta_L$ in the sense that
   \begin{equation}
@@ -81,16 +81,16 @@ The intrinsic equivalent to the Euler-Lagrange equations in local coordinates in
   Such a form $\Theta_L$ is called a \textbf{Cartan form}.
 \end{proposition}
 \begin{proof}
-  See Saunders 1989 or older, original work
+  See \cite{Saunders_1989}.
 \end{proof}
 
-This definition generalizes the local derivation of \eqref{euler_lagrange_local}: The variation $\delta L$ is obtained by lifting $d\mathscr L$ to $\pi_{2k}$ and cancelling non-horizontal terms (over $E$) by adding a derivative, which corresponds to repeated integrations by parts.
+This definition generalizes the local derivation of \eqref{euler_lagrange_local}: The variation $\delta L$ is obtained by lifting $\mathrm d\mathscr L$ to $\pi_{2k}$ and cancelling non-horizontal terms (over $E$) by adding a derivative, which corresponds to repeated integrations by parts.
 
-A possible\footnote{Generally, $\Theta_L$ is not uniquely defined. \cite{Saunders_1989}} coordinate expression for $\Theta_L$ is \ref{}
+A possible\footnote{Generally, $\Theta_L$ is not uniquely defined. \cite{Saunders_1989}} coordinate expression for $\Theta_L$ is \cite{Saunders_1989}
 \begin{equation}\label{local_cartan_form}
   \Theta_L = L\Omega + \sum_{s=0}^{k-1} \sum_{l=0}^{k-s-1} (-1)^l D_{i_1} \cdots D_{i_l} \left(\frac{\partial L}{\partial u^A_{j i_1 \dots i_{l} p_1 \dots p_s}}\right) \psi^A_{p_1\dots p_s} \wedge \left(i_{\partial_j}\Omega\right),
 \end{equation}
-where the forms $\psi^A_{p_1\dots p_s} = du^A_{p_1\dots p_s} - u^A_{p_1\dots p_sq} dx^q$ span the contact system of $\pi_k$ (see \ref{}).
+where the forms $\psi^A_{p_1\dots p_s} = \mathrm d u^A_{p_1\dots p_s} - u^A_{p_1\dots p_sq} dx^q$ span the contact system of $\pi_k$ (see \cite{Saunders_1989}).
 
 Straight-forward application of \eqref{global_lagrange_form} to \eqref{local_cartan_form} yields the well-known coordinate expression
 \begin{equation}
@@ -99,21 +99,21 @@ Straight-forward application of \eqref{global_lagrange_form} to \eqref{local_car
 for the Euler-Lagrange form, reconciling the intrinsic formulation using the Cartan form with the explicitly coordinate-dependent\footnote{Which is not to say \emph{ill-defined}.} formulation using the Euler-Lagrange equations.
 
 In later sections, we will restrict our attention to Lagrangians of second derivative order. As it turns out, the Cartan form for such a theory is \emph{unique}.
-\begin{proposition}\label{prop_cartan_unique}
+\begin{proposition}[\cite{Saunders_1989}]\label{prop_cartan_unique}
   The Cartan form is unique for second-order Lagrangians.
 \end{proposition}
 \begin{proof}
-  See Saunders 1989 or older, original work
+  See \cite{Saunders_1989}.
 \end{proof}
 
 \section{Axiom I: diffeomorphism invariance}
 
 In the language of jet bundles, the first axiom can be formalized as equivariance condition under a certain group action on the Lagrangian. The group in question is the diffeomorphism group $\mathrm{Diff}(M)$, acting on $M$ by function application. By virtue of the pushforward-pullback construction, sub-bundles of tensor bundles carry a canonical action of $\mathrm{Diff}(M)$ as bundle automorphisms, denoted as $\varphi_E\in \mathrm{Aut}(E)$ for every $\varphi\in\mathrm{Diff}(M)$. We call this the \emph{lift} of the diffeomorphism $\varphi$. This action, in turn, lifts naturally to the jet bundles over $E$.
 
-\begin{definition}[prolongation of morphisms]
-  Let $E \overset{\pi_E}{\longrightarrow} M$ and $H \overset{\pi_H}{\longrightarrow} N$ be two bundles. The $k$th-order jet bundle lift of a bundle morphism $(F,f)$ from $\pi_E$ to $\pi_H$ is the unique bundle morphism $(j^k(F),f)$ from $J^k\pi_E$ to $J^k\pi_H$ that lets the diagram in Fig.~(??) commute.
+\begin{definition}[prolongation of morphisms \cite{Saunders_1989}]
+  Let $E \overset{\pi_E}{\longrightarrow} M$ and $H \overset{\pi_H}{\longrightarrow} N$ be two bundles. The $k$th-order jet bundle lift of a bundle morphism $(F,f)$ from $\pi_E$ to $\pi_H$ is the unique bundle morphism $(j^k(F),f)$ from $J^k\pi_E$ to $J^k\pi_H$ such that for any section $\phi$ of $\pi_E$ the identity $j^k(F) \circ j^k\phi\circ f^{-1} = j^k (F\circ\phi\circ f^{-1})$ holds.
 \end{definition}
-A proof for the existence and uniqueness of this construction can be found in Ref.~\cite{Saunders_1989}. With the notion of the \emph{lift} of a bundle automorphism at hand, we now give the first axiom a precise meaning
+A proof for the existence and uniqueness of this construction can be found in Ref.~\cite{Saunders_1989}. With the notion of the \emph{lift} of a bundle automorphism at hand, we now give the first axiom a precise meaning.
 \begin{definition}[diffeomorphism invariant theory]
   A Lagrangian field theory is called \textbf{diffeomorphism invariant} if its Lagrangian $\mathscr L\in\textstyle\bigwedge_0^n\pi_k$ is invariant with respect to the lifted action of $\mathrm{Diff}(M)$ on $J^kE$, i.e.~if for all $\varphi\in\mathrm{Diff}(M)$
   \begin{equation}\label{lagrangian_diffeo_invariance}
@@ -124,7 +124,7 @@ This definition applies not only to tensor bundles and the diffeomorphism group-
 \begin{equation}
   \varphi_\ast\colon T_pM\rightarrow T_{\varphi(p)}M
 \end{equation}
-and the pullback action on cotangent vectors\footnote{The action is inverted in order to still define a covariant functor. \textbf{explain!}\cite{}}
+and the pullback action on cotangent vectors\footnote{The action is inverted in order to still define a covariant functor, in the sense that it maps from the cotangent space at $p$ to the cotangent space at $\varphi(p)$.}
 \begin{equation}
    (\varphi^\ast)^{-1}\colon T^\ast_pM\rightarrow T^\ast_{\varphi(p)}M.
 \end{equation}
