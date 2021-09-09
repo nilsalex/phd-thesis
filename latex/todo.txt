@@ -8,3 +8,4 @@ g(r)
 Giesel_2012: check observer quantities, observer def
 space before citation
 quote before intro. we can come back to the quote at the end
+gm intertwiner commutator

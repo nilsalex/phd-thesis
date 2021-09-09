@@ -217,13 +217,13 @@ A useful corollary of the homomorphism property of the Lie algebra lift $\xi\map
 \begin{corollary}
   The Gotay-Marsden coefficients \gmc{A}{B}{n}{m} corresponding to a tensor field theory satisfy the relation
   \begin{equation}
-    \gmc{A}{B}{n}{m} \gmc{B}{C}{q}{p} - \gmc{A}{B}{q}{p} \gmc{B}{C}{n}{m} = \gmc{A}{B}{q}{m} - \gmc{A}{B}{n}{p}.
+    \gmc{A}{B}{n}{m} \gmc{B}{C}{q}{p} - \gmc{A}{B}{q}{p} \gmc{B}{C}{n}{m} = \gmc{A}{C}{q}{m} \delta^n_p - \gmc{A}{C}{n}{p} \delta^q_m.
   \end{equation}
 \end{corollary}
 \begin{proof}
   Expanding \eqref{lie_algebra_homo} and making use of the coordinate expression \eqref{algebra_morphism} yields the identity
   \begin{equation}
-    \left\lbrack\gmc{A}{B}{n}{m} \gmc{B}{C}{q}{p} - \gmc{A}{B}{q}{p} \gmc{B}{C}{n}{m} - (\gmc{A}{B}{q}{m} - \gmc{A}{B}{n}{p})\right\rbrack \xi^m_{,n} \psi^p_{,q} = 0,
+    \left\lbrack\gmc{A}{B}{n}{m} \gmc{B}{C}{q}{p} - \gmc{A}{B}{q}{p} \gmc{B}{C}{n}{m} - (\gmc{A}{C}{q}{m}\delta^n_p - \gmc{A}{C}{n}{p}\delta^q_m)\right\rbrack \xi^m_{,n} \psi^p_{,q} = 0,
   \end{equation}
   from which the result follows, as $\xi$ and $\psi$ can be chosen arbitrarily.
 \end{proof}
@@ -238,13 +238,13 @@ If required for calculations, Gotay-Marsden coefficients are easily expressed us
   \begin{equation}
     \gmcd{A}{B}{n}{m} = -s \cdot I^B_{a_1\dots a_{s-1}m} J^{a_1\dots a_{s-1}n}_A.
   \end{equation}
-  Note that in the latter case of a purely covariant tensor bundle a fibre coordinate function is denoted $u_A$ with a lower index.
+  Note that in the latter case of a purely covariant tensor bundle, a fibre coordinate function is denoted by $u_A$ with a lower index.
 \end{proposition}
 
 The Gotay-Marsden coefficients are the defining objects for the PDE version of the invariance of $L$ under infinitesimal diffeomorphisms. This constitutes the central result concerning the first axiom and shall be proved in the following.
 
 \begin{theorem}\label{equivariance_eqns_thm}
-  Let $L$ be the local Lagrangian density of a second derivative order Lagrangian $\mathscr L = Ld^4x \in \textstyle\bigwedge_0^n\pi_2$. If $\mathscr L$ is diffeomorphism invariant, i.e.~satisfies the invariance condition \eqref{lagrangian_diffeo_invariance} of the first axiom of covariant constructive gravity, its local representation $L$ satisfies a system of first-order linear partial differential equations given by
+  Let $L$ be the local Lagrangian density of a second derivative order Lagrangian $\mathscr L = L\mathrm d^4x \in \textstyle\bigwedge_0^n\pi_2$. If $\mathscr L$ is diffeomorphism invariant, i.e.~satisfies the invariance condition \eqref{lagrangian_diffeo_invariance} of the first axiom of covariant constructive gravity, its local representation $L$ satisfies a system of first-order linear partial differential equations given by
   \begin{subequations}\label{equivariance_eqns}
     \begin{align}
       0 &{} = L_{,m} \label{equivariance_eqn_1}\\
@@ -256,7 +256,7 @@ The Gotay-Marsden coefficients are the defining objects for the PDE version of t
   \end{subequations}
 \end{theorem}
 \begin{proof}
-  Given a vector field $X$ on $E$, the lift to the total space $J^2E$ of the second jet bundle is uniquely defined\cite{Saunders_1989}. Applying this lift to the vector field $\xi_E$ corresponding to $\xi\in \Gamma(TM)$ yields the vector field
+  Given a vector field $X$ on $E$, the lift to the total space $J^2E$ of the second jet bundle is uniquely defined \cite{Saunders_1989}. Applying this lift to the vector field $\xi_E$ corresponding to $\xi\in \Gamma(TM)$ yields the vector field
   \begin{equation}\label{vector_field_2nd_prolongation}
     \begin{aligned}
       \xi_{J^2E} &{} \vcentcolon= \xi^m\partial_m \\
@@ -266,7 +266,7 @@ The Gotay-Marsden coefficients are the defining objects for the PDE version of t
                  &{} \hphantom{\vcentcolon=} + \gmc{A}{B}{n}{m} J_I^{pq} u^B \xi^m_{,npq} \partial_A^{\hphantom AI}.
     \end{aligned}
   \end{equation}
-  Like before, the map $\xi\mapsto\xi_{J^2E}$ constitutes a Lie algebra morphism from $\Gamma(TM)$ to $\Gamma(\pi_2)$. \textbf{proof/citation needed}
+  Like before, the map $\xi\mapsto\xi_{J^2E}$ constitutes a Lie algebra morphism from $\Gamma(TM)$ to $\Gamma(\pi_2)$.
 
   Assuming that \eqref{lagrangian_density_diffeo_equivariance} holds, we obtain the infinitesimal version by acting on $L$ with $\xi_{J^2E}$ for the left-hand side and approximating $\lvert d\varphi\rvert^{-1}$ as $1 - \xi^m_{,m}$ for the right-hand side. Equating both sides yields
   \begin{equation}\label{infinitesimal_with_vector}
@@ -283,7 +283,7 @@ Since \eqref{infinitesimal_with_vector} holds for any $\xi\in\Gamma(TM)$, the in
 
 On a four-dimensional spacetime manifold, Thm.~\ref{equivariance_eqns_thm} yields a system of 140 linear PDEs of first order for the Lagrangian density $L$. Any diffeomorphism invariant tensor field theory of second derivative order must satisfy this system and, conversely, any solution to the system provides a candidate for a diffeomorphism invariant theory. Thus, the search for such theories has been reduced to the mathematical task of solving PDEs of a certain (simple!) form. The only ingredients which depend on the specific theory at hand are the Gotay-Marsden coefficients, such that it is possible to derive certain properties of the system without knowlegde of the concrete tensor bundle.
 
-The literature on this kind of PDEs is very extensive\cite{} with many applications throughout science\cite{}. There are strong results on the properties and solutions which provide a good basis for our work with Eqns.~\ref{equivariance_eqn_1}--\ref{equivariance_eqn_4} in the following.
+The literature on this kind of PDEs is very extensive (See e.g.~\cite{Seiler_2010}) with many applications throughout science. There are strong results on the properties and solutions which provide a good basis for our work with Eqns.~\ref{equivariance_eqn_1}--\ref{equivariance_eqn_4} in the following.
 
 The PDE system will be referred to as \emph{equivariance equations} from now on. In a similar form, these equations already appear in Ref.~\cite{Gotay_1992} during the derivation of conservation laws arising from diffeomorphism invariance. As they were not meant to be solved for the Lagrangian density, the presentation is not as explicit as here. Also note that Ref.~\cite{Gotay_1992} considers theories of arbitrary differential index but only the first jet bundle, whereas the present derivation takes place on the second jet bundle but is restricted to a differential index of 1, i.e.~tensor field theories of second derivative order. The extension to theories with arbitrary differential index is possible---there will be a series of Gotay-Marsden coefficients
 \begin{equation}
@@ -292,7 +292,7 @@ The PDE system will be referred to as \emph{equivariance equations} from now on.
 which follow from the action of the diffeomorphism group on the bundle. \cite{Gotay_1992}
 
 \section{Noether theorems}
-Diffeomorphism invariance of the Lagrangian as required by the first axiom results in a number of interesting properties of the theory. Among these are identities for the Euler-Lagrange equations and conservation laws for the dynamics given by the Euler-Lagrange equations, which are examples for the well-known Noether theorems\cite{}. In analogy to the derivation for theories of first derivative order in Ref.~\cite{Gotay_1992}, we shall now prove a version of the Noether theorems for the second-order formalism developed above.
+Diffeomorphism invariance of the Lagrangian as required by the first axiom results in a number of interesting properties of the theory. Among these are identities for the Euler-Lagrange equations and conservation laws for the dynamics given by the Euler-Lagrange equations, which are examples for the well-known Noether theorems. In analogy to the derivation for theories of first derivative order in Ref.~\cite{Gotay_1992}, we shall now prove a version of the Noether theorems for the second-order formalism developed above.
 
 The first step is to realize that the Cartan form for a diffeomorphism invariant Lagrangian is itself diffeomorphism invariant.
 \begin{proposition}[\cite{}]\label{prop_cartan_diffeo}
