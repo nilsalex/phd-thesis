@@ -128,7 +128,7 @@ and the pullback action on cotangent vectors\footnote{The action is inverted in 
 \begin{equation}
    (\varphi^\ast)^{-1}\colon T^\ast_pM\rightarrow T^\ast_{\varphi(p)}M.
 \end{equation}
-Using a coordinate $(U,x)$ containing $p$ and $(V,y)$ containing $\varphi(p)$, the bundle automorphisms act on coordinate-induced component functions of vector fields as
+Using a coordinate chart $(U,x)$ containing $p$ and $(V,y)$ containing $\varphi(p)$, the bundle automorphisms act on coordinate-induced component functions of vector fields as
 \begin{equation}\label{diffeo_vector_coordinates}
 (\varphi_\ast X)_{(y)}^j(y(p)) = \frac{\partial (y^j\circ \varphi)}{\partial x^i} \Bigg\rvert_{\varphi^{-1}(p)} \cdot X_{(x)}^i(x(\varphi^{-1}(p)))
 \end{equation}
@@ -141,9 +141,9 @@ We wish to encode \eqref{lagrangian_diffeo_invariance} as local conditions on th
 \begin{proposition}
   Let $\mathscr L = L_{(x)}d^nx$ be a coordinate representation of a diffeomorphism invariant Lagrangian, induced by a coordinate chart $(U,x)$ on $M$. It follows from the invariance condition \eqref{lagrangian_diffeo_invariance} that $L_{(x)}$ is \textbf{diffeomorphism equivariant}, i.e.~it holds for all $\varphi\in\mathrm{Diff}(M)$ that, over the intersection of $U$ and $\varphi(U)$,
   \begin{equation}\label{lagrangian_density_diffeo_equivariance}
-    L_{(x)}\circ j^k_{(x)}(\varphi_E) = \lvert d\varphi_{(x)}\rvert^{-1} L_{(x)}.
+    L_{(x)}\circ j^k_{(x)}(\varphi_E) = \lvert \mathrm d\varphi_{(x)}\rvert^{-1} L_{(x)}.
   \end{equation}
-  $\lvert d\varphi_{(x)}\rvert$ denotes the determinant of the Jacobian of $\varphi$ in terms of the coordinate chart $(U,x)$.
+  $\lvert \mathrm d\varphi_{(x)}\rvert$ denotes the determinant of the Jacobian of $\varphi$ in terms of the coordinate chart $(U,x)$.
 \end{proposition}
 \begin{proof}
   The result follows from the coordinate expression \eqref{diffeo_covector_coordinates} for the pullback of one forms, which extends to horizontal forms on the jet bundle.
@@ -151,7 +151,7 @@ We wish to encode \eqref{lagrangian_diffeo_invariance} as local conditions on th
 
 Covariant constructive gravity derives its calculational power from the observation that the infinitesimal version of \eqref{lagrangian_density_diffeo_equivariance} is equivalent to a system of linear partial differential equations (PDEs) for the Lagrangian density $L$. For the derivation of this theorem and the remainder of the chapter, we will work on the second jet bundle, as we are ultimately interested in investigating field theories of second derivative order. We will also drop the chart label from coordinate-dependent quantities. In order to lighten the notation, partial derivatives of functions on $J^2M$ are denoted $L_{,m}$ for derivatives with respect to coordinates on $M$ and $L_{:A},\,L_{:A}^{\hphantom{:A}p},\,L_{:A}^{\hphantom{:A}pq}$ for derivatives with respect to fibre coordinates.
 
-Since the bundles in question are (sub-bundles of) tensor bundles $T^m_nM$, it is possible to restrict to coordinates which are linear on the fibres. The \emph{intertwiner technique}\footnote{First described for a similar setting in Ref.~\cite{Reiss_2014}, later introduced in the context of covariant constructive gravity\cite{Alex_2020}} relates such coordinates to coordinates on $T^m_nM$ itself by virtue of two special bundle morphisms.
+Since the bundles in question are (sub-bundles of) tensor bundles $T^m_nM$, it is possible to restrict to coordinates which are linear on the fibres. The \emph{intertwiner technique}\footnote{First described for a similar setting in Ref.~\cite{Reiss_2014}, later introduced in the context of covariant constructive gravity \cite{Alex_2020}.} relates such coordinates to coordinates on $T^m_nM$ itself by virtue of two special bundle morphisms.
 \begin{definition}[intertwiners]\label{def_intertwiner}
   Let $E\overset{\pi}{\longrightarrow}M$ be a sub-bundle of $T^m_nM$. A pair of vector bundle morphisms $(I,J)$,
   \begin{equation}
@@ -167,10 +167,10 @@ It follows from the property $J\circ I=\mathrm{id}_E$ that $J$ is a \emph{surjec
   \begin{aligned}
   u^{a_1\dots a_m}_{b_1\dots b_n} &= I^{a_1\dots a_m}_{b_1\dots b_nA} \cdot u^A, \\
   u^A &= J^{Ab_1\dots b_n}_{a_1\dots a_m} \cdot u^{a_1\dots a_m}_{b_1\dots b_n}, \\
-  \delta^B_A &{} = I^{a_1\dots a_m}_{b_1\dots b_nA} \cdot J^{Ab_1\dots b_n}_{a_1\dots a_m}.
+  \delta^B_A &{} = I^{a_1\dots a_m}_{b_1\dots b_nA} \cdot J^{Bb_1\dots b_n}_{a_1\dots a_m}.
   \end{aligned}
 \end{equation}
-Concrete implementations of $I$ and $J$ will be introduced in Sect.~\ref{}. Intertwiners for the symmetric sub-bundle of $T^0_2M$ are used to deduplicate second-order derivative indices by defining
+Concrete implementations of $I$ and $J$ will be introduced in Chap.~\ref{chapter_construction_algorithm}. Intertwiners for the symmetric sub-bundle of $T^0_2M$ are used to deduplicate second-order derivative indices by defining
 \begin{equation}
   \begin{aligned}
     u^A_{I} &{} = J^{ij}_I u^A_{ij}, \\
@@ -178,7 +178,7 @@ Concrete implementations of $I$ and $J$ will be introduced in Sect.~\ref{}. Inte
   \end{aligned}
 \end{equation}
 
-Proceeding to derive the infinetismal version of axiom 1, we first need to specify what is meant by \emph{infinitesimal}. As the symmetry group in question is the diffeomorphism group on the base manifold, the infinitesimal equivalent is the corresponding Lie algebra $\Gamma(TM)$ of sections of the tangent bundle over $M$.\footnote{not a Lie algebra, etc.~\cite{}} The Lie bracket is given by the Lie bracket of vector fields. In a given coordinate chart, an element $\xi\in\Gamma(TM)$ defines an infinitesimal diffeomorphism as
+Proceeding to derive the infinetismal version of axiom 1, we first need to specify what is meant by \emph{infinitesimal}. As the symmetry group in question is the diffeomorphism group on the base manifold, the infinitesimal equivalent is the corresponding Lie algebra $\Gamma(TM)$ of sections of the tangent bundle over $M$. The Lie bracket is given by the Lie bracket of vector fields. In a given coordinate chart, an element $\xi\in\Gamma(TM)$ defines an infinitesimal diffeomorphism as
 \begin{equation}\label{diffeo_infinitesimal}
   x^i \mapsto x^i + \xi^i.
 \end{equation}
