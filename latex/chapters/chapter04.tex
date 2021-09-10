@@ -28,12 +28,12 @@ Around $p$, this results in the formal power series ansatz
     L &{} = a + a_A H^A + a_A^{\hphantom Ap} H^A_{\hphantom Ap} + a_A^{\hphantom AI} H^A_{\hphantom AI} \\
       &{} \hphantom{=} + a_{AB} H^A H^B + a_{AB}^{\hphantom{AB}p} H^A H^B_{\hphantom Bp} + a_{AB}^{\hphantom{AB}I} H^A H^B_{\hphantom BI} \\
       &{} \hphantom{=} + a_{A\hphantom{p}B}^{\hphantom Ap\hphantom{B}q} H^A_{\hphantom Ap} H^B_{\hphantom Bq} + a_{A\hphantom{p}B}^{\hphantom Ap\hphantom{B}I} H^A_{\hphantom Ap} H^B_{\hphantom BI} + a_{A\hphantom{I}B}^{\hphantom AI\hphantom{B}J} H^A_{\hphantom AI} H^B_{\hphantom BJ} \\
-      &{} \hphantom{=} + a_{ABC} H^A H^B H^C + \dots
+      &{} \hphantom{=} + a_{ABC} H^A H^B H^C + \dots,
   \end{aligned}
 \end{equation}
-and is called \emph{formal} because at this point there is no assumption about the convergence of the power series. We do, however, make two assumptions about admissible expansion points, in order to justify the interpretation of perturbatively constructed theories as valid theories for \emph{weak} gravitational fields.
+which is called \emph{formal} because at this point there is no assumption about the convergence of the power series. We do, however, make two assumptions about admissible expansion points, in order to justify the interpretation of perturbatively constructed theories as valid theories for \emph{weak} gravitational fields.
 \begin{enumerate}
-  \item{The expansion point represents a \emph{flat} instance of the gravitational field, i.e., both $N^A_{\hphantom Ap}$ and $N^A_{\hphantom AI}$ vanish.}
+  \item{The expansion point represents a \emph{flat} instance of the gravitational field, i.e.\ both $N^A_{\hphantom Ap}$ and $N^A_{\hphantom AI}$ vanish.}
   \item{At the expansion point, the matter theory that is used to bootstrap the construction procedure reduces to a theory that is equivalent to a matter theory on Minkowski spacetime.}
 \end{enumerate}
 Both restrictions for $p$ ensure that the limit of weak gravitational fields can match our observations for situations with weak gravity: Matter fields couple to flat geometry in the sense that there are coordinate charts where the geometric coefficients are constant and this geometry is determined by the Minkowski metric. Curvature effects and effects from non-Lorentzian geometry are expected to arise as \emph{deviations} from this ground state. After all, this is just another incarnation of the correspondence principle for modified gravity.
@@ -54,7 +54,7 @@ The first assumption is easily implemented: In the chosen coordinate chart, $p$ 
         \begin{equation}\label{GLED_reduction}
         L_\text{GLED} = 2 \eta^{ac}\eta^{bd} F_{ab}F_{cd},
       \end{equation}
-    i.e.\ Maxwell electrodynamics on Minkowski spacetime.\footnote{The term $\epsilon^{abcd}F_{ab}F_{cd}$ is a surface term and thus does not contribute to the field equations. As such, it has been omitted in Eq.\ \ref{GLED_reduction}}}
+    i.e.\ Maxwell electrodynamics on Minkowski spacetime.\footnote{The term $\epsilon^{abcd}F_{ab}F_{cd}$ is a surface term and thus does not contribute to the field equations. As such, it has been omitted in Eq.\ \ref{GLED_reduction}.}}
   \end{enumerate}
 \end{example}
 Both choices of expansion points ensure that the perturbatively constructed gravitational theories provide to zeroth order in the deviation a background on which known physics is reproduced. Novel physics---the coupling of matter fields to non-metric geometries and the self-coupling of such geometries---should emerge as effect of first and higher orders in the deviation from the Minkowski background.
@@ -62,7 +62,7 @@ Both choices of expansion points ensure that the perturbatively constructed grav
 Having defined an expansion point, the equivariance equations can---in principle---be solved perturbatively by repeating the following process: All equations in the system contain derivatives of first order, so the expansion coefficient $a$ of zeroth order remain undetermined. In order to determine the expansion coefficients $a_A$, $a_A^{\hphantom Ap}$, and $a_A^{\hphantom aI}$, substitute the formal power series ansatz \eqref{power_series_ansatz} for the Lagrangian density $L$ in the equivariance equations, evaluate the result at $N$ (i.e.\ set the deviation $H$ to zero) and solve the resulting linear equations for the first-order coefficients. Next, differentiate each PDE once with respect to every independent variable, substitute again the power series ansatz, evaluate at $N$ and solve the linear system for the expansion coefficients of second order. Now repeat this process of differentiation, substitution, evaluation, and solving of linear equations \emph{ad infinitum}---or up to the desired perturbation order.
 
 \section{Involution analysis}
-For the previously described perturbative solution process to play out as desired, the PDE system must observe an important property: We need to be sure that each step really determines all expansion coefficients for the corresponding order to the extent that this is possible\footnote{Of course, the equivariance equations, in general, will not determine \emph{all} expansion coefficients. Rather, the solutions will be parameterized exactly by the coefficients that cannot be determined.}. This is not always guaranteed, as a simple example demonstrates.
+For the previously described perturbative solution process to play out as desired, the PDE system must observe an important property: we need to be sure that each step really determines all expansion coefficients for the corresponding order to the extent that this is possible\footnote{Of course, the equivariance equations, in general, will not determine \emph{all} expansion coefficients. Rather, the solutions will be parameterized exactly by the coefficients that cannot be determined.}. This is not always guaranteed, as a simple example demonstrates.
 \begin{example}[integrability conditions \cite{Seiler_2002}]\label{example_involution_1}
   Consider the linear, first-order PDE system
   \begin{equation}\label{example_integrability_condition}
@@ -95,7 +95,7 @@ Luckily, the system of equivariance equations suffers none of these maladies, as
 
 Two geometric operations will be performed repeatedly on PDEs for their involution analysis: \emph{prolongation} and \emph{projection}. The former maps a PDE $R_q$ to some PDE $R_{q+r}$ by, in local coordinates, adding to $R_q$ all possible derivatives of order $r$ of the individual equations---the geometric construction is a bit more involved. On the contrary, it is simpler to define projections geometrically, which is as bundle projections $R^{(r)}_{q-r} = \pi_{q,q-r}(R_q)$. Using a local representation of $R_q$, the projection is performed by eliminating derivatives of higher orders using only algebraic manipulations such that equations of order $q-r$ remain. The maximal set of such equations is a representation of $R_{q-r}$. For linear systems, the task of projecting a PDE to lower order is solved by linear algebra with tools like Gaussian elimination and has already been demonstrated earlier in Example \ref{example_involution_1}.
 
-As a last ingredient, we need the definition of the \emph{geometric symbol} $M_q$. Using a coordinate representation, $M_q$ is obtained by differentiating the equations with respect to the highest derivatives of the unknown functions. With this, the main result can be established.
+With this, the main result can be established.
 
 \begin{theorem}[formal integrability of equivariance equations]\label{thm_formal_integrability}
   The equivariance equations are a formally integrable partial differential equation $R_q$ with $q=1$, i.e.\ it holds for all $r>0$ that $R^{(1)}_{q+r} = R_{q+r}$.
@@ -103,7 +103,30 @@ As a last ingredient, we need the definition of the \emph{geometric symbol} $M_q
 
 Formal integrability as defined in Thm.\ \ref{thm_formal_integrability} captures in geometric terms the requirement a PDE must satisfy in order for the iterative solution strategy to succeed. Otherwise, a truncated power series solution---which will later serve as approximate solution for weak gravitational fields---could never be trusted, as prolongations of the PDE to higher orders could always yield additional constraints on the coefficients of the truncated series.
 
-\textbf{to be continued ...}
+The equivariance equations fall into such a simple category that their formal integrability can be proven in a very straightforward way. According to Example 2.3.12 of Ref.\ \cite{Seiler_2010}, the possible integrability conditions for a PDE of order $q=1$ for a single dependent variable are given by a certain commutator of the local PDE representatives. See \cite{Seiler_2010} for the details. Adapting this technique to the system of equivariance equations, we can prove that the integrability conditions are already contained in the system to begin with.
+
+\begin{proof}[Proof of Thm.\ \ref{thm_formal_integrability}]
+  The system \eqref{equivariance_eqn_1}--\eqref{equivariance_eqn_4} of equivariance equations is equivalent (by its derivation) to the equation
+  \begin{equation}\label{equivariance_eqn_vector}
+    0 = \xi_{J^2E}L + L \cdot \xi^m_{,m}
+  \end{equation}
+  for all vector fields $\xi$ over $M$. With $\xi_{J^2E}$ we denoted the lift to the second jet bundle over the field bundle. Applying the same technique as in Example 2.3.12 of Ref.\ \cite{Seiler_2010}, we generate all possible integrability conditions by acting with a second vector field $\psi_{J^2E}$ on Eq.\ \eqref{equivariance_eqn_vector} and subtracting the same equation with the roles of $\xi$ and $\psi$ switched. These conditions turn out to be
+  \begin{equation}
+    \begin{aligned}
+      0 = {} & \lbrack \xi_{J^2E}, \psi_{J^2E}\rbrack L + L\cdot \lbrack\xi,\psi\rbrack^m_{,m} \\
+          {} & - \left( \psi_{J^2E}L + L \cdot \psi^m_{,m}\right) \xi^n_{,n} \\
+          {} & + \left( \xi_{J^2E}L + L \cdot \xi^m_{,m}\right) \psi^n_{,n} \\
+          = {} & \lbrack\xi,\psi\rbrack_{J^2E}L + L \cdot \lbrack\xi,\psi\rbrack^m_{,m} \\
+          {} & - \left( \psi_{J^2E}L + L \cdot \psi^m_{,m}\right) \xi^n_{,n} \\
+          {} & + \left( \xi_{J^2E}L + L \cdot \xi^m_{,m}\right) \psi^n_{,n},
+    \end{aligned}
+  \end{equation}
+  which is a linear combination of equations that are already contained in the system. Note how the Lie algebra homomorphism property of the vector field lift is crucial for this result.
+
+  Since it is impossible to generate integrability conditions that are not already present in the system, the equivariance equations are formally integrable.
+\end{proof}
+
+For more involved PDEs, formal integrability is in practice proven by showing that the system is \emph{involutive}, from which formal integrability follows. This comes with an algebraic condition on the PDE, which boils down to calculating a matrix rank for our particular PDE. However, it has still to be checked that a single prolongation does not generate new integrability condition---which amounts to the calculation above. So in this case, nothing would be gained by pursuing this approach. See \cite{Seiler_2010,Reinhart_2019} for a proof of involutivity.
 
 \section{Lorentz invariant ansätze}
 
@@ -171,40 +194,40 @@ While the expansion \eqref{expansion_matter_poly} generally follows from a close
 
 The principal polynomial was defined in Def.\ \ref{def_principal_polynomial} as the quotient of a non-vanishing entry from the order-$s$ adjugate $Q(k)$ corresponding to the symbol $T(k)$ and an expression built from the generators $\chi_{(i)}(k)$ of the gauge symmetry,
 \begin{equation}\label{principal_polynomial_repeat}
-    \mathcal P(k) = \frac{Q^{(A_1\dots A_s)(B_1\dots B_s)}}{\epsilon^{\mu_1\dots\mu_s}\epsilon^{\nu_1\dots\nu_s}\left\lbrack\prod_{i=1}^s\chi_{(\mu_i)}^{A_i}\right\rbrack\left\lbrack\prod_{j=1}^s\chi_{(\nu_j)}^{B_j}\right\rbrack}.
+    \mathcal P(k) = \frac{Q^{A_1\dots A_sB_1\dots B_s}}{\epsilon^{\mu_1\dots\mu_s}\epsilon^{\nu_1\dots\nu_s}\left\lbrack\prod_{i=1}^s\chi_{(\mu_i)}^{A_i}\right\rbrack\left\lbrack\prod_{j=1}^s\chi_{(\nu_j)}^{B_j}\right\rbrack}.
 \end{equation}
 We start the expansion of Eq.\ \ref{principal_polynomial_repeat} with separating the perturbation orders in the vectors $\chi_{(n)}(k)$ as 
 \begin{equation}
-  \chi_{(n)}^A(k) = \gmc{A}{B}{n}{m}N^Bk_m + \gmc{A}{B}{n}{m}H^Bk_m =\vcentcolon (\chi^{(0)})^A_n(k) + (\chi^{(1)})^A_{Bn}(k)H^B.
+  \chi_{(n)}^A(k) = \gmc{A}{B}{m}{n}N^Bk_m + \gmc{A}{B}{m}{n}H^Bk_m =\vcentcolon (\chi^{(0)})^A_n(k) + (\chi^{(1)})^A_{Bn}(k)H^B.
 \end{equation}
-From there, the denominator in Eq.\ \ref{principal_polynomial_repeat}, which will be abbreviated as $f^{(A_1\dots A_s)(B_1\dots B_s)}(k)$ in the following, can be expanded into
+From there, the denominator in Eq.\ \ref{principal_polynomial_repeat}, which will be abbreviated as $f^{A_1\dots A_sB_1\dots B_s}(k)$ in the following, can be expanded into
 \begin{equation}\label{expansion_f}
-  f^{(A_1\dots A_s)(B_1\dots B_s)}(k) = (f_{(0)})^{(A_1\dots A_s)(B_1\dots B_s)}(k) + (f_{(1)})^{(A_1\dots A_s)(B_1\dots B_s)}_C(k)H^C + \mathcal O(2).
+  f^{A_1\dots A_sB_1\dots B_s}(k) = (f_{(0)})^{A_1\dots A_sB_1\dots B_s}(k) + (f_{(1)})^{A_1\dots A_sB_1\dots B_s}_C(k)H^C + \mathcal O(2).
 \end{equation}
-For the numerator, we choose a submatrix $T^{(A_1\dots A_s)(B_1\dots B_s)}(k)$ of the principal symbol $T(k)$ which is of full rank, i.e.\ has a non-vanishing determinant.\footnote{This sounds like a hard problem in practice, but turns out to be quite feasible. While the matrices contain symbolic entries given by undetermined expansion coefficients of the Lagrangian density and covector components $k_a$, ranks can actually be calculated using randomly drawn numeric values for the symbolic entries. In the worst case, we introduce additional linear dependencies and obtain a lower rank. If the rank obtained by such a calculation is maximal, on the other hand, we have nothing to worry about and can trust the result. For the examples encountered later on, it is possible to perform all calculations with arbitrary precision arithmetic on integers and use fraction-free Gaussian elimination, yielding results without any numerical instabilities.}
+For the numerator, we choose a submatrix $T^{A_1\dots A_sB_1\dots B_s}(k)$ of the principal symbol $T(k)$ which is of full rank, i.e.\ has a non-vanishing determinant.\footnote{This sounds like a hard problem in practice, but turns out to be quite feasible. While the matrices contain symbolic entries given by undetermined expansion coefficients of the Lagrangian density and covector components $k_a$, ranks can actually be calculated using randomly drawn numeric values for the symbolic entries. In the worst case, we introduce additional linear dependencies and obtain a lower rank. If the rank obtained by such a calculation is maximal, on the other hand, we have nothing to worry about and can trust the result. For the examples encountered later on, it is possible to perform all calculations with arbitrary precision arithmetic on integers and use fraction-free Gaussian elimination, yielding results without any numerical instabilities.}
 The determinant of this submatrix will be (up to, possibly, an irrelevant sign) the entry of the adjugate matrix entering the principal polynomial definition \eqref{principal_polynomial_repeat}. Recalling the expansion of the matrix determinant
 \begin{equation}
   \operatorname{det}(A + \epsilon B) = \operatorname{det}(A) \operatorname{det}(I + \epsilon A^{-1} B) = \operatorname{det}(A) (1 + \epsilon \operatorname{Tr}(A^{-1} B)) + \mathcal O(\epsilon^2),
 \end{equation}
 and expanding the submatrix of the principal symbol as
 \begin{equation}
-  T^{(A_1\dots A_s)(B_1\dots B_s)}(k) = (T_{(0)})^{(A_1\dots A_s)(B_1\dots B_s)}(k) + (T_{(1)})^{(A_1\dots A_s)(B_1\dots B_s)}_C(k)H^C + \mathcal O(2),
+  T^{A_1\dots A_sB_1\dots B_s}(k) = (T_{(0)})^{A_1\dots A_sB_1\dots B_s}(k) + (T_{(1)})^{A_1\dots A_sB_1\dots B_s}_C(k)H^C + \mathcal O(2),
 \end{equation}
-we arrive at the expansion of $Q^{(A_1\dots A_s)(B_1\dots B_s)}(k)$,
+we arrive at the expansion of $Q^{A_1\dots A_sB_1\dots B_s}(k)$,
 \begin{equation}\label{expansion_minor}
   \begin{aligned}
-    \pm Q^{(A_1\dots A_s)(B_1\dots B_s)}(k)     = &{} \operatorname{det}(T^{(A_1\dots A_s)(B_1\dots B_s)}(k)) \\
-                                            = &{} \operatorname{det}((T_{(0)})^{(A_1\dots A_s)(B_1\dots B_s)}(k)) \\
-                                            &{} \times \lbrack 1 + (T_{(0)})^{(A_1\dots A_s)(B_1\dots B_s)}(k)^{-1}(T_{(1)})^{(A_1\dots A_s)(B_1\dots B_s)}_C(k)H^C\rbrack \\
+    \pm Q^{A_1\dots A_sB_1\dots B_s}(k)     = &{} \operatorname{det}(T^{A_1\dots A_sB_1\dots B_s}(k)) \\
+                                            = &{} \operatorname{det}((T_{(0)})^{A_1\dots A_sB_1\dots B_s}(k)) \\
+                                            &{} \times \lbrack 1 + (T_{(0)})^{A_1\dots A_sB_1\dots B_s}(k)^{-1}(T_{(1)})^{A_1\dots A_sB_1\dots B_s}_C(k)H^C\rbrack \\
                                             &{} + \mathcal O(2) \\
-                                            = &{} (D_{(0)})^{(A_1\dots A_s)(B_1\dots B_s)}(k) + (D_{(1)})^{(A_1\dots A_s)(B_1\dots B_s)}_C(k) H^C.
+                                            = &{} (D_{(0)})^{A_1\dots A_sB_1\dots B_s}(k) + (D_{(1)})^{A_1\dots A_sB_1\dots B_s}_C(k) H^C.
     \end{aligned}
 \end{equation}
 The last equality introduces abbrevations $D_{(0)}$ and $D_{(1)}$ for the expansion coefficients of $Q$. In order to take the quotient of $Q$ and $f$, it remains to calculate the multiplicative inverse 
 \begin{equation}
   \begin{aligned}
-    f^{(A_1\dots A_s)(B_1\dots B_s)}(k)^{-1} = &{} (f_{(0)})^{(A_1\dots A_s)(B_1\dots B_s)}(k)^{-1} \\
-                                               &{} \times \lbrack 1 - (f_{(0)})^{(A_1\dots A_s)(B_1\dots B_s)}(k)^{-1}(f_{(1)})^{(A_1\dots A_s)(B_1\dots B_s)}_C(k)H^C \rbrack \\
+    f^{A_1\dots A_sB_1\dots B_s}(k)^{-1} = &{} (f_{(0)})^{A_1\dots A_sB_1\dots B_s}(k)^{-1} \\
+                                               &{} \times \lbrack 1 - (f_{(0)})^{A_1\dots A_sB_1\dots B_s}(k)^{-1}(f_{(1)})^{A_1\dots A_sB_1\dots B_s}_C(k)H^C \rbrack \\
                                                &{} + \mathcal O(2).
   \end{aligned}
 \end{equation}
@@ -215,12 +238,12 @@ Finally, the product of $Q$ and $f^{-1}$ yields the expansion
 of the principal polynomial with coefficients
 \begin{equation}\label{expansion_coefficients_poly}
   \begin{aligned}
-    P^{(0)}(k) &{} = \frac{(D_{(0)})^{(A_1\dots A_s)(B_1\dots B_s)}(k)}{(f_{(0)})^{(A_1\dots A_s)(B_1\dots B_s)}(k)}, \\
-    P^{(1)}_C(k) &{} = \frac{(D_{(1)})^{(A_1\dots A_s)(B_1\dots B_s)}_C(k) - (f_{(1)})^{(A_1\dots A_s)(B_1\dots B_s)}_C(k) \cdot P^{(0)}(k)}{(f_{(0)})^{(A_1\dots A_s)(B_1\dots B_s)}(k)}.
+    P^{(0)}(k) &{} = \frac{(D_{(0)})^{A_1\dots A_sB_1\dots B_s}(k)}{(f_{(0)})^{A_1\dots A_sB_1\dots B_s}(k)}, \\
+    P^{(1)}_C(k) &{} = \frac{(D_{(1)})^{A_1\dots A_sB_1\dots B_s}_C(k) - (f_{(1)})^{A_1\dots A_sB_1\dots B_s}_C(k) \cdot P^{(0)}(k)}{(f_{(0)})^{A_1\dots A_sB_1\dots B_s}(k)}.
   \end{aligned}
 \end{equation}
 
-The thus obtained relevant order of the gravitational principal polynomial may be compared with an expansion of the principal polynomial originating from the matter theory. Focusing not on an exact correspondence, but rather on the perturbative version of axiom 2 to second order, \textbf{check!!!}
+The thus obtained relevant order of the gravitational principal polynomial may be compared with an expansion of the principal polynomial originating from the matter theory. Focusing not on an exact correspondence, but rather on the perturbative version of axiom 2 to second order,
 \begin{equation}
   C_\text{mat} = C_\text{grav} + \mathcal O(2) \quad\text{and}\quad V_\text{mat} \subseteq V_\text{grav} + \mathcal O(2),
 \end{equation}
@@ -241,22 +264,24 @@ Having elaborated in detail all the steps necessary in order to construct approx
   evaluate the prolongations at the expansion point $N$ \;
   solve the resulting linear system for the expansion coefficients \;
   compute the expansion of the gravitational principal symbol $T_\text{grav}(k)$ \;
-  choose a submatrix $T^{(A_1\dots A_4)(B_1\dots B_4)}(k)$ of $T_\text{grav}(k)$ which is of full rank \;
+  choose a submatrix $T^{A_1\dots A_4B_1\dots B_4}(k)$ of $T_\text{grav}(k)$ which is of full rank \;
   compute the expansion \eqref{expansion_minor} of the submatrix determinant (the \emph{numerator}) \;
-  compute the expansion \eqref{expansion_f} of $f^{(A_1\dots A_4)(B_1\dots B_4)}(k)$ (the \emph{denominator}) \;
+  compute the expansion \eqref{expansion_f} of $f^{A_1\dots A_4B_1\dots B_4}(k)$ (the \emph{denominator}) \;
   from the numerator and denominator, compute the expansion \eqref{expansion_coefficients_poly} of $\mathcal P_\text{grav}(k)$ \;
   expand $\mathcal P_\text{mat}$ up to order $q-2$ \;
   impose $C_\text{mat} = C_\text{grav}$ and $V_\text{mat} \subseteq V_\text{grav}$ up to order $q-2$ \textbf{check!!} \;
   \caption{Perturbative gravitational closure using covariant constructive gravity}
 \end{algorithm}
 
-The perturbative approach has reduced most of the task of closing a matter field theory with a diffeomorphism invariant and causally compatible gravitational theory to linear algebra---at the cost, of course, that the resulting theory is only an approximation for weak gravitational fields. This approximation, however, is final in the following sense: Because the equivariance equations have been proven to be involutive (and, as a corollary, formally integrable), we can be sure that the truncated power series obtained from the algorithm is as definite as it gets. No prolongation of the equivariance equations to orders higher than $q$ will yield new restrictions on the expansion coefficients up to order $q$. It is still not possible to make a statement about the convergence of the formal power series, so it remains unclear whether this procedure would yield an exact solution if---somehow---performed up to $q=\infty$. Also note that the expansions of the objects relevant for the calculation of $\mathcal P_\text{grav}(k)$ in steps 6--10 have only been stated explicitly for the case $q=3$. This does not take away from the generality of the algorithm for higher orders, as the necessary expansions follow the same pattern: Essentially, one has to consider
+The perturbative approach has reduced most of the task of closing a matter field theory with a diffeomorphism invariant and causally compatible gravitational theory to linear algebra---at the cost, of course, that the resulting theory is only an approximation for weak gravitational fields. This approximation, however, is final in the following sense: Because the equivariance equations have been proven to be formally integrable, we can be sure that the truncated power series obtained from the algorithm is as definite as it gets. \cite{Seiler_2010} No prolongation of the equivariance equations to orders higher than $q$ will yield new restrictions on the expansion coefficients up to order $q$. It is still not possible to make a statement about the convergence of the formal power series, so it remains unclear whether this procedure would yield an exact solution if---somehow---performed up to $q=\infty$.
+
+Also note that the expansions of the objects relevant for the calculation of $\mathcal P_\text{grav}(k)$ in steps 6--10 have only been stated explicitly for the case $q=3$. This does not take away from the generality of the algorithm for higher orders, as the necessary expansions follow the same pattern: essentially, one has to consider an expression of the form
 \begin{equation}
   \frac{\operatorname{det}(A + \epsilon B)}{a + \epsilon b}
 \end{equation}
 and expand to whichever order in $\epsilon$ is desired.
 
-Let us close with a list of the equivariance equations and their first prolongations evaluated at an expansion point $N = (N^A,0,0)$. We will perform the construction algorithm for the order $q=3$ in the following chapter, so it shall suffice here to limit ourselves to this order here as well. We use the reduced power series ansatz Eq.\ \ref{ansatz_reduced}. The unprolonged equivariance equations evaluated at $N$ are
+Let us close with a list of the equivariance equations and their first prolongations evaluated at an expansion point $N = (N^A,0,0)$. We will perform the construction algorithm for the order $q=3$ in Chap.\ \ref{chapter_weak_area}, so it shall suffice to limit ourselves to this order here as well. We use the reduced power series ansatz Eq.\ \ref{ansatz_reduced}. The unprolonged equivariance equations evaluated at $N$ are
 \begin{equation}\label{prolong_0}
   \begin{aligned}
     0 &{} = a_A \gmc{A}{B}{n}{m} N^B + a \delta^n_m, \\
@@ -267,9 +292,9 @@ The first prolongations evaluate to
 \begin{equation}\label{prolong_1}
   \begin{aligned}
     0 &{} = a_A \gmc{A}{B}{n}{m} + 2 a_{AB} \gmc{A}{C}{n}{m} N^C + a_B \delta^n_m, \\
-    0 &{} = a_A^{\hphantom AI}\lbrack \gmc{A}{B}{n}{m} \delta^J_I - 2\delta^A_B J^{pn}_I I^J_{pm}\rbrack + a_{A\hphantom JB}^{\hphantom AJ}\gmc{A}{C}{n}{m} N^C + a_B^{\hphantom BJ} \delta^n_m, \\
+    0 &{} = a_A^{\hphantom AI}\lbrack \gmc{A}{B}{n}{m} \delta^J_I - 2\delta^A_B J^{pn}_I I^J_{pm}\rbrack + a_{AB}^{\hphantom{AB}J}\gmc{A}{C}{n}{m} N^C + a_B^{\hphantom BJ} \delta^n_m, \\
     0 &{} = 2a_{A \hphantom pB}^{\hphantom A(p\hphantom Bq\mid} \gmc{A}{C}{\mid n)}{m} N^C + a_A^{\hphantom AI}\lbrack \gmc{A}{B}{(n}{m} 2J^{p)q}_I - \delta^A_B J^{pn}_I \delta^q_m\rbrack, \\
-    0 &{} = a_{BA}^{\hphantom{BA}I} \gmc{A}{C}{(n}{m} J^{pq)}_I + a_A^{\hphantom AI}\gmc{A}{B}{(n}{m} J^{pq)}_I,
+    0 &{} = a_{BA}^{\hphantom{BA}I} \gmc{A}{C}{(n}{m} J^{pq)}_I N^C + a_A^{\hphantom AI}\gmc{A}{B}{(n}{m} J^{pq)}_I,
   \end{aligned}
 \end{equation}
 and the second prolongations finally yield
@@ -278,8 +303,8 @@ and the second prolongations finally yield
     0 &{} = 2 a_{AC} \gmc{A}{B}{n}{m} + 2 a_{AB} \gmc{A}{C}{n}{m} + 6 a_{ABC} \gmc{A}{D}{n}{m}N^D + 2a_{BC}\delta^n_m, \\
     0 &{} = 2 a_{A\hphantom pC}^{\hphantom Ap\hphantom Cr}\lbrack \gmc{A}{B}{n}{m} \delta^q_p - \delta^A_B\delta^n_p\delta^q_m \rbrack + 2a_{AB\hphantom qC}^{\hphantom{AB}q\hphantom Cr}\gmc{A}{D}{n}{m} N^D + 2a_{B\hphantom qC}^{\hphantom Bq\hphantom Cr}\delta^n_m, \\
     0 &{} = a_{CA}^{\hphantom{CA}I} \lbrack \gmc{A}{B}{n}{m} \delta^J_I - 2 \delta^A_B J^{pn}_I I^J_{pm} \rbrack + 2 a_{ACB}^{\hphantom{ACB}J} \gmc{A}{D}{n}{m} N^D + a_{CB}^{\hphantom{CB}J} \delta^n_m, \\
-    0 &{} = 2a_{CA\hphantom{p}B}^{\hphantom{CA}(p\hphantom Bq\mid}\gmc{A}{D}{\mid n)}{m}N^D + a_{CA}^{\hphantom{CA}I} \lbrack \gmc{A}{B}{(n}{m} 2 J^{p)q}_I - \delta^A_B J^{pn}_I \delta^q_M \rbrack, \\
+    0 &{} = 2a_{CA\hphantom{p}B}^{\hphantom{CA}(p\hphantom Bq\mid}\gmc{A}{D}{\mid n)}{m}N^D + a_{CA}^{\hphantom{CA}I} \lbrack \gmc{A}{B}{(n}{m} 2 J^{p)q}_I - \delta^A_B J^{pn}_I \delta^q_m \rbrack, \\
     0 &{} = 2a_{BCA}^{\hphantom{BCA}I} \gmc{A}{D}{(n}{m}J^{pq)}_I N^D + a_{CA}^{\hphantom{CA}I} \gmc{A}{B}{(n}{m} J^{pq)}_I.
   \end{aligned}
 \end{equation}
-\textbf{verify!!!}
+
