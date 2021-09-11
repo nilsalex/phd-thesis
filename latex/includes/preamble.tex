@@ -10,6 +10,11 @@
 \usepackage{graphicx}
 \usepackage{tikz}
 
+\usepackage{caption}
+\usepackage[newfloat]{minted}
+\newenvironment{code}{\captionsetup{type=listing}}{}
+\SetupFloatingEnvironment{listing}{name=Source Code}
+
 \newenvironment{abstract}{}{}
 \usepackage{abstract}
 
@@ -19,6 +24,7 @@
 \usepackage{amsfonts}
 \usepackage{amsthm}
 \usepackage{mathtools}
+\usepackage{blkarray}
 
 \usepackage[ruled,linesnumbered]{algorithm2e}
 \usepackage{booktabs}

@@ -6,5 +6,82 @@
 \section{Ansatz generation}
 A central finding of Chap.\ \ref{chapter_perturbation} is that the perturbation ansätze inherit the Lorentz invariance of the expansion point. This has important practical ramifications: for example, instead of the 10 coefficients $a_A$ in the expansion of a metric Lagrangian, we can just work with the one-dimensional Lorentz invariant coefficient $c\cdot J_A^{ab} \eta_{ab}$. That means, before even considering the equivariance equations, the dimensionality of the ansatz can already be reduced a lot.
 
+It can be shown that a constant Lorentz invariant tensor, say $T^{abcd}$, is comprised of the Minkowski metric $\eta$ and the totally antisymmetric symbol $\epsilon$ \cite{}, such that for this example
+\begin{equation}\label{generic_4_ansatz}
+  T^{abcd} = A \cdot \epsilon^{abcd} + B \cdot \eta^{ab} \eta^{cd} + C \cdot \eta^{ac} \eta^{bd} + D \cdot \eta^{ad} \eta^{bc}.
+\end{equation}
+The coefficients $A,B,C,D$ can be chosen freely, leaving us with 4 degrees of freedom instead of 64. If the tensor shall have certain symmetries, e.g.\ the symmetries of an area metric tensor, we find an ansatz by applying the symmetry projections to the generic rank-4 ansatz \eqref{generic_4_ansatz}, which yields in this case
+\begin{equation}
+  S^{abcd} = A \cdot \epsilon^{abcd} + \frac{C - D}{2} \left( \eta^{ac}\eta^{bd} - \eta^{ad}\eta^{bc} \right).
+\end{equation}
+Two coefficients $A$ and $\frac{C-D}{2}$ would parameterize such an ansatz.
+
+In order to execute the perturbative construction algorithm, we need to find a basis for the ansätze \eqref{ansatz_reduced} up to the desired perturbation order. This is, in principle, achieved by listing all possible products of $\epsilon$ and $\eta$ and assigning to each term a unique coefficient. Each product will contain at most one $\epsilon$, because the product of two $\epsilon$ symbols amounts to a linear combination of products of Minkowski metrics.
+
+The ansätze we want to construct exhibit certain symmetries. For one, the field bundle is symmetric (e.g.\ the symmetry of a metric or the symmetries of an area metric), but there are also symmetries inherited from second derivatives or the product of perturbations. Consider, for example, the area metric ansatz
+\begin{equation}
+  a_{ABC}^{\hphantom{ABC}I} H^A H^B H^C_{\hphantom CI}.
+\end{equation}
+Expressed using spacetime indices, this ansatz reads
+\begin{equation}
+  a_{abcd\ efgh\ pqrs}^{\hphantom{abcd\ efgh\ pqrs}ij} H^{abcd} H^{efgh} H^{pqrs}_{\hphantom{pqrs}ij}.
+\end{equation}
+Of course, the individual index sets $abcd$, $efgh$, and $pqrs$ inherit the area metric symmetries from the perturbation $H$. The indices $i,j$ are symmetric due to the commutativity of partial derivatives. The product of $H^{abcd}$ and $H^{efgh}$ enforces a block symmetry of the ansatz under the exchange of the index sets $abcd$ and $efgh$. We construct such an ansatz like before, by applying the respective projections to the ansatz, which collapses many individual terms with different coefficients to symmetric terms sharing a common prefactor. Note that we deal with the mixed index positions by constructing a purely covariant ansatz and raising the derivative indices using an $\eta$ afterwards, e.g.
+\begin{equation}
+  a_{ab}^{\hphantom{ab}ij} H^{ab}_{\hphantom{ab}ij} = \eta^{ii^\prime} \eta^{jj^\prime} \tilde a_{abi^\prime j^\prime} H^{ab}_{\hphantom{ab}ij}.
+\end{equation}
+
+One thing has not been considered so far: It is not clear, \emph{a priori}, whether the constructed ansätze really form a \emph{basis}. We need to be sure that a representation like Eq.\ \eqref{generic_4_ansatz} uniquely determines the ansatz. In general, this will \emph{not} be the case, as the ansatz
+\begin{equation}\label{generic_6_ansatz}
+  \begin{aligned}
+    T^{abcdef} = {} & A_1 \cdot \epsilon^{abcd} \eta^{ef} + A_2 \cdot \epsilon^{abce} \eta^{df} + A_3 \cdot \epsilon^{abcf} \eta^{de} + A_4 \cdot \epsilon^{abde} \eta^{cf} + \dots \\
+    {} & \dots + A_{16} \cdot \eta^{ab} \eta^{cd} \eta^{ef} + A_{17} \cdot \eta^{ab} \eta^{ce} \eta^{df} + \dots
+  \end{aligned}
+\end{equation}
+for a rank-6 tensor demonstrates. The 15 terms of the type $\epsilon^{abcd}\eta^{ef}$ are linearly dependent via the identity
+\begin{equation}
+  0 = 5 \epsilon^{\lbrack abcd}\eta^{e\rbrack f} = \epsilon^{abcd} \eta^{ef} - \epsilon^{abce} \eta^{df} - \epsilon^{abed} \eta^{cf} - \epsilon^{aecd} \eta^{bf} - \epsilon^{ebcd} \eta^{af}.
+\end{equation}
+
+Because of this circumstance, we cannot consider two ansatz terms distinct just because their representations as linear combinations of $\epsilon$ and $\eta$ products differ. Rather, we need to inspect the actual \emph{components} of the tensors in order to make a decision. For the ansatz in Eq.\ \eqref{generic_6_ansatz}, this would mean that we evaluate the $4^6$ components $T^{abcdef}$, which gives 4096 linear combinations of the 30 coefficients $A_1\dots A_{30}$. An ansatz without linearly dependent terms would exhibit 30 linearly independent combinations, which could be checked by calculating the rank of the $4096\times 30$ matrix representing the linear combinations---it should be equal to 30. In this case, it will be less than 30 because we already know of at least one linear dependence. Gaussian elimination of the matrix tells us which coefficients can be used as basis: exactly those whose corresponding column contains, for some row, the first non-zero entry in this row. The other coefficients are linearly dependent on the basis coefficients and can thus safely be set to zero.
+
+Let us demonstrate this reduction of linearly dependent ansatz coefficients with the help of an example. Pretend that, after evaluation of a tensor with four indices, the matrix
+\begin{equation}
+  \begin{blockarray}{ccccc}
+    & A & B & C & D \\
+    \begin{block}{c(cccc)}
+      0000 & 1 & 1 & -2 & 0 \\
+      0101 & 0 & 2 & -6 & -4 \\
+      0123 & 3 & 0 & 3 & 1 \\
+    \end{block}
+  \end{blockarray}
+\end{equation}
+is obtained. In practice, matrices will often reduce to such simple forms, because they contain many zero or duplicate rows that can be removed. Gaussian elimination may yield (depending on the pivoting)
+\begin{equation}
+  \begin{blockarray}{cccc}
+    A & B & C & D \\
+    \begin{block}{(cccc)}
+      3 & 0 & 3 & 1 \\
+      0 & 2 & -6 & -4 \\
+      0 & 0 & 0 & \frac{5}{3} \\
+    \end{block}
+  \end{blockarray}\raisebox{-3ex}{,}
+\end{equation}
+from which we read off the linearly independent columns $A$, $B$, and $D$. The superfluous ansatz coefficient $C$ can be set to zero.
+
+The Haskell package \texttt{sparse-tensor} exports the module \texttt{Math.Tensor.LorentzGenerator}, which 
+The module \texttt{Math.Tensor.LorentzGenerator} exported by the Haskell package \texttt{sparse-tensor}\footnote{}
+
+\begin{code}
+  \begin{minted}{haskell}
+    -- data type representing an \eta^{a b} tensor
+    data Eta     = Eta     Char Char
+    -- data type representing an \epsilon^{a b c d} tensor
+    data Epsilon = Epsilon Char Char Char Char
+  \end{minted}
+  \captionof{listing}{Ansatz data type}
+  \label{code_ansatz_data_type}
+\end{code}
+
 \section{Equivariance equations}
 
