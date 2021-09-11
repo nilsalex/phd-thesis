@@ -201,6 +201,44 @@ addAnsatz _ _ = error "cannot add incompatible ansätze"
   \captionof{listing}{Sum of two ansatz forests.}
   \label{code_haskell_ansatz_sum}
 \end{code}
+The occurrence of \mintinline{haskell}{error} functions means that the function \mintinline{haskell}{addAnsatz} is \emph{partial}, i.e.\ does not compute an output for any input. This could be cured by refining the return type of the function, but doing so is not really necessary for this use case, as the input is under our control: we will neither add incompatible ansätze, nor will two leaves with distinct variables be added. The curious reader may be referred to the next section, where we actually introduce methods for catching such runtime errors already at the type level.
+
+Ansatz generation proceeds as follows: starting with the empty forest, we consider each possible ansatz term separately, one at a time, for example $\eta^{ab} \eta^{cd} \eta^{ef}$. For each such term, it is first checked whether the ansatz already contains the term, utilizing fast lookup in the sorted forest. If it is contained, we can discard the term and proceed with the next one. If, on the other hand, the term is \emph{new}, it is assigned a new variable, symmetrized, and added to the ansatz.
+
+When all possible ansatz terms have been added (or discarded, for that matter), the linear dependencies are identified and removed, like explained before. For the linear algebra part, the package \texttt{hmatrix} is used together with a custom implementation of Gaussian elimination that is tested for sufficient stability.
+
+For the handling of larger ansätze---up to 18 indices at the time of writing, which is enough for fourth-order area metric Lagrangians---a second mode has been implemented. In order for the matrix not to become too large, its is checked \emph{before insertion} whether a given symmetrized term would be linearly dependent on the already existing terms. This entails keeping track of the evaluation matrix, as re-evaluating the ansatz tensors for each term that is added would be too expensive. However, we do not have to perform Gaussian elimination, because it is not necessary to identify which column would introduce a rank defect---it is always the new one, because we ensure that the matrix rank is maximal with our construction. So, fast and numerically stable singular value decomposition can be used for computing ranks.
+
+Overall, the second method is a bit slower for ansätze with 14 indices (needed for third-order area metric Lagrangians) than the first method, taking a couple of seconds to compute on modern workstation hardware. For the fourth-order ansätze, however, it is the only option. With all the optimization work that has been done, like exploting the symmetries in order to reduce the number of terms that are even considered for insertion or, likewise, reducing the number of index combinations to be probed (see \cite{Reinhart_2019} or the source code and documentation \cite{Reinhart_2019_sparse-tensor}), the computation times have been reduced drastically. The largest fourth-order ansätze with 18 indices are computed within half an hour, using a few gigabytes of memory. To the knowledge of the author, the methods developed for the canonical approach \cite{Schneider_2017} (to which this method is applicable as well) do not achieve this efficiency.
+
+We will encounter the generated ansätze in Chap.\ \ref{chapter_weak_area} when constructing perturbative area metric gravity. But first, let us walk through the second Haskell package developed in the course of this thesis.
 
 \section{Equivariance equations}
+In principle, \texttt{sparse-tensor} provides the machinery for setting up and solving the equivariance equations. It even contains some safeguards against composing tensors of incompatible ranks, but not nearly enough in order to safely mirror Eqns.\ \eqref{prolong_0}--\eqref{prolong_2} in a Haskell programme. For this purpose, the package \texttt{safe-tensor}\footnote{See \cite{Alex_2020_safe-tensor}. The source code is publicly available at \url{https://github.com/nilsalex/safe-tensor}, the package is also available via hackage at \url{https://hackage.haskell.org/package/safe-tensor}.} has been developed, which implements index-based tensor calculus as known from mathematical physics. \texttt{safe-tensor} makes it comparably easy and, above all, \emph{safe} to perform all kinds of operations on tensors, including transpositions of indices, contractions, symmetrizations, tensor products, and tensor sums.
+
+Central for the design of the tensor type provided by the package is the \emph{generalized rank} of a tensor. The tensors we deal with, a good example being the Gotay-Marsden coefficients $\gmc{A}{B}{n}{m}$, can be considered as multilinear maps over \emph{different} vector spaces. Applying this interpretation to $C$, we get a map
+\begin{equation}
+  C \colon V_\text{area}^\ast \times V_\text{area} \times V^\ast \times V \rightarrow \mathbb R
+\end{equation}
+with $V_\text{area}$ being a fibre of the area metric bundle and $V$ a tangent space to the base manifold.
+
+Concrete calculations employ a basis $(e_i)_{i=1\dots n}$ of $V$ and a corresponding dual basis $(\epsilon^i)_{i=1\dots n}$ of $V^\ast$, where $n$ denotes the dimension of the base manifold. Such bases carry over to fibres like $V_\text{area}$ or $V_\text{metric}$. Representations like $\gmc{A}{B}{n}{m}$ for $C$ are understood in terms of these bases. For the definition of the generic rank of this representation, we assign each type of vector space a label, e.g.\ ST\footnote{Meaning: tangent space to spacetime.} for $V$ and STArea for $V_\text{area}$. The indices corresponding to each space and the dual complete the list of labels to the generic rank. For the example of the Gotay-Marsden coefficients, we have
+\begin{equation}
+  \operatorname{rank}(\gmc{A}{B}{n}{m}) = \{(\underbrace{\text{ST}}_{\text{label}}, \underbrace{4}_{\text{dimension}}, \underbrace{\{n\}}_{\text{contravariant}}, \underbrace{\{m\}}_{\text{covariant}}), (\text{STArea}, 21, \{A\}, \{B\})\}.
+\end{equation}
+Note that the contravariant and covariant indices are each provided as \emph{set}, i.e.\ they cannot contain duplicates and have no specific order\footnote{For this reason, we are allowed to sort the index lists in our implementation, which results in more efficient operations.}. It is permitted, however, for the set of covariant indices and the set of contravariant indices to have a non-empty intersection---these are candidates for contractions.
+
+Let us consider more examples:
+\begin{align}
+  \operatorname{rank}(\eta^{ab}) = {} & \{(\text{ST}, 4, \{a,b\}, \{\})\} \\
+  \operatorname{rank}(\eta^{ba}) = {} & \{(\text{ST}, 4, \{a,b\}, \{\})\} \\
+  \operatorname{rank}(\eta_{\heartsuit}) = {} & \{(\text{STSym2}, 10, \{\}, \{\heartsuit\})\}\footnotemark \\
+  \operatorname{rank}(\gmc{B}{A}{p}{p} N^A) = {} & \{(\text{ST}, 4, \{p\}, \{p\}), (\text{STArea}, 21, \{A,B\}, \{A\})\}
+\end{align}
+\footnotetext{Index labels can be arbitrary!}
+
+The contraction of a rank is obtained by removing duplicate indices. If as a result there are no indices associated to a vector space, it is also removed from the generalized rank.
+\begin{equation}
+  \operatorname{contract}(\operatorname{rank}(\gmc{B}{A}{p}{p} N^A)) = \{(\text{STArea}, 21, \{B\}, \{\})\}
+\end{equation}
 
