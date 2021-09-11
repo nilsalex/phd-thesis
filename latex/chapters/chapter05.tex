@@ -69,18 +69,137 @@ is obtained. In practice, matrices will often reduce to such simple forms, becau
 \end{equation}
 from which we read off the linearly independent columns $A$, $B$, and $D$. The superfluous ansatz coefficient $C$ can be set to zero.
 
-The Haskell package \texttt{sparse-tensor} exports the module \texttt{Math.Tensor.LorentzGenerator}, which 
-The module \texttt{Math.Tensor.LorentzGenerator} exported by the Haskell package \texttt{sparse-tensor}\footnote{}
-
+The Haskell package \texttt{sparse-tensor}\footnote{See \cite{Reinhart_2019_sparse-tensor}. The source code is publicly available at \url{https://github.com/TobiReinhart/sparse-tensor}.} exports the module \texttt{\Code{Math.Tensor.LorentzGenerator}}, which implements the procedure outlined above. Haskell is a purely functional language with lazy semantics by default. \cite{Marlow_2010} In practice, this means that the programmer does not modify state but composes expressions, which are evaluated only when asked for. Consider, for example, a routine that sums up the elements of an array. First, let us look at an implementation in C.
 \begin{code}
-  \begin{minted}{haskell}
-    -- data type representing an \eta^{a b} tensor
-    data Eta     = Eta     Char Char
-    -- data type representing an \epsilon^{a b c d} tensor
-    data Epsilon = Epsilon Char Char Char Char
+  \begin{minted}[frame=single,linenos]{C}
+int sum(int array[], int length) {
+  int result = 0;
+
+  for (int i = 0; i < length; ++i) {
+    result += array[i];
+    // perform_side_effect();      <-- possible side effect!
+  }
+
+  return result;
+}
   \end{minted}
-  \captionof{listing}{Ansatz data type}
-  \label{code_ansatz_data_type}
+  \captionof{listing}{C implementation of the \texttt{sum} function.}
+\end{code}
+Note how state---in the form of the \texttt{result} variable---is created, modified, and eventually returned. At any point of the programme, it is possible to perform arbitrary side effects, which could modify the input data, alter the local state (consisting of counter variable \texttt{i} and result variable \texttt{result}), print something to the user's screen, and so on.
+
+In Haskell, on the other hand, a na\"ive\footnote{Performance considerations put aside.} implementation of the \texttt{sum} function reads quite differently.
+\begin{code}
+  \begin{minted}[frame=single,linenos]{haskell}
+sum :: [Int] -> Int
+sum xs = go 0 xs
+  where
+    go acc [] = acc
+    go acc (y:ys) = go (acc+y) ys
+  \end{minted}
+  \captionof{listing}{Haskell implementation of the \texttt{sum} function.}
+  \label{code_haskell_sum}
+\end{code}
+The \texttt{sum} function in Listing \ref{code_haskell_sum} demonstrates how functional programming approaches certain tasks. The input is a \texttt{List} of integers, a functional data structure that matches either the empty list \mintinline{haskell}{[]} or an integer appended to some list, e.g.\ \mintinline{haskell}{5 : xs}. Data is \emph{consumed} by matching on patterns and results are \emph{produced} by building up expressions, in this case repeated applications of the \mintinline{haskell}{(+)} function in line 5. It is, by design, impossible to slip in side effects, which is why functions in Haskell are \emph{pure}. This leads to the important property called \emph{referential trasparency}, meaning that expressions can be replaced by their values without changing the behaviour of the programme.
+
+Because of its purity and, importantly, the powerful type system based on System F \cite{Girard_1972}, Haskell allows to write programmes that are both efficient and safe. As we will see, the objects we are concerned with have natural representations as functional data types and the manipulations that need to be performed translate into efficient, pure functions operating on these types.
+
+We will only sketch the implementation of the ansatz generation procedure outlined above. Performance optimizations like strictness annotations and unpacking are not given explicitly. For all details, see Ref.\ \cite{Reinhart_2019} and the documentation \cite{Reinhart_2019_sparse-tensor} of the package. There are more differences between the presentation here and the production code, which have been introduced deliberately for lighter reading.
+
+As already mentioned, an ansatz has a representation as a functional data structure. Let us begin with the individual $\eta$ and $\epsilon$ tensors in Listing \ref{code_haskell_eta_epsilon}.
+\begin{code}
+  \begin{minted}[frame=single]{haskell}
+-- data type representing an \eta^{a b} tensor
+data Eta     = Eta     Char Char           deriving (Eq, Ord)
+-- data type representing an \epsilon^{a b c d} tensor
+data Epsilon = Epsilon Char Char Char Char deriving (Eq, Ord)
+  \end{minted}
+  \captionof{listing}{Haskell representation of $\eta$ and $\epsilon$ tensors.}
+  \label{code_haskell_eta_epsilon}
+\end{code}
+These types are, essentially, named wrappers for the index labels. We also need a type that represents a coefficient. For our purposes, an integer prefactor (because we will never perform division) and a variable label, also an integer, will suffice. See Listing \ref{code_haskell_coefficient}.
+\begin{code}
+  \begin{minted}[frame=single]{haskell}
+-- data type representing a coefficient c * A_i
+data Coeff = Coeff Int Int
+  \end{minted}
+  \captionof{listing}{Haskell representation of a scaled ansatz coefficient.}
+  \label{code_haskell_coefficient}
+\end{code}
+Now, the central type for the generation of ansätze is a List of trees, called \emph{forest}. From now on, we leave $\epsilon$ tensors out of the picture. As they appear at most once, we will always sort the trees such that an $\epsilon$---if present---is the root. In everything that follows, a distinction has to be made when operating on the roots of ansatz trees, but everything else concerns only trees of $\eta$ tensors. With this caveat, the data type is as shown in Listing \ref{code_haskell_ansatz_forest}.
+\begin{code}
+  \begin{minted}[frame=single]{haskell}
+data Forest a b = Forest [(a, Forest a b)] | Leaf b
+type Ansatz = Forest Eta Coeff
+  \end{minted}
+  \captionof{listing}{Haskell representation of an ansatz consisting only of $\eta$ tensors.}
+  \label{code_haskell_ansatz_forest}
+\end{code}
+We will always keep the forests sorted in two ways: the list of trees \mintinline{haskell}{[(Eta, Forest Eta Coeff)]} is sorted, meaning that e.g.\ $\eta^{ab}$ comes before $\eta^{cd}$, but also all $\eta$ tensors appearing in the inner forest must come after the outer $\eta$ tensor---so it is forbidden to insert an $\eta^{ab}$ below a node $\eta^{cd}$.
+\begin{code}
+  \begin{minted}[frame=single]{haskell}
+    Eta 'a' 'b'
+     |
+     +---- Eta 'c' 'd'
+     |      |
+     |      +---- Eta 'e' 'f' - Coeff 1 1
+     |
+     +---- Eta 'c' 'e'
+     |      |
+     |      +---- Eta 'd' 'f' - Coeff 1 2
+     |
+     +---- Eta 'c' 'f'
+            |
+            +---- Eta 'd' 'e' - Coeff 1 3
+
+    Eta 'a' 'c'
+     |
+     +---- Eta 'b' 'd'
+     |      |
+     |      +---- Eta 'e' 'f' - Coeff 1 4
+     |
+     +---- Eta 'b' 'e'
+     |      |
+     |      +---- Eta 'd' 'f' - Coeff 1 5
+     |
+     +---- Eta 'b' 'f'
+            |
+            +---- Eta 'd' 'e' - Coeff 1 6
+    ...
+  \end{minted}
+  \captionof{listing}{First 6 $\eta$-only terms of an ansatz tensor with 6 indices.}
+  \label{code_haskell_ansatz6}
+\end{code}
+An example representation of the first 6 $\eta$-only terms for the ansatz
+\begin{equation}
+  A_1 \cdot \eta^{ab} \eta^{cd} \eta^{ef} + \dots + A_6 \cdot \eta^{ac} \eta^{bf} \eta^{de}
+\end{equation}
+is given in Listing \ref{code_haskell_ansatz6}. Such a sorted tree is easily traversed for updates, insertions, deletions, \emph{et cetera}. Also, the evaluation of specific components is greatly simplified: \mintinline{haskell}{Eta 'a' 'b'} only has to be evaluated once, and very importantly, for components where $\eta^{ab} = 0$, the whole tree can be discarded. Let us give one example of an operation on ansatz forests, namely the sum of two ansatz forests in Listing \ref{code_haskell_ansatz_sum}.
+\begin{code}
+  \begin{minted}[frame=single,linenos]{haskell}
+addAnsatz :: Ansatz -> Ansatz -> Ansatz
+addAnsatz (Leaf coeff1) (Leaf coeff2) = Leaf (addCoeffs coeff1 coeff2)
+  where
+    addCoeffs :: Coeff -> Coeff -> Coeff
+    addCoeffs (Coeff c1 var1) (Coeff c2 var2)
+      | var1 == var2 = Coeff (c1+c2) var1
+      | otherwise    = error "adding distinct variables"
+addAnsatz (Forest fs1) (Forest fs2) = Forest (addForests fs1 fs2)
+  where
+    addForests :: [(Eta, Forest Eta Coeff)]
+               -> [(Eta, Forest Eta Coeff)]
+               -> [(Eta, Forest Eta Coeff)]
+    addForests [] ys = ys
+    addForests xs [] = xs
+    addForests (x:xs) (y:ys) =
+        case fst x `compare` fst y of
+          LT -> x : addForests xs (y:ys)
+          EQ -> let innerAnsatz = addAnsatz (snd x) (snd y)
+                in  (fst x, innerAnsatz) : addForests xs ys
+          GT -> y : addForests (x:xs) ys
+addAnsatz _ _ = error "cannot add incompatible ansätze"
+  \end{minted}
+  \captionof{listing}{Sum of two ansatz forests.}
+  \label{code_haskell_ansatz_sum}
 \end{code}
 
 \section{Equivariance equations}

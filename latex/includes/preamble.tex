@@ -13,7 +13,7 @@
 \usepackage{caption}
 \usepackage[newfloat]{minted}
 \newenvironment{code}{\captionsetup{type=listing}}{}
-\SetupFloatingEnvironment{listing}{name=Source Code}
+\SetupFloatingEnvironment{listing}{name=Listing}
 
 \newenvironment{abstract}{}{}
 \usepackage{abstract}
@@ -48,3 +48,12 @@
 
 \newcommand{\gmc}[4]{\ensuremath{C^{#1\hphantom{#2}#3}_{\hphantom{#1}{#2}\hphantom{#3}#4}}}
 \newcommand{\gmcd}[4]{\ensuremath{C_{#1\hphantom{#2#3}#4}^{\hphantom{#1}{#2}#3}}}
+
+\DeclareUrlCommand\Code{\urlstyle{tt}}
+\expandafter\def\expandafter\UrlBreaks\expandafter{\UrlBreaks
+\do\/\do\a\do\b\do\c\do\d\do\e\do\f\do\g\do\h\do\i\do\j\do\k
+\do\l\do\m\do\n\do\o\do\p\do\q\do\r\do\s\do\t\do\u\do\v
+\do\w\do\x\do\y\do\z
+\do\A\do\B\do\C\do\D\do\E\do\F\do\G\do\H\do\I\do\J\do\K
+\do\L\do\M\do\N\do\O\do\P\do\Q\do\R\do\S\do\T\do\U\do\V
+\do\W\do\X\do\Y\do\Z\do\.}
