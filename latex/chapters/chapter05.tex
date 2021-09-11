@@ -1,9 +1,10 @@
 \chapter{Computational methods for perturbative constructive gravity}
 \label{chapter_computational_methods}
 
-\textit{}
+\textit{The results from the previous chapter provide us with a comprehensive algorithm for the perturbative construction of gravitational theories. While consisting almost entirely of linear algebra, the execution of the algorithm is not feasible without the help of the computer. Therefore, we dedicate this section to the presentation of two Haskell libraries: the first one, \texttt{sparse-tensor}, implements the generation of Lorentz invariant perturbation ansätze. The second library, \texttt{safe-tensor}, is designed for safe and efficient evaluation and solution of the equivariance equations.}
 
 \section{Ansatz generation}
+A central finding of Chap.\ \ref{chapter_perturbation} is that the perturbation ansätze inherit the Lorentz invariance of the expansion point. This has important practical ramifications: for example, instead of the 10 coefficients $a_A$ in the expansion of a metric Lagrangian, we can just work with the one-dimensional Lorentz invariant coefficient $c\cdot J_A^{ab} \eta_{ab}$. That means, before even considering the equivariance equations, the dimensionality of the ansatz can already be reduced a lot.
 
 \section{Equivariance equations}
 
