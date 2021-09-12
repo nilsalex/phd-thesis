@@ -173,7 +173,7 @@ An example representation of the first 6 $\eta$-only terms for the ansatz
 \begin{equation}
   A_1 \cdot \eta^{ab} \eta^{cd} \eta^{ef} + \dots + A_6 \cdot \eta^{ac} \eta^{bf} \eta^{de}
 \end{equation}
-is given in Listing \ref{code_haskell_ansatz6}. Such a sorted tree is easily traversed for updates, insertions, deletions, \emph{et cetera}. Also, the evaluation of specific components is greatly simplified: \mintinline{haskell}{Eta 'a' 'b'} only has to be evaluated once, and very importantly, for components where $\eta^{ab} = 0$, the whole tree can be discarded. Let us give one example of an operation on ansatz forests, namely the sum of two ansatz forests in Listing \ref{code_haskell_ansatz_sum}.
+is given in Listing \ref{code_haskell_ansatz6}. Such a sorted tree is easily traversed for updates, insertions, deletions, \emph{et cetera}. Also, the evaluation of specific components is greatly simplified: \mintinline{haskell}{Eta 'a' 'b'} only has to be evaluated once, and very importantly, for components where $\eta^{ab} = 0$, the whole tree can be discarded. Let us give one example for an operation on ansatz forests, namely the sum of two ansätze in Listing \ref{code_haskell_ansatz_sum}.
 \begin{code}
   \begin{minted}[frame=single,linenos]{haskell}
 addAnsatz :: Ansatz -> Ansatz -> Ansatz
@@ -205,7 +205,7 @@ The occurrence of \mintinline{haskell}{error} functions means that the function 
 
 Ansatz generation proceeds as follows: starting with the empty forest, we consider each possible ansatz term separately, one at a time, for example $\eta^{ab} \eta^{cd} \eta^{ef}$. For each such term, it is first checked whether the ansatz already contains the term, utilizing fast lookup in the sorted forest. If it is contained, we can discard the term and proceed with the next one. If, on the other hand, the term is \emph{new}, it is assigned a new variable, symmetrized, and added to the ansatz.
 
-When all possible ansatz terms have been added (or discarded, for that matter), the linear dependencies are identified and removed, like explained before. For the linear algebra part, the package \texttt{hmatrix} is used together with a custom implementation of Gaussian elimination that is tested for sufficient stability.
+When all possible ansatz terms have been added (or discarded, for that matter), the linear dependencies are identified and removed, like explained before. For the linear algebra part, the package \texttt{hmatrix} \cite{Ruiz_2006} is used together with a custom implementation of Gaussian elimination that is tested for sufficient stability.
 
 For the handling of larger ansätze---up to 18 indices at the time of writing, which is enough for fourth-order area metric Lagrangians---a second mode has been implemented. In order for the matrix not to become too large, its is checked \emph{before insertion} whether a given symmetrized term would be linearly dependent on the already existing terms. This entails keeping track of the evaluation matrix, as re-evaluating the ansatz tensors for each term that is added would be too expensive. However, we do not have to perform Gaussian elimination, because it is not necessary to identify which column would introduce a rank defect---it is always the new one, because we ensure that the matrix rank is maximal with our construction. So, fast and numerically stable singular value decomposition can be used for computing ranks.
 
