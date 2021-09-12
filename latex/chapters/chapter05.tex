@@ -209,7 +209,7 @@ When all possible ansatz terms have been added (or discarded, for that matter), 
 
 For the handling of larger ansätze---up to 18 indices at the time of writing, which is enough for fourth-order area metric Lagrangians---a second mode has been implemented. In order for the matrix not to become too large, its is checked \emph{before insertion} whether a given symmetrized term would be linearly dependent on the already existing terms. This entails keeping track of the evaluation matrix, as re-evaluating the ansatz tensors for each term that is added would be too expensive. However, we do not have to perform Gaussian elimination, because it is not necessary to identify which column would introduce a rank defect---it is always the new one, because we ensure that the matrix rank is maximal with our construction. So, fast and numerically stable singular value decomposition can be used for computing ranks.
 
-Overall, the second method is a bit slower for ansätze with 14 indices (needed for third-order area metric Lagrangians) than the first method, taking a couple of seconds to compute on modern workstation hardware. For the fourth-order ansätze, however, it is the only option. With all the optimization work that has been done, like exploting the symmetries in order to reduce the number of terms that are even considered for insertion or, likewise, reducing the number of index combinations to be probed (see \cite{Reinhart_2019} or the source code and documentation \cite{Reinhart_2019_sparse-tensor}), the computation times have been reduced drastically. The largest fourth-order ansätze with 18 indices are computed within half an hour, using a few gigabytes of memory. To the knowledge of the author, the methods developed for the canonical approach \cite{Schneider_2017} (to which this method is applicable as well) do not achieve this efficiency.
+Overall, the second method is a bit slower for ansätze with 14 indices (needed for third-order area metric Lagrangians) than the first method, taking a couple of seconds to compute on modern workstation hardware. For the fourth-order ansätze, however, it is the only option. With all the optimization work that has been done, like exploting the symmetries in order to reduce the number of terms that are even considered for insertion or, likewise, reducing the number of index combinations to be probed (see \cite{Reinhart_2019} or the source code and documentation \cite{Reinhart_2019_sparse-tensor}), the computation times have been reduced drastically. The largest fourth-order ansätze with 18 indices are computed within about three hours, using three gigabytes of memory. To the knowledge of the author, the methods developed for the canonical approach \cite{Schneider_2017} (to which this method is applicable as well) do not achieve this efficiency.
 
 We will encounter the generated ansätze in Chap.\ \ref{chapter_weak_area} when constructing perturbative area metric gravity. But first, let us walk through the second Haskell package developed in the course of this thesis.
 
@@ -222,7 +222,7 @@ Central for the design of the tensor type provided by the package is the \emph{g
 \end{equation}
 with $V_\text{area}$ being a fibre of the area metric bundle and $V$ a tangent space to the base manifold.
 
-Concrete calculations employ a basis $(e_i)_{i=1\dots n}$ of $V$ and a corresponding dual basis $(\epsilon^i)_{i=1\dots n}$ of $V^\ast$, where $n$ denotes the dimension of the base manifold. Such bases carry over to fibres like $V_\text{area}$ or $V_\text{metric}$. Representations like $\gmc{A}{B}{n}{m}$ for $C$ are understood in terms of these bases. For the definition of the generic rank of this representation, we assign each type of vector space a label, e.g.\ ST\footnote{Meaning: tangent space to spacetime.} for $V$ and STArea for $V_\text{area}$. The indices corresponding to each space and the dual complete the list of labels to the generic rank. For the example of the Gotay-Marsden coefficients, we have
+Concrete calculations employ a basis $(e_i)_{i=1\dots n}$ of $V$ and a corresponding dual basis $(\epsilon^i)_{i=1\dots n}$ of $V^\ast$, where $n$ denotes the dimension of the base manifold. Such bases carry over to fibres like $V_\text{area}$ or $V_\text{metric}$. Representations such as $\gmc{A}{B}{n}{m}$ for $C$ are understood in terms of these bases. For the definition of the generic rank of these representations, we assign each type of vector space a label, e.g.\ ST\footnote{Meaning: tangent space to spacetime.} for $V$ and STArea for $V_\text{area}$. The indices corresponding to each space and the dual complete the list of labels to the generic rank. For the example of the Gotay-Marsden coefficients, we have
 \begin{equation}
   \operatorname{rank}(\gmc{A}{B}{n}{m}) = \{(\underbrace{\text{ST}}_{\text{label}}, \underbrace{4}_{\text{dimension}}, \underbrace{\{n\}}_{\text{contravariant}}, \underbrace{\{m\}}_{\text{covariant}}), (\text{STArea}, 21, \{A\}, \{B\})\}.
 \end{equation}
@@ -242,3 +242,102 @@ The contraction of a rank is obtained by removing duplicate indices. If as a res
   \operatorname{contract}(\operatorname{rank}(\gmc{B}{A}{p}{p} N^A)) = \{(\text{STArea}, 21, \{B\}, \{\})\}.
 \end{equation}
 
+The rules of the tensor calculus we are going to implement can now be stated using the generalized rank of a tensor. Note that some rules already follow from the definition of a generalized rank, but are stated again for completeness.
+\begin{enumerate}
+  \item Each tensor carries a generalized rank as defined above.
+  \item Transpositions of indices corresponding to the \emph{same} set do not change the generalized rank, i.e.\ $\operatorname{rank}(T^{Aab}) = \operatorname{rank}(T^{Aba})$. Transpositions of indices corresponding to different sets (that is, transpositions across different vector spaces or covariant \emph{and} contravariant indices) are not defined.
+  \item Contractions are always allowed. If for some vector space the intersection of covariant and contravariant indices is nonempty, the rank is reduced as described. Otherwise, a contraction has no effect.
+  \item Taking the product of two tensors merges both ranks and is thus only allowed if the two tensors do not share indices corresponding to the same vector space in the same (upper or lower) position. For example
+    \begin{equation}
+      \operatorname{rank}(T^{Aab} S^{Bp}_{a}) = \{(\text{ST}, 4, \{abp\}, \{a\}), (\text{STArea}, 21, \{A,B\}, \{\})\}.
+    \end{equation}
+  \item Adding and subtracting two tensors is only allowed if both ranks coincide. The result has, of course, the same rank.
+\end{enumerate}
+
+Listing \ref{code_haskell_rank_type} contains the definition of the \mintinline{haskell}{Rank} type as used by the \texttt{safe-tensor} package. The function \mintinline{haskell}{sane} can be specialized to the type \mintinline{haskell}{sane :: Rank -> Bool}. It provides a check for whether a given generalized rank satisfies all constraints and can be used to decide whether a certain tensor can be defined or, more importantly, whether a certain operation would yield a tensor of invalid rank and is thus forbidden.
+
+\begin{code}
+  \captionof{listing}{Generalized rank type implementation in Haskell and the corresponding validity check. The type \mintinline{haskell}{Rank} and the function \mintinline{haskell}{sane} are the foundation for the tensor type to be defined later. \mintinline{haskell}{Rank} contains all the information of a generalized rank: vector space labels, dimensions, and index lists. \mintinline{haskell}{sane} ensures that the constraints are satisfied: the list of sub-ranks for the individual vector spaces must be strictly ascending, but also the index lists itself. The listing is printed on the next page. Note that the \texttt{safe-tensor} package \cite{Alex_2020_safe-tensor} does not export a module called \texttt{Rank}, but the definitions are part of a larger module.}
+  \label{code_haskell_rank_type}
+  \begin{minted}[frame=single,linenos,samepage]{haskell}
+module Rank where
+
+-- type for nonempty lists: data NonEmpty a = a :| [a]
+import Data.List.NonEmpty (NonEmpty ((:|)))
+-- type-level natural numers and symbols
+import Data.Singletons.TypeLits (Nat, Symbol)
+
+-- vector space, contains a label vId and the dimension vDim
+data VSpace a b = VSpace {vId :: a, vDim :: b} deriving (Ord, Eq)
+
+-- index list, is either of mixed type or purely co/contravariant
+data IList a
+  = ConCov (NonEmpty a) (NonEmpty a)
+  | Cov (NonEmpty a)
+  | Con (NonEmpty a)
+  deriving (Ord, Eq)
+
+-- generalized rank, a list of vector spaces with associated index lists
+type GRank s n = [(VSpace s n, IList s)]
+
+-- generalized rank used for type-level computations
+type Rank = GRank Symbol Nat
+
+-- check whether a generalized rank is valid
+sane :: (Ord a, Ord b) => [(VSpace a b, IList a)] -> Bool
+sane [] = True
+sane [(_, is)] = isAscendingIList is
+sane ((v, is) : (v', is') : xs) =
+  v < v' && isAscendingIList is && sane ((v', is') : xs)
+
+-- index lists are strictly ascending if the nonempty lists are
+isAscendingIList :: Ord a => IList a -> Bool
+isAscendingIList (ConCov x y) =
+  isAscending x && isAscending y
+isAscendingIList (Con x) = isAscending x
+isAscendingIList (Cov x) = isAscending x
+
+isAscending :: Ord a => NonEmpty a -> Bool
+isAscending (x :| []) = True
+isAscending (x :| (y : ys)) =
+  x < y && isAscending (y :| ys)
+  \end{minted}
+\end{code}
+
+In order to make such decisions at the \emph{type} level, we leverage the machinery provided by the \texttt{singletons} package \cite{Eisenberg_2012}. With the help of the metaprogramming technique Template Haskell \cite{Sheard_2002}, \texttt{singletons} serves us twofold: First it lifts the function \mintinline{haskell}{sane} to \mintinline{haskell}{type Sane :: forall a b. [(VSpace a b, IList a)] -> Bool}, which may be interpreted as a function at the type level.
+
+We use the type \mintinline{Haskell}{Sane}, together with a second type \mintinline{haskell}{TailR} derived from the function \mintinline{haskell}{tailR}\footnote{This function yields, for a nonempty rank, the ``tail'' of the rank after removing the first index.}, for the definition of the \mintinline{haskell}{Tensor} type in Listing \ref{code_haskell_tensor_type}
+
+\begin{code}
+  \begin{minted}[frame=single,linenos]{haskell}
+-- (...) skipping some language extensions
+
+module Math.Tensor.Safe where
+
+-- (...) skipping some imports
+
+data Tensor :: Rank -> Type -> Type where
+  ZeroTensor :: forall (r :: Rank) v.  Sane r ~ 'True =>
+                Tensor r v
+  Scalar :: forall v.
+            !v -> Tensor '[] v
+  Tensor :: forall (r :: Rank) (r' :: Rank) v.
+            (Sane r ~ 'True, TailR r ~ r') =>
+            [(Int, Tensor r' v)] -> Tensor r v
+
+deriving instance Eq v => Eq (Tensor r v)
+deriving instance Show v => Show (Tensor r v)
+
+instance NFData v => NFData (Tensor r v) where
+    rnf ZeroTensor  = ()
+    rnf (Scalar v)  = rnf v
+    rnf (Tensor ts) = rnf ts
+
+instance Functor (Tensor r) where
+    fmap _ ZeroTensor  = ZeroTensor
+    fmap f (Scalar s)  = Scalar (f s)
+    fmap f (Tensor ts) = Tensor (fmap (fmap (fmap f)) ms)
+  \end{minted}
+  \captionof{listing}{The \mintinline{haskell}{Tensor} type and its instances.}
+  \label{code_haskell_tensor_type}
+\end{code}
