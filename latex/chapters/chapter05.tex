@@ -311,21 +311,19 @@ We use the type \mintinline{Haskell}{Sane}, together with a second type \mintinl
 \begin{code}
   \begin{minted}[frame=single,linenos]{haskell}
 -- (...) skipping some language extensions
-
 module Math.Tensor.Safe where
-
 -- (...) skipping some imports
 
 data Tensor :: Rank -> Type -> Type where
   ZeroTensor :: forall (r :: Rank) v.  Sane r ~ 'True =>
                 Tensor r v
-  Scalar :: forall v.
-            !v -> Tensor '[] v
-  Tensor :: forall (r :: Rank) (r' :: Rank) v.
-            (Sane r ~ 'True, TailR r ~ r') =>
-            [(Int, Tensor r' v)] -> Tensor r v
+  Scalar     :: forall v.
+                !v -> Tensor '[] v
+  Tensor     :: forall (r :: Rank) (r' :: Rank) v.
+                (Sane r ~ 'True, TailR r ~ r') =>
+                [(Int, Tensor r' v)] -> Tensor r v
 
-deriving instance Eq v => Eq (Tensor r v)
+deriving instance Eq v   => Eq (Tensor r v)
 deriving instance Show v => Show (Tensor r v)
 
 instance NFData v => NFData (Tensor r v) where
