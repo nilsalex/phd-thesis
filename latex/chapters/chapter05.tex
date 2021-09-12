@@ -354,3 +354,37 @@ scalarMult s = fmap (s*)
   \captionof{listing}{Scalar multiplication leveraging the \mintinline{haskell}{Functor} instance.}
   \label{code_haskell_scalar_mult}
 \end{code}
+Tensors of the same rank are added by merging the tensors, performing a recursive addition whenever an index is present in both summands. The requirement that both ranks coincide is encoded as constraint on the types. See Listing \ref{code_haskell_tensor_addition} for the implementation.
+\begin{code}
+  \begin{minted}[frame=single,linenos,samepage]{haskell}
+(&+) :: forall (r :: Rank) (r' :: Rank) v.
+        ((r ~ r'), Num v) =>
+        Tensor r v -> Tensor r' v -> Tensor r v
+(&+) ZeroTensor t = t
+(&+) t ZeroTensor = t
+(&+) (Scalar s) (Scalar s')   = Scalar (s + s')
+(&+) (Tensor xs) (Tensor xs') = Tensor xs''
+  where
+    xs'' = unionWith (&+) xs xs'
+
+    unionWith :: (a -> a -> a) -> [(Int, a)] -> [(Int, a)] -> [(Int, a)]
+    unionWith f [] ys = ys
+    unionWith f ys [] = ys
+    unionWith f ys@((iy,vy):ys') zs@((iz,vz):zs') =
+      case iy `compare` iz of
+        LT -> (iy,vy) : unionWith f ys' zs
+        EQ -> (iy,f vy vz) : unionWith f ys' zs'
+        GT -> (iz,vz) : unionWith f ys zs'
+  \end{minted}
+  \captionof{listing}{Recursive addition of tensors.}
+  \label{code_haskell_tensor_addition}
+\end{code}
+\begin{code}
+  \begin{minted}[frame=single,samepage]{text}
+λ> let delta_ac = delta :: Tensor '[ '( 'VSpace "ST" 4, 'ConCov ("a" ':| '[]) ("c" ':| '[]))] Int
+  \end{minted}
+  \captionof{listing}{Addition of tensors in the interactive repl \emph{ghci}}
+  \label{repl_addition}
+\end{code}
+
+
