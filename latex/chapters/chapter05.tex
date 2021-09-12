@@ -341,8 +341,8 @@ instance Functor (Tensor r) where
 The \mintinline{haskell}{Tensor} type is a so-called \emph{generalized algebraic datatype}, short GADT, which means that the type of each constructor can be specified explicitly. There are three of such constructors:
 \begin{itemize}
   \item \mintinline{haskell}{ZeroTensor} yields the zero tensor for any valid \mintinline{haskell}{Rank} type. It is useful to introduce this special value, because it allows to short-circuit a lot of calculations: for example, when this constructor is encountered while calculating a sum, it can be ignored. For a product, on the other hand, we can automatically return the result \mintinline{haskell}{ZeroTensor} and need not inspect the second factor.
-  \item \mintinline{haskell}{Scalar} as the base case for the recursive definition of a tensor wraps for the \emph{empty} \mintinline{haskell}{Rank} type \mintinline{haskell}{'[]} a value of type \mintinline{haskell}{v}. It should be interpreted as the result of a ``fully applied'' tensor.
-  \item \mintinline{haskell}{Tensor} is the recursive case. It is constrained to valid \mintinline{haskell}{Rank} types and is existentially quantified by the existence of a second \mintinline{haskell}{Rank} type, which is constrained to be the ``tail'' of the first rank. For this constructor, the value amounts to a list \mintinline{haskell}{[(Int, Tensor r' v)]} of index values and associated tensors with lesser rank \mintinline{haskell}{r'}. It should be understood as \emph{partial} application of a tensor, by inserting all possible basis vectors/covectors in the ``first available slot'' of the tensor (which is, after all, a multilinear map) and collecting the resulting subtensors.
+  \item \mintinline{haskell}{Scalar} as the base case for the recursive definition of a tensor wraps for the \emph{empty} \mintinline{haskell}{Rank} type \mintinline{haskell}{'[]} a value of type \mintinline{text}{v}. It should be interpreted as the result of a ``fully applied'' tensor.
+  \item \mintinline{haskell}{Tensor} is the recursive case. It is constrained to valid \mintinline{haskell}{Rank} types and is existentially quantified by the existence of a second \mintinline{haskell}{Rank} type, which is constrained to be the ``tail'' of the first rank. For this constructor, the value amounts to a list \mintinline{haskell}{[(Int, Tensor r' v)]} of index values and associated tensors with lesser rank \mintinline{text}{r'}. It should be understood as \emph{partial} application of a tensor, by inserting all possible basis vectors/covectors in the ``first available slot'' of the tensor (which is, after all, a multilinear map) and collecting the resulting subtensors.
 \end{itemize}
 
 A few instances have been defined for the \mintinline{haskell}{Tensor} type. \mintinline{haskell}{Eq} and \mintinline{haskell}{Show} have generic implementations, while the \mintinline{haskell}{NFData} implementation just amounts to recursive evaluation. The \mintinline{haskell}{Functor} instance is the first manipulation we defined for the \mintinline{haskell}{Tensor} type: it allows to apply functions directly to the values of the tensor, for example scalar multiplication as defined in Listing \ref{code_haskell_scalar_mult}.
@@ -354,7 +354,7 @@ scalarMult s = fmap (s*)
   \captionof{listing}{Scalar multiplication leveraging the \mintinline{haskell}{Functor} instance.}
   \label{code_haskell_scalar_mult}
 \end{code}
-Tensors of the same rank are added by merging the tensors, performing a recursive addition whenever an index is present in both summands. The requirement that both ranks coincide is encoded as constraint on the types. See Listing \ref{code_haskell_tensor_addition} for the implementation.
+Tensors of the same rank are added by merging the tensors, performing a recursive addition whenever an index is present in both summands. The requirement that both ranks coincide is encoded as constraint on the types. See Listing \ref{code_haskell_tensor_addition} for the implementation. In Listing \ref{repl_addition}, the addition of two tensors is demonstrated using the interactive repl\footnote{\textbf{r}ead-\textbf{e}val-\textbf{p}rint loop} \emph{ghci}. The tensor \mintinline{text}{delta_ab} represents the Kronecker delta $\delta^a_b$, while \mintinline{text}{delta_ac} represents $\delta^a_c$. Consequently, the expression \mintinline{text}{delta_ab &+ delta_ac} is ill-typed. On the other hand, \mintinline{text}{delta_ab &+ delta_ab} is well-typed and yields the expected result $2\cdot\delta^a_b$.
 \begin{code}
   \begin{minted}[frame=single,linenos,samepage]{haskell}
 (&+) :: forall (r :: Rank) (r' :: Rank) v.
@@ -380,11 +380,49 @@ Tensors of the same rank are added by merging the tensors, performing a recursiv
   \label{code_haskell_tensor_addition}
 \end{code}
 \begin{code}
-  \begin{minted}[frame=single,samepage]{text}
+  \begin{minted}[frame=single,samepage,breaklines]{text}
+λ> let delta_ab = delta :: Tensor '[ '( 'VSpace "ST" 4, 'ConCov ("a" ':| '[]) ("b" ':| '[]))] Int
 λ> let delta_ac = delta :: Tensor '[ '( 'VSpace "ST" 4, 'ConCov ("a" ':| '[]) ("c" ':| '[]))] Int
+λ> delta_ab + delta_ab == fmap (2*) delta_ab
+True
+λ> delta_ab + delta_ac
+<interactive>:6:1: error:
+    • Couldn't match type ‘"b"’ with ‘"c"’ arising from a use of ‘&+’
+    • In the expression: delta_ab &+ delta_ac
+      In an equation for ‘it’: it = delta_ab &+ delta_ac
   \end{minted}
-  \captionof{listing}{Addition of tensors in the interactive repl \emph{ghci}}
+  \captionof{listing}{Addition of tensors in the interactive repl \emph{ghci}. The addition of two tensors with the same rank produces a result, while addition of tensors with different ranks yields a type error.}
   \label{repl_addition}
 \end{code}
 
+\newpage
+
+More intricate operations make use of the second feature from the \texttt{singletons} package, which are the singleton types that are generated for our lifted rank types. Singleton types are inhabited by only one value. As such, they are able to bridge the gap between compile time and run time, which are usually separate phases in Haskell. See \cite{Eisenberg_2012} for more details. With singletons, we can implement e.g.\ typesafe tensor multiplication as sketched in Listing \ref{code_haskell_tensor_multiplication}.
+\begin{code}
+  \begin{minted}[frame=single,linenos]{haskell}
+(&*) :: forall (r :: Rank) (r' :: Rank) (r'' :: Rank) v.
+        (Num v, 'Just r'' ~ MergeR r r', SingI r, SingI r') =>
+        Tensor r v -> Tensor r' v -> Tensor r'' v
+(&*) = mult (sing :: Sing r) (sing :: Sing r')
+
+mult :: forall (r :: Rank) (r' :: Rank) (r'' :: Rank) v.
+        (Num v, 'Just r'' ~ MergeR r r') =>
+        Sing r -> Sing r' -> Tensor r v -> Tensor r' v -> Tensor r'' v
+mult _ _ (Scalar s) (Scalar t)   = Scalar (s*t)
+mult _ _ (Scalar s) t@(Tensor _) = fmap (s*) t
+mult _ _ t@(Tensor _) (Scalar s) = fmap (*s) t
+mult sr sr' (Tensor ms) (Tensor ms') = _ -- omitted
+mult sr sr' ZeroTensor ZeroTensor =
+  case saneMergeRProof sr sr' of
+    Sub Dict -> ZeroTensor
+-- more ZeroTensor cases omitted
+  \end{minted}
+  \captionof{listing}{Typesafe tensor multiplication implemented using \texttt{singletons}. The ranks must satisfy a \mintinline{haskell}{SingI} constraint. With this constraint, the singleton values can be retrieved and passed to the implementation of the multiplication function.}
+  \label{code_haskell_tensor_multiplication}
+\end{code}
+The tensor multiplication makes us of a new function, \texttt{mergeR}, which takes two ranks and returns the rank of the tensor product---if the ranks allow to take this product. Lifted to the type level, this encodes the requirement that the ranks be compatible in the constraint \mintinline{haskell}{'Just r'' ~ MergeR r r'}. The \mintinline{haskell}{SingI} instances are used in order to retrieve the singleton values corresponding to the Rank type. These are passed to the implementation function \texttt{mult}.
+
+The simplest cases of the \texttt{mult} function are the cases matching on \mintinline{haskell}{ZeroTensor}---they just yield a \mintinline{haskell}{ZeroTensor}. However, it first has to be proven that the rank \texttt{r''} satisfies the constraint \mintinline{haskell}{Sane r'' ~ 'True}. This is the job of the pattern match on the result of \mintinline{haskell}{saneMergeRProof sr sr'}. For the time being, this proof (and all other proofs) are implemented by coercion, trusting in this case the function \mintinline{haskell}{mergeR}. In principle, it is possible to have Haskell check such proofs, although its capabilities in this regard are limited, as Haskell is not \emph{total}.
+
+The product of two \mintinline{haskell}{Scalar} values is equally as simple, as it yields the product of the wrapped numerical values. Multiplication of a \mintinline{haskell}{Scalar} with a \mintinline{haskell}{Tensor} and \emph{vice versa} amounts to scalar multiplication introduced above. For the remaining product of two \mintinline{haskell}{Tensor} values, 
 

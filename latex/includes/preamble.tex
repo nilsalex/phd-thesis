@@ -1,8 +1,15 @@
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage{lmodern}
-\usepackage[british]{babel}
-%\usepackage{ebgaramond}
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\setmainlanguage[variant=british]{english}
+\setdefaultlanguage[variant=british]{english}
+\setotherlanguages{ngerman}
+
+\usepackage{unicode-math}
+
+%\defaultfontfeatures{Scale = MatchLowercase}
+%\setmainfont{CMU Serif}[Scale = 1.0]
+%\setsansfont{CMU Sans Serif}
+%\setmonofont{CMU Typewriter Text}
 
 \usepackage{microtype}
 \usepackage{ellipsis}
@@ -16,6 +23,7 @@
 
 \usepackage{caption}
 \usepackage[newfloat]{minted}
+\usepackage{newunicodechar}
 \newenvironment{code}{\captionsetup{type=listing}}{}
 \SetupFloatingEnvironment{listing}{name=Listing}
 
@@ -62,4 +70,3 @@
 \do\L\do\M\do\N\do\O\do\P\do\Q\do\R\do\S\do\T\do\U\do\V
 \do\W\do\X\do\Y\do\Z\do\.}
 
-\DeclareUnicodeCharacter{3BB}{}
