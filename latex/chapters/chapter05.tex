@@ -424,5 +424,53 @@ The tensor multiplication makes us of a new function, \texttt{mergeR}, which tak
 
 The simplest cases of the \texttt{mult} function are the cases matching on \mintinline{haskell}{ZeroTensor}---they just yield a \mintinline{haskell}{ZeroTensor}. However, it first has to be proven that the rank \texttt{r''} satisfies the constraint \mintinline{haskell}{Sane r'' ~ 'True}. This is the job of the pattern match on the result of \mintinline{haskell}{saneMergeRProof sr sr'}. For the time being, this proof (and all other proofs) are implemented by coercion, trusting in this case the function \mintinline{haskell}{mergeR}. In principle, it is possible to have Haskell check such proofs, although its capabilities in this regard are limited, as Haskell is not \emph{total}.
 
-The product of two \mintinline{haskell}{Scalar} values is equally as simple, as it yields the product of the wrapped numerical values. Multiplication of a \mintinline{haskell}{Scalar} with a \mintinline{haskell}{Tensor} and \emph{vice versa} amounts to scalar multiplication introduced above. For the remaining product of two \mintinline{haskell}{Tensor} values, 
+The product of two \mintinline{haskell}{Scalar} values is equally as simple, as it yields the product of the wrapped numerical values. Multiplication of a \mintinline{haskell}{Scalar} with a \mintinline{haskell}{Tensor} and \emph{vice versa} amounts to scalar multiplication introduced above. For the remaining product of two \mintinline{haskell}{Tensor} values, which is omitted above because it is quite lengthy\footnote{See \cite{Alex_2020_safe-tensor} for the complete implementation.}, we inspect the foremost indices of both tensors. If the \emph{left} tensor has a ``lesser'' index, we descend into the subtensors of the left tensor and multiply each subtensor with the right tensor. If the foremost index of the \emph{right} tensor is ``lesser'', we proceed the other way around. Eventually, one of the base cases matching on a \mintinline{haskell}{Scalar} is reached.
+
+Transpositions of indices and contractions are implemented similarly by descending into the relevant subtensors and manipulating the functional data structure appropriately. With the module \texttt{Math.Tensor.Basic}, the \texttt{safe-tensor} package exports all necessary basic tensors for setting up the perturbative equivariance equations \ref{prolong_0}--\ref{prolong_2} for metric and area metric theories---including Kronecker deltas, bundle intertwiners, Gotay-Marsden coefficients, Minkowski metrics and Levi-Civita symbols.
+
+Because handling the refined tensor type defined in the \texttt{Math.Tensor.Safe} module is at times quite unwieldy, the package also provides an \emph{opaque} variant. Values of this opaque type are constructed from a tensor that has a generalized rank, but the rank cannot be extracted---it is \emph{hidden}. The opaque type is exported by the \texttt{Math.Tensor} module, see Listing \ref{code_haskell_existential_type} for the definition.
+
+\begin{code}
+  \begin{minted}[frame=single,linenos,samepage]{haskell}
+-- (...) skipping some language extensions
+module Math.Tensor where
+-- (...) skipping some imports
+
+data T :: Type -> Type where
+  T :: forall (r :: Rank) v. SingI r => Tensor r v -> Tensor r v
+  \end{minted}
+  \captionof{listing}{Opaque tensor type with existentially quantified rank.}
+  \label{code_haskell_existential_type}
+\end{code}
+
+With the opaque type \mintinline{haskell}{T}, tensor operations are always well-typed, but may not always yield a result because of rank mismatches. This is implemented utilizing the \mintinline{haskell}{MonadError} type class, for example in the definition of tensor addition presentend in Listing \ref{code_haskell_T_addition}.
+
+\begin{code}
+  \begin{minted}[frame=single,linenos,samepage]{haskell}
+(.+) :: (Eq v, Num v, MonadError String m) => T v -> T v -> m (T v)
+(.+) o1 o2 =
+  case o1 of
+    T (t1 :: Tensor r1 v) ->
+      case o2 of
+        T (t2 :: Tensor r2 v) ->
+          let sr1 = sing :: Sing r1
+              sr2 = sing :: Sing r2
+          in case sr1 %~ sr2 of
+               Proved Refl ->
+                 case sSane sr1 %~ STrue of
+                   Proved Refl ->
+                     return $ T (t1 &+ t2)
+                   Disproved _ ->
+                     throwError "Rank of summands is not sane."
+               Disproved _ ->
+                 throwError "Generalized tensor ranks do not match."
+  \end{minted}
+  \captionof{listing}{Addition of existentially qualified tensors.}
+  \label{code_haskell_T_addition}
+\end{code}
+
+Finally, let us discuss how equivariance equations can be set up and solved with this package. There is a compatibility layer \texttt{safe-tensor-sparse-tensor-compat} \cite{Alex_2020_safe-tensor}, which uses the ansatz generation capabilities from \texttt{sparse-tensor} to provide ansätze for the construction of area metric gravity Lagrangians. The scalar type of these ansätze is not a plain numeric type but amounts to linear combinations of the ansatz coefficients. Data types and functions dealing with such linear combinations are provided by the module \texttt{Math.Tensor.LinearAlgebra}. Using the ansätze, the predefined basic tensors (such as Kronecker deltas, intertwiners, etc.), and the various tensor operations, all equivariance equations can be composed as given by Eqns.\ \eqref{prolong_0}--\eqref{prolong_2}.
+
+Having composed the equations, it is just a matter of evaluating all components in order to retrieve the linear system that determines the ansatz coefficients. With all basic tensors, intertwiners, and Gotay-Marsden coefficients being purely rational, the linear system itself contains only rational numbers. \texttt{safe-tensor} can also perform the last step, which is \emph{solving} the linear system. This is done using fraction-free Gaussian elimination using 64-bit integers. Each solution is verified afterwards using rank computations by numerically stable singular value decomposition---eliminating worries that integer overflows may have invalidated the result.
+
 
