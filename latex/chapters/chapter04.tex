@@ -40,7 +40,7 @@ Both restrictions for $p$ ensure that the limit of weak gravitational fields can
 
 The first assumption is easily implemented: In the chosen coordinate chart, $p$ takes the form $(N^A,0,0)$. The best way to make sense of the second assumption is by considering a few examples:
 \begin{example}[flat Lorentzian expansion points]\label{example_expansion_points}
-  Let us choose appropriate expansion points $(N^A,0,0)$ for GLED and bimetric theories introduced in Sections \ref{section_gled} and \ref{section_bimetric}, respectively. In order to satisfy the second assumption made for expansion points, we construct $N^A$ from the Minkowski metric $\eta^{ab} = \operatorname{diag}(1,-1,-1,-1)^{ab}$ in the following ways.
+  Let us choose appropriate expansion points $(N^A,0,0)$ for GLED and bimetric theories introduced in Sections~\ref{section_gled} and~\ref{section_bimetric}, respectively. In order to satisfy the second assumption made for expansion points, we construct $N^A$ from the Minkowski metric $\eta^{ab} = \operatorname{diag}(1,-1,-1,-1)^{ab}$ in the following ways.
   \begin{enumerate}
     \item{For bimetric theories, a suitable expansion point is given by $N^{\bar A} = J_{ab}^{\bar A} \eta^{ab}$ and $N^{\bar{\bar A}} = J_{ab}^{\bar{\bar A}} \eta^{ab}$, i.e.\ setting both metrics $g$ and $h$ equal to $\eta$. Where a scalar density is needed, we choose $\omega = \sqrt{-\operatorname{det}\eta} = 1$. This choice reduces the bimetric Klein-Gordon theory to the standard Klein-Gordon theory for two scalar fields on Minkowski spacetime
       \begin{equation}
@@ -54,7 +54,7 @@ The first assumption is easily implemented: In the chosen coordinate chart, $p$ 
         \begin{equation}\label{GLED_reduction}
         L_\text{GLED} = 2 \eta^{ac}\eta^{bd} F_{ab}F_{cd},
       \end{equation}
-    i.e.\ Maxwell electrodynamics on Minkowski spacetime.\footnote{The term $\epsilon^{abcd}F_{ab}F_{cd}$ is a surface term and thus does not contribute to the field equations. As such, it has been omitted in Eq.\ \ref{GLED_reduction}.}}
+    i.e.\ Maxwell electrodynamics on Minkowski spacetime.\footnote{The term $\epsilon^{abcd}F_{ab}F_{cd}$ is a surface term and thus does not contribute to the field equations. As such, it has been omitted in Eq.~\ref{GLED_reduction}.}}
   \end{enumerate}
 \end{example}
 Both choices of expansion points ensure that the perturbatively constructed gravitational theories provide to zeroth order in the deviation a background on which known physics is reproduced. Novel physics---the coupling of matter fields to non-metric geometries and the self-coupling of such geometries---should emerge as effect of first and higher orders in the deviation from the Minkowski background.
@@ -93,7 +93,7 @@ For the previously described perturbative solution process to play out as desire
 \end{example}
 Luckily, the system of equivariance equations suffers none of these maladies, as we will prove in the following. The mathematical framework that allows to make such a statement is \emph{involution theory} \cite{Seiler_2010}. Within this framework, a PDE of order $q$ is defined geometrically as fibred submanifold $R_q\subseteq J^qE$ of some jet bundle manifold $J^qE$.\footnote{Note that this jet bundle is \emph{not} the jet bundle on which the Lagrangian density is defined. For the equivariance equations, the order $q$ is 1 and the underlying bundle $E$ is $J^2E_\text{geometry}$.} A local coordinate representation of $R_q$ yields a system of equations, more closely resembling what a PDE looks like in the non-geometric picture. Note that we deliberately call $R_q$ a partial differential \emph{equation}, rather than using the plural, as this approach makes no difference between systems or scalar equations. A solution to a PDE is just a local section $\sigma$ of $E$ such that the image of $j^q\sigma$ is contained within $R_q$.
 
-Two geometric operations will be performed repeatedly on PDEs for their involution analysis: \emph{prolongation} and \emph{projection}. The former maps a PDE $R_q$ to some PDE $R_{q+r}$ by, in local coordinates, adding to $R_q$ all possible derivatives of order $r$ of the individual equations---the geometric construction is a bit more involved. On the contrary, it is simpler to define projections geometrically, which is as bundle projections $R^{(r)}_{q-r} = \pi_{q,q-r}(R_q)$. Using a local representation of $R_q$, the projection is performed by eliminating derivatives of higher orders using only algebraic manipulations such that equations of order $q-r$ remain. The maximal set of such equations is a representation of $R_{q-r}$. For linear systems, the task of projecting a PDE to lower order is solved by linear algebra with tools like Gaussian elimination and has already been demonstrated earlier in Example \ref{example_involution_1}.
+Two geometric operations will be performed repeatedly on PDEs for their involution analysis: \emph{prolongation} and \emph{projection}. The former maps a PDE $R_q$ to some PDE $R_{q+r}$ by, in local coordinates, adding to $R_q$ all possible derivatives of order $r$ of the individual equations---the geometric construction is a bit more involved. On the contrary, it is simpler to define projections geometrically, which is as bundle projections $R^{(r)}_{q-r} = \pi_{q,q-r}(R_q)$. Using a local representation of $R_q$, the projection is performed by eliminating derivatives of higher orders using only algebraic manipulations such that equations of order $q-r$ remain. The maximal set of such equations is a representation of $R_{q-r}$. For linear systems, the task of projecting a PDE to lower order is solved by linear algebra with tools like Gaussian elimination and has already been demonstrated earlier in Example~\ref{example_involution_1}.
 
 With this, the main result can be established.
 
@@ -101,11 +101,11 @@ With this, the main result can be established.
   The equivariance equations are a formally integrable partial differential equation $R_q$ with $q=1$, i.e.\ it holds for all $r>0$ that $R^{(1)}_{q+r} = R_{q+r}$.
 \end{theorem}
 
-Formal integrability as defined in Thm.\ \ref{thm_formal_integrability} captures in geometric terms the requirement a PDE must satisfy in order for the iterative solution strategy to succeed. Otherwise, a truncated power series solution---which will later serve as approximate solution for weak gravitational fields---could never be trusted, as prolongations of the PDE to higher orders could always yield additional constraints on the coefficients of the truncated series.
+Formal integrability as defined in Thm.~\ref{thm_formal_integrability} captures in geometric terms the requirement a PDE must satisfy in order for the iterative solution strategy to succeed. Otherwise, a truncated power series solution---which will later serve as approximate solution for weak gravitational fields---could never be trusted, as prolongations of the PDE to higher orders could always yield additional constraints on the coefficients of the truncated series.
 
 The equivariance equations fall into such a simple category that their formal integrability can be proven in a very straightforward way. According to Example 2.3.12 of Ref.\ \cite{Seiler_2010}, the possible integrability conditions for a PDE of order $q=1$ for a single dependent variable are given by a certain commutator of the local PDE representatives. See \cite{Seiler_2010} for the details. Adapting this technique to the system of equivariance equations, we can prove that the integrability conditions are already contained in the system to begin with.
 
-\begin{proof}[Proof of Thm.\ \ref{thm_formal_integrability}]
+\begin{proof}[Proof of Thm.~\ref{thm_formal_integrability}]
   The system \eqref{equivariance_eqn_1}--\eqref{equivariance_eqn_4} of equivariance equations is equivalent (by its derivation) to the equation
   \begin{equation}\label{equivariance_eqn_vector}
     0 = \xi_{J^2E}L + L \cdot \xi^m_{,m}
@@ -126,7 +126,7 @@ The equivariance equations fall into such a simple category that their formal in
   Since it is impossible to generate integrability conditions that are not already present in the system, the equivariance equations are formally integrable.
 \end{proof}
 
-For more involved PDEs, formal integrability is in practice proven by showing that the system is \emph{involutive}, from which formal integrability follows. This comes with an algebraic condition on the PDE, which boils down to calculating a matrix rank for our particular PDE. However, it has still to be checked that a single prolongation does not generate new integrability condition---which amounts to the calculation above. So in this case, nothing would be gained by pursuing this approach. See \cite{Seiler_2010,Reinhart_2019} for a proof of involutivity.
+For more involved PDEs, formal integrability is in practice proven by showing that the system is \emph{involutive}, from which formal integrability follows. This comes with an algebraic condition on the PDE, which boils down to calculating a matrix rank for our particular PDE\@. However, it has still to be checked that a single prolongation does not generate new integrability condition---which amounts to the calculation above. So in this case, nothing would be gained by pursuing this approach. See \cite{Seiler_2010,Reinhart_2019} for a proof of involutivity.
 
 \section{Lorentz invariant ansätze}
 
@@ -153,7 +153,7 @@ which contracted with the Lorentz generators reduces again to first-order equati
 \begin{equation}
   0 = L_{:B}\rvert_{p_0}\gmc{B}{A}{n}{m}(K_{(i)})^m_n.
 \end{equation}
-Comparing this equation with Eq.\ \ref{lorentz_invariance_N} emphasizes its significance: It mandates Lorentz invariance of the expansion coefficients $L_{:B}\rvert_{p_0} = a_B$.
+Comparing this equation with Eq.~\ref{lorentz_invariance_N} emphasizes its significance: It mandates Lorentz invariance of the expansion coefficients $L_{:B}\rvert_{p_0} = a_B$.
 
 Similar results hold for all other expansion coefficients and are obtained exactly the same way: Calculate prolongations of the second equivariance equation, evaluate at the Lorentz invariant expansion point, and contract with the Lorentz generators. While this yields new independent equations of order $q$ by prolongation to order $q+1$ and subsequent projection, it is important not to conflate the Lorentz invariance conditions on expansion coefficients with integrability conditions from involution theory. The former are an artefact of the expansion point with additional symmetries and are as such only valid exactly there, while an integrability condition would not be restricted to singular points.
 
@@ -175,7 +175,7 @@ Before deriving consequences from the second axiom for the perturbatively constr
 \begin{equation}\label{ansatz_reduced}
   \begin{aligned}
     L &{} = a + a_A H^A + a_A^{\hphantom AI} H^A_{\hphantom AI} + a_{AB} H^A H^B + a_{AB}^{\hphantom{AB}I} H^A H^B_{\hphantom BI} + a_{A\hphantom pB}^{\hphantom Ap\hphantom Bq} H^A_{\hphantom Ap} H^B_{\hphantom Bq} \\
-      &{} \hphantom{=} + a_{ABC} H^A H^B H^C + a_{ABC}^{\hphantom{ABC}I} H^A H^B H^C_{\hphantom CI} + a_{AB\hphantom pC}^{\hphantom{AB}p\hphantom Cq} H^A H^B_{\hphantom Bp} H^C_{\hphantom Cq} + \dots \ .
+      &{} \hphantom{=} + a_{ABC} H^A H^B H^C + a_{ABC}^{\hphantom{ABC}I} H^A H^B H^C_{\hphantom CI} + a_{AB\hphantom pC}^{\hphantom{AB}p\hphantom Cq} H^A H^B_{\hphantom Bp} H^C_{\hphantom Cq} + \dots \hspace{2pt}.
   \end{aligned}
 \end{equation}
 As discussed before, all expansion coefficients are Lorentz invariant.
@@ -188,19 +188,19 @@ of the matter polynomial with the expansion
 \begin{equation}\label{expansion_grav_poly}
   \mathcal P_\text{grav} = (P^{(0)}_\text{grav}) + (P^{(1)}_\text{grav})_A H^A + \dots + (P^{(q-2)}_\text{grav})_{A_1\dots A_{q-2}} H^{A_1} \dots H^{A_{q-2}} + \mathcal O(q-1)
 \end{equation}
-of the gravitational polynomial. Note that a ``match'' does not necessarily mean that both polynomials coincide, but rather that the causalities are compatible in the sense of Def.\ \ref{causal_compatibility_def}.
+of the gravitational polynomial. Note that a ``match'' does not necessarily mean that both polynomials coincide, but rather that the causalities are compatible in the sense of Def.~\ref{causal_compatibility_def}.
 
-While the expansion \eqref{expansion_matter_poly} generally follows from a closed form for the matter principal polynomial, we only have the currently constructed orders of the gravitational Lagrangian at our disposal when calculating terms from Eq.\ \ref{expansion_grav_poly}. The process to arrive at the gravitational polynomial from there by expanding the definition \eqref{principal_polynomial}, however, is straightforward. We restrict our attention to the order $q-1=2$ in the field equations, which is the maximum order we will consider for a concrete example later, but the calculations can be generalized to higher orders if necessary.
+While the expansion \eqref{expansion_matter_poly} generally follows from a closed form for the matter principal polynomial, we only have the currently constructed orders of the gravitational Lagrangian at our disposal when calculating terms from Eq.~\ref{expansion_grav_poly}. The process to arrive at the gravitational polynomial from there by expanding the definition \eqref{principal_polynomial}, however, is straightforward. We restrict our attention to the order $q-1=2$ in the field equations, which is the maximum order we will consider for a concrete example later, but the calculations can be generalized to higher orders if necessary.
 
-The principal polynomial was defined in Def.\ \ref{def_principal_polynomial} as the quotient of a non-vanishing entry from the order-$s$ adjugate $Q(k)$ corresponding to the symbol $T(k)$ and an expression built from the generators $\chi_{(i)}(k)$ of the gauge symmetry,
+The principal polynomial was defined in Def.~\ref{def_principal_polynomial} as the quotient of a non-vanishing entry from the order-$s$ adjugate $Q(k)$ corresponding to the symbol $T(k)$ and an expression built from the generators $\chi_{(i)}(k)$ of the gauge symmetry,
 \begin{equation}\label{principal_polynomial_repeat}
     \mathcal P(k) = \frac{Q^{A_1\dots A_sB_1\dots B_s}}{\epsilon^{\mu_1\dots\mu_s}\epsilon^{\nu_1\dots\nu_s}\left\lbrack\prod_{i=1}^s\chi_{(\mu_i)}^{A_i}\right\rbrack\left\lbrack\prod_{j=1}^s\chi_{(\nu_j)}^{B_j}\right\rbrack}.
 \end{equation}
-We start the expansion of Eq.\ \ref{principal_polynomial_repeat} with separating the perturbation orders in the vectors $\chi_{(n)}(k)$ as 
+We start the expansion of Eq.~\ref{principal_polynomial_repeat} with separating the perturbation orders in the vectors $\chi_{(n)}(k)$ as 
 \begin{equation}
   \chi_{(n)}^A(k) = \gmc{A}{B}{m}{n}N^Bk_m + \gmc{A}{B}{m}{n}H^Bk_m =\vcentcolon (\chi^{(0)})^A_n(k) + (\chi^{(1)})^A_{Bn}(k)H^B.
 \end{equation}
-From there, the denominator in Eq.\ \ref{principal_polynomial_repeat}, which will be abbreviated as $f^{A_1\dots A_sB_1\dots B_s}(k)$ in the following, can be expanded into
+From there, the denominator in Eq.~\ref{principal_polynomial_repeat}, which will be abbreviated as $f^{A_1\dots A_sB_1\dots B_s}(k)$ in the following, can be expanded into
 \begin{equation}\label{expansion_f}
   f^{A_1\dots A_sB_1\dots B_s}(k) = (f_{(0)})^{A_1\dots A_sB_1\dots B_s}(k) + (f_{(1)})^{A_1\dots A_sB_1\dots B_s}_C(k)H^C + \mathcal O(2).
 \end{equation}
@@ -281,7 +281,7 @@ Also note that the expansions of the objects relevant for the calculation of $\m
 \end{equation}
 and expand to whichever order in $\epsilon$ is desired.
 
-Let us close with a list of the equivariance equations and their first prolongations evaluated at an expansion point $N = (N^A,0,0)$. We will perform the construction algorithm for the order $q=3$ in Chap.\ \ref{chapter_weak_area}, so it shall suffice to limit ourselves to this order here as well. We use the reduced power series ansatz Eq.\ \ref{ansatz_reduced}. The unprolonged equivariance equations evaluated at $N$ are
+Let us close with a list of the equivariance equations and their first prolongations evaluated at an expansion point $N = (N^A,0,0)$. We will perform the construction algorithm for the order $q=3$ in Chap.~\ref{chapter_weak_area}, so it shall suffice to limit ourselves to this order here as well. We use the reduced power series ansatz Eq.~\ref{ansatz_reduced}. The unprolonged equivariance equations evaluated at $N$ are
 \begin{equation}\label{prolong_0}
   \begin{aligned}
     0 &{} = a_A \gmc{A}{B}{n}{m} N^B + a \delta^n_m, \\
