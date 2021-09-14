@@ -4,14 +4,17 @@
 The following ansätze have been computed using the Haskell package \texttt{sparse-tensor} (see \cite{Reinhart_2019_sparse-tensor} and Chap.~\ref{chapter_computational_methods}). Haskell code for generation and pretty printing as well as the ansätze in machine-readable form are available at Ref.\ \cite{Alex_2020_area-metric-gravity}.
 
 \begin{itemize}
-  \item first order (constants $e_{38},e_{39},e_{40}$):
-\begin{equation}
-  \footnotesize
+  \item first order (constants $e_{38},e_{39},e_{40}$): \\
+  \scalebox{0.8}{
+    \begin{minipage}[t]{\linewidth}
+    \begin{equation}\label{ansatz_AI}
     a_A^{\hphantom AI} H^A_{\hphantom AI} = \Big\lbrack e_{38} \cdot \eta_{ac}\eta_{bd} \eta_{pq} + e_{39} \cdot \eta_{ac} \eta_{bp} \eta_{dq} + e_{40} \cdot \epsilon_{abcd}\eta_{pq}\Big\rbrack \times \eta^{pr} \eta^{qs} H^{abcd}_{\hphantom{abcd},rs}
 \end{equation}
-\item second order (constants $e_{1},\dots,e_{37}$):
-\begin{equation}
-  \footnotesize
+\end{minipage}} \\
+\item second order (constants $e_{1},\dots,e_{37}$): \\
+  \scalebox{0.8}{
+    \begin{minipage}[t]{\linewidth}
+  \begin{equation}\label{ansatz_AB}
   \begin{aligned}
     & a_{AB} H^A H^B = \Big\lbrack \\
     & \hphantom{{}+{}} e_{1} \cdot \eta_{a c} \eta_{b d} \eta_{e g} \eta_{f h} + e_{2} \cdot \eta_{a c} \eta_{b e} \eta_{d g} \eta_{f h} + e_{3} \cdot \eta_{a e} \eta_{b f} \eta_{c g} \eta_{d h} \\
@@ -19,8 +22,7 @@ The following ansätze have been computed using the Haskell package \texttt{spar
     & \Big\rbrack \times H^{abcd} H^{efgh}
   \end{aligned}
 \end{equation}
-\begin{equation}
-  \footnotesize
+\begin{equation}\label{ansatz_ApBq}
   \begin{aligned}
     & a_{A\hphantom{p}B}^{\hphantom Ap\hphantom Bq} H^A_{\hphantom Ap} H^B_{\hphantom Bq} = \Big\lbrack \\
     & \hphantom{{}+{}} e_{7} \cdot \eta_{a c} \eta_{b d} \eta_{p e} \eta_{f g} \eta_{h q} + e_{8} \cdot \eta_{a c} \eta_{b d} \eta_{p q} \eta_{e g} \eta_{f h} + e_{9} \cdot \eta_{a c} \eta_{b p} \eta_{d e} \eta_{f g} \eta_{h q} \\
@@ -31,8 +33,7 @@ The following ansätze have been computed using the Haskell package \texttt{spar
     & \Big\rbrack \times \eta^{pr} \eta^{qs} H^{abcd}_{\hphantom{abcd},r} H^{efgh}_{\hphantom{efgh},s}
   \end{aligned}
 \end{equation}
-\begin{equation}
-  \footnotesize
+\begin{equation}\label{ansatz_ABI}
   \begin{aligned}
     & a_{AB}^{\hphantom{AB}I} H^A H^B_{\hphantom BI} = \Big\lbrack \\
     & \hphantom{{}+{}} e_{22} \cdot \eta_{a c} \eta_{b d} \eta_{e g} \eta_{f h} \eta_{p q} + e_{23} \cdot \eta_{a c} \eta_{b d} \eta_{e g} \eta_{f p} \eta_{h q} + e_{24} \cdot \eta_{a c} \eta_{b e} \eta_{d g} \eta_{f h} \eta_{p q} \\
@@ -43,9 +44,11 @@ The following ansätze have been computed using the Haskell package \texttt{spar
     & + e_{37} \cdot \epsilon_{e f g h} \eta_{a c} \eta_{b d} \eta_{p q} \Big\rbrack \times \eta^{pr} \eta^{qs} H^{abcd} H^{efgh}_{\hphantom{efgh},rs}
   \end{aligned}
 \end{equation}
-\item third order (constants $e_{41},\dots,e_{237}$):
-\begin{equation}
-\scriptsize
+\end{minipage}}
+\item third order (constants $e_{41},\dots,e_{237}$): \\
+  \scalebox{0.8}{
+    \begin{minipage}[t]{\linewidth}
+  \begin{equation}\label{ansatz_ABC}
   \begin{aligned}
     a_{ABC} H^A H^B H^C = \Big\lbrack & \hphantom{{}+{}} e_{41} \cdot \eta_{a c} \eta_{b d} \eta_{e g} \eta_{f h} \eta_{i k} \eta_{j l} + e_{42} \cdot \eta_{a c} \eta_{b d} \eta_{e g} \eta_{f i} \eta_{h k} \eta_{j l} \\
     & + e_{43} \cdot \eta_{a c} \eta_{b d} \eta_{e i} \eta_{f j} \eta_{g k} \eta_{h l} + e_{44} \cdot \eta_{a c} \eta_{b d} \eta_{e i} \eta_{f k} \eta_{g j} \eta_{h l} \\
@@ -57,10 +60,10 @@ The following ansätze have been computed using the Haskell package \texttt{spar
     & + e_{55} \cdot \epsilon_{a b e f} \eta_{c i} \eta_{d j} \eta_{g k} \eta_{h l} \Big\rbrack \times H^{abcd} H^{efgh} H^{ijkl}
   \end{aligned}
 \end{equation}
-\begingroup
-\scriptsize
-\allowdisplaybreaks
-\begin{align}
+\end{minipage}} \\
+  \scalebox{0.8}{
+    \begin{minipage}[t]{\linewidth}
+\begin{align}\label{ansatz_ABpCq}
     & a_{AB\hphantom pC}^{\hphantom{AB}p\hphantom Cq} H^A H^B_{\hphantom Bp} H^C_{\hphantom Cq} = \Big\lbrack \nonumber \\
     & \hphantom{{}+{}} e_{56} \cdot \eta_{a c} \eta_{b d} \eta_{e g} \eta_{f h} \eta_{p i} \eta_{j k} \eta_{l q} + e_{57} \cdot \eta_{a c} \eta_{b d} \eta_{e g} \eta_{f h} \eta_{p q} \eta_{i k} \eta_{j l} + e_{58} \cdot \eta_{a c} \eta_{b d} \eta_{e g} \eta_{f p} \eta_{h i} \eta_{j k} \eta_{l q} \nonumber \\
     & + e_{59} \cdot \eta_{a c} \eta_{b d} \eta_{e g} \eta_{f i} \eta_{h k} \eta_{p j} \eta_{l q} + e_{60} \cdot \eta_{a c} \eta_{b d} \eta_{e g} \eta_{f i} \eta_{h k} \eta_{p q} \eta_{j l} + e_{61} \cdot \eta_{a c} \eta_{b d} \eta_{e g} \eta_{f i} \eta_{h q} \eta_{p k} \eta_{j l} \nonumber \\
@@ -101,11 +104,10 @@ The following ansätze have been computed using the Haskell package \texttt{spar
     & + e_{164} \cdot \epsilon_{a b e q} \eta_{c f} \eta_{d g} \eta_{h p} \eta_{i k} \eta_{j l} + e_{165} \cdot \epsilon_{e f g h} \eta_{a c} \eta_{b d} \eta_{p i} \eta_{j k} \eta_{l q} \nonumber \\
     & \Big\rbrack \times \eta^{pr} \eta^{qs} H^{abcd} H^{efgh}_{\hphantom{efgh},r} H^{ijkl}_{\hphantom{ijkl},s}
 \end{align}
-\endgroup
-\begingroup
-\scriptsize
-\allowdisplaybreaks
-\begin{align}
+\end{minipage}} \\
+  \scalebox{0.8}{
+    \begin{minipage}[t]{\linewidth}
+\begin{align}\label{ansatz_ABCI}
     & a_{ABC}^{\hphantom{ABC}I} H^A H^B H^C_{\hphantom CI} = \Big\lbrack \nonumber \\
     & \hphantom{{}+{}} e_{166} \cdot \eta_{a c} \eta_{b d} \eta_{e g} \eta_{f h} \eta_{i k} \eta_{j l} \eta_{p q} + e_{167} \cdot \eta_{a c} \eta_{b d} \eta_{e g} \eta_{f h} \eta_{i k} \eta_{j p} \eta_{l q} + e_{168} \cdot \eta_{a c} \eta_{b d} \eta_{e g} \eta_{f i} \eta_{h k} \eta_{j l} \eta_{p q} \nonumber \\
     & + e_{169} \cdot \eta_{a c} \eta_{b d} \eta_{e g} \eta_{f i} \eta_{h k} \eta_{j p} \eta_{l q} + e_{170} \cdot \eta_{a c} \eta_{b d} \eta_{e g} \eta_{f i} \eta_{h p} \eta_{j k} \eta_{l q} + e_{171} \cdot \eta_{a c} \eta_{b d} \eta_{e g} \eta_{f p} \eta_{h q} \eta_{i k} \eta_{j l} \nonumber \\
@@ -133,6 +135,6 @@ The following ansätze have been computed using the Haskell package \texttt{spar
     & + e_{235} \cdot \epsilon_{a b i p} \eta_{c e} \eta_{d f} \eta_{g j} \eta_{h k} \eta_{l q} + e_{236} \cdot \epsilon_{a b i p} \eta_{c e} \eta_{d f} \eta_{g k} \eta_{h l} \eta_{j q} + e_{237} \cdot \epsilon_{i j k l} \eta_{a c} \eta_{b d} \eta_{e g} \eta_{f h} \eta_{p q} \nonumber \\
     & \Big\rbrack \times \eta^{pr} \eta^{qs} H^{abcd} H^{efgh} H^{ijkl}_{\hphantom{ijkl},rs}
 \end{align}
-\endgroup
+\end{minipage}}
 \end{itemize}
 

@@ -151,7 +151,7 @@ This transformation behaviour carries over to the principal symbol of the Euler-
   \end{equation}
 \end{proposition}
 \begin{proof}
-  The idea of the proof is as before: We insert the just proven transformation behaviour of the Euler-Lagrange equations $E_A$ and of covectors $k$, which is
+  The idea of the proof is as before: we insert the just proven transformation behaviour of the Euler-Lagrange equations $E_A$ and of covectors $k$, which is
   \begin{equation}
     \delta_\xi k_a = - k_m \xi^m_{,a},
   \end{equation}
@@ -164,11 +164,11 @@ This transformation behaviour carries over to the principal symbol of the Euler-
   \end{equation}
   This time, the calculation is rather trivial and the claim \eqref{trafo_symbol} follows almost immediately.
 \end{proof}
-We are now in a position to prove the first part of the central result, which is that the principal polynomial of area metric gravity is a scalar density. Note that we restrict our considerations to the case of a principal symbol that is independent from the derivatives of the derivatives of the gravitational field, as otherwise the causality could not be matched anyway (see Sect.~\ref{section_axiom2_perturb}).
+We are now in a position to prove the first part of the central result, which is that the principal polynomial of area metric gravity is a scalar density. Note that we restrict our considerations to the case of a principal symbol that is independent of the derivatives of the derivatives of the gravitational field, as otherwise the causality could not be matched anyway (see Sect.~\ref{section_axiom2_perturb}).
 \begin{theorem}\label{thm_poly_trafo}
-  Let $\pi$ be the area metric bundle. Conside a degenerate Lagrangian field theory with a principal symbol that is independent from the derivatives of the area metric field. The principal polynomial $\mathcal P(k)$ corresponding to the symbol, as defined in Def.~\ref{def_principal_polynomial} is a scalar density of weight 23, i.e.~transforms locally under infinitesimal spacetime diffeomorphisms as\footnote{Here, we correct a numerical---but inconsequential---error in the calculation presented in Ref.\ \cite{Alex_2020_2}, where the factor was calculated to be 57 instead of 23.}
+  Let $\pi$ be the area metric bundle. Consider a degenerate Lagrangian field theory with a principal symbol that is independent of the derivatives of the area metric field. The principal polynomial $\mathcal P(k)$ corresponding to the symbol, as defined in Def.~\ref{def_principal_polynomial} is a scalar density of weight 57, i.e.~transforms locally under infinitesimal spacetime diffeomorphisms as
   \begin{equation}
-    \delta_\xi \mathcal P(k) = -23 \cdot \mathcal P(k) \xi^m_{,m}.
+    \delta_\xi \mathcal P(k) = -57 \cdot \mathcal P(k) \xi^m_{,m}.
   \end{equation}
 \end{theorem}
 \begin{proof}
@@ -176,15 +176,15 @@ We are now in a position to prove the first part of the central result, which is
   \begin{equation}
     \delta_\xi \chi^A_{(i)}(k) = \gmc{A}{B}{n}{m} \chi^B_{(i)}(k) \xi^m_{,n} - \chi^A_{(m)}(k)\xi^m_{,i}.
   \end{equation}
-  Now calculating the transformation behaviour of the principal polynomial numerator $Q^{(A_1\dots A_4)(B_1\dots B_4)}$ (dropping the covector $k$ from the notation) we obtain
+  Now calculating the transformation behaviour of the principal polynomial numerator $Q^{A_1\dots A_4B_1\dots B_4}$ (dropping the covector $k$ from the notation) we obtain
   \begin{equation}\label{Q_trafo}
     \begin{aligned}
-      \delta_\xi Q^{(A_1\dots A_4)(B_1\dots B_4)} &{} = \delta_\xi \frac{\partial^4 \operatorname{det} T}{\partial T_{A_1B_1}\dots\partial T_{A_4B_4}} \\
+      \delta_\xi Q^{A_1\dots A_4B_1\dots B_4} &{} = \delta_\xi \frac{\partial^4 \operatorname{det} T}{\partial T_{A_1B_1}\dots\partial T_{A_4B_4}} \\
                                                   &{} = \delta_\xi \left\lbrack \frac{4}{21!} \epsilon^{A_1\dots A_{21}} \epsilon^{B_1\dots B_{21}} T_{A_5B_5} \dots T_{A_{21}B_{21}}\right\rbrack \\
-                                                  &{} = \frac{4\cdot 17}{21!} \epsilon^{A_1\dots A_{21}} \epsilon^{B_1\dots B_{21}} \lbrack\delta_\xi T_{A_5B_5}\rbrack T_{A_6B_6}\dots T_{A_{21}B_{21}} \\
-                                                  &{} = -17\cdot \delta_\xi Q^{(A_1\dots A_4)(B_1\dots B_4)} \xi^m_{,m} \\
-                                                  &{} \hphantom{=} -\frac{4\cdot 17}{21!} \epsilon^{A_1\dots A_{21}} \gmc{A}{A_5}{n}{m} \epsilon^{B_1\dots B_{21}} T_{AB_5} \dots T_{A_{21}B_{21}} \xi^m_{,n} \\
-                                                  &{} \hphantom{=} -\frac{4\cdot 17}{21!} \epsilon^{A_1\dots A_{21}} \epsilon^{B_1\dots B_{21}} \gmc{B}{B_5}{n}{m} T_{A_5B} \dots T_{A_{21}B_{21}} \xi^m_{,n}.
+                                                  &{} = \frac{1}{17!} \epsilon^{A_1\dots A_{21}} \epsilon^{B_1\dots B_{21}} \lbrack\delta_\xi T_{A_5B_5}\rbrack T_{A_6B_6}\dots T_{A_{21}B_{21}} \\
+                                                  &{} = -17\cdot \delta_\xi Q^{A_1\dots A_4B_1\dots B_4} \xi^m_{,m} \\
+                                                  &{} \hphantom{=} -\frac{17}{17!} \epsilon^{A_1\dots A_{21}} \gmc{A}{A_5}{n}{m} \epsilon^{B_1\dots B_{21}} T_{AB_5} \dots T_{A_{21}B_{21}} \xi^m_{,n} \\
+                                                  &{} \hphantom{=} -\frac{17}{17!} \epsilon^{A_1\dots A_{21}} \epsilon^{B_1\dots B_{21}} \gmc{B}{B_5}{n}{m} T_{A_5B} \dots T_{A_{21}B_{21}} \xi^m_{,n}.
     \end{aligned}
   \end{equation}
   This is further simplified using the identity $0 = \epsilon^{\lbrack A_1\dots A_{21}} X^{A\rbrack\dots}$, from which we derive after a few index relabellings
@@ -199,37 +199,37 @@ We are now in a position to prove the first part of the central result, which is
         &{} \hphantom{=} + \epsilon^{A_1A_2A_3A\dots A_{21}} \gmc{A_4}{A}{n}{m} \epsilon^{B_1\dots B_{21}} T_{A_5B_5}T_{A_6B_6}\dots T_{A_{21}B_{21}} \xi^m_{,n}. \\
     \end{aligned}
   \end{equation}
-  Applying the same technique to the index set $[B_1\dots B_{21} B]$ and carrying out the contraction $\gmc{A}{A}{n}{m} = 4\delta^{n}_{m}$, the identity can be applied to the second and third terms in Eq.~\eqref{Q_trafo}, such that we finally obtain
+  Applying the same technique to the index set $[B_1\dots B_{21} B]$ and carrying out the contraction $\gmc{A}{A}{n}{m} = 21\delta^{n}_{m}$, the identity can be applied to the second and third terms in Eq.~\eqref{Q_trafo}, such that we finally obtain
   \begin{equation}
     \begin{aligned}
-      \delta_\xi Q^{(A_1\dots A_4)(B_1\dots B_4)} &{} = -25 \cdot Q^{(A_1\dots A_4)(B_1\dots B_4)} \xi^m_{,m} \\
-                                                  &{} \hphantom{=} + \gmc{A_1}{A}{n}{m} Q^{(AA_2A_3A_4)(B_1\dots B_4)} \xi^m_{,n} + \gmc{A_2}{A}{n}{m} Q^{(A_1AA_3A_4)(B_1\dots B_4)} \xi^m_{,n} \\
-                                                  &{} \hphantom{=} + \gmc{A_3}{A}{n}{m} Q^{(A_1A_2AA_4)(B_1\dots B_4)} \xi^m_{,n} + \gmc{A_4}{A}{n}{m} Q^{(A_1A_2A_3A)(B_1\dots B_4)} \xi^m_{,n} \\
-                                                  &{} \hphantom{=} + \gmc{B_1}{B}{n}{m} Q^{(A_1\dots A_4)(BB_2B_3B_4)} \xi^m_{,n} + \gmc{B_2}{B}{n}{m} Q^{(A_1\dots A_4)(B_1BB_3B_4)} \xi^m_{,n} \\
-                                                  &{} \hphantom{=} + \gmc{B_3}{B}{n}{m} Q^{(A_1\dots A_4)(B_1B_2BB_4)} \xi^m_{,n} + \gmc{B_4}{B}{n}{m} Q^{(A_1\dots A_4)(B_1B_2B_3B)} \xi^m_{,n}.
+      \delta_\xi Q^{A_1\dots A_4B_1\dots B_4} &{} = -59 \cdot Q^{A_1\dots A_4B_1\dots B_4} \xi^m_{,m} \\
+                                                  &{} \hphantom{=} + \gmc{A_1}{A}{n}{m} Q^{AA_2A_3A_4B_1\dots B_4} \xi^m_{,n} + \gmc{A_2}{A}{n}{m} Q^{A_1AA_3A_4B_1\dots B_4} \xi^m_{,n} \\
+                                                  &{} \hphantom{=} + \gmc{A_3}{A}{n}{m} Q^{A_1A_2AA_4B_1\dots B_4} \xi^m_{,n} + \gmc{A_4}{A}{n}{m} Q^{A_1A_2A_3AB_1\dots B_4} \xi^m_{,n} \\
+                                                  &{} \hphantom{=} + \gmc{B_1}{B}{n}{m} Q^{A_1\dots A_4BB_2B_3B_4} \xi^m_{,n} + \gmc{B_2}{B}{n}{m} Q^{A_1\dots A_4B_1BB_3B_4} \xi^m_{,n} \\
+                                                  &{} \hphantom{=} + \gmc{B_3}{B}{n}{m} Q^{A_1\dots A_4B_1B_2BB_4} \xi^m_{,n} + \gmc{B_4}{B}{n}{m} Q^{A_1\dots A_4B_1B_2B_3B} \xi^m_{,n}.
     \end{aligned}
   \end{equation}
-  A similar calculation, this time using the identity $0 = \epsilon^{\lbrack a_1a_2a_3a_4} X^{a\rbrack\dots}$, yields the transformation of the denominator $f^{(A_1\dots A_4)(B_1\dots B_4)}$,
+  A similar calculation, this time using the identity $0 = \epsilon^{\lbrack a_1a_2a_3a_4} X^{a\rbrack\dots}$, yields the transformation of the denominator $f^{A_1\dots A_4B_1\dots B_4}$,
   \begin{equation}
     \begin{aligned}
-      \delta_\xi f^{(A_1\dots A_4)(B_1\dots B_4)} &{} = \delta_\xi\left\lbrack \epsilon^{a_1\dots a_4} \epsilon^{b_1\dots b_4} \prod_{i=1}^4 \chi^{A_i}_{(a_i)} \chi^{B_i}_{(b_i)} \right\rbrack \\
-                                                  &{} = -2 \cdot f^{(A_1\dots A_4)(B_1\dots B_4)} \xi^m_{,m} \\
-                                                  &{} \hphantom{=} + \gmc{A_1}{A}{n}{m} f^{(AA_2A_3A_4)(B_1\dots B_4)} \xi^m_{,n} + \gmc{A_2}{A}{n}{m} f^{(A_1AA_3A_4)(B_1\dots B_4)} \xi^m_{,n} \\
-                                                  &{} \hphantom{=} + \gmc{A_3}{A}{n}{m} f^{(A_1A_2AA_4)(B_1\dots B_4)} \xi^m_{,n} + \gmc{A_4}{A}{n}{m} f^{(A_1A_2A_3A)(B_1\dots B_4)} \xi^m_{,n} \\
-                                                  &{} \hphantom{=} + \gmc{B_1}{B}{n}{m} f^{(A_1\dots A_4)(BB_2B_3B_4)} \xi^m_{,n} + \gmc{B_2}{B}{n}{m} f^{(A_1\dots A_4)(B_1BB_3B_4)} \xi^m_{,n} \\
-                                                  &{} \hphantom{=} + \gmc{B_3}{B}{n}{m} f^{(A_1\dots A_4)(B_1B_2BB_4)} \xi^m_{,n} + \gmc{B_4}{B}{n}{m} f^{(A_1\dots A_4)(B_1B_2B_3B)} \xi^m_{,n}.
+      \delta_\xi f^{A_1\dots A_4B_1\dots B_4} &{} = \delta_\xi\left\lbrack \epsilon^{a_1\dots a_4} \epsilon^{b_1\dots b_4} \prod_{i=1}^4 \chi^{A_i}_{(a_i)} \chi^{B_i}_{(b_i)} \right\rbrack \\
+                                                  &{} = -2 \cdot f^{A_1\dots A_4B_1\dots B_4} \xi^m_{,m} \\
+                                                  &{} \hphantom{=} + \gmc{A_1}{A}{n}{m} f^{AA_2A_3A_4B_1\dots B_4} \xi^m_{,n} + \gmc{A_2}{A}{n}{m} f^{A_1AA_3A_4B_1\dots B_4} \xi^m_{,n} \\
+                                                  &{} \hphantom{=} + \gmc{A_3}{A}{n}{m} f^{A_1A_2AA_4B_1\dots B_4} \xi^m_{,n} + \gmc{A_4}{A}{n}{m} f^{A_1A_2A_3AB_1\dots B_4} \xi^m_{,n} \\
+                                                  &{} \hphantom{=} + \gmc{B_1}{B}{n}{m} f^{A_1\dots A_4BB_2B_3B_4} \xi^m_{,n} + \gmc{B_2}{B}{n}{m} f^{A_1\dots A_4B_1BB_3B_4} \xi^m_{,n} \\
+                                                  &{} \hphantom{=} + \gmc{B_3}{B}{n}{m} f^{A_1\dots A_4B_1B_2BB_4} \xi^m_{,n} + \gmc{B_4}{B}{n}{m} f^{A_1\dots A_4B_1B_2B_3B} \xi^m_{,n}.
     \end{aligned}
   \end{equation}
   Putting both numerator and denominator together proves the claim
   \begin{equation}
-    \delta_\xi \mathcal P(k) = -23 \cdot \mathcal P(k) \xi^m_{,m}.
+    \delta_\xi \mathcal P(k) = -57 \cdot \mathcal P(k) \xi^m_{,m}.
   \end{equation}
 \end{proof}
-An equivalent formulation of the fact that $\mathcal P(k)$ is a density of weight 23 is that the symmetric coefficients\footnote{Recall that the principal polynomial for area metric gravity is homogeneous and of degree 26.} $P^{a_1\dots a_{26}}$ constitute a tensor density of the same weight, i.e.~live of the bundle of symmetric tensor densities of contravariant rank 26 with weight 23. For this geometry, the equivariance equations on the ``zeroth jet bundle'' (since the polynomial must not depend on derivatives of the geometry) are
+An equivalent formulation of the fact that $\mathcal P(k)$ is a density of weight 57 is that the symmetric coefficients\footnote{Recall that the principal polynomial for area metric gravity is homogeneous and of degree 26.} $P^{a_1\dots a_{26}}$ constitute a tensor density of the same weight, i.e.~live on the bundle of symmetric tensor densities of contravariant rank 26 with weight 57. For this geometry, the equivariance equations on the ``zeroth jet bundle'' (since the polynomial must not depend on derivatives of the geometry) are
 \begin{equation}\label{polynomial_equivariance_eqns}
   \begin{aligned}
     P^{a_1\dots a_{26}}_{\hphantom{a_1\dots a_{26}},m} &{} = 0, \\
-    P^{a_1\dots a_{26}}_{\hphantom{a_1\dots a_{26}}:A} \gmc{A}{B}{n}{m} u^B &{} = - 23\cdot P^{a_1\dots a_{26}} \delta^n_m + 26\cdot P^{n(a_1\dots a_{25}} \delta^{a_{26})}_m.
+    P^{a_1\dots a_{26}}_{\hphantom{a_1\dots a_{26}}:A} \gmc{A}{B}{n}{m} u^B &{} = - 57\cdot P^{a_1\dots a_{26}} \delta^n_m + 26\cdot P^{n(a_1\dots a_{25}} \delta^{a_{26})}_m.
   \end{aligned}
 \end{equation}
 
@@ -240,10 +240,10 @@ The second part of the central result follows from these equations. All we have 
   \begin{equation}\label{eq_thm_poly}
     \mathcal P_\text{area} = \lbrack \omega P_\text{GLED}^{(\leq 1)}\rbrack^{13} + \mathcal O(H^2),
   \end{equation}
-  where $\omega$ denotes a density of weight $\frac{23}{13}$ on the area metric bundle and $P_\text{GLED}^{(\leq 1)}$ is the expansion of the GLED polynomial to first order. In particular, to first order in the perturbation, both principal polynomials describe the same null surfaces and hyperbolicity cones.
+  where $\omega$ denotes a density of weight $\frac{57}{13}$ on the area metric bundle and $P_\text{GLED}^{(\leq 1)}$ is the expansion of the GLED polynomial to first order. In particular, to first order in the perturbation, both principal polynomials describe the same null surfaces and hyperbolicity cones.
 \end{theorem}
 \begin{proof}
-  Knowing that the principal polynomial of area metric gravity transforms as a density of weight 23, we can construct possible candidates by solving the equivariance equations \eqref{polynomial_equivariance_eqns}. To this end, we make the ansatz
+  Knowing that the principal polynomial of area metric gravity transforms as a density of weight 57, we can construct possible candidates by solving the equivariance equations \eqref{polynomial_equivariance_eqns}. To this end, we make the ansatz
   \begin{equation}\label{poly_ansatz}
     \begin{aligned}
       \mathcal P_\text{area}(k) &{} = \eta(k,k)^{13} \\
@@ -251,21 +251,21 @@ The second part of the central result follows from these equations. All we have 
                                 &{} \hphantom{=} + \mathcal O(H^2).
     \end{aligned}
   \end{equation}
-An overall factor would be irrelevant, so it has already been dropped when setting the coefficient of the constant term to 1. The generality of the ansatz can, as always, be verified by calculating the corank of the ansatz equations, which will yield 4---the number of ansatz tensors in Eq.~\eqref{poly_ansatz}. Evaluating the equivariance equation at the ansatz and contracting the 26 symmetric indices with covector components, for the sake of a cleaner presentation, yields an equation where we can cancel a common factor of $\eta(k,k)^{(12)}$. The remaining equation has a covariant and a contravariant spacetime index, such that a decomposition into the trace
+An overall factor would be irrelevant, so it has already been dropped when setting the coefficient of the constant term to 1. The generality of the ansatz can, as always, be verified by calculating the corank of the ansatz equations, which will yield 4---the number of ansatz tensors in Eq.~\eqref{poly_ansatz}. Evaluating the equivariance equation at the ansatz and contracting the 26 symmetric indices with covector components, for the sake of a cleaner presentation, yields an equation where we can cancel a common factor of $\eta(k,k)^{12}$. The remaining equation has a covariant and a contravariant spacetime index, such that a decomposition into the trace
 \begin{equation}
-  0 = \lbrack 24 A + 12 B + 3 C + 23 - \frac{13}{2}\rbrack \delta^n_m
+  0 = \lbrack 24 A + 12 B + 3 C + 57 - \frac{13}{2}\rbrack \delta^n_m
 \end{equation}
 and the tracefree part
 \begin{equation}
   0 = \lbrack 4 C - 26\rbrack [\eta^{na}\delta^b_m k_a k_b - \frac{1}{4} \delta^n_m\eta(k,k)]
 \end{equation}
-lends itself for a first attempt in order to retrieve scalar equations for the system. As it turns out, these two equations are already maximal. Parameterizing the solution with $B$ yields
+lends itself for a first attempt to retrieve scalar equations from the system. As it turns out, these two equations are already maximal. Parameterizing the solution with $B$ yields
 \begin{equation}\label{general_area_metric_gravity_poly}
   \begin{aligned}
     \mathcal P_\text{area}(k) &{} = \eta(k,k)^{13} \\
-                              &{} \hphantom{=} - \frac{3}{2} \epsilon(H)\eta(k,k)^{13} + B(\eta(H)-\frac{1}{2}\epsilon(H))\eta(k)^{13} + \frac{13}{2} H(k,k)\eta(k,k)^{12} \\ 
+                              &{} \hphantom{=} - \frac{35}{12} \epsilon(H)\eta(k,k)^{13} + B(\eta(H)-\frac{1}{2}\epsilon(H))\eta(k)^{13} + \frac{13}{2} H(k,k)\eta(k,k)^{12} \\ 
                               &{} \hphantom{=} + \mathcal O(H^2) \\
-                              &{} = \left\{ \left\lbrack 1 - \frac{3}{2\cdot 13} \epsilon(H) + \frac{B}{13}\left(\eta(H) - \frac{1}{2}\epsilon(H) \right)\right\rbrack \eta(k,k) + \frac{1}{2} H(k,k) \right\}^{13} \\
+                              &{} = \left\{ \left\lbrack 1 - \frac{35}{12\cdot 13} \epsilon(H) + \frac{B}{13}\left(\eta(H) - \frac{1}{2}\epsilon(H) \right)\right\rbrack \eta(k,k) + \frac{1}{2} H(k,k) \right\}^{13} \\
                               &{} \hphantom{=} + \mathcal O(H^2),
   \end{aligned}
 \end{equation}
@@ -278,29 +278,29 @@ In order to relate the quadratic polynomial that determines the first order of $
 \begin{equation}
   \begin{aligned}
     \omega_{,m} &{} = 0, \\
-    \omega_{:A} \gmc{A}{B}{n}{m} u^B &{} = -\frac{23}{13}\,\omega \delta^n_m
+    \omega_{:A} \gmc{A}{B}{n}{m} u^B &{} = -\frac{57}{13}\,\omega \delta^n_m
   \end{aligned}
 \end{equation}
-for such a density $\omega$ of weight $\frac{23}{13}$. This time, the Lorentz invariant ansatz is just
+for such a density $\omega$ of weight $\frac{57}{13}$. This time, the Lorentz invariant ansatz is just
 \begin{equation}
   \omega = 1 + A\cdot \epsilon(H) + B\cdot \eta(H) + \mathcal O(H^2)
 \end{equation}
 and reduces the equivariance equations to the single condition
 \begin{equation}
-  24A + 12B = -\frac{23}{13},
+  24A + 12B = -\frac{57}{13},
 \end{equation}
-such that the most general scalar density of weight $\frac{23}{13}$ is to first order given by
+such that the most general scalar density of weight $\frac{57}{13}$ is to first order given by
 \begin{equation}
-  \omega = 1 - \frac{23}{13\cdot 24} \epsilon(H) + B \lbrack \eta(H) - \frac{1}{2} \epsilon(H)\rbrack + \mathcal O(H^2).
+  \omega = 1 - \frac{57}{13\cdot 24} \epsilon(H) + B \lbrack \eta(H) - \frac{1}{2} \epsilon(H)\rbrack + \mathcal O(H^2).
 \end{equation}
-The result now follows from multiplication of $\mathcal P_\text{area}^{(\leq 1)}$ with $\omega$, which yields exactly the area metric gravity polynomial \eqref{general_area_metric_gravity_poly}. To first order, the principal polynomial of area metric gravity is determined by a quadratic polynomial which reduces to the quadratic first-order GLED polynomial \emph{up to a factor}. Because such an overall factor is irrelevant for vanishing sets and hyperbolicity cones, the polynomials must be considered identical for the purpose of comparing their causal structure.
+The result now follows from multiplication of $P_\text{area}^{(\leq 1)}$ with $\omega$, which yields exactly the area metric gravity polynomial \eqref{general_area_metric_gravity_poly}. To first order, the principal polynomial of area metric gravity is determined by a quadratic polynomial which reduces to the quadratic first-order GLED polynomial \emph{up to a factor}. Because such an overall factor is irrelevant for vanishing sets and hyperbolicity cones, the polynomials must be considered identical for the purpose of comparing their causal structure.
 \end{proof}
 
-Having fixed the causality of third-order perturbative area metric gravity---by proof, rather than by explicit calculation---the construction procedure up to this order is completed. Third-order area metric gravity\footnote{With second-order field equations and, therefore, a principal polynomial of first order.} is determined by the ansatz \eqref{ansatz_area_gravity} which is constructed from the Lorentz-invariant basis tensors \eqref{???}. From the 237 gravitational constants---the coefficients in the basis expansion---50 constants turn out to be independent, 11 of which govern the linearized field equations. The relations between gravitational constants are collected in Appendix~\ref{}. In the following, we will examine the linear theory, which forms the basis for predicting first-order and, later on, second-order effects of area metric gravity.
+Having fixed the causality of third-order perturbative area metric gravity---by proof, rather than by explicit calculation---the construction procedure up to this order is completed. Third-order area metric gravity\footnote{With second-order field equations and, therefore, a principal polynomial of first order.} is determined by the ansatz \eqref{ansatz_area_gravity} which is constructed from the Lorentz-invariant basis tensors \eqref{ansatz_AI}--\eqref{ansatz_ABCI}. From the 237 gravitational constants---the coefficients in the basis expansion---50 constants turn out to be independent, 11 of which govern the linearized field equations. The relations between gravitational constants are collected in Appendix~\ref{appendix_reduction}. In the following, we will examine the linear theory, which forms the basis for predicting first-order and, later on, second-order effects of area metric gravity.
 
 \subsection{3+1 decomposition}
 \label{sect_three_plus_one}
-As remarked in Sect.~\ref{section_gled}, the expansion point should be an area metric of a certain subclass in order to guarantee hyperbolicity of the GLED principal polynomial---which encompasses, by the previously proven result, hyperbolicity of third-order area metric gravity. Indeed, $N$ is of subclass I according to the classification in Ref.\ \cite{Schuller_2010}. Thus, we can turn to a $3+1$ formulation, starting with the definition of a slicing.
+As remarked in Sect.~\ref{section_gled}, the expansion point should be an area metric of a certain subclass in order to guarantee hyperbolicity of the GLED principal polynomial---which encompasses, by the previously proven result, hyperbolicity of the second-order area metric gravity field equations. Indeed, $N$ is of subclass I according to the classification in Ref.\ \cite{Schuller_2010}. Thus, we can turn to a $3+1$ formulation, starting with the definition of a slicing.
 \begin{definition}[slicing]
   Consider a spacetime manifold $M$ of dimension four. Any diffeomorphism
   \begin{equation}
@@ -376,7 +376,7 @@ with the spatial density
 \begin{equation}
   \omega_{\hat G} = \sqrt{\operatorname{det}\hat G^{\cdot\cdot}}.
 \end{equation}
-By definition, $\hat G^{\alpha\beta}$ and $\hat G_{\alpha\beta}$ are symmetric. The frame conditions \eqref{frame_conditions} translate into the two additional properties\cite{Giesel_2012}
+By definition, $\hat G^{\alpha\beta}$ and $\hat G_{\alpha\beta}$ are symmetric. The frame conditions \eqref{frame_conditions} translate into the two additional properties \cite{Giesel_2012}
 \begin{equation}
   0 = \hat G^\alpha_{\hphantom\alpha\alpha}\quad\text{and}\quad0 = \hat G^{\mu\lbrack\alpha} \hat G^{\beta\rbrack}_{\hphantom\beta\mu},
 \end{equation}
@@ -404,7 +404,7 @@ A set of perturbations that is more convenient to work with is given by the line
 \begin{equation}
   u^{\alpha\beta} = h^{\alpha\beta} - l^{\alpha\beta},\quad v^{\alpha\beta} = h^{\alpha\beta} + l^{\alpha\beta},\quad w^{\alpha\beta} = 2 k^{\alpha\beta}.
 \end{equation}
-Using these fields rather then the original ones, the field equations assume a particularly simple form. In fact, we find in Sect.~\ref{sect_area_linear_eom} that this choice yields \emph{decoupled} equations for the individual fields.
+Using these fields rather than the original ones, the field equations assume a particularly simple form. In fact, we find in Sect.~\ref{sect_area_linear_eom} that this choice yields \emph{decoupled} equations for the individual fields.
 
 Area metric gravity as constructed in the framework of covariant constructive gravity is---by the first axiom---diffeomorphism invariant. For the linear theory, this invariance manifests itself in the presence of a gauge symmetry
 \begin{equation}\label{area_gauge_transform}
@@ -430,7 +430,7 @@ Explicitly carrying out the gauge transform \eqref{area_gauge_transform} and car
 \begin{equation}
   0 = B,\quad 0 = U^\alpha - V^\alpha,\quad 0 = U + V
 \end{equation}
-are satisfied (see \cite{Schneider_2017}). This choice reduces the degrees of freedom to 17, wich are summarized in Table~\ref{table_area_dof}.
+are satisfied \cite{Schneider_2017}. This choice reduces the degrees of freedom to 17, wich are summarized in Table~\ref{table_area_dof}.
 \begin{table}
   \centering
   \begin{tabular}{l c c c}
@@ -485,7 +485,7 @@ with respect to the area metric in the spacetime picture.
 
 For the linearized field equations, we automatically obtain a Helmholtz decomposition of the Euler-Lagrange equations: The variation with respect to the lapse $N$ is a scalar and contains only contributions from scalars, the variation with respect to the shift $N^\alpha$ is a vector and contains only contributions from vectors. The same holds for the scalar and vector constituents of the observer quantities $\hat G$. Also the variations with respect to transverse traceless tensors are again tensors and only comprised of tensors. As a result, the field equations already decouple to a large extent. For this reason, the terminology of the individual scalar, vector, and tensor fields as \emph{modes} of the gravitational field is justified.
 
-Performing the $3+1$ split is a computationally heavy task. Essentially, the perturbation \eqref{area_metric_perturbation} has to be inserted into the Ansätze (see Appendix~\ref{appendix}), the resulting expression must be simplified, then varied with respect to the different modes, and simplified again. In order to gain confidence in the result, speed up the computation, and---very importantly---have a calculation that can be reproduced and amended, the task has been offloaded to the computer algebra system \texttt{cadabra}\cite{Peeters2007,Peeters_2018}. The code is available at Ref.\ \cite{Alex_2020_area-metric-gravity} and, in parts, in Appendix~\ref{}.
+Performing the $3+1$ split is a computationally heavy task. Essentially, the perturbation \eqref{area_metric_perturbation} has to be inserted into the ansätze \eqref{ansatz_AI}--\eqref{ansatz_ABCI}, the resulting expression must be simplified, then varied with respect to the different modes, and simplified again. In order to gain confidence in the result, speed up the computation, and---very importantly---have a calculation that can be reproduced and amended, the task has been offloaded to the computer algebra system \texttt{cadabra} \cite{Peeters2007,Peeters_2018}. The code is available at Ref.\ \cite{Alex_2020_area-metric-gravity}.
 
 The result of this computation finally yields the field equations of perturbative area metric gravity in a gauge-fixed $3+1$ setting. Of the 16 undetermined gravitational constants $k_i$ that determine the expansion coefficients $e_i$ (see Appendix~\ref{appendix_ansaetze}), ten independent linear combinations $s_i$ (listed in Appendix~\ref{appendix_reduction}) make up the scalar equations
 \begingroup\allowdisplaybreaks
@@ -566,7 +566,7 @@ from which we read off the induced perturbations
 \begin{equation}\label{induced_perturbations}
   u^{\alpha\beta} = 2\varphi^{\alpha\beta},\quad v^{\alpha\beta} = 0,\quad w^{\alpha\beta} = 0.
 \end{equation}
-If the metric perturbation is now given by the expansion of the Schwarzschild solution\cite{Schwarzschild_1916} to first order,
+If the metric perturbation is now given by the expansion of the Schwarzschild solution \cite{Schwarzschild_1916} to first order,
 \begin{equation}
   A \propto \frac{1}{r}\quad\text{and}\quad \varphi^{\alpha\beta} = 2A\gamma^{\alpha\beta},
 \end{equation}
@@ -685,7 +685,7 @@ Similar decoupled wave equations are obtained for the mentioned vector and scala
 \begin{equation}\label{trace_massive_wave}
   \text{(source terms)} = \Box \tilde V + \mu^2 \tilde V.
 \end{equation}
-Counting the wave equations we already found, there are at least 13 propagating degrees of freedom. This is already the maximum number, because our system for 17 degrees of freedom must exhibit four constraint equations arising from the gauge symmetry\cite{}. In fact, the four remaining degrees $B^\alpha$, $\tilde U$, and $A$ are determined by field equations with less than two time derivatives, as can be read off from Eqns.~\eqref{scalar_equations_reduced}--\eqref{tensor_equations_reduced}. Such equations as part of an initial value problem are usually associated with constraints, as they are not capable to \emph{evolve} initial data, but only to \emph{constrain} it.\cite{}
+Counting the wave equations we already found, there are at least 13 propagating degrees of freedom. This is already the maximum number, because our system for 17 degrees of freedom must exhibit four constraint equations arising from the gauge symmetry \cite{}. In fact, the four remaining degrees $B^\alpha$, $\tilde U$, and $A$ are determined by field equations with less than two time derivatives, as can be read off from Eqns.~\eqref{scalar_equations_reduced}--\eqref{tensor_equations_reduced}. Such equations as part of an initial value problem are usually associated with constraints, as they are not capable to \emph{evolve} initial data, but only to \emph{constrain} it. \cite{}
 
 Summing up, the phenomenologically relevant subsector of linearized area metric gravity admits two massless propagating degrees of freedom in the form of the tensor mode $U^{\alpha\beta}$. Furthermore, there are 11 massive propagating degrees of freedom with mass $\mu$, represented by the fields $W$, $V$, $\tilde V$, $U^\alpha$, $W^\alpha$, $V^{\alpha\beta}$, and $W^{\alpha\beta}$. The remaining four degrees of freedom $A$, $\tilde U$, and $B^\alpha$ do not propagate but follow from constraints.
 
@@ -861,7 +861,7 @@ where $m = m_1 + m_2$ denotes the total mass. The vector $\vec n$ is one of the 
 \begin{equation}
   \vec n = \begin{pmatrix} \operatorname{cos}\omega t \\ \operatorname{sin}\omega t \\ 0 \end{pmatrix},\quad \vec \lambda = \begin{pmatrix} -\operatorname{sin}\omega t \\ \operatorname{cos}\omega t \\ 0 \end{pmatrix},\quad \vec e_z = \begin{pmatrix}0 \\ 0 \\ 1\end{pmatrix}
 \end{equation}
-that span the \emph{orbit-adapted} frame\cite{poisson2014gravity}. Both masses reside in the orbital plane spanned by $\vec n$ and $\vec\lambda$, to which $\vec e_z$ is perpendicular. The frame rotates around the axis $\vec e_z$ with angular frequency $\omega$ according to Kepler's third law
+that span the \emph{orbit-adapted} frame \cite{poisson2014gravity}. Both masses reside in the orbital plane spanned by $\vec n$ and $\vec\lambda$, to which $\vec e_z$ is perpendicular. The frame rotates around the axis $\vec e_z$ with angular frequency $\omega$ according to Kepler's third law
 \begin{equation}
   \omega^2 = \frac{Gm}{r^3}.
 \end{equation}
@@ -890,7 +890,7 @@ We are thus left with the wave equation \eqref{metric_second_order_wave_equation
 \begin{equation}
   \Box\psi(\vec x,t) = 4\pi\varphi(\vec x,t).
 \end{equation}
-Such an equation is solved by convolution of the source with the retarded Green's function\cite{}
+Such an equation is solved by convolution of the source with the retarded Green's function \cite{}
 \begin{equation}
   \psi(\vec x,t) = \int\mathrm d^3\vec y\frac{\varphi(\tau,\vec y)}{\lvert\vec x-\vec y\rvert},
 \end{equation}
@@ -941,7 +941,7 @@ We finally put together both parts with the proper constants and the prefactor o
 \begin{equation}\label{metric_radiation}
   G^2h^{\alpha\beta}_{(2)} = \frac{4\eta}{c^4 R} \frac{(Gm)^2}{r}\lbrack\lambda^\alpha\lambda^\beta - n^\alpha n^\beta\rbrack^\text{TT},
 \end{equation}
-parameterized by properties of the matter distribution (total mass $m$, reduced mass $\eta$, separation $r$), the speed of light $c$, and Newton's gravitational constant $G$. This is in exact accordance with the literature\cite{poisson2014gravity} and, of course, no surprise: Contemporary methods employ what is called post-Minkowskian and post-Newtonian theory\cite{poisson2014gravity}, which provides a framework for more complex calculations. However, the pedestrian approach presented here is derived from the same full theory and is thus equally valid.
+parameterized by properties of the matter distribution (total mass $m$, reduced mass $\eta$, separation $r$), the speed of light $c$, and Newton's gravitational constant $G$. This is in exact accordance with the literature \cite{poisson2014gravity} and, of course, no surprise: Contemporary methods employ what is called post-Minkowskian and post-Newtonian theory \cite{poisson2014gravity}, which provides a framework for more complex calculations. However, the pedestrian approach presented here is derived from the same full theory and is thus equally valid.
 
 The strength of this solution procedure is that it does not presuppose knowledge of the exact (i.e.~unperturbed) dynamics and is not restricted to metric theories. Both properties are important for the analysis of the binary star in area metric gravity, a non-metric theory of gravity for which there are no known exact dynamics. Even though we followed a top-down approach and derived the perturbative expansion of the Einstein field equations from its full form, it would have been possible to construct this expansion from the bottom up, order by order. In the following section, this will be the \emph{only} option.
 
@@ -1090,7 +1090,7 @@ Solving the wave equations \eqref{tracefree_second_order} is again a matter of c
 \begin{equation}
   (\Box + m^2)\psi(x) = 4\pi\varphi(x)
 \end{equation}
-and thus solved by the massive propagator\cite{}
+and thus solved by the massive propagator \cite{}
 \begin{equation}
   G_\text{ret}(x,y) = \theta(x^0-y^0)\int\frac{\mathrm d^3\vec k}{(2\pi)^3}\frac{\operatorname{sin}\lbrack\omega_k(x^0-y^0)\rbrack}{\omega_k} \mathrm e^{\mathrm i\vec k\cdot(\vec x-\vec y)},
 \end{equation}
@@ -1135,7 +1135,7 @@ The three source terms $\rho_u$, $\rho_v$, and $\rho_A$ denote the right-hand si
 \end{equation}
 because the fields would couple to the spatial components of the particle worldline tangents. These come with factors of $\sqrt G$, rendering the first-order contributions a higher order than considered for the second iteration. For the variation with respect to the lapse, this is \emph{not} the case, as an expansion of the GLED polynomial to second order shows. The lapse perturbation comes with terms proportional to $\lbrack\dot\gamma^0_{(i)}\rbrack^4=c^4=\mathcal O(G^0)$, which illustrates that we have to expect contributions $T_{(1)}\lbrack\gamma_{(1)},\gamma_{(2)},H_{(1)})$ in the second iteration equation \eqref{trace_scalar_equation}.
 
-Unfortunately, the second-order expansion of the GLED principal polynomial is not effectively metric anymore. The straightforward way of applying the Legendre transform---lowering indices with the help of the covariant metric---is not available in this case. In fact, there is no closed expression for the Legendre transform corresponding to a quartic polynomial.\cite{Rivera_2012} While it is certainly possible to treat the problem perturbatively, it is considered out of scope for the purpose of this thesis. After all, we do not seek to derive a comprehensive solution, but rather wish to demonstrate the ramifications of novel matter dynamics on the gravitational phenomenology. The results for the massless transverse traceless tensor modes, as well as the massive tracefree modes, already allow to make nontrivial predictions concerning the binary star, such that more extensive knowledge of the remaining scalar modes is deemed dispensable.
+Unfortunately, the second-order expansion of the GLED principal polynomial is not effectively metric anymore. The straightforward way of applying the Legendre transform---lowering indices with the help of the covariant metric---is not available in this case. In fact, there is no closed expression for the Legendre transform corresponding to a quartic polynomial. \cite{Rivera_2012} While it is certainly possible to treat the problem perturbatively, it is considered out of scope for the purpose of this thesis. After all, we do not seek to derive a comprehensive solution, but rather wish to demonstrate the ramifications of novel matter dynamics on the gravitational phenomenology. The results for the massless transverse traceless tensor modes, as well as the massive tracefree modes, already allow to make nontrivial predictions concerning the binary star, such that more extensive knowledge of the remaining scalar modes is deemed dispensable.
 
 \section{Phenomenology of area metric gravitational radiation}
 The quintessence of Sect.~\ref{section_binary_star} is the prediction of gravitational waves emitted by a binary star subject to area metric gravity. While compatible with the behaviour of Einstein gravity in certain limits, the area metric result offers new features such as a modification of Kepler's third law, which determines the angular frequency, or radiation on massive modes. All of these effects, however, concern the \emph{gravitational field} and are thus inaccessible to direct observations. This is because the geometric fields only play an auxiliary role in the ensemble of physical fields. Observable effects of gravity involve the \emph{matter fields} whose dynamics is governed by the geometry in question.
@@ -1143,7 +1143,7 @@ The quintessence of Sect.~\ref{section_binary_star} is the prediction of gravita
 In order to derive observable predictions from the previous results, we will first consider a distribution of test matter and study the effect of a passing gravitational wave. This yields the usual deformations known as geodesic deviation, amended by novel deformation patterns. A more direct effect of the radiation that is emitted by a binary star is its energy loss, which makes the binaries reduce their distance and spin faster as the system loses energy through radiation. This will serve as second prediction.
 
 \subsection{Effect on test matter}
-Let us probe the gravitational field using an arrangement of matter called a \emph{geodesic sphere}. It is composed of freely falling point masses that are, at least initially, distributed spherically on a spatial hypersurface. The masses are \emph{test masses}, which is to say that their gravitational field is negligible compared to the field wie like to probe, the incident gravitational wave. To first order, the dynamics of point masses in area metric gravity is effectively metric (see Eq.~\eqref{gled_poly_first_order}). The standard procedures from metric gravity for studying the motion of point masses are thus applicable, including the geodesic deviation equation\cite{Misner_1973}
+Let us probe the gravitational field using an arrangement of matter called a \emph{geodesic sphere}. It is composed of freely falling point masses that are, at least initially, distributed spherically on a spatial hypersurface. The masses are \emph{test masses}, which is to say that their gravitational field is negligible compared to the field wie like to probe, the incident gravitational wave. To first order, the dynamics of point masses in area metric gravity is effectively metric (see Eq.~\eqref{gled_poly_first_order}). The standard procedures from metric gravity for studying the motion of point masses are thus applicable, including the geodesic deviation equation \cite{Misner_1973}
 \begin{equation}
   \frac{1}{c^2} \ddot X^\alpha = - R^\alpha_{\hphantom\alpha 0\beta 0} X^\beta
 \end{equation}
