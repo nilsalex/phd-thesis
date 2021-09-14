@@ -1,3 +1,138 @@
 \chapter{Ansätze for third-order area metric gravity Lagrangians}
 \label{appendix_ansaetze}
 
+The following ansätze have been computed using the Haskell package \texttt{sparse-tensor} (see \cite{Reinhart_2019_sparse-tensor} and Chap.~\ref{chapter_computational_methods}). Haskell code for generation and pretty printing as well as the ansätze in machine-readable form are available at Ref.\ \cite{Alex_2020_area-metric-gravity}.
+
+\begin{itemize}
+  \item first order (constants $e_{38},e_{39},e_{40}$):
+\begin{equation}
+  \footnotesize
+    a_A^{\hphantom AI} H^A_{\hphantom AI} = \Big\lbrack e_{38} \cdot \eta_{ac}\eta_{bd} \eta_{pq} + e_{39} \cdot \eta_{ac} \eta_{bp} \eta_{dq} + e_{40} \cdot \epsilon_{abcd}\eta_{pq}\Big\rbrack \times \eta^{pr} \eta^{qs} H^{abcd}_{\hphantom{abcd},rs}
+\end{equation}
+\item second order (constants $e_{1},\dots,e_{37}$):
+\begin{equation}
+  \footnotesize
+  \begin{aligned}
+    & a_{AB} H^A H^B = \Big\lbrack \\
+    & \hphantom{{}+{}} e_{1} \cdot \eta_{a c} \eta_{b d} \eta_{e g} \eta_{f h} + e_{2} \cdot \eta_{a c} \eta_{b e} \eta_{d g} \eta_{f h} + e_{3} \cdot \eta_{a e} \eta_{b f} \eta_{c g} \eta_{d h} \\
+    & + e_{4} \cdot \eta_{a e} \eta_{b g} \eta_{c f} \eta_{d h} + e_{5} \cdot \epsilon_{a b c d} \eta_{e g} \eta_{f h} + e_{6} \cdot \epsilon_{a b e f} \eta_{c g} \eta_{d h} \\
+    & \Big\rbrack \times H^{abcd} H^{efgh}
+  \end{aligned}
+\end{equation}
+\begin{equation}
+  \footnotesize
+  \begin{aligned}
+    & a_{A\hphantom{p}B}^{\hphantom Ap\hphantom Bq} H^A_{\hphantom Ap} H^B_{\hphantom Bq} = \Big\lbrack \\
+    & \hphantom{{}+{}} e_{7} \cdot \eta_{a c} \eta_{b d} \eta_{p e} \eta_{f g} \eta_{h q} + e_{8} \cdot \eta_{a c} \eta_{b d} \eta_{p q} \eta_{e g} \eta_{f h} + e_{9} \cdot \eta_{a c} \eta_{b p} \eta_{d e} \eta_{f g} \eta_{h q} \\
+    & + e_{10} \cdot \eta_{a c} \eta_{b e} \eta_{d g} \eta_{p f} \eta_{h q} + e_{11} \cdot \eta_{a c} \eta_{b e} \eta_{d g} \eta_{p q} \eta_{f h} + e_{12} \cdot \eta_{a c} \eta_{b e} \eta_{d q} \eta_{p g} \eta_{f h} \\
+    & + e_{13} \cdot \eta_{a p} \eta_{b e} \eta_{c f} \eta_{d g} \eta_{h q} + e_{14} \cdot \eta_{a p} \eta_{b e} \eta_{c g} \eta_{d h} \eta_{f q} + e_{15} \cdot \eta_{a e} \eta_{b f} \eta_{c g} \eta_{d h} \eta_{p q} \\
+    & + e_{16} \cdot \epsilon_{a b c d} \eta_{p e} \eta_{f g} \eta_{h q} + e_{17} \cdot \epsilon_{a b c d} \eta_{p q} \eta_{e g} \eta_{f h} + e_{18} \cdot \epsilon_{a b p e} \eta_{c f} \eta_{d g} \eta_{h q} \\
+    & + e_{19} \cdot \epsilon_{a b p e} \eta_{c g} \eta_{d q} \eta_{f h} + e_{20} \cdot \epsilon_{a b e f} \eta_{c p} \eta_{d g} \eta_{h q} + e_{21} \cdot \epsilon_{a b e f} \eta_{c g} \eta_{d h} \eta_{p q} \\
+    & \Big\rbrack \times \eta^{pr} \eta^{qs} H^{abcd}_{\hphantom{abcd},r} H^{efgh}_{\hphantom{efgh},s}
+  \end{aligned}
+\end{equation}
+\begin{equation}
+  \footnotesize
+  \begin{aligned}
+    & a_{AB}^{\hphantom{AB}I} H^A H^B_{\hphantom BI} = \Big\lbrack \\
+    & \hphantom{{}+{}} e_{22} \cdot \eta_{a c} \eta_{b d} \eta_{e g} \eta_{f h} \eta_{p q} + e_{23} \cdot \eta_{a c} \eta_{b d} \eta_{e g} \eta_{f p} \eta_{h q} + e_{24} \cdot \eta_{a c} \eta_{b e} \eta_{d g} \eta_{f h} \eta_{p q} \\
+    & + e_{25} \cdot \eta_{a c} \eta_{b e} \eta_{d g} \eta_{f p} \eta_{h q} + e_{26} \cdot \eta_{a c} \eta_{b e} \eta_{d p} \eta_{f g} \eta_{h q} + e_{27} \cdot \eta_{a c} \eta_{b p} \eta_{d q} \eta_{e g} \eta_{f h} \\
+    & + e_{28} \cdot \eta_{a e} \eta_{b f} \eta_{c g} \eta_{d h} \eta_{p q} + e_{29} \cdot \eta_{a e} \eta_{b f} \eta_{c g} \eta_{d p} \eta_{h q} + e_{30} \cdot \eta_{a e} \eta_{b g} \eta_{c f} \eta_{d h} \eta_{p q} \\
+    & + e_{31} \cdot \epsilon_{a b c d} \eta_{e g} \eta_{f h} \eta_{p q} + e_{32} \cdot \epsilon_{a b c d} \eta_{e g} \eta_{f p} \eta_{h q} + e_{33} \cdot \epsilon_{a b e f} \eta_{c g} \eta_{d h} \eta_{p q} \\
+    & + e_{34} \cdot \epsilon_{a b e f} \eta_{c g} \eta_{d p} \eta_{h q} + e_{35} \cdot \epsilon_{a b e p} \eta_{c f} \eta_{d g} \eta_{h q} + e_{36} \cdot \epsilon_{a b e p} \eta_{c g} \eta_{d h} \eta_{f q} \\
+    & + e_{37} \cdot \epsilon_{e f g h} \eta_{a c} \eta_{b d} \eta_{p q} \Big\rbrack \times \eta^{pr} \eta^{qs} H^{abcd} H^{efgh}_{\hphantom{efgh},rs}
+  \end{aligned}
+\end{equation}
+\item third order (constants $e_{41},\dots,e_{237}$):
+\begin{equation}
+\scriptsize
+  \begin{aligned}
+    a_{ABC} H^A H^B H^C = \Big\lbrack & \hphantom{{}+{}} e_{41} \cdot \eta_{a c} \eta_{b d} \eta_{e g} \eta_{f h} \eta_{i k} \eta_{j l} + e_{42} \cdot \eta_{a c} \eta_{b d} \eta_{e g} \eta_{f i} \eta_{h k} \eta_{j l} \\
+    & + e_{43} \cdot \eta_{a c} \eta_{b d} \eta_{e i} \eta_{f j} \eta_{g k} \eta_{h l} + e_{44} \cdot \eta_{a c} \eta_{b d} \eta_{e i} \eta_{f k} \eta_{g j} \eta_{h l} \\
+    & + e_{45} \cdot \eta_{a c} \eta_{b e} \eta_{d g} \eta_{f i} \eta_{h k} \eta_{j l} + e_{46} \cdot \eta_{a c} \eta_{b e} \eta_{d i} \eta_{f g} \eta_{h k} \eta_{j l} \\
+    & + e_{47} \cdot \eta_{a e} \eta_{b f} \eta_{c i} \eta_{d j} \eta_{g k} \eta_{h l} + e_{48} \cdot \eta_{a e} \eta_{b f} \eta_{c i} \eta_{d k} \eta_{g j} \eta_{h l} \\
+    & + e_{49} \cdot \epsilon_{a b c d} \eta_{e g} \eta_{f h} \eta_{i k} \eta_{j l} + e_{50} \cdot \epsilon_{a b c d} \eta_{e g} \eta_{f i} \eta_{h k} \eta_{j l} \\
+    & + e_{51} \cdot \epsilon_{a b c d} \eta_{e i} \eta_{f j} \eta_{g k} \eta_{h l} + e_{52} \cdot \epsilon_{a b c d} \eta_{e i} \eta_{f k} \eta_{g j} \eta_{h l} \\
+    & + e_{53} \cdot \epsilon_{a b e f} \eta_{c g} \eta_{d h} \eta_{i k} \eta_{j l} + e_{54} \cdot \epsilon_{a b e f} \eta_{c g} \eta_{d i} \eta_{h k} \eta_{j l} \\
+    & + e_{55} \cdot \epsilon_{a b e f} \eta_{c i} \eta_{d j} \eta_{g k} \eta_{h l} \Big\rbrack \times H^{abcd} H^{efgh} H^{ijkl}
+  \end{aligned}
+\end{equation}
+\begingroup
+\scriptsize
+\allowdisplaybreaks
+\begin{align}
+    & a_{AB\hphantom pC}^{\hphantom{AB}p\hphantom Cq} H^A H^B_{\hphantom Bp} H^C_{\hphantom Cq} = \Big\lbrack \nonumber \\
+    & \hphantom{{}+{}} e_{56} \cdot \eta_{a c} \eta_{b d} \eta_{e g} \eta_{f h} \eta_{p i} \eta_{j k} \eta_{l q} + e_{57} \cdot \eta_{a c} \eta_{b d} \eta_{e g} \eta_{f h} \eta_{p q} \eta_{i k} \eta_{j l} + e_{58} \cdot \eta_{a c} \eta_{b d} \eta_{e g} \eta_{f p} \eta_{h i} \eta_{j k} \eta_{l q} \nonumber \\
+    & + e_{59} \cdot \eta_{a c} \eta_{b d} \eta_{e g} \eta_{f i} \eta_{h k} \eta_{p j} \eta_{l q} + e_{60} \cdot \eta_{a c} \eta_{b d} \eta_{e g} \eta_{f i} \eta_{h k} \eta_{p q} \eta_{j l} + e_{61} \cdot \eta_{a c} \eta_{b d} \eta_{e g} \eta_{f i} \eta_{h q} \eta_{p k} \eta_{j l} \nonumber \\
+    & + e_{62} \cdot \eta_{a c} \eta_{b d} \eta_{e p} \eta_{f i} \eta_{g j} \eta_{h k} \eta_{l q} + e_{63} \cdot \eta_{a c} \eta_{b d} \eta_{e p} \eta_{f i} \eta_{g k} \eta_{h l} \eta_{j q} + e_{64} \cdot \eta_{a c} \eta_{b d} \eta_{e i} \eta_{f j} \eta_{g k} \eta_{h l} \eta_{p q} \nonumber \\
+    & + e_{65} \cdot \eta_{a c} \eta_{b e} \eta_{d g} \eta_{f h} \eta_{p i} \eta_{j k} \eta_{l q} + e_{66} \cdot \eta_{a c} \eta_{b e} \eta_{d g} \eta_{f h} \eta_{p q} \eta_{i k} \eta_{j l} + e_{67} \cdot \eta_{a c} \eta_{b e} \eta_{d g} \eta_{f p} \eta_{h i} \eta_{j k} \eta_{l q} \nonumber \\
+    & + e_{68} \cdot \eta_{a c} \eta_{b e} \eta_{d g} \eta_{f p} \eta_{h q} \eta_{i k} \eta_{j l} + e_{69} \cdot \eta_{a c} \eta_{b e} \eta_{d g} \eta_{f i} \eta_{h k} \eta_{p j} \eta_{l q} + e_{70} \cdot \eta_{a c} \eta_{b e} \eta_{d g} \eta_{f i} \eta_{h k} \eta_{p q} \eta_{j l} \nonumber \\
+    & + e_{71} \cdot \eta_{a c} \eta_{b e} \eta_{d g} \eta_{f i} \eta_{h q} \eta_{p k} \eta_{j l} + e_{72} \cdot \eta_{a c} \eta_{b e} \eta_{d p} \eta_{f g} \eta_{h i} \eta_{j k} \eta_{l q} + e_{73} \cdot \eta_{a c} \eta_{b e} \eta_{d p} \eta_{f g} \eta_{h q} \eta_{i k} \eta_{j l} \nonumber \\
+    & + e_{74} \cdot \eta_{a c} \eta_{b e} \eta_{d p} \eta_{f i} \eta_{g j} \eta_{h k} \eta_{l q} + e_{75} \cdot \eta_{a c} \eta_{b e} \eta_{d p} \eta_{f i} \eta_{g k} \eta_{h l} \eta_{j q} + e_{76} \cdot \eta_{a c} \eta_{b e} \eta_{d p} \eta_{f i} \eta_{g k} \eta_{h q} \eta_{j l} \nonumber \\
+    & + e_{77} \cdot \eta_{a c} \eta_{b e} \eta_{d i} \eta_{f g} \eta_{h p} \eta_{j k} \eta_{l q} + e_{78} \cdot \eta_{a c} \eta_{b e} \eta_{d i} \eta_{f g} \eta_{h j} \eta_{p k} \eta_{l q} + e_{79} \cdot \eta_{a c} \eta_{b e} \eta_{d i} \eta_{f g} \eta_{h k} \eta_{p j} \eta_{l q} \nonumber \\
+    & + e_{80} \cdot \eta_{a c} \eta_{b e} \eta_{d i} \eta_{f g} \eta_{h k} \eta_{p l} \eta_{j q} + e_{81} \cdot \eta_{a c} \eta_{b e} \eta_{d i} \eta_{f g} \eta_{h k} \eta_{p q} \eta_{j l} + e_{82} \cdot \eta_{a c} \eta_{b e} \eta_{d i} \eta_{f g} \eta_{h q} \eta_{p k} \eta_{j l} \nonumber \\
+    & + e_{83} \cdot \eta_{a c} \eta_{b e} \eta_{d i} \eta_{f p} \eta_{g j} \eta_{h k} \eta_{l q} + e_{84} \cdot \eta_{a c} \eta_{b e} \eta_{d i} \eta_{f p} \eta_{g k} \eta_{h l} \eta_{j q} + e_{85} \cdot \eta_{a c} \eta_{b e} \eta_{d i} \eta_{f j} \eta_{g p} \eta_{h k} \eta_{l q} \nonumber \\
+    & + e_{86} \cdot \eta_{a c} \eta_{b e} \eta_{d i} \eta_{f k} \eta_{g j} \eta_{h q} \eta_{p l} + e_{87} \cdot \eta_{a c} \eta_{b e} \eta_{d q} \eta_{f g} \eta_{h p} \eta_{i k} \eta_{j l} + e_{88} \cdot \eta_{a c} \eta_{b e} \eta_{d q} \eta_{f g} \eta_{h i} \eta_{p k} \eta_{j l} \nonumber \\
+    & + e_{89} \cdot \eta_{a c} \eta_{b p} \eta_{d q} \eta_{e g} \eta_{f h} \eta_{i k} \eta_{j l} + e_{90} \cdot \eta_{a e} \eta_{b f} \eta_{c g} \eta_{d h} \eta_{p i} \eta_{j k} \eta_{l q} + e_{91} \cdot \eta_{a e} \eta_{b f} \eta_{c g} \eta_{d h} \eta_{p q} \eta_{i k} \eta_{j l} \nonumber \\
+    & + e_{92} \cdot \eta_{a e} \eta_{b f} \eta_{c g} \eta_{d p} \eta_{h i} \eta_{j k} \eta_{l q} + e_{93} \cdot \eta_{a e} \eta_{b f} \eta_{c g} \eta_{d p} \eta_{h q} \eta_{i k} \eta_{j l} + e_{94} \cdot \eta_{a e} \eta_{b f} \eta_{c g} \eta_{d i} \eta_{h p} \eta_{j k} \eta_{l q} \nonumber \\
+    & + e_{95} \cdot \eta_{a e} \eta_{b f} \eta_{c g} \eta_{d i} \eta_{h j} \eta_{p k} \eta_{l q} + e_{96} \cdot \eta_{a e} \eta_{b f} \eta_{c g} \eta_{d i} \eta_{h k} \eta_{p j} \eta_{l q} + e_{97} \cdot \eta_{a e} \eta_{b f} \eta_{c g} \eta_{d i} \eta_{h k} \eta_{p l} \eta_{j q} \nonumber \\
+    & + e_{98} \cdot \eta_{a e} \eta_{b f} \eta_{c g} \eta_{d i} \eta_{h k} \eta_{p q} \eta_{j l} + e_{99} \cdot \eta_{a e} \eta_{b f} \eta_{c g} \eta_{d i} \eta_{h q} \eta_{p k} \eta_{j l} + e_{100} \cdot \eta_{a e} \eta_{b f} \eta_{c g} \eta_{d q} \eta_{h p} \eta_{i k} \eta_{j l} \nonumber \\
+    & + e_{101} \cdot \eta_{a e} \eta_{b f} \eta_{c g} \eta_{d q} \eta_{h i} \eta_{p k} \eta_{j l} + e_{102} \cdot \eta_{a e} \eta_{b f} \eta_{c p} \eta_{d i} \eta_{g j} \eta_{h k} \eta_{l q} + e_{103} \cdot \eta_{a e} \eta_{b f} \eta_{c p} \eta_{d i} \eta_{g k} \eta_{h l} \eta_{j q} \nonumber \\
+    & + e_{104} \cdot \eta_{a e} \eta_{b f} \eta_{c p} \eta_{d i} \eta_{g k} \eta_{h q} \eta_{j l} + e_{105} \cdot \eta_{a e} \eta_{b f} \eta_{c i} \eta_{d j} \eta_{g p} \eta_{h k} \eta_{l q} + e_{106} \cdot \eta_{a e} \eta_{b f} \eta_{c i} \eta_{d j} \eta_{g k} \eta_{h l} \eta_{p q} \nonumber \\
+    & + e_{107} \cdot \eta_{a e} \eta_{b f} \eta_{c i} \eta_{d k} \eta_{g p} \eta_{h j} \eta_{l q} + e_{108} \cdot \eta_{a e} \eta_{b g} \eta_{c f} \eta_{d h} \eta_{p i} \eta_{j k} \eta_{l q} + e_{109} \cdot \eta_{a e} \eta_{b g} \eta_{c f} \eta_{d h} \eta_{p q} \eta_{i k} \eta_{j l} \nonumber \\
+    & + e_{110} \cdot \eta_{a e} \eta_{b p} \eta_{c f} \eta_{d i} \eta_{g j} \eta_{h k} \eta_{l q} + e_{111} \cdot \eta_{a e} \eta_{b p} \eta_{c f} \eta_{d i} \eta_{g k} \eta_{h q} \eta_{j l} + e_{112} \cdot \eta_{a e} \eta_{b i} \eta_{c f} \eta_{d j} \eta_{g p} \eta_{h k} \eta_{l q} \nonumber \\
+    & + e_{113} \cdot \eta_{a e} \eta_{b i} \eta_{c f} \eta_{d j} \eta_{g k} \eta_{h l} \eta_{p q} + e_{114} \cdot \epsilon_{a b c d} \eta_{e g} \eta_{f h} \eta_{p i} \eta_{j k} \eta_{l q} + e_{115} \cdot \epsilon_{a b c d} \eta_{e g} \eta_{f h} \eta_{p q} \eta_{i k} \eta_{j l} \nonumber \\
+    & + e_{116} \cdot \epsilon_{a b c d} \eta_{e g} \eta_{f p} \eta_{h i} \eta_{j k} \eta_{l q} + e_{117} \cdot \epsilon_{a b c d} \eta_{e g} \eta_{f i} \eta_{h k} \eta_{p j} \eta_{l q} + e_{118} \cdot \epsilon_{a b c d} \eta_{e g} \eta_{f i} \eta_{h k} \eta_{p q} \eta_{j l} \nonumber \\
+    & + e_{119} \cdot \epsilon_{a b c d} \eta_{e g} \eta_{f i} \eta_{h q} \eta_{p k} \eta_{j l} + e_{120} \cdot \epsilon_{a b c d} \eta_{e p} \eta_{f i} \eta_{g j} \eta_{h k} \eta_{l q} + e_{121} \cdot \epsilon_{a b c d} \eta_{e p} \eta_{f i} \eta_{g k} \eta_{h l} \eta_{j q} \nonumber \\
+    & + e_{122} \cdot \epsilon_{a b c d} \eta_{e i} \eta_{f j} \eta_{g k} \eta_{h l} \eta_{p q} + e_{123} \cdot \epsilon_{a b e f} \eta_{c g} \eta_{d h} \eta_{p i} \eta_{j k} \eta_{l q} + e_{124} \cdot \epsilon_{a b e f} \eta_{c g} \eta_{d h} \eta_{p q} \eta_{i k} \eta_{j l} \nonumber \\
+    & + e_{125} \cdot \epsilon_{a b e f} \eta_{c g} \eta_{d p} \eta_{h i} \eta_{j k} \eta_{l q} + e_{126} \cdot \epsilon_{a b e f} \eta_{c g} \eta_{d p} \eta_{h q} \eta_{i k} \eta_{j l} + e_{127} \cdot \epsilon_{a b e f} \eta_{c g} \eta_{d i} \eta_{h p} \eta_{j k} \eta_{l q} \nonumber \\
+    & + e_{128} \cdot \epsilon_{a b e f} \eta_{c g} \eta_{d i} \eta_{h j} \eta_{p k} \eta_{l q} + e_{129} \cdot \epsilon_{a b e f} \eta_{c g} \eta_{d i} \eta_{h k} \eta_{p j} \eta_{l q} + e_{130} \cdot \epsilon_{a b e f} \eta_{c g} \eta_{d i} \eta_{h k} \eta_{p l} \eta_{j q} \nonumber \\
+    & + e_{131} \cdot \epsilon_{a b e f} \eta_{c g} \eta_{d i} \eta_{h k} \eta_{p q} \eta_{j l} + e_{132} \cdot \epsilon_{a b e f} \eta_{c g} \eta_{d i} \eta_{h q} \eta_{p k} \eta_{j l} + e_{133} \cdot \epsilon_{a b e f} \eta_{c g} \eta_{d q} \eta_{h p} \eta_{i k} \eta_{j l} \nonumber \\
+    & + e_{134} \cdot \epsilon_{a b e f} \eta_{c g} \eta_{d q} \eta_{h i} \eta_{p k} \eta_{j l} + e_{135} \cdot \epsilon_{a b e f} \eta_{c p} \eta_{d i} \eta_{g j} \eta_{h k} \eta_{l q} + e_{136} \cdot \epsilon_{a b e f} \eta_{c p} \eta_{d i} \eta_{g k} \eta_{h l} \eta_{j q} \nonumber \\
+    & + e_{137} \cdot \epsilon_{a b e f} \eta_{c p} \eta_{d i} \eta_{g k} \eta_{h q} \eta_{j l} + e_{138} \cdot \epsilon_{a b e f} \eta_{c i} \eta_{d j} \eta_{g p} \eta_{h k} \eta_{l q} + e_{139} \cdot \epsilon_{a b e f} \eta_{c i} \eta_{d j} \eta_{g k} \eta_{h l} \eta_{p q} \nonumber \\
+    & + e_{140} \cdot \epsilon_{a b e f} \eta_{c i} \eta_{d k} \eta_{g p} \eta_{h j} \eta_{l q} + e_{141} \cdot \epsilon_{a b e p} \eta_{c f} \eta_{d g} \eta_{h i} \eta_{j k} \eta_{l q} + e_{142} \cdot \epsilon_{a b e p} \eta_{c f} \eta_{d g} \eta_{h q} \eta_{i k} \eta_{j l} \nonumber \\
+    & + e_{143} \cdot \epsilon_{a b e p} \eta_{c f} \eta_{d i} \eta_{g j} \eta_{h k} \eta_{l q} + e_{144} \cdot \epsilon_{a b e p} \eta_{c f} \eta_{d i} \eta_{g k} \eta_{h l} \eta_{j q} + e_{145} \cdot \epsilon_{a b e p} \eta_{c f} \eta_{d i} \eta_{g k} \eta_{h q} \eta_{j l} \nonumber \\
+    & + e_{146} \cdot \epsilon_{a b e p} \eta_{c g} \eta_{d h} \eta_{f i} \eta_{j k} \eta_{l q} + e_{147} \cdot \epsilon_{a b e p} \eta_{c g} \eta_{d h} \eta_{f q} \eta_{i k} \eta_{j l} + e_{148} \cdot \epsilon_{a b e p} \eta_{c g} \eta_{d i} \eta_{f j} \eta_{h k} \eta_{l q} \nonumber \\
+    & + e_{149} \cdot \epsilon_{a b e p} \eta_{c g} \eta_{d i} \eta_{f k} \eta_{h q} \eta_{j l} + e_{150} \cdot \epsilon_{a b e i} \eta_{c f} \eta_{d g} \eta_{h p} \eta_{j k} \eta_{l q} + e_{151} \cdot \epsilon_{a b e i} \eta_{c f} \eta_{d g} \eta_{h j} \eta_{p k} \eta_{l q} \nonumber \\
+    & + e_{152} \cdot \epsilon_{a b e i} \eta_{c f} \eta_{d g} \eta_{h k} \eta_{p j} \eta_{l q} + e_{153} \cdot \epsilon_{a b e i} \eta_{c f} \eta_{d g} \eta_{h k} \eta_{p l} \eta_{j q} + e_{154} \cdot \epsilon_{a b e i} \eta_{c f} \eta_{d g} \eta_{h k} \eta_{p q} \eta_{j l} \nonumber \\
+    & + e_{155} \cdot \epsilon_{a b e i} \eta_{c f} \eta_{d g} \eta_{h q} \eta_{p k} \eta_{j l} + e_{156} \cdot \epsilon_{a b e i} \eta_{c f} \eta_{d p} \eta_{g j} \eta_{h k} \eta_{l q} + e_{157} \cdot \epsilon_{a b e i} \eta_{c f} \eta_{d p} \eta_{g k} \eta_{h l} \eta_{j q} \nonumber \\
+    & + e_{158} \cdot \epsilon_{a b e i} \eta_{c f} \eta_{d p} \eta_{g k} \eta_{h q} \eta_{j l} + e_{159} \cdot \epsilon_{a b e i} \eta_{c f} \eta_{d j} \eta_{g p} \eta_{h k} \eta_{l q} + e_{160} \cdot \epsilon_{a b e i} \eta_{c f} \eta_{d j} \eta_{g k} \eta_{h l} \eta_{p q} \nonumber \\
+    & + e_{161} \cdot \epsilon_{a b e i} \eta_{c f} \eta_{d k} \eta_{g p} \eta_{h j} \eta_{l q} + e_{162} \cdot \epsilon_{a b e i} \eta_{c f} \eta_{d k} \eta_{g p} \eta_{h l} \eta_{j q} + e_{163} \cdot \epsilon_{a b e i} \eta_{c f} \eta_{d k} \eta_{g j} \eta_{h q} \eta_{p l} \nonumber \\
+    & + e_{164} \cdot \epsilon_{a b e q} \eta_{c f} \eta_{d g} \eta_{h p} \eta_{i k} \eta_{j l} + e_{165} \cdot \epsilon_{e f g h} \eta_{a c} \eta_{b d} \eta_{p i} \eta_{j k} \eta_{l q} \nonumber \\
+    & \Big\rbrack \times \eta^{pr} \eta^{qs} H^{abcd} H^{efgh}_{\hphantom{efgh},r} H^{ijkl}_{\hphantom{ijkl},s}
+\end{align}
+\endgroup
+\begingroup
+\scriptsize
+\allowdisplaybreaks
+\begin{align}
+    & a_{ABC}^{\hphantom{ABC}I} H^A H^B H^C_{\hphantom CI} = \Big\lbrack \nonumber \\
+    & \hphantom{{}+{}} e_{166} \cdot \eta_{a c} \eta_{b d} \eta_{e g} \eta_{f h} \eta_{i k} \eta_{j l} \eta_{p q} + e_{167} \cdot \eta_{a c} \eta_{b d} \eta_{e g} \eta_{f h} \eta_{i k} \eta_{j p} \eta_{l q} + e_{168} \cdot \eta_{a c} \eta_{b d} \eta_{e g} \eta_{f i} \eta_{h k} \eta_{j l} \eta_{p q} \nonumber \\
+    & + e_{169} \cdot \eta_{a c} \eta_{b d} \eta_{e g} \eta_{f i} \eta_{h k} \eta_{j p} \eta_{l q} + e_{170} \cdot \eta_{a c} \eta_{b d} \eta_{e g} \eta_{f i} \eta_{h p} \eta_{j k} \eta_{l q} + e_{171} \cdot \eta_{a c} \eta_{b d} \eta_{e g} \eta_{f p} \eta_{h q} \eta_{i k} \eta_{j l} \nonumber \\
+    & + e_{172} \cdot \eta_{a c} \eta_{b d} \eta_{e i} \eta_{f j} \eta_{g k} \eta_{h l} \eta_{p q} + e_{173} \cdot \eta_{a c} \eta_{b d} \eta_{e i} \eta_{f j} \eta_{g k} \eta_{h p} \eta_{l q} + e_{174} \cdot \eta_{a c} \eta_{b d} \eta_{e i} \eta_{f k} \eta_{g j} \eta_{h l} \eta_{p q} \nonumber \\
+    & + e_{175} \cdot \eta_{a c} \eta_{b e} \eta_{d g} \eta_{f h} \eta_{i k} \eta_{j l} \eta_{p q} + e_{176} \cdot \eta_{a c} \eta_{b e} \eta_{d g} \eta_{f h} \eta_{i k} \eta_{j p} \eta_{l q} + e_{177} \cdot \eta_{a c} \eta_{b e} \eta_{d g} \eta_{f i} \eta_{h k} \eta_{j l} \eta_{p q} \nonumber \\
+    & + e_{178} \cdot \eta_{a c} \eta_{b e} \eta_{d g} \eta_{f i} \eta_{h k} \eta_{j p} \eta_{l q} + e_{179} \cdot \eta_{a c} \eta_{b e} \eta_{d g} \eta_{f i} \eta_{h p} \eta_{j k} \eta_{l q} + e_{180} \cdot \eta_{a c} \eta_{b e} \eta_{d g} \eta_{f p} \eta_{h q} \eta_{i k} \eta_{j l} \nonumber \\
+    & + e_{181} \cdot \eta_{a c} \eta_{b e} \eta_{d i} \eta_{f g} \eta_{h k} \eta_{j l} \eta_{p q} + e_{182} \cdot \eta_{a c} \eta_{b e} \eta_{d i} \eta_{f g} \eta_{h k} \eta_{j p} \eta_{l q} + e_{183} \cdot \eta_{a c} \eta_{b e} \eta_{d i} \eta_{f g} \eta_{h p} \eta_{j k} \eta_{l q} \nonumber \\
+    & + e_{184} \cdot \eta_{a c} \eta_{b e} \eta_{d i} \eta_{f j} \eta_{g k} \eta_{h l} \eta_{p q} + e_{185} \cdot \eta_{a c} \eta_{b e} \eta_{d i} \eta_{f j} \eta_{g k} \eta_{h p} \eta_{l q} + e_{186} \cdot \eta_{a c} \eta_{b e} \eta_{d i} \eta_{f k} \eta_{g j} \eta_{h p} \eta_{l q} \nonumber \\
+    & + e_{187} \cdot \eta_{a c} \eta_{b e} \eta_{d i} \eta_{f k} \eta_{g l} \eta_{h p} \eta_{j q} + e_{188} \cdot \eta_{a c} \eta_{b e} \eta_{d i} \eta_{f p} \eta_{g j} \eta_{h k} \eta_{l q} + e_{189} \cdot \eta_{a c} \eta_{b e} \eta_{d i} \eta_{f p} \eta_{g k} \eta_{h l} \eta_{j q} \nonumber \\
+    & + e_{190} \cdot \eta_{a c} \eta_{b e} \eta_{d i} \eta_{f p} \eta_{g k} \eta_{h q} \eta_{j l} + e_{191} \cdot \eta_{a c} \eta_{b e} \eta_{d p} \eta_{f g} \eta_{h q} \eta_{i k} \eta_{j l} + e_{192} \cdot \eta_{a c} \eta_{b e} \eta_{d p} \eta_{f i} \eta_{g j} \eta_{h k} \eta_{l q} \nonumber \\
+    & + e_{193} \cdot \eta_{a c} \eta_{b i} \eta_{d k} \eta_{e g} \eta_{f p} \eta_{h q} \eta_{j l} + e_{194} \cdot \eta_{a c} \eta_{b i} \eta_{d k} \eta_{e j} \eta_{f p} \eta_{g l} \eta_{h q} + e_{195} \cdot \eta_{a e} \eta_{b f} \eta_{c g} \eta_{d h} \eta_{i k} \eta_{j l} \eta_{p q} \nonumber \\
+    & + e_{196} \cdot \eta_{a e} \eta_{b f} \eta_{c g} \eta_{d h} \eta_{i k} \eta_{j p} \eta_{l q} + e_{197} \cdot \eta_{a e} \eta_{b f} \eta_{c i} \eta_{d j} \eta_{g k} \eta_{h l} \eta_{p q} + e_{198} \cdot \eta_{a e} \eta_{b f} \eta_{c i} \eta_{d j} \eta_{g k} \eta_{h p} \eta_{l q} \nonumber \\
+    & + e_{199} \cdot \eta_{a e} \eta_{b f} \eta_{c i} \eta_{d k} \eta_{g j} \eta_{h l} \eta_{p q} + e_{200} \cdot \eta_{a e} \eta_{b g} \eta_{c f} \eta_{d h} \eta_{i k} \eta_{j l} \eta_{p q} + e_{201} \cdot \eta_{a e} \eta_{b g} \eta_{c f} \eta_{d h} \eta_{i k} \eta_{j p} \eta_{l q} \nonumber \\
+    & + e_{202} \cdot \eta_{a e} \eta_{b g} \eta_{c i} \eta_{d j} \eta_{f k} \eta_{h l} \eta_{p q} + e_{203} \cdot \eta_{a e} \eta_{b g} \eta_{c i} \eta_{d j} \eta_{f k} \eta_{h p} \eta_{l q} + e_{204} \cdot \eta_{a e} \eta_{b i} \eta_{c g} \eta_{d k} \eta_{f p} \eta_{h q} \eta_{j l} \nonumber \\
+    & + e_{205} \cdot \epsilon_{a b c d} \eta_{e g} \eta_{f h} \eta_{i k} \eta_{j l} \eta_{p q} + e_{206} \cdot \epsilon_{a b c d} \eta_{e g} \eta_{f h} \eta_{i k} \eta_{j p} \eta_{l q} + e_{207} \cdot \epsilon_{a b c d} \eta_{e g} \eta_{f i} \eta_{h k} \eta_{j l} \eta_{p q} \nonumber \\
+    & + e_{208} \cdot \epsilon_{a b c d} \eta_{e g} \eta_{f i} \eta_{h k} \eta_{j p} \eta_{l q} + e_{209} \cdot \epsilon_{a b c d} \eta_{e g} \eta_{f i} \eta_{h p} \eta_{j k} \eta_{l q} + e_{210} \cdot \epsilon_{a b c d} \eta_{e g} \eta_{f p} \eta_{h q} \eta_{i k} \eta_{j l} \nonumber \\
+    & + e_{211} \cdot \epsilon_{a b c d} \eta_{e i} \eta_{f j} \eta_{g k} \eta_{h l} \eta_{p q} + e_{212} \cdot \epsilon_{a b c d} \eta_{e i} \eta_{f j} \eta_{g k} \eta_{h p} \eta_{l q} + e_{213} \cdot \epsilon_{a b c d} \eta_{e i} \eta_{f k} \eta_{g j} \eta_{h l} \eta_{p q} \nonumber \\
+    & + e_{214} \cdot \epsilon_{a b e f} \eta_{c g} \eta_{d h} \eta_{i k} \eta_{j l} \eta_{p q} + e_{215} \cdot \epsilon_{a b e f} \eta_{c g} \eta_{d h} \eta_{i k} \eta_{j p} \eta_{l q} + e_{216} \cdot \epsilon_{a b e f} \eta_{c g} \eta_{d i} \eta_{h k} \eta_{j l} \eta_{p q} \nonumber \\
+    & + e_{217} \cdot \epsilon_{a b e f} \eta_{c g} \eta_{d i} \eta_{h k} \eta_{j p} \eta_{l q} + e_{218} \cdot \epsilon_{a b e f} \eta_{c g} \eta_{d i} \eta_{h p} \eta_{j k} \eta_{l q} + e_{219} \cdot \epsilon_{a b e f} \eta_{c g} \eta_{d p} \eta_{h q} \eta_{i k} \eta_{j l} \nonumber \\
+    & + e_{220} \cdot \epsilon_{a b e f} \eta_{c i} \eta_{d j} \eta_{g k} \eta_{h l} \eta_{p q} + e_{221} \cdot \epsilon_{a b e f} \eta_{c i} \eta_{d j} \eta_{g k} \eta_{h p} \eta_{l q} + e_{222} \cdot \epsilon_{a b e f} \eta_{c i} \eta_{d k} \eta_{g j} \eta_{h l} \eta_{p q} \nonumber \\
+    & + e_{223} \cdot \epsilon_{a b e i} \eta_{c f} \eta_{d j} \eta_{g k} \eta_{h l} \eta_{p q} + e_{224} \cdot \epsilon_{a b e i} \eta_{c f} \eta_{d j} \eta_{g k} \eta_{h p} \eta_{l q} + e_{225} \cdot \epsilon_{a b e i} \eta_{c f} \eta_{d k} \eta_{g j} \eta_{h l} \eta_{p q} \nonumber \\
+    & + e_{226} \cdot \epsilon_{a b e i} \eta_{c f} \eta_{d k} \eta_{g j} \eta_{h p} \eta_{l q} + e_{227} \cdot \epsilon_{a b e i} \eta_{c f} \eta_{d k} \eta_{g l} \eta_{h p} \eta_{j q} + e_{228} \cdot \epsilon_{a b e i} \eta_{c f} \eta_{d p} \eta_{g j} \eta_{h k} \eta_{l q} \nonumber \\
+    & + e_{229} \cdot \epsilon_{a b e i} \eta_{c f} \eta_{d p} \eta_{g k} \eta_{h l} \eta_{j q} + e_{230} \cdot \epsilon_{a b e i} \eta_{c f} \eta_{d p} \eta_{g k} \eta_{h q} \eta_{j l} + e_{231} \cdot \epsilon_{a b e p} \eta_{c f} \eta_{d i} \eta_{g j} \eta_{h k} \eta_{l q} \nonumber \\
+    & + e_{232} \cdot \epsilon_{a b i j} \eta_{c e} \eta_{d f} \eta_{g k} \eta_{h l} \eta_{p q} + e_{233} \cdot \epsilon_{a b i j} \eta_{c e} \eta_{d f} \eta_{g k} \eta_{h p} \eta_{l q} + e_{234} \cdot \epsilon_{a b i j} \eta_{c e} \eta_{d k} \eta_{f p} \eta_{g l} \eta_{h q} \nonumber \\
+    & + e_{235} \cdot \epsilon_{a b i p} \eta_{c e} \eta_{d f} \eta_{g j} \eta_{h k} \eta_{l q} + e_{236} \cdot \epsilon_{a b i p} \eta_{c e} \eta_{d f} \eta_{g k} \eta_{h l} \eta_{j q} + e_{237} \cdot \epsilon_{i j k l} \eta_{a c} \eta_{b d} \eta_{e g} \eta_{f h} \eta_{p q} \nonumber \\
+    & \Big\rbrack \times \eta^{pr} \eta^{qs} H^{abcd} H^{efgh} H^{ijkl}_{\hphantom{ijkl},rs}
+\end{align}
+\endgroup
+\end{itemize}
+

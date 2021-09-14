@@ -213,7 +213,7 @@ Overall, the second method is a bit slower for ansätze with 14 indices (needed 
 
 We will encounter the generated ansätze in Chap.~\ref{chapter_weak_area} when constructing perturbative area metric gravity. But first, let us walk through the second Haskell package developed in the course of this thesis.
 
-\section{Equivariance equations}
+\section{Equivariance equations}\label{sect_safe-tensor}
 In principle, \texttt{sparse-tensor} provides the machinery for setting up and solving the equivariance equations. It even contains some safeguards against composing tensors of incompatible ranks, but not nearly enough in order to safely mirror Eqns.\ \eqref{prolong_0}--\eqref{prolong_2} in a Haskell programme. For this purpose, the package \texttt{safe-tensor}\footnote{See \cite{Alex_2020_safe-tensor}. The source code is publicly available at \url{https://github.com/nilsalex/safe-tensor}, the package is also available via hackage at \url{https://hackage.haskell.org/package/safe-tensor}.} has been developed, which implements index-based tensor calculus as known from mathematical physics. \texttt{safe-tensor} makes it comparably easy and, above all, \emph{safe} to perform all kinds of operations on tensors, including transpositions of indices, contractions, symmetrizations, tensor products, and tensor sums.
 
 Central for the design of the tensor type provided by the package is the \emph{generalized rank} of a tensor. The tensors we deal with, a good example being the Gotay-Marsden coefficients $\gmc{A}{B}{n}{m}$, can be considered as multilinear maps over \emph{different} vector spaces. Applying this interpretation to $C$, we get a map
