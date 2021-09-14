@@ -1,0 +1,17 @@
+(.+) :: (Eq v, Num v, MonadError String m) => T v -> T v -> m (T v)
+(.+) o1 o2 =
+  case o1 of
+    T (t1 :: Tensor r1 v) ->
+      case o2 of
+        T (t2 :: Tensor r2 v) ->
+          let sr1 = sing :: Sing r1
+              sr2 = sing :: Sing r2
+          in case sr1 %~ sr2 of
+               Proved Refl ->
+                 case sSane sr1 %~ STrue of
+                   Proved Refl ->
+                     return $ T (t1 &+ t2)
+                   Disproved _ ->
+                     throwError "Rank of summands is not sane."
+               Disproved _ ->
+                 throwError "Generalized tensor ranks do not match."
