@@ -793,7 +793,7 @@ The first-order equation
 \begin{equation}
   e_{(1)}\lbrack h_{(1)}\rbrack = -T_{(0)}\lbrack\gamma_{(1)},\gamma_{(2)}\rbrack
 \end{equation}
-is obtained from the full Euler-Lagrange equations \eqref{einstein_equation} using the well-known expansion of the Einstein tensor to linear order\footnote{See e.g.~\ref{}. The prefactor given by the metric determinant is irrelevant: It expands as $1 + \frac{1}{2}\eta_{\alpha\beta} h^{\alpha\beta}$ and contributes only to zeroth order, because the expansion of the Einstein tensor has \emph{no} zeroth order.} for the right-hand side and---since the left-hand side already contains a factor $G$---the zeroth order of the matter distribution. Split into spatial and temporal contributions, we get
+is obtained from the full Euler-Lagrange equations \eqref{einstein_equation} using the well-known expansion of the Einstein tensor to linear order\footnote{The prefactor given by the metric determinant is irrelevant: It expands as $1 + \frac{1}{2}\eta_{\alpha\beta} h^{\alpha\beta}$ and contributes only to zeroth order, because the expansion of the Einstein tensor has \emph{no} zeroth order.} for the right-hand side and---since the left-hand side already contains a factor $G$---the zeroth order of the matter distribution. Split into spatial and temporal contributions, we get
 \begin{equation}\label{three_plus_one_metric_lhs}
   \begin{aligned}
     e^{00}_{(1)}\lbrack h\rbrack = {} & \Delta C, \\
@@ -881,7 +881,7 @@ We find that the first-order matter functional $T^{\alpha\beta}_{(1)}\lbrack\gam
   \Box E^{\alpha\beta} = -\frac{16\pi}{Gc^4}\left\lbrack\sum_{i=1,2}m_i\delta^{(3)}(\vec x-\vec\gamma_{(i)}(t))\dot\gamma^\alpha_{(i)}\dot\gamma^\beta_{(i)}\right\rbrack^\text{TT} + 2 e^{\alpha\beta}_{(2)}\lbrack h_{(1)}\rbrack^\text{TT}.
 \end{equation}
 
-It remains to derive the contribution from $e^{\alpha\beta}_{(2)}\lbrack h_{(1)}\rbrack$. This is the first and only time where the second order of the Einstein field equations is needed. Thankfully, the field equations have to be evaluated at the result of the first iteration, $h_{(1)}$, which assumes a particularly simple form where all fields are derived from only the Newtonian potential $\phi$. Evaluation of the Einstein field equations at this solution\footnote{Using \texttt{cadabra}, for the corresponding code see Appendix~\ref{appendix_cadabra}.} yields the transverse traceless tensor part
+It remains to derive the contribution from $e^{\alpha\beta}_{(2)}\lbrack h_{(1)}\rbrack$. This is the first and only time where the second order of the Einstein field equations is needed. Thankfully, the field equations have to be evaluated at the result of the first iteration, $h_{(1)}$, which assumes a particularly simple form where all fields are derived from only the Newtonian potential $\phi$. Evaluation of the Einstein field equations at this solution yields the transverse traceless tensor part
 \begin{equation}
   e^{\alpha\beta}_{(2)}\lbrack h_{(1)}\rbrack^\text{TT} = -\frac{2}{c^4}\left\lbrack\partial^\alpha\phi\partial^\beta\phi - 2\partial^\alpha(\phi\partial^\beta\phi) \right\rbrack^\text{TT}.
 \end{equation}
@@ -1030,7 +1030,7 @@ As before, when solving the metric problem, the vectors tangent to the worldline
   -\frac{c^3G}{16\pi} \frac{1}{8\alpha} \Box U^{\alpha\beta}_{(2)} = \left\{\frac{1}{4c}\sum_{i=1,2} m_i \delta^{(3)}(\vec x-\vec\gamma_{(i)}(t))\dot\gamma^\alpha_{(i)}\dot\gamma^\beta_{(i)} + \left(\frac{\delta S_\text{gravity}}{\delta u_{\alpha\beta}}\right)_{(2)}\lbrack GH_{(1)}\rbrack \right\}^\text{TT}.
 \end{equation}
 
-The contribution from the second-order field equations is again calculated using \texttt{cadabra}. The process is roughly as follows: First, the the third-order ansätze (see Appendix~\ref{}) and the corresponding coefficient relations (see Appendix~\ref{}) are loaded into the programme. Then, the Lagrangian is decomposed into observer quantities, shift, and lapse, according to the $3+1$ decomposition introduced in Sect.~\ref{sect_three_plus_one}. All fields, except for the field $u^{\alpha\beta}$ which will be varied, are replaced with the solution from the first iteration, using abbreviations
+The contribution from the second-order field equations is again calculated using \texttt{cadabra}. The process is roughly as follows: First, the the third-order ansätze \eqref{ansatz_ABC}--\eqref{ansatz_ABCI} and the corresponding coefficient relations are loaded into the programme. Then, the Lagrangian is decomposed into observer quantities, shift, and lapse, according to the $3+1$ decomposition introduced in Sect.~\ref{sect_three_plus_one}. All fields, except for the field $u^{\alpha\beta}$ which will be varied, are replaced with the solution from the first iteration, using abbreviations
 \begin{equation}
   \begin{aligned}
     X = &{} \int\mathrm d^3\vec y\rho(\vec y)\frac{1}{\lvert\vec x-\vec y\rvert}, \\
@@ -1041,7 +1041,7 @@ This simplifies the Lagrangian significantly, because it only depends on the sca
 \begin{equation}
   \left(\frac{\delta S_\text{gravity}}{\delta u_{\alpha\beta}}\right)^\text{TT}_{(2)}\lbrack GH_{(1)}\rbrack = \frac{G}{16\pi c}\lbrack\alpha\partial^\alpha X\partial^\beta X + \beta\partial^\alpha Y\partial^\beta Y\rbrack^\text{TT}.
 \end{equation}
-The \texttt{cadabra} code can be found in Ref.\ \cite{Alex_2020_area-metric-gravity} and in Appendix~\ref{}.
+The \texttt{cadabra} code can be found in Ref.\ \cite{Alex_2020_area-metric-gravity}.
 
 Being also a massless wave equation, the differential equation \eqref{area_massless_tt_equation} is solved like before in Sect.~\ref{section_einstein_waves}, by convolution of the right-hand side with the retarded Green's function of the d'Alembert operator. Taking the same limit for the far zone, the solution is
 \begin{equation}
