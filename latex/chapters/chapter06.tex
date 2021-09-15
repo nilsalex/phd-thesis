@@ -89,7 +89,7 @@ With the 237 ansatz coefficients at hand, solving the equivariance equations as 
   Setting e.g.~$e_2 = -2 e_1 -4 e_3$ solves the equivariance equation for the coefficient $a_A^{\hphantom AI}$, leaving it parameterized by two gravitational constants $e_1$ and $e_3$.
 \end{example}
 
-Applied to the whole system of equivariance equations, we obtain a parameterization of the solution (displayed for the first two orders in Appendix~\ref{appendix_reduction}) by 50 independent gravitational constants. A subset of 16 constants governs \emph{linearized} area metric gravity via the quadratic Lagrangian density, from which---as we will encounter later---only 11 independent linear combinations play a role for the Euler-Lagrange equations. The procedure outlined here is implemented in Haskell using the aforementioned libraries. Source code and results are published as Ref.\ \cite{Alex_2020_area-metric-gravity}.
+Applied to the whole system of equivariance equations, we obtain a parameterization of the solution (displayed for the first two orders in Appendix~\ref{appendix_reduction}) by 50 independent gravitational constants. A subset of 16 constants governs \emph{linearized} area metric gravity via the quadratic Lagrangian density, from which---as we will encounter later---only 10 independent linear combinations play a role for the Euler-Lagrange equations. The procedure outlined here is implemented in Haskell using the aforementioned libraries. Source code and results are published as Ref.\ \cite{Alex_2020_area-metric-gravity}.
 
 \subsection{Solving axiom 2}
 The pedestrian approach towards implementing causal compatibility of the just constructed gravitational theory with GLED is to carefully execute steps 6--12 of the perturbative construction algorithm. This way, we obtain an approximation of the area metric gravity principal polynomial and have to match the causal structure with a first-order expansion of the GLED principal polynomial. While entirely feasible, this approach is less illustrative than the \emph{constructive} approach we employ instead. The underlying realization behind this technique is that the diffeomorphism invariance of the gravitational theory dramatically restricts the possible principal polynomials. In fact, we will see that for third-order area metric Lagrangians, the admissible principal polynomials are already causally compatible with the corresponding expansion of the GLED polynomial. \emph{There is no causality mismatch left to be fixed.}
@@ -296,7 +296,7 @@ such that the most general scalar density of weight $\frac{57}{13}$ is to first 
 The result now follows from multiplication of $P_\text{area}^{(\leq 1)}$ with $\omega$, which yields exactly the area metric gravity polynomial \eqref{general_area_metric_gravity_poly}. To first order, the principal polynomial of area metric gravity is determined by a quadratic polynomial which reduces to the quadratic first-order GLED polynomial \emph{up to a factor}. Because such an overall factor is irrelevant for vanishing sets and hyperbolicity cones, the polynomials must be considered identical for the purpose of comparing their causal structure.
 \end{proof}
 
-Having fixed the causality of third-order perturbative area metric gravity---by proof, rather than by explicit calculation---the construction procedure up to this order is completed. Third-order area metric gravity\footnote{With second-order field equations and, therefore, a principal polynomial of first order.} is determined by the ansatz \eqref{ansatz_area_gravity} which is constructed from the Lorentz-invariant basis tensors \eqref{ansatz_AI}--\eqref{ansatz_ABCI}. From the 237 gravitational constants---the coefficients in the basis expansion---50 constants turn out to be independent, 11 of which govern the linearized field equations. The relations between gravitational constants are collected in Appendix~\ref{appendix_reduction}. In the following, we will examine the linear theory, which forms the basis for predicting first-order and, later on, second-order effects of area metric gravity.
+Having fixed the causality of third-order perturbative area metric gravity---by proof, rather than by explicit calculation---the construction procedure up to this order is completed. Third-order area metric gravity\footnote{With second-order field equations and, therefore, a principal polynomial of first order.} is determined by the ansatz \eqref{ansatz_area_gravity} which is constructed from the Lorentz-invariant basis tensors \eqref{ansatz_AI}--\eqref{ansatz_ABCI}. From the 237 gravitational constants---the coefficients in the basis expansion---50 constants turn out to be independent, 10 of which govern the linearized field equations. The relations between gravitational constants are collected in Appendix~\ref{appendix_reduction}. In the following, we will examine the linear theory, which forms the basis for predicting first-order and, later on, second-order effects of area metric gravity.
 
 \subsection{3+1 decomposition}
 \label{sect_three_plus_one}
@@ -488,8 +488,10 @@ For the linearized field equations, we automatically obtain a Helmholtz decompos
 Performing the $3+1$ split is a computationally heavy task. Essentially, the perturbation \eqref{area_metric_perturbation} has to be inserted into the ansätze \eqref{ansatz_AI}--\eqref{ansatz_ABCI}, the resulting expression must be simplified, then varied with respect to the different modes, and simplified again. In order to gain confidence in the result, speed up the computation, and---very importantly---have a calculation that can be reproduced and amended, the task has been offloaded to the computer algebra system \texttt{cadabra} \cite{Peeters2007,Peeters_2018}. The code is available at Ref.\ \cite{Alex_2020_area-metric-gravity}.
 
 The result of this computation finally yields the field equations of perturbative area metric gravity in a gauge-fixed $3+1$ setting. Of the 16 undetermined gravitational constants $k_i$ that determine the expansion coefficients $e_i$ (see Appendix~\ref{appendix_ansaetze}), ten independent linear combinations $s_i$ (listed in Appendix~\ref{appendix_reduction}) make up the scalar equations
-\begingroup\allowdisplaybreaks
-\begin{align}\footnotesize
+
+\resizebox{\linewidth}{!}{
+\begin{minipage}[t]{\linewidth}
+\begin{align}
   \bigg\lbrack\frac{\delta L}{\delta u^{\alpha\beta}}\bigg\rbrack^\text{S-TF} = {} & \Delta_{\alpha\beta} \bigg\lbrack s_1 A -\frac{s_1}{4} \tilde U + s_3 \tilde V + s_4 \ddot V - \frac{s_4}{3} \Delta V + s_6 \ddot W - \frac{s_6}{3} \Delta W\bigg\rbrack, \nonumber \\
   \bigg\lbrack\frac{\delta L}{\delta v^{\alpha\beta}}\bigg\rbrack^\text{S-TF} = {} & \Delta_{\alpha\beta} \bigg\lbrack (s_1 + 4s_4) A + (\frac{s_1}{4} + s_4) \tilde U + (\frac{3s_1}{4} + 3 s_4) \tilde V \nonumber \\ & + s_{11} \ddot V - (\frac{s_1}{3} + \frac{4s_4}{3} + s_{11}) \Delta V + s_{13} V + s_{14} \Box W + s_{16} W \bigg\rbrack, \nonumber \\
   \bigg\lbrack\frac{\delta L}{\delta w^{\alpha\beta}}\bigg\rbrack^\text{S-TF} = {} & \Delta_{\alpha\beta} \bigg\lbrack 4s_6 A + s_6 \tilde U + 3 s_6 \tilde V \nonumber \\ & + (-s_6 + s_{14}) \ddot V - (\frac{s_6}{3} + s_{14}) \Delta V + s_{16} V - (\frac{s_1}{4} + s_4 + s_{11}) \Box W - s_{13} W \bigg\rbrack, \nonumber \\
@@ -497,26 +499,33 @@ The result of this computation finally yields the field equations of perturbativ
   \bigg\lbrack\frac{\delta L}{\delta v^{\alpha\beta}}\bigg\rbrack^\text{S-TR} = {} & \gamma_{\alpha\beta} \bigg\lbrack (-s_1 + \frac{4s_3}{3}) \Delta A + (-\frac{3s_1}{4} + s_3) \ddot{\tilde U} - \frac{2s_3}{3} \Delta\tilde U \nonumber \\ & + s_{37} \ddot{\tilde V} - (\frac{3s_1}{2} - 2s_3 + s_{37}) \Delta\tilde V + s_{39} \tilde V \nonumber \\ & + (\frac{s_1}{2} - \frac{2s_3}{3}) \Delta\ddot V + (\frac{s_1}{6} + \frac{2s_3}{9} + \frac{2s_4}{3}) \Delta\Delta V + \frac{2s_6}{3} \Delta\Delta W\bigg\rbrack, \nonumber \\
   \bigg\lbrack\frac{\delta L}{\delta b^{\alpha}}\bigg\rbrack^\text{S} = {} & \partial_\alpha \partial_t \bigg\lbrack -2s_1\tilde U + (-3s_1 + 4s_3) \tilde V + (\frac{4s_1}{3} + \frac{8s_4}{3}) \Delta V + \frac{8s_6}{3} \Delta W\bigg\rbrack, \nonumber \\
   \frac{\delta L}{\delta A} = {} & -2s_1 \Delta\tilde U + (-3s_1 + 4s_3) \Delta\tilde V + (\frac{4s_1}{3} + \frac{8s_4}{3}) \Delta\Delta V + \frac{8s_6}{3} \Delta\Delta W. \label{scalar_equations}
-\end{align}%
-\endgroup
+\end{align}
+\end{minipage}}
+
 The label $(\text{S-TF})$ denotes the projection of a tensor onto the tracefree scalar, $(\text{S-TR})$ means the projection onto the trace.
 
 A subset of seven constants out of the ten constants $s_i$ parameterizes the vector field equations
-\begingroup\allowdisplaybreaks
-\begin{align}\footnotesize
+
+\resizebox{\linewidth}{!}{
+\begin{minipage}[t]{\linewidth}
+\begin{align}
  \bigg\lbrack\frac{\delta L}{\delta u^{\alpha\beta}}\bigg\rbrack^\text{V} = {} & \partial_t \partial_{(\alpha} \bigg\lbrack s_1 B_{\beta)} - 2s_4 \dot U_{\beta)} - 2s_6 \epsilon_{\beta)}^{\hphantom{\beta)}\mu\nu} U_{\mu,\nu} + 2s_6 \dot W_{\beta)} + (-\frac{s_1}{2} - 2s_4) \epsilon_{\beta)}^{\hphantom{\beta)}\mu\nu} W_{\mu,\nu} \bigg\rbrack, \nonumber \\
  \bigg\lbrack\frac{\delta L}{\delta v^{\alpha\beta}}\bigg\rbrack^\text{V} = {} & \partial_{(\alpha} \bigg\lbrack (-s_1 - 4s_4) \dot B_{\beta)} + 4s_6 \epsilon_{\beta)}^{\hphantom{\beta)}\mu\nu} B_{\mu,\nu} \nonumber \\ & + (s_1 + 4s_4 + 2s_{11}) \ddot U_{\beta)} + (-\frac{3s_1}{2} - 6s_4 - 2s_{11}) \Delta U_{\beta)} + 2s_6 \epsilon_{\beta)}^{\hphantom{\beta)}\mu\nu} \dot U_{\mu,\nu} + 2s_{13} U_{\beta)} \nonumber \\ & + 2 s_{14} \Box W_{\beta)} + 2 s_{16} W_{\beta)} \bigg\rbrack, \nonumber \\
  \bigg\lbrack\frac{\delta L}{\delta w^{\alpha\beta}}\bigg\rbrack^\text{V} = {} & \partial_{(\alpha} \bigg\lbrack 4s_6 \dot B_{\beta)} + (s_1 + 4s_4) \epsilon_{\beta)}^{\hphantom{\beta)}\mu\nu} B_{\mu,\nu} \nonumber \\ & + (2s_6 + 2 s_{14}) \ddot U_{\beta)} - 2 s_{14} \Delta U_{\beta)} + (\frac{s_1}{2} + 2 s_4) \epsilon_{\beta)}^{\hphantom{\beta)}\mu\nu} \dot U_{\mu,\nu} + 2 s_{16} U_{\beta)} \nonumber \\ & + (-\frac{3s_1}{2} - 6s_4 - 2s_{11}) \Box W_{\beta)} - 2s_{13} W_{\beta)} \bigg\rbrack, \nonumber \\
  \bigg\lbrack\frac{\delta L}{\delta b^\alpha}\bigg\rbrack^\text{V} = {} & \Delta\bigg\lbrack 2s_1 B_{\alpha} - 4s_4 \dot U_{\alpha} - 4s_6 \epsilon_{\alpha}^{\hphantom{\alpha}\mu\nu} U_{\mu,\nu} + 4s_6 \dot W_{\alpha} + (-s_1 - 4s_4) \epsilon_{\alpha}^{\hphantom{\alpha}\mu\nu} W_{\mu,\nu} \bigg\rbrack, \label{vector_equations}
-\end{align}%
-\endgroup
+\end{align}
+\end{minipage}}
+
 as well as the transverse traceless tensor field equations
-\begingroup\allowdisplaybreaks
-\begin{align}\footnotesize
+
+\resizebox{\linewidth}{!}{
+\begin{minipage}[t]{\linewidth}
+\begin{align}
  \bigg\lbrack\frac{\delta L}{\delta u^{\alpha\beta}}\bigg\rbrack^\text{TT} = {} & \frac{s_1}{4} \Box U_{\alpha\beta} \nonumber \\ &  + (\frac{s_1}{4} + s_4) \ddot V_{\alpha\beta} + (\frac{s_1}{4} + s_4) \Delta V_{\alpha\beta} - 2s_6 \epsilon_{(\alpha}^{\hphantom{(\alpha}\mu\nu} \dot V_{\beta)\mu,\nu} \nonumber \\ & + s_6 \ddot W_{\alpha\beta} + s_6 \Delta W_{\alpha\beta} + (\frac{s_1}{2} + 2 s_4) \epsilon_{(\alpha}^{\hphantom{(\alpha}\mu\nu} \dot W_{\beta)\mu,\nu}, \nonumber \\
  \bigg\lbrack\frac{\delta L}{\delta v^{\alpha\beta}}\bigg\rbrack^\text{TT} = {} & (\frac{s_1}{4} + s_4) \ddot U_{\alpha\beta} + (\frac{s_1}{4} + s_4) \Delta U_{\alpha\beta} + 2s_6 \epsilon_{(\alpha}^{\hphantom{(\alpha}\mu\nu} \dot U_{\beta)\mu,\nu} \nonumber \\ &  + (\frac{s_1}{4} + s_4 + s_{11}) \Box V_{\alpha\beta} + s_{13} V_{\alpha\beta} + s_{14} \Box W_{\alpha\beta} + s_{16} W_{\alpha\beta}, \nonumber \\
  \bigg\lbrack\frac{\delta L}{\delta w^{\alpha\beta}}\bigg\rbrack^\text{TT} = {} & s_6 \ddot U_{\alpha\beta} + s_6 \Delta U_{\alpha\beta} - (\frac{s_1}{2} + 2 s_4) \epsilon_{(\alpha}^{\hphantom{(\alpha}\mu\nu} \dot U_{\beta)\mu,\nu}\nonumber \\ &  + s_{14} \Box V_{\alpha\beta} + s_{16} V_{\alpha\beta} - (\frac{s_1}{4} + s_4 + s_{11}) \Box W_{\alpha\beta} - s_{13} W_{\alpha\beta}. \label{tensor_equations}
 \end{align}
+\end{minipage}}
 
 The second Noether theorem \eqref{second_noether}
 \begin{equation}
@@ -612,8 +621,7 @@ where we redefined the relevant gravitational constants using the more convenien
 \end{equation}
 
 With the reduction from ten to eight gravitational constants, the linearized field equations assume a simpler form. There are reduced scalar field equations
-\begingroup\allowdisplaybreaks
-\begin{align}\footnotesize
+\begin{align}
   \bigg\lbrack\frac{\delta L}{\delta u^{\alpha\beta}}\bigg\rbrack^\text{S-TF} = {} & \Delta_{\alpha\beta} \bigg\lbrack s_1 A -\frac{s_1}{4} \tilde U + s_3 \tilde V - \frac{s_1}{4} \ddot V + \frac{s_1}{12} \Delta V \bigg\rbrack, \nonumber \\
   \bigg\lbrack\frac{\delta L}{\delta v^{\alpha\beta}}\bigg\rbrack^\text{S-TF} = {} & \Delta_{\alpha\beta} \bigg\lbrack s_{11} \Box V + s_{13} V + s_{14} \Box W + s_{16} W \bigg\rbrack, \nonumber \\
   \bigg\lbrack\frac{\delta L}{\delta w^{\alpha\beta}}\bigg\rbrack^\text{S-TF} = {} & \Delta_{\alpha\beta} \bigg\lbrack s_{14} \Box V + s_{16} V - s_{11} \Box W - s_{13} W \bigg\rbrack, \nonumber \\
@@ -622,25 +630,19 @@ With the reduction from ten to eight gravitational constants, the linearized fie
   \bigg\lbrack\frac{\delta L}{\delta b^{\alpha}}\bigg\rbrack^\text{S} = {} & \partial_\alpha \partial_t \bigg\lbrack -2s_1\tilde U + (-3s_1 + 4s_3) \tilde V + \frac{2s_1}{3} \Delta V\bigg\rbrack, \nonumber \\
   \frac{\delta L}{\delta A} = {} & -2s_1 \Delta\tilde U + (-3s_1 + 4s_3) \Delta\tilde V + \frac{2s_1}{3} \Delta\Delta V, \nonumber
 \end{align}
-\endgroup
 vector field equations
-\begingroup\allowdisplaybreaks
-\begin{align}\footnotesize
+\begin{align}
   \bigg\lbrack\frac{\delta L}{\delta u^{\alpha\beta}}\bigg\rbrack^\text{V} = {} & \frac{s_1}{2} \partial_t \partial_{(\alpha} \bigg\lbrack 2 B_{\beta)} + \dot U_{\beta)}\bigg\rbrack, \nonumber \\
   \bigg\lbrack\frac{\delta L}{\delta v^{\alpha\beta}}\bigg\rbrack^\text{V} = {} & 2 \partial_{(\alpha} \bigg\lbrack  s_{11} \Box U_{\beta)} + s_{13} U_{\beta)} +  s_{14} \Box W_{\beta)} +  s_{16} W_{\beta)} \bigg\rbrack, \nonumber \\
   \bigg\lbrack\frac{\delta L}{\delta w^{\alpha\beta}}\bigg\rbrack^\text{V} = {} & 2 \partial_{(\alpha} \bigg\lbrack s_{14} \Box U_{\beta)} + s_{16} U_{\beta)} - s_{11} \Box W_{\beta)} - s_{13} W_{\beta)} \bigg\rbrack, \label{vector_equations_reduced} \\
   \bigg\lbrack\frac{\delta L}{\delta b^\alpha}\bigg\rbrack^\text{V} = {} & s_1 \Delta\bigg\lbrack 2 B_{\alpha} + \dot U_{\alpha} \bigg\rbrack, \nonumber
 \end{align}
-\endgroup
 and traceless tensor field equations
-\begingroup\allowdisplaybreaks
-\begin{align}\footnotesize
+\begin{align}
   \bigg\lbrack\frac{\delta L}{\delta u^{\alpha\beta}}\bigg\rbrack^\text{TT} = {} & \frac{s_1}{4} \Box U_{\alpha\beta}, \nonumber \\
   \bigg\lbrack\frac{\delta L}{\delta v^{\alpha\beta}}\bigg\rbrack^\text{TT} = {} & s_{11} \Box V_{\alpha\beta} + s_{13} V_{\alpha\beta} + s_{14} \Box W_{\alpha\beta} + s_{16} W_{\alpha\beta}, \label{tensor_equations_reduced} \\
   \bigg\lbrack\frac{\delta L}{\delta w^{\alpha\beta}}\bigg\rbrack^\text{TT} = {} & s_{14} \Box V_{\alpha\beta} + s_{16} V_{\alpha\beta} - s_{11} \Box W_{\alpha\beta} - s_{13} W_{\alpha\beta}. \nonumber
 \end{align}
-\endgroup
-
 The second observation we want to make concerns the subset
 \begin{equation}
   \begin{aligned}
@@ -674,13 +676,11 @@ Most importantly, there are always $\lambda_k$ such that $\operatorname{Re}(\lam
 and have thus reduced linearized area metric gravity to a theory parameterized by seven remaining gravitational constants, of which there are five combinations that determine the results obtained above: The two constants $\mu$ and $\nu$ appear as \emph{masses} in wave equations and screened Poisson equations, respectively, and three constants $\alpha$, $\beta$, and $\gamma$ further parameterize the linearized Schwarzschild solution.
 
 Note that with $\sigma=0$ the wave equations for $W$, $V$, $U^\alpha$, $V^\alpha$, $U^{\alpha\beta}$, $V^{\alpha\beta}$, and $W^{\alpha\beta}$ \emph{decouple}, e.g.~the system of transverse traceless tensor equations can be transformed by taking linear combinations into
-\begingroup\allowdisplaybreaks
-\begin{align}\footnotesize
+\begin{align}
   \bigg\lbrack\frac{\delta L}{\delta u^{\alpha\beta}}\bigg\rbrack^\text{TT} = {} & \frac{s_1}{4} \Box U_{\alpha\beta}, \nonumber \\
   \frac{s_{11}}{s_{11}^2 + s_{14}^2} \bigg\lbrack\frac{\delta L}{\delta v^{\alpha\beta}}\bigg\rbrack^\text{TT} + \frac{s_{14}}{s_{11}^2 + s_{14}^2} \bigg\lbrack\frac{\delta L}{\delta w^{\alpha\beta}}\bigg\rbrack^\text{TT} = {} & \Box V_{\alpha\beta} + \nu^2 V_{\alpha\beta}, \label{tensor_equations_decoupled} \\
   \frac{s_{14}}{s_{11}^2 + s_{14}^2} \bigg\lbrack\frac{\delta L}{\delta v^{\alpha\beta}}\bigg\rbrack^\text{TT} - \frac{s_{11}}{s_{11}^2 + s_{14}^2} \bigg\lbrack\frac{\delta L}{\delta w^{\alpha\beta}}\bigg\rbrack^\text{TT} = {} & \Box W_{\alpha\beta} + \nu^2 W_{\alpha\beta}. \nonumber
 \end{align}
-\endgroup
 Similar decoupled wave equations are obtained for the mentioned vector and scalar modes. It is also possible to find a linear combination of scalar field equations \eqref{scalar_equations_reduced} such that the mode $\tilde V$ obeys a massive wave equation\footnote{Not denoting linear combinations of Lagrangian variations explicitly but just referring to them as \emph{source terms}.}
 \begin{equation}\label{trace_massive_wave}
   \text{(source terms)} = \Box \tilde V + \mu^2 \tilde V.

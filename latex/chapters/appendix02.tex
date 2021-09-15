@@ -7,7 +7,7 @@ The following relations for the ansatz coefficients $e_{1},\dots,e_{237}$ solve 
   \item first and second order (constants $e_1,\dots,e_{40}$):
 \begingroup
 \allowdisplaybreaks
-\begin{align}\label{reductions}
+\begin{align}\label{eq_second_order_constants}
   e_{1} = {} &  k_{1} \nonumber \\
   e_{2} = {} &  k_{2} \nonumber \\
   e_{3} = {} & -2 k_{1} -\frac{2}{3} k_{2} \nonumber \\
@@ -52,3 +52,17 @@ e_{40} = {} &  k_{4} + \frac{1}{2} k_{6} -\frac{1}{8} k_{7}
 \endgroup
   \item third order (constants $e_{41},\dots,e_{237}$): see \cite{Alex_2020_area-metric-gravity}.
 \end{itemize}
+
+From the 16 constants $k_{1},\dots,k_{16}$ that govern the second-order expansion of the area metric Lagrangian, only 10 linearly independent combinations contribute to the linearized Euler-Lagrange equations. A possible basis is given by the 10 gravitational constants $s_{i}$ below\footnote{The constants are not labelled with consecutive numbers, because the labels reflect how they have been calculated: each constant from $s_1$ to $s_{46}$ is the prefactor of a certain term in the scalar field equation, but also a linear combination of the 16 constants $k_{i}$. The subset below is a basis; every coefficient of the linearized field equations is a linear combination of the $s_{i}$.}. These are obtained from a $3+1$ and subsequent scalar-vector-tensor decomposition of the linearized field equations (see \cite{Alex_2020_area-metric-gravity}).
+\begin{align}\label{eq_linearized_eom_constants}
+    s_{1} = {} &  2 k_{6} + \frac{3}{2} k_{7} \nonumber \\
+    s_{3} = {} &  \frac{3}{2} k_{6} + \frac{9}{8} k_{7} - 6 k_{12} - 2 k_{14} \nonumber \\
+    s_{4} = {} &  -\frac{1}{2} k_{6} - \frac{3}{8} k_{7} - \frac{1}{2} k_{14} \nonumber \\
+    s_{6} = {} &  k_{6} + \frac{3}{4} k_{7} - 3 k_{12} - k_{14} - 6 k_{16} \nonumber \\
+    s_{11} = {} &  \frac{1}{2} k_{6} + \frac{11}{8} k_{7} + 2 k_{8} - 2 k_{13} - \frac{1}{2} k_{14} \nonumber \\
+    s_{13} = {} &  -2 k_{2} \nonumber \\
+    s_{14} = {} &  -2 k_{4} + 24 k_{5} - k_{6} - \frac{3}{4} k_{7} + 4 k_{8} - 12 k_{9} + 24 k_{10} - 24 k_{11} - 6 k_{12} - 4 k_{13} \nonumber \\ & - 2 k_{14} - 48 k_{15} - 12 k_{16} \nonumber \\
+    s_{16} = {} &  -24 k_{1} - 4 k_{2} - 24 k_{3} \nonumber \\
+    s_{37} = {} &  -24 k_{5} + 2 k_{6} + \frac{5}{2} k_{7} - 4 k_{8} + 24 k_{11} - 12 k_{12} + 4 k_{13} - 4 k_{14} \nonumber \\
+    s_{39} = {} &  24 k_{1} + 4 k_{2}
+\end{align}
