@@ -487,51 +487,13 @@ For the linearized field equations, we automatically obtain a Helmholtz decompos
 
 Performing the $3+1$ split is a computationally heavy task. Essentially, the perturbation \eqref{area_metric_perturbation} has to be inserted into the ansätze \eqref{ansatz_AI}--\eqref{ansatz_ABCI}, the resulting expression must be simplified, then varied with respect to the different modes, and simplified again. In order to gain confidence in the result, speed up the computation, and---very importantly---have a calculation that can be reproduced and amended, the task has been offloaded to the computer algebra system \texttt{cadabra} \cite{Peeters2007,Peeters_2018}. The code is available at Ref.\ \cite{Alex_2020_area-metric-gravity}.
 
-The result of this computation finally yields the field equations of perturbative area metric gravity in a gauge-fixed $3+1$ setting. Of the 16 undetermined gravitational constants $k_i$ that determine the expansion coefficients $e_i$ (see Appendix~\ref{appendix_ansaetze}), ten independent linear combinations $s_i$ (listed in Appendix~\ref{appendix_reduction}) make up the scalar equations
+The result of this computation finally yields the field equations of perturbative area metric gravity in a gauge-fixed $3+1$ setting. Of the 16 undetermined gravitational constants $k_i$ that determine the expansion coefficients $e_i$ (see Appendix~\ref{appendix_reduction}), ten independent linear combinations $s_i$ (listed in Appendix~\ref{appendix_field_equations}) make up the linearized field equations \eqref{scalar_equations}--\eqref{tensor_equations}.
 
-\resizebox{\linewidth}{!}{
-\begin{minipage}[t]{\linewidth}
-\begin{align}
-  \bigg\lbrack\frac{\delta L}{\delta u^{\alpha\beta}}\bigg\rbrack^\text{S-TF} = {} & \Delta_{\alpha\beta} \bigg\lbrack s_1 A -\frac{s_1}{4} \tilde U + s_3 \tilde V + s_4 \ddot V - \frac{s_4}{3} \Delta V + s_6 \ddot W - \frac{s_6}{3} \Delta W\bigg\rbrack, \nonumber \\
-  \bigg\lbrack\frac{\delta L}{\delta v^{\alpha\beta}}\bigg\rbrack^\text{S-TF} = {} & \Delta_{\alpha\beta} \bigg\lbrack (s_1 + 4s_4) A + (\frac{s_1}{4} + s_4) \tilde U + (\frac{3s_1}{4} + 3 s_4) \tilde V \nonumber \\ & + s_{11} \ddot V - (\frac{s_1}{3} + \frac{4s_4}{3} + s_{11}) \Delta V + s_{13} V + s_{14} \Box W + s_{16} W \bigg\rbrack, \nonumber \\
-  \bigg\lbrack\frac{\delta L}{\delta w^{\alpha\beta}}\bigg\rbrack^\text{S-TF} = {} & \Delta_{\alpha\beta} \bigg\lbrack 4s_6 A + s_6 \tilde U + 3 s_6 \tilde V \nonumber \\ & + (-s_6 + s_{14}) \ddot V - (\frac{s_6}{3} + s_{14}) \Delta V + s_{16} V - (\frac{s_1}{4} + s_4 + s_{11}) \Box W - s_{13} W \bigg\rbrack, \nonumber \\
-  \bigg\lbrack\frac{\delta L}{\delta u^{\alpha\beta}}\bigg\rbrack^\text{S-TR} = {} & \gamma_{\alpha\beta} \bigg\lbrack -\frac{2s_1}{3} \Delta A -\frac{s_1}{2} \ddot{\tilde U} + \frac{s_1}{6} \Delta\tilde U + (-\frac{3s_1}{4} + s_3) \ddot{\tilde V} -\frac{2s_3}{3} \Delta\tilde V \nonumber \\ & + \frac{s_1}{3} \Delta\ddot V + \frac{2s_4}{9} \Delta\Delta V + \frac{2s_6}{9} \Delta\Delta W\bigg\rbrack, \nonumber \\
-  \bigg\lbrack\frac{\delta L}{\delta v^{\alpha\beta}}\bigg\rbrack^\text{S-TR} = {} & \gamma_{\alpha\beta} \bigg\lbrack (-s_1 + \frac{4s_3}{3}) \Delta A + (-\frac{3s_1}{4} + s_3) \ddot{\tilde U} - \frac{2s_3}{3} \Delta\tilde U \nonumber \\ & + s_{37} \ddot{\tilde V} - (\frac{3s_1}{2} - 2s_3 + s_{37}) \Delta\tilde V + s_{39} \tilde V \nonumber \\ & + (\frac{s_1}{2} - \frac{2s_3}{3}) \Delta\ddot V + (\frac{s_1}{6} + \frac{2s_3}{9} + \frac{2s_4}{3}) \Delta\Delta V + \frac{2s_6}{3} \Delta\Delta W\bigg\rbrack, \nonumber \\
-  \bigg\lbrack\frac{\delta L}{\delta b^{\alpha}}\bigg\rbrack^\text{S} = {} & \partial_\alpha \partial_t \bigg\lbrack -2s_1\tilde U + (-3s_1 + 4s_3) \tilde V + (\frac{4s_1}{3} + \frac{8s_4}{3}) \Delta V + \frac{8s_6}{3} \Delta W\bigg\rbrack, \nonumber \\
-  \frac{\delta L}{\delta A} = {} & -2s_1 \Delta\tilde U + (-3s_1 + 4s_3) \Delta\tilde V + (\frac{4s_1}{3} + \frac{8s_4}{3}) \Delta\Delta V + \frac{8s_6}{3} \Delta\Delta W. \label{scalar_equations}
-\end{align}
-\end{minipage}}
-
-The label $(\text{S-TF})$ denotes the projection of a tensor onto the tracefree scalar, $(\text{S-TR})$ means the projection onto the trace.
-
-A subset of seven constants out of the ten constants $s_i$ parameterizes the vector field equations
-
-\resizebox{\linewidth}{!}{
-\begin{minipage}[t]{\linewidth}
-\begin{align}
- \bigg\lbrack\frac{\delta L}{\delta u^{\alpha\beta}}\bigg\rbrack^\text{V} = {} & \partial_t \partial_{(\alpha} \bigg\lbrack s_1 B_{\beta)} - 2s_4 \dot U_{\beta)} - 2s_6 \epsilon_{\beta)}^{\hphantom{\beta)}\mu\nu} U_{\mu,\nu} + 2s_6 \dot W_{\beta)} + (-\frac{s_1}{2} - 2s_4) \epsilon_{\beta)}^{\hphantom{\beta)}\mu\nu} W_{\mu,\nu} \bigg\rbrack, \nonumber \\
- \bigg\lbrack\frac{\delta L}{\delta v^{\alpha\beta}}\bigg\rbrack^\text{V} = {} & \partial_{(\alpha} \bigg\lbrack (-s_1 - 4s_4) \dot B_{\beta)} + 4s_6 \epsilon_{\beta)}^{\hphantom{\beta)}\mu\nu} B_{\mu,\nu} \nonumber \\ & + (s_1 + 4s_4 + 2s_{11}) \ddot U_{\beta)} + (-\frac{3s_1}{2} - 6s_4 - 2s_{11}) \Delta U_{\beta)} + 2s_6 \epsilon_{\beta)}^{\hphantom{\beta)}\mu\nu} \dot U_{\mu,\nu} + 2s_{13} U_{\beta)} \nonumber \\ & + 2 s_{14} \Box W_{\beta)} + 2 s_{16} W_{\beta)} \bigg\rbrack, \nonumber \\
- \bigg\lbrack\frac{\delta L}{\delta w^{\alpha\beta}}\bigg\rbrack^\text{V} = {} & \partial_{(\alpha} \bigg\lbrack 4s_6 \dot B_{\beta)} + (s_1 + 4s_4) \epsilon_{\beta)}^{\hphantom{\beta)}\mu\nu} B_{\mu,\nu} \nonumber \\ & + (2s_6 + 2 s_{14}) \ddot U_{\beta)} - 2 s_{14} \Delta U_{\beta)} + (\frac{s_1}{2} + 2 s_4) \epsilon_{\beta)}^{\hphantom{\beta)}\mu\nu} \dot U_{\mu,\nu} + 2 s_{16} U_{\beta)} \nonumber \\ & + (-\frac{3s_1}{2} - 6s_4 - 2s_{11}) \Box W_{\beta)} - 2s_{13} W_{\beta)} \bigg\rbrack, \nonumber \\
- \bigg\lbrack\frac{\delta L}{\delta b^\alpha}\bigg\rbrack^\text{V} = {} & \Delta\bigg\lbrack 2s_1 B_{\alpha} - 4s_4 \dot U_{\alpha} - 4s_6 \epsilon_{\alpha}^{\hphantom{\alpha}\mu\nu} U_{\mu,\nu} + 4s_6 \dot W_{\alpha} + (-s_1 - 4s_4) \epsilon_{\alpha}^{\hphantom{\alpha}\mu\nu} W_{\mu,\nu} \bigg\rbrack, \label{vector_equations}
-\end{align}
-\end{minipage}}
-
-as well as the transverse traceless tensor field equations
-
-\resizebox{\linewidth}{!}{
-\begin{minipage}[t]{\linewidth}
-\begin{align}
- \bigg\lbrack\frac{\delta L}{\delta u^{\alpha\beta}}\bigg\rbrack^\text{TT} = {} & \frac{s_1}{4} \Box U_{\alpha\beta} \nonumber \\ &  + (\frac{s_1}{4} + s_4) \ddot V_{\alpha\beta} + (\frac{s_1}{4} + s_4) \Delta V_{\alpha\beta} - 2s_6 \epsilon_{(\alpha}^{\hphantom{(\alpha}\mu\nu} \dot V_{\beta)\mu,\nu} \nonumber \\ & + s_6 \ddot W_{\alpha\beta} + s_6 \Delta W_{\alpha\beta} + (\frac{s_1}{2} + 2 s_4) \epsilon_{(\alpha}^{\hphantom{(\alpha}\mu\nu} \dot W_{\beta)\mu,\nu}, \nonumber \\
- \bigg\lbrack\frac{\delta L}{\delta v^{\alpha\beta}}\bigg\rbrack^\text{TT} = {} & (\frac{s_1}{4} + s_4) \ddot U_{\alpha\beta} + (\frac{s_1}{4} + s_4) \Delta U_{\alpha\beta} + 2s_6 \epsilon_{(\alpha}^{\hphantom{(\alpha}\mu\nu} \dot U_{\beta)\mu,\nu} \nonumber \\ &  + (\frac{s_1}{4} + s_4 + s_{11}) \Box V_{\alpha\beta} + s_{13} V_{\alpha\beta} + s_{14} \Box W_{\alpha\beta} + s_{16} W_{\alpha\beta}, \nonumber \\
- \bigg\lbrack\frac{\delta L}{\delta w^{\alpha\beta}}\bigg\rbrack^\text{TT} = {} & s_6 \ddot U_{\alpha\beta} + s_6 \Delta U_{\alpha\beta} - (\frac{s_1}{2} + 2 s_4) \epsilon_{(\alpha}^{\hphantom{(\alpha}\mu\nu} \dot U_{\beta)\mu,\nu}\nonumber \\ &  + s_{14} \Box V_{\alpha\beta} + s_{16} V_{\alpha\beta} - (\frac{s_1}{4} + s_4 + s_{11}) \Box W_{\alpha\beta} - s_{13} W_{\alpha\beta}. \label{tensor_equations}
-\end{align}
-\end{minipage}}
-
-The second Noether theorem \eqref{second_noether}
+An important sanity check is provided by the second Noether theorem \eqref{second_noether}
 \begin{equation}
-  0 = D_n \mathcal T^n_m - \frac{\delta L}{\delta u^A}u^A_{\hphantom Am} = - D_n \big\lbrack\frac{\delta L}{\delta u^A} \gmc{A}{B}{n}{m} u^B\big\rbrack - \frac{\delta L}{\delta u^A}u^A_{\hphantom Am} 
+  0 = D_n \mathcal T^n_m - \frac{\delta L}{\delta u^A}u^A_{\hphantom Am} = - D_n \big\lbrack\frac{\delta L}{\delta u^A} \gmc{A}{B}{n}{m} u^B\big\rbrack - \frac{\delta L}{\delta u^A}u^A_{\hphantom Am},
 \end{equation}
-provides a sanity check for the constructed field equations by virtue of its expansion around $N$
+whose expansion around $N$ amounts to
 \begin{equation}
   0 = -\big\lbrack D_n \frac{\delta L}{\delta u^A}\big\rbrack_{N+H} \gmc{A}{B}{n}{m} N^B + \mathcal O(H^2).
 \end{equation}
@@ -539,7 +501,7 @@ Inverting the relation \eqref{area_metric_perturbation} between spacetime area m
 \begin{equation}\label{second_noether_area_linear}
   0 = \partial_t \frac{\delta L}{\delta A} - \partial_\alpha \frac{\delta L}{\delta b_\alpha}\quad\text{and}\quad 0 = \partial_t\frac{\delta L}{\delta b^\alpha} - 4\partial_\beta\frac{\delta L}{\delta u_{\alpha\beta}},
 \end{equation}
-which is indeed satisfied by the system \eqref{scalar_equations}--\eqref{tensor_equations}. As a consequence of the diffeomorphism invariance of the theory, the field equations have four dependences among themselves. This is, of course, expected---not only from the Noether theorem, but also from the fact that gauge-fixing the observer quantities by constraining four fields reduces the 21 unknowns by four. In order for the system of 21 field equations not to be overdetermined, it must express additional dependences. These considerations are reminiscent of the rich field of constraint analysis\footnote{See e.g.\ \cite{}}, which is predominantly studied in the Hamiltonian picture and also plays a role in canonical constructive gravity. For some results in the context of covariant constructive gravity, limited to first-derivative-order theories, see Ref.\ \cite{}.
+which is indeed satisfied by the system \eqref{scalar_equations}--\eqref{tensor_equations}. As a consequence of the diffeomorphism invariance of the theory, the field equations have four dependences among themselves. This is, of course, expected---not only from the Noether theorem, but also from the fact that gauge-fixing the observer quantities by constraining four fields reduces the 21 unknowns by four. In order for the system of 21 field equations not to be overdetermined, it must express additional dependences. These considerations are reminiscent of the rich field of constraint analysis\footnote{See e.g.\ \cite{Dirac_1950,Anderson_1951}}, which is predominantly studied in the Hamiltonian picture and also plays a role in canonical constructive gravity. For some results in the context of covariant constructive gravity, limited to first-derivative-order theories, see Ref.\ \cite{Reinhart_2019}.
 
 While the Noether identities are expected and, in fact, indispensable, a thorough analysis of the linearized field equations reveals further properties that are impossible to reconcile with our premises. After all, the axioms of covariant constructive gravity are only \emph{necessary} conditions for a theory to be viable. Any such constructed theory needs to be further specified by finding appropriate values for the gravitational constants. This also applies to Einstein gravity---the Newtonian and cosmological constants only match observations for specific ranges, where some possibilities like a negative Newtonian constant can be dismissed outright.
 
@@ -555,13 +517,13 @@ where $\mathcal L^{-1}$ is the inverse of the Legendre map associated with the p
 \begin{equation}\label{scalar_source}
   \frac{\delta S_\text{matter}}{\delta A(x)} = -M\delta^{(3)}(x).
 \end{equation}
-With the matter distribution being stationary, we consider a stationary ansatz for the solution to the field equations by assuming that the time derivatives of the gravitational field vanish. Using the source \eqref{scalar_source} as the right-hand side of the linearized field equations \eqref{scalar_equations}--\eqref{tensor_equations} yields vector and tensor equations that are trivially sourced by zero and as such only admit the trivial solution $B^\alpha = U^\alpha = W^\alpha = 0$ and $U^{\alpha\beta} = V^{\alpha\beta} = W^{\alpha\beta} = 0$.\footnote{\textbf{calculate?}} The scalar equations take the form
+With the matter distribution being stationary, we consider a stationary ansatz for the solution to the field equations by assuming that the time derivatives of the gravitational field vanish. Using the source \eqref{scalar_source} as the right-hand side of the linearized field equations \eqref{scalar_equations}--\eqref{tensor_equations} yields vector and tensor equations that are trivially sourced by zero and as such only admit the trivial solution $B^\alpha = U^\alpha = W^\alpha = 0$ and $U^{\alpha\beta} = V^{\alpha\beta} = W^{\alpha\beta} = 0$.\footnote{See \cite{Alex_2019}, where it is shown how the Fourier transform yields a linear system of full rank. Maple code for this calculation is available at Ref.\ \cite{Alex_2020_area-metric-gravity}.} The scalar equations take the form
 \begin{equation}
   E_i^{(\text{scalar})} = M \delta^{(3)}(x) \delta^0_i + \sum_j\lbrack a_{ij} S_j + b_{ij} \Delta S_j + c_{ij} \Delta\Delta S_j\rbrack
 \end{equation}
-for constant coefficients $a_{ij}, b_{ij}, c_{ij}$ and scalar fields $S^{(i)}$.
+for constant coefficients $a_{ij}, b_{ij}, c_{ij}$ and scalar fields $S_{(i)}$.
 
-As solution to the scalar equations we obtain\footnote{\textbf{calculate?}} certain combinations of long-ranging Coulomb solutions $\propto \frac{1}{r}$ and short-ranging Yukawa solutions $\propto \frac{1}{r} \mathrm e^{-\mu r}$. While the coefficients of these combinations depend in an intricate way on the gravitational constants and are impossible to present in general, it \emph{is} feasible to make a generic argument concerning the phenomenology of the linearized result: \emph{The solution to the scalar field equations corresponds to the linearized Schwarzschild solution of general relativity for a central mass $M$ corrected by short-ranging Yukawa potentials if and only if two linear conditions on the gravitational constants $s_i$ hold.}
+As solution to the scalar equations we obtain\footnote{See \cite{Alex_2019} and the Maple code at Ref.\ \cite{Alex_2020_area-metric-gravity}.} certain combinations of long-ranging Coulomb solutions $\propto \frac{1}{r}$ and short-ranging Yukawa solutions $\propto \frac{1}{r} \mathrm e^{-\mu r}$. While the coefficients of these combinations depend in an intricate way on the gravitational constants and are impossible to present in general, it \emph{is} feasible to make a generic argument concerning the phenomenology of the linearized result: \emph{the solution to the scalar field equations corresponds to the linearized Schwarzschild solution of general relativity for a central mass $M$ corrected by short-ranging Yukawa potentials if and only if two linear conditions on the gravitational constants $s_i$ hold.}
 
 This statement concerns the metric limit of area metric gravity, which is reached using the metrically induced area metric \eqref{metric_induced_area}. Inserting the metric $3+1$ decomposition \eqref{metric_three_plus_one} and its perturbative expansion \eqref{metric_expansion} in the expression for the induced area metric yields
 \begin{equation}
@@ -673,7 +635,7 @@ Most importantly, there are always $\lambda_k$ such that $\operatorname{Re}(\lam
 \begin{equation}
   s_{11} s_{16} - s_{13} s_{14} = 0
 \end{equation}
-and have thus reduced linearized area metric gravity to a theory parameterized by seven remaining gravitational constants, of which there are five combinations that determine the results obtained above: The two constants $\mu$ and $\nu$ appear as \emph{masses} in wave equations and screened Poisson equations, respectively, and three constants $\alpha$, $\beta$, and $\gamma$ further parameterize the linearized Schwarzschild solution.
+and have thus reduced linearized area metric gravity to a theory parameterized by seven remaining gravitational constants, of which there are five combinations that determine the results obtained above: the two constants $\mu$ and $\nu$ appear as \emph{masses} in wave equations and screened Poisson equations, respectively, and three constants $\alpha$, $\beta$, and $\gamma$ further parameterize the linearized Schwarzschild solution.
 
 Note that with $\sigma=0$ the wave equations for $W$, $V$, $U^\alpha$, $V^\alpha$, $U^{\alpha\beta}$, $V^{\alpha\beta}$, and $W^{\alpha\beta}$ \emph{decouple}, e.g.~the system of transverse traceless tensor equations can be transformed by taking linear combinations into
 \begin{align}
@@ -685,7 +647,7 @@ Similar decoupled wave equations are obtained for the mentioned vector and scala
 \begin{equation}\label{trace_massive_wave}
   \text{(source terms)} = \Box \tilde V + \mu^2 \tilde V.
 \end{equation}
-Counting the wave equations we already found, there are at least 13 propagating degrees of freedom. This is already the maximum number, because our system for 17 degrees of freedom must exhibit four constraint equations arising from the gauge symmetry \cite{}. In fact, the four remaining degrees $B^\alpha$, $\tilde U$, and $A$ are determined by field equations with less than two time derivatives, as can be read off from Eqns.~\eqref{scalar_equations_reduced}--\eqref{tensor_equations_reduced}. Such equations as part of an initial value problem are usually associated with constraints, as they are not capable to \emph{evolve} initial data, but only to \emph{constrain} it. \cite{}
+Counting the wave equations we already found, there are at least 13 propagating degrees of freedom. This is already the maximum number, because our system for 17 degrees of freedom must exhibit four constraint equations arising from the gauge symmetry. In fact, the four remaining degrees $B^\alpha$, $\tilde U$, and $A$ are determined by field equations with less than two time derivatives, as can be read off from Eqns.~\eqref{scalar_equations_reduced}--\eqref{tensor_equations_reduced}. Such equations as part of an initial value problem are usually associated with constraints, as they are not capable to \emph{evolve} initial data, but only to \emph{constrain} it.
 
 Summing up, the phenomenologically relevant subsector of linearized area metric gravity admits two massless propagating degrees of freedom in the form of the tensor mode $U^{\alpha\beta}$. Furthermore, there are 11 massive propagating degrees of freedom with mass $\mu$, represented by the fields $W$, $V$, $\tilde V$, $U^\alpha$, $W^\alpha$, $V^{\alpha\beta}$, and $W^{\alpha\beta}$. The remaining four degrees of freedom $A$, $\tilde U$, and $B^\alpha$ do not propagate but follow from constraints.
 
