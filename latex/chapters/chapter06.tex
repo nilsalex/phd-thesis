@@ -816,7 +816,7 @@ With this regularization, the stars are subject to the equations of motion
 \begin{equation}
   \ddot\gamma^\alpha_{(i)} = -G \sum_{j\neq i} m_j \frac{\gamma^\alpha_{(i)} - \gamma^\alpha_{(j)}}{\prescript{\hphantom{3}}{}\lvert\vec\gamma_{(i)} - \vec\gamma_{(j)}\rvert^3},
 \end{equation}
-which is the centuries-old Kepler problem. The solutions are given by the various conic sections, depending on the initial conditions. We will consider the bound states and within this sector the configurations with exactly circular orbits. As it will turn out, the additional complexity introduced by excentricities is immaterial for at least some of the new effects that come with the area metric generalization. In this configuration, the bodies have constant separation $r$ and move on trajectories
+which is the centuries-old Kepler problem. The solutions are given by the various conic sections, depending on the initial conditions. We will consider the bound states and within this sector the configurations with exactly circular orbits. As it will turn out, the additional complexity introduced by eccentricities is immaterial for at least some of the new effects that come with the area metric generalization. In this configuration, the bodies have constant separation $r$ and move on trajectories
 \begin{equation}\label{circular_orbit}
   \vec\gamma_{(1)}(t) = \frac{m_2}{m} r\vec n,\quad \vec\gamma_{(2)}(t) = -\frac{m_1}{m} r\vec n,
 \end{equation}
@@ -979,7 +979,7 @@ For the second part of the first iteration, the matter trajectories have to be f
 where the integrals \eqref{area_schwarzschild_integral} have to be regularized by, effectively, dropping the divergent terms (see Sect.~\ref{section_einstein_waves}).
 
 The equations of motion \eqref{newton_equation_area} constitute a refined Kepler problem. Instead of the Newtonian potential $\propto \frac{1}{r}$, the stars move in modified potentials with additional Yukawa terms $\propto \frac{1}{r} \mathrm e^{-\mu r}$. Still, this potential has a spherical symmetry and circular orbits remain solutions to the geodesic equations. This is seen by making the ansatz \eqref{circular_orbit} and solving for the angular frequency $\omega$, which yields the refined relation
-\begin{equation}
+\begin{equation}\label{area_kepler}
   \omega^2 = \frac{(G\alpha) m}{r^3}\left\lbrack 1 + \frac{\beta}{\alpha}\mathrm e^{-\mu r}(1 + \mu r)\right\rbrack,
 \end{equation}
 i.e.~a modification of Kepler's third law.
@@ -1131,7 +1131,7 @@ While the gravitational radiation that causes geodesic deviation is produced as 
 
 An effect that cannot be observed in a solely linearized setting is \emph{radiation reaction}: during the iterative solution procedure, the matter trajectories have been fixed to first order, which provides the background for the second-order gravitational field we were interested in. This is by no means necessary---it is possible to solve for higher orders $n$ before fixing the matter fields, which then enables the prediction of the gravitational field to order $n+1$. The modern treatment of post-Newtonian and post-Minkowskian general relativity proceeds in exactly this way \cite{poisson2014gravity}. Doing so, the matter trajectories accumulate corrections, which are \emph{backreactions} from the gravitational field sourced by the matter content itself. In the context of a gravitationally bound matter distribution which emits gravitational radiation to second order, these backreactions are often referred to as radiation reaction.
 
-In general relativity, the aforementioned modern perturbative treatment yields detailed predictions for the deviation of a binary system from the kepler orbits. These calculation are quite intricate, taking into account not only higher perturbation orders but also the internal structure of the binaries. For a tentative qualitative result, however, we do not need to go there. Noether's second theorem (see Thm.~\ref{thm_second_noether}) provides us with a tool that resembles energy conservation equations.\footnote{The notion of \emph{energy} in general relativity and, more specifically, \emph{energy conservation} is subject to many debates. General relativity does not exhibit the kind of time-translation symmetry that is usually the justification for the definition of energy. In the setting considered here, where the matter content is localized to a specific region of spacetime and the geometry is asymptotically flat, such a notion can be recovered from symmetries that hold asymptotically. \cite{Arnowitt_1960} For our purposes, we do not rely on the interpretation of certain quantities as energies or momenta. They are just derived quantities from the fundamental fields. Changes in these quantities are interesting insofar as they pertain to changes in the underlying fields.} Loosely speaking, gravitational waves radiate away energy from the system, decimating the radius of the kepler orbits, which results---via Kepler's third law---in the binary star \emph{spinning up}. The qualitative analysis from ``energy conservation'' yields a rate of change for the angular velocity but cannot predict how exactly the trajectories are affected, e.g.~how the phase shifts. Still, the prediction\footnote{Considering, of course, the excentric case with the appropriate parameters.} for the orbital period decrease $\mathrm dP/\mathrm dt$ of the Hulse-Taylor pulsar $\text{PSR} 1913+6$ is in very strong agreement with the measurement, as the ratio amounts to \cite{poisson2014gravity}
+In general relativity, the aforementioned modern perturbative treatment yields detailed predictions for the deviation of a binary system from the Kepler orbits. These calculation are quite intricate, taking into account not only higher perturbation orders but also the internal structure of the binaries. For a tentative qualitative result, however, we do not need to go there. Noether's second theorem (see Thm.~\ref{thm_second_noether}) provides us with a tool that resembles energy conservation equations.\footnote{The notion of \emph{energy} in general relativity and, more specifically, \emph{energy conservation} is subject to many debates. General relativity does not exhibit the kind of time-translation symmetry that is usually the justification for the definition of energy. In the setting considered here, where the matter content is localized to a specific region of spacetime and the geometry is asymptotically flat, such a notion can be recovered from symmetries that hold asymptotically. \cite{Arnowitt_1960} For our purposes, we do not rely on the interpretation of certain quantities as energies or momenta. They are just derived quantities from the fundamental fields. Changes in these quantities are interesting insofar as they pertain to changes in the underlying fields.} Loosely speaking, gravitational waves radiate away energy from the system, decimating the radius of the Kepler orbits, which results---via Kepler's third law---in the binary star \emph{spinning up}. The qualitative analysis from ``energy conservation'' yields a rate of change for the angular velocity but cannot predict how exactly the trajectories are affected, e.g.~how the phase shifts. Still, the prediction\footnote{Considering, of course, the eccentric case with the appropriate parameters.} for the orbital period decrease $\mathrm dP/\mathrm dt$ of the Hulse-Taylor pulsar $\text{PSR} 1913+6$ is in very strong agreement with the measurement, as the ratio amounts to \cite{poisson2014gravity}
 \begin{equation}
   \frac{(\mathrm dP/\mathrm dt)_\text{observed}}{(\mathrm dP/\mathrm dt)_\text{predicted}} = 0.997 \pm 0.002.
 \end{equation}
@@ -1225,7 +1225,7 @@ and arrive at
   \int_{S_\infty}\mathcal G^{0\alpha}\mathrm dS_\alpha = -\frac{256\pi}{5}\eta^2\left(\frac{Gm}{c^2r}\right)^5.
 \end{equation}
 Together with the left-hand side \eqref{balance_lhs} of the balance equation \eqref{first_balance_equation}, this yields a first approximation for the spin-up of a binary star due to radiation loss. The separation $r$ of the stars decreases with the rate
-\begin{equation}
+\begin{equation}\label{metric_rate}
   \dot r = -\frac{64}{5}\eta c\left(\frac{Gm}{c^2r}\right)^3,
 \end{equation}
 which translates into an increase of the angular velocity $\omega$, according to Kepler's third law.
@@ -1269,6 +1269,13 @@ As always, it is first very instructive to consider the limit $f(r) \to 0$ of Eq
 \end{equation}
 This again shows the correspondence of both theories for a suitable parameter range. However, when the correction $f(r)$ is not negligible, area metric gravity introduces an interesting deviation from the binary star spin-up behaviour in metric gravity.
 
-\textbf{to do: plots of spin-up}
+\begin{figure}
+  \centering
+    \input{figures/plot1.pgf}
+    \input{figures/plot2.pgf}
+    \caption{Binary star spin-up due to radiation loss. The orbital period decreases according to Eqns.~\eqref{area_kepler} and \eqref{area_metric_balance}, which have been numerically integrated. For reference, the metric result following \eqref{metric_rate} is shown as well. Note that in general a binary star will \emph{not} spin up exactly like this, as the calculation neglects a lot of complications like eccentricities and is based only on the first approximation provided by the Noether theorem. However, this analysis highlights the potential deviations of area metric gravity from Einstein gravity. For simplicity, $\alpha=G=\eta=m_i=c=1$.}
+    \label{figure_spinup}
+\end{figure}
 
-\textbf{take-home message: application to a refined matter theory yields interesting phenomenology}
+Fig.~\ref{figure_spinup} shows the evolution of the orbital period, obtained by integrating Eq.~\eqref{area_metric_balance} and applying the refined Kepler law \eqref{area_kepler}. For our convenience, we set all constants and parameters of the system that are common to both area metric and metric gravity to 1, 
+
