@@ -1115,7 +1115,7 @@ Let us probe the gravitational field using an arrangement of matter called a \em
   \frac{1}{c^2} \ddot X^\alpha = - R^\alpha_{\hphantom\alpha 0\beta 0} X^\beta
 \end{equation}
 for the spatial deviation vector $\vec X$. Applying the $3+1$ split of a metric tensor (see Eqns.~\eqref{metric_three_plus_one} and \eqref{metric_expansion}) to the effective metric, the Riemann tensor $R^\alpha_{\hphantom\alpha 0\beta 0}$ can be expanded to linear order, such that the deviation equation assumes the form
-\begin{equation}
+\begin{equation}\label{geodesic_deviation}
   \ddot X^\alpha = -\frac{1}{2}\lbrack\ddot\varphi^\alpha_{\hphantom\alpha\beta} + c(\partial_\beta\dot b^\alpha + \partial^\alpha\dot b_\beta) + 2c^2\partial^\alpha\partial_\beta A\rbrack X^\beta.
 \end{equation}
 For small perturbations, the deviation due to purely spatial fields $\varphi^{\alpha\beta}$ is integrated as
@@ -1126,25 +1126,25 @@ This constitutes the starting point for the following predictions.
 
 In Sect.~\ref{section_binary_star}, all modes of gravitational radiation---except the trace modes---have been found to be proportional to the various projections of
 \begin{equation}
-  M^{\alpha\beta} = \begin{pmatrix}\operatorname{cos}(\varphi) & \operatorname{sinn}(\varphi) & 0 \\ \operatorname{sin}(\varphi)  & - \operatorname{cos}(\varphi) & 0 \\ 0 & 0 & 1\end{pmatrix}^{\alpha\beta}
+  M^{\alpha\beta} = \begin{pmatrix}\operatorname{cos}(\varphi) & \operatorname{sin}(\varphi) & 0 \\ \operatorname{sin}(\varphi)  & - \operatorname{cos}(\varphi) & 0 \\ 0 & 0 & 1\end{pmatrix}^{\alpha\beta}
 \end{equation}
 onto the transverse traceless tensor, vector, and scalar traceless subspaces. The phase $\varphi$ is either given by $\varphi = 2\omega\tau$ for massless modes or Eq.~\eqref{phase_massive} for massive modes.
 
-The tensor $M^{\alpha\beta}$ is still expressed in the \emph{orbit-adapted} frame $(\vec e_x,\vec e_y,\vec e_z$), whose orientation is determined by the orbital plane. When considering the effect on test matter, it is more instructive to switch to the \emph{detector-adapted} frame $(\vec e_X, \vec e_Y, \vec e_Z)$ \cite{Poisson_2014}, which is oriented such that the $Z$-axis points from the barycentre of the binary star to the test matter distribution. A simple rotation around the $x$-axis transforms between both frames, such that the detector-adapted frame is expressed in terms of the orbit-adapted frame as
+The tensor $M^{\alpha\beta}$ is still expressed in the \emph{orbit-adapted} frame $(\vec e_x,\vec e_y,\vec e_z$), whose orientation is determined by the orbital plane. When considering the effect on test matter, it is more instructive to switch to the \emph{detector-adapted} frame $(\vec e_X, \vec e_Y, \vec e_Z)$ \cite{Poisson_2014}, which is oriented such that the $Z$-axis points from the barycentre of the binary star to the test matter distribution. A simple rotation around the $x$-axis transforms between both frames,\footnote{As the circular orbit is completely isotropic with respect to rotations around the $z$-axis, we can always make this choice. Otherwise, we would need to parameterize the frame using \emph{two} angles, i.e.\ first perform a rotation around the $z$-axis and only afterwards around the $x$-axis. \cite{Poisson_2014}} such that the detector-adapted frame is expressed in terms of the orbit-adapted frame as
 \begin{equation}
   \vec e_X = \begin{pmatrix} 1 \\ 0 \\ 0\end{pmatrix}, \vec e_Y = \begin{pmatrix} 0 \\ \operatorname{cos} \iota \\ -\operatorname{sin}\iota \end{pmatrix}, \vec e_Z = \begin{pmatrix} 0 \\ \operatorname{sin}\iota \\ \operatorname{cos}\iota \end{pmatrix}.
 \end{equation}
 The angle $\iota$ measures the inclination of the orbital plane as seen from the $XY$-plane.\footnote{Put differently, $\iota$ is the angle between the $Z$-axis (pointing towards the test matter distribution) and the $z$-axis (the rotation axis of the binary star).}
 
-Transforming $M^{\alpha\beta}$ accordingly and projecting onto the different (TT, vector, scalar) contributions, we obtain the transverse traceless tensor
-\begin{equation}
+Transforming $M^{\alpha\beta}$ accordingly and projecting onto the several modes, we obtain the transverse traceless tensor mode
+\begin{equation}\label{tt_detector_frame}
   M^{\mathrm{TT}} = \begin{pmatrix}
     \frac{1}{2}(1 + \operatorname{cos}^2\iota)\operatorname{cos}\varphi & \operatorname{cos}\iota\operatorname{sin}\varphi & 0 \\ 
     \operatorname{cos}\iota\operatorname{sin}\varphi & -\frac{1}{2}(1 + \operatorname{cos}^2\iota)\operatorname{cos}\varphi & 0 \\ 
     0 & 0 & 0
   \end{pmatrix},
 \end{equation}
-the vector
+the vector mode
 \begin{equation}
   M^{\mathrm{V}} = \begin{pmatrix}
     0 & 0 & \operatorname{sin}\iota\operatorname{sin}\varphi \\ 
@@ -1152,7 +1152,7 @@ the vector
     \operatorname{sin}\iota\operatorname{sin}\varphi & -\operatorname{cos}\iota\operatorname{sin}\iota\operatorname{cos}\varphi & 0
   \end{pmatrix},
 \end{equation}
-and the traceless scalar 
+and the traceless scalar mode
 \begin{equation}
   M^{\mathrm{S-TF}} = \operatorname{sin}^2\iota\operatorname{cos}\varphi \begin{pmatrix}
     \frac{1}{2} & 0 & 0 \\ 
@@ -1160,6 +1160,17 @@ and the traceless scalar
     0 & 0 & -1 \\ 
   \end{pmatrix}.
 \end{equation}
+Out of these, the TT part \eqref{tt_detector_frame} is already known from general relativity, where we found as only radiating mode into the far zone the transverse traceless tensor perturbation
+\begin{equation*}
+  \varphi_{\alpha\beta}^{\mathrm{TT}} = \underbrace{\frac{4\eta}{c^4R} \frac{(Gm)^2}{r}}_{\vcentcolon= 2d} M_{\alpha\beta}^{\mathrm{TT}}.
+\end{equation*}
+Consequently, the right-hand side of the geodesic deviation equation \eqref{geodesic_deviation} \emph{is} purely spatial and we obtain the deviation
+\begin{equation}
+  X^\alpha(t) - X^\alpha(0) = d \times (M^{\mathrm{TT}})^\alpha_{\hphantom\alpha\beta}(t) X^\beta(0),
+\end{equation}
+oscillating with the phase $\varphi(t) = 2\omega\tau = 2\omega(t - \frac{R}{c})$. Geodesic spheres are thus deformed in both lateral directions, but not in the direction of the incident wave. The deformation is volume-preserving, because there is a phase shift of $\frac{\pi}{2}$ between the lateral axes---elongation into one direction comes with contraction into the other direction. As a result, the sphere assumes the form of an \emph{ellipsoid} with rotating axes, while its dimension in the $Z$-direction stays constant.
+
+Predictions of this effect exist since the inception of general relativity \cite{Einstein_1916_2, Einstein_1918}. The confirmation of metric geodesic deviation due to incident gravitational radiation in 2015 by the LIGO and Virgo collaborations \cite{Abbott_2016} marks the culmination of 100 years of general relativity research.
 
 \subsection{Binar star spin-up}
 While the gravitational radiation that causes geodesic deviation is produced as second-order effect, the deviation \emph{per se} has only been studied to first order in the previous section. Similar results would hold for incident waves that have their origin in linearized gravity, like the radiation that is emitted from nongravitationally bound systems \cite{M_ller_2018}.
