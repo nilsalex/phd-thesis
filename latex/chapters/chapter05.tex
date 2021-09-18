@@ -31,7 +31,7 @@ Of course, the individual index sets $abcd$, $efgh$, and $pqrs$ inherit the area
   a_{ab}^{\hphantom{ab}ij} H^{ab}_{\hphantom{ab}ij} = \eta^{ii^\prime} \eta^{jj^\prime} \tilde a_{abi^\prime j^\prime} H^{ab}_{\hphantom{ab}ij}.
 \end{equation}
 
-One thing has not been considered so far: It is not clear, \emph{a priori}, whether the constructed ansätze really form a \emph{basis}. We need to be sure that a representation like Eq.\ \eqref{generic_4_ansatz} uniquely determines the ansatz. In general, this will \emph{not} be the case, as the ansatz
+One thing has not been considered so far: it is not clear, \emph{a priori}, whether the constructed ansätze really form a \emph{basis}. We need to be sure that a representation like Eq.\ \eqref{generic_4_ansatz} uniquely determines the ansatz. In general, this will \emph{not} be the case, as the ansatz
 \begin{equation}\label{generic_6_ansatz}
   \begin{aligned}
     T^{abcdef} = {} & A_1 \cdot \epsilon^{abcd} \eta^{ef} + A_2 \cdot \epsilon^{abce} \eta^{df} + A_3 \cdot \epsilon^{abcf} \eta^{de} + A_4 \cdot \epsilon^{abde} \eta^{cf} + \dots \\
@@ -304,7 +304,7 @@ isAscending (x :| (y : ys)) =
   \end{minted}
 \end{code}
 
-In order to make such decisions at the \emph{type} level, we leverage the machinery provided by the \texttt{singletons} package \cite{Eisenberg_2012}. With the help of the metaprogramming technique Template Haskell \cite{Sheard_2002}, \texttt{singletons} serves us twofold: First it lifts the function \mintinline{haskell}{sane} to \mintinline{haskell}{type Sane :: forall a b. [(VSpace a b, IList a)] -> Bool}, which may be interpreted as a function at the type level.
+In order to make such decisions at the \emph{type} level, we leverage the machinery provided by the \texttt{singletons} package \cite{Eisenberg_2012}. With the help of the metaprogramming technique Template Haskell \cite{Sheard_2002}, \texttt{singletons} serves us twofold: first it lifts the function \mintinline{haskell}{sane} to \mintinline{haskell}{type Sane :: forall a b. [(VSpace a b, IList a)] -> Bool}, which may be interpreted as a function at the type level.
 
 We use the type \mintinline{Haskell}{Sane} together with a second type \mintinline{haskell}{TailR} derived from the function \mintinline{haskell}{tailR}\footnote{This function yields, for a nonempty rank, the ``tail'' of the rank after removing the first index.} for the definition of the \mintinline{haskell}{Tensor} type in Listing~\ref{code_haskell_tensor_type}.
 \begin{code}
