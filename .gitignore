@@ -14,3 +14,5 @@
 *.run.xml
 _minted-main
 .tmp
+*.lof
+*.lot
