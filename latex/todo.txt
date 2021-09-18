@@ -13,3 +13,4 @@ gm intertwiner commutator
 Haskell not in texttt
 reference for lorentz tensors eta and epsilon
 no closed expression for fourth degree poly legendre?
+t_0 (inspiral time)
