@@ -38,23 +38,24 @@ As already outlined in the introduction, Einstein gravity can be thought of as t
 \end{equation}
 where the electromagnetic potential enters via the field strength tensor $F = \mathrm dA$ and we write ``$\operatorname{det}g$'' for the determinant of the \emph{covariant} metric tensor, which is the inverse of the metric tensor chosen here as fundamental field.
 
-We now collect the ingredients for the construction algorithm. The fibre dimension of the bundle $S(T^2_0M)$ is 10, such that a suitable pair of intertwiners $(I,J)$ between this bundle and the unrestricted tensor bundle $T^2M$ is given by
+We now collect the ingredients for the construction algorithm. The fibre dimension of the bundle $S(T^2_0M)$ is 10, such that a suitable pair of intertwiners $(I,J)$ between this bundle and the unrestricted tensor bundle $T^2M$ is given by \\ \vspace{\baselineskip}
 \begin{equation}\label{inter_metric_I}
-  \footnotesize
-  \begin{gathered}
-    I^{ab}_1 = \begin{pmatrix}1 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0\end{pmatrix}^{ab}\hspace{-1em}, I^{ab}_2 = \begin{pmatrix}0 & 1 & 0 & 0 \\ 1 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0\end{pmatrix}^{ab}\hspace{-1em}, I^{ab}_3 = \begin{pmatrix}0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 0 \\ 1 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0\end{pmatrix}^{ab} I^{ab}_4 = \begin{pmatrix}0 & 0 & 0 & 1 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 1 & 0 & 0 & 0\end{pmatrix}^{ab}\hspace{-1em}, \\
-  I^{ab}_5 = \begin{pmatrix}0 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0\end{pmatrix}^{ab}\hspace{-1em}, I^{ab}_6 = \begin{pmatrix}0 & 0 & 0 & 0 \\ 0 & 0 & 1 & 0 \\ 0 & 1 & 0 & 0 \\ 0 & 0 & 0 & 0\end{pmatrix}^{ab}\hspace{-1em}, I^{ab}_7 = \begin{pmatrix}0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 1 \\ 0 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0\end{pmatrix}^{ab}\hspace{-1em}, I^{ab}_8 = \begin{pmatrix}0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 0\end{pmatrix}^{ab}\hspace{-1em}, \\
-  I^{ab}_9 = \begin{pmatrix}0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 1 \\ 0 & 0 & 1 & 0\end{pmatrix}^{ab}\hspace{-1em}, I^{ab}_{10} = \begin{pmatrix}0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 1\end{pmatrix}^{ab}\hspace{-1em},
-  \end{gathered}
+\resizebox{\linewidth}{!}{%
+  $\displaystyle\begin{gathered}
+    I^{ab}_1 = \begin{pmatrix}1 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0\end{pmatrix}^{ab}, I^{ab}_2 = \begin{pmatrix}0 & 1 & 0 & 0 \\ 1 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0\end{pmatrix}^{ab}, I^{ab}_3 = \begin{pmatrix}0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 0 \\ 1 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0\end{pmatrix}^{ab} I^{ab}_4 = \begin{pmatrix}0 & 0 & 0 & 1 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 1 & 0 & 0 & 0\end{pmatrix}^{ab}, \\
+  I^{ab}_5 = \begin{pmatrix}0 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0\end{pmatrix}^{ab}, I^{ab}_6 = \begin{pmatrix}0 & 0 & 0 & 0 \\ 0 & 0 & 1 & 0 \\ 0 & 1 & 0 & 0 \\ 0 & 0 & 0 & 0\end{pmatrix}^{ab}, I^{ab}_7 = \begin{pmatrix}0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 1 \\ 0 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0\end{pmatrix}^{ab}, I^{ab}_8 = \begin{pmatrix}0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 0\end{pmatrix}^{ab}, \\
+  I^{ab}_9 = \begin{pmatrix}0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 1 \\ 0 & 0 & 1 & 0\end{pmatrix}^{ab}, I^{ab}_{10} = \begin{pmatrix}0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 1\end{pmatrix}^{ab},
+  \end{gathered}$}
 \end{equation}
+
 and
 \begin{equation}\label{inter_metric_J}
-  \footnotesize
-  \begin{gathered}
-    J_{ab}^1 = \begin{pmatrix}1 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0\end{pmatrix}_{ab}\hspace{-1em}, J_{ab}^2 = \begin{pmatrix}0 & \frac{1}{2} & 0 & 0 \\ \frac{1}{2} & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0\end{pmatrix}_{ab}\hspace{-1em}, J_{ab}^3 = \begin{pmatrix}0 & 0 & \frac{1}{2} & 0 \\ 0 & 0 & 0 & 0 \\ \frac{1}{2} & 0 & 0 & 0 \\ 0 & 0 & 0 & 0\end{pmatrix}_{ab} J_{ab}^4 = \begin{pmatrix}0 & 0 & 0 & \frac{1}{2} \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ \frac{1}{2} & 0 & 0 & 0\end{pmatrix}_{ab}\hspace{-1em}, \\
-    J_{ab}^5 = \begin{pmatrix}0 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0\end{pmatrix}_{ab}\hspace{-1em}, J_{ab}^6 = \begin{pmatrix}0 & 0 & 0 & 0 \\ 0 & 0 & \frac{1}{2} & 0 \\ 0 & \frac{1}{2} & 0 & 0 \\ 0 & 0 & 0 & 0\end{pmatrix}_{ab}\hspace{-1em}, J_{ab}^7 = \begin{pmatrix}0 & 0 & 0 & 0 \\ 0 & 0 & 0 & \frac{1}{2} \\ 0 & 0 & 0 & 0 \\ 0 & \frac{1}{2} & 0 & 0\end{pmatrix}_{ab}\hspace{-1em}, J_{ab}^8 = \begin{pmatrix}0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 0\end{pmatrix}_{ab}\hspace{-1em}, \\
-    J_{ab}^9 = \begin{pmatrix}0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & \frac{1}{2} \\ 0 & 0 & \frac{1}{2} & 0\end{pmatrix}_{ab}\hspace{-1em}, J_{ab}^{10} = \begin{pmatrix}0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 1\end{pmatrix}_{ab}\hspace{-1em}.
-  \end{gathered}
+\resizebox{\linewidth}{!}{%
+  $\displaystyle\begin{gathered}
+    J_{ab}^1 = \begin{pmatrix}1 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0\end{pmatrix}_{ab}, J_{ab}^2 = \begin{pmatrix}0 & \frac{1}{2} & 0 & 0 \\ \frac{1}{2} & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0\end{pmatrix}_{ab}, J_{ab}^3 = \begin{pmatrix}0 & 0 & \frac{1}{2} & 0 \\ 0 & 0 & 0 & 0 \\ \frac{1}{2} & 0 & 0 & 0 \\ 0 & 0 & 0 & 0\end{pmatrix}_{ab} J_{ab}^4 = \begin{pmatrix}0 & 0 & 0 & \frac{1}{2} \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ \frac{1}{2} & 0 & 0 & 0\end{pmatrix}_{ab}, \\
+    J_{ab}^5 = \begin{pmatrix}0 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0\end{pmatrix}_{ab}, J_{ab}^6 = \begin{pmatrix}0 & 0 & 0 & 0 \\ 0 & 0 & \frac{1}{2} & 0 \\ 0 & \frac{1}{2} & 0 & 0 \\ 0 & 0 & 0 & 0\end{pmatrix}_{ab}, J_{ab}^7 = \begin{pmatrix}0 & 0 & 0 & 0 \\ 0 & 0 & 0 & \frac{1}{2} \\ 0 & 0 & 0 & 0 \\ 0 & \frac{1}{2} & 0 & 0\end{pmatrix}_{ab}, J_{ab}^8 = \begin{pmatrix}0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 0\end{pmatrix}_{ab}, \\
+    J_{ab}^9 = \begin{pmatrix}0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & \frac{1}{2} \\ 0 & 0 & \frac{1}{2} & 0\end{pmatrix}_{ab}, J_{ab}^{10} = \begin{pmatrix}0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 1\end{pmatrix}_{ab}.
+\end{gathered}$}
 \end{equation}
 The intertwiner $I$ distributes the ten degrees of freedom for a symmetric tensor of dimension 4 across the components of a generic rank-2 tensor
 \begin{equation}
