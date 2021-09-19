@@ -3,7 +3,11 @@
 \textit{In the previous chapters, we reduced the complexity of the covariant construction procedure by considering a perturbative equivalent. Consequently, the result was an approximation of the exact gravitational theory, valid for sufficiently weak gravitational fields. A second approach towards reducing the complexity of the equivariance equations is symmetry reduction, which assumes that the gravitational field exhibits certain symmetries. Ideally, these symmetries bring the construction equations into a much simpler form. The solutions of the reduced equations should be theories of gravity valid in this symmetry-reduced sector, comparable to the Friedmann equations for spatially homogeneous and isotropic Einstein gravity. In this chapter, we explore a possible approach towards symmetry-reduced covariant constructive gravity by reducing the bundle on which the procedure operates. Our main result will be that the FLRW model can be recovered without the need to know the full Einstein-Hilbert Lagrangian beforehand. The corresponding area metric equivalent will not be solved, only the construction equations are derived. For a more in-depth study of symmetry reduction in the context of canonical constructive gravity, see Ref.~\cite{Duell_2020}.}
 
 \section{The cosmological bundle}
-As the symmetry in question, let us consider the cosmological symmetry, where spacetime is assumed to be spatially homogeneous and isotropic (see e.g.~\cite{Wald_1984}). It is well known what this entails for the metric field: implicitly, this symmetry comes with the assumption of a sliced spacetime. The spatial degrees of freedom in the metric tensor reduce to a single \emph{scale factor}.
+For the purpose of developing a symmetry reduction strategy, let us consider the cosmological symmetry, which assumes spacetime to be spatially homogeneous and isotropic (see e.g.~\cite{Weinberg_1972,Wald_1984}). It is well known what this entails for the metric field: implicitly, this symmetry comes with the assumption of a sliced spacetime, i.e.\ $M \cong \mathbb R \times \Sigma$. In appropriate coordinates on the product manifold, the covariant metric tensor then reads \cite{Weinberg_1972,Katanaev_2016}
+\begin{equation}
+  g = dt \otimes dt - a(t)^2 \gamma_{\alpha\beta} dx^\alpha dx^\beta,
+\end{equation}
+where the spatial part is given by the positive \emph{scale factor} $a(t)$ and a metric $\gamma$ on $\Sigma$ of constant curvature.\footnote{Restricting the topology of the spatial manifold $\Sigma$ to either $\mathbb R^3$ or $S^3$.}
 
 More formally, we have a slicing $\phi\colon\mathbb R\times\Sigma\rightarrow M$, which induces embeddings
 \begin{equation}
@@ -12,7 +16,27 @@ More formally, we have a slicing $\phi\colon\mathbb R\times\Sigma\rightarrow M$,
     p \mapsto {} & \phi_\lambda(p) \vcentcolon= \phi(\lambda,p)
   \end{aligned}
 \end{equation}
-of the spatial hypersurface $\Sigma$ into the spacetime manifold $M$.
+of the spatial hypersurface $\Sigma$ into the spacetime manifold $M$. Each slicing introduces a time coordinate $t \vcentcolon= \pi_{\mathbb R} \circ \phi^{-1}$. The corresponding vector field $\partial_t$ defines the spatial and spatio-temporal components of the metric tensor by virtue of the conditions
+\begin{equation}
+  g(\partial_t,\partial_t) = 1\quad\text{and}\quad X(t) = 0\Longrightarrow g(\partial_t,X) = 0.
+\end{equation}
+For the spatial components, we consider the pullback of the metric tensor onto the spatial slice $\Sigma$. This yields Riemannian 3-manifolds
+\begin{equation}
+  (\Sigma, \gamma_\lambda \vcentcolon= -\phi_\lambda^\ast g)
+\end{equation}
+that are of constant curvature. For simplicity, let us restrict to \emph{zero} curvature manifolds, such that the spatial volume is determined only by the scale factor
+\begin{equation}
+  a(\lambda) \vcentcolon= \sqrt{\operatorname{det} \gamma_\lambda}^\frac{1}{3}.
+\end{equation}
+
+From these insights, let us define the \emph{cosmological bundle} for metric gravity.
+\begin{definition}[Metric cosmological bundle]
+  Let $(M,g)$ be a spatially homogeneous and isotropic metric manifold. The cosmological bundle is defined as
+  \begin{equation}
+    TM \oplus_M \operatorname{Vol}^{\frac{1}{3}}(M),
+  \end{equation}
+  the sum of the tangent bundle and the bundle of densities with weight $\frac{1}{3}$.
+\end{definition}
 
 \begin{itemize}
 \item idea: symmetric field parameterized by vector fields and scalar (densities)
