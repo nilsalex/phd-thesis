@@ -5,9 +5,9 @@
 \section{The cosmological bundle}
 For the purpose of developing a symmetry reduction strategy, let us consider the cosmological symmetry, which assumes spacetime to be spatially homogeneous and isotropic (see e.g.~\cite{Weinberg_1972,Wald_1984}). It is well known what this entails for the metric field: implicitly, this symmetry comes with the assumption of a sliced spacetime, i.e.\ $M \cong \mathbb R \times \Sigma$. In appropriate coordinates on the product manifold, the covariant metric tensor then reads \cite{Weinberg_1972,Katanaev_2016}
 \begin{equation}
-  g = dt \otimes dt - a(t)^2 \gamma_{\alpha\beta} dx^\alpha dx^\beta,
+  g = dt \otimes dt - a(t)^2 \gamma_{\alpha\beta} dx^\alpha \otimes dx^\beta,
 \end{equation}
-where the spatial part is given by the positive \emph{scale factor} $a(t)$ and a metric $\gamma$ on $\Sigma$ of constant curvature.\footnote{Restricting the topology of the spatial manifold $\Sigma$ to either $\mathbb R^3$ or $S^3$.}
+where the spatial part is given by the positive \emph{scale factor} $a(t) > 0$ and a constant curvature metric $\gamma$ on $\Sigma$.\footnote{Restricting the topology of the spatial manifold $\Sigma$ to either $\mathbb R^3$ or $S^3$.}
 
 More formally, we have a slicing $\phi\colon\mathbb R\times\Sigma\rightarrow M$, which induces embeddings
 \begin{equation}
@@ -18,7 +18,7 @@ More formally, we have a slicing $\phi\colon\mathbb R\times\Sigma\rightarrow M$,
 \end{equation}
 of the spatial hypersurface $\Sigma$ into the spacetime manifold $M$. Each slicing introduces a time coordinate $t \vcentcolon= \pi_{\mathbb R} \circ \phi^{-1}$. The corresponding vector field $\partial_t$ defines the spatial and spatio-temporal components of the metric tensor by virtue of the conditions
 \begin{equation}
-  g(\partial_t,\partial_t) = 1\quad\text{and}\quad X(t) = 0\Longrightarrow g(\partial_t,X) = 0.
+  g(\partial_t,\partial_t) = 1\quad\text{and}\quad dt(X) = 0\Longrightarrow g(\partial_t,X) = 0.
 \end{equation}
 For the spatial components, we consider the pullback of the metric tensor onto the spatial slice $\Sigma$. This yields Riemannian 3-manifolds
 \begin{equation}
@@ -29,24 +29,26 @@ that are of constant curvature. For simplicity, let us restrict to \emph{zero} c
   a(\lambda) \vcentcolon= \sqrt{\operatorname{det} \gamma_\lambda}^\frac{1}{3}.
 \end{equation}
 
-From these insights, let us define the \emph{cosmological bundle} for metric gravity.
-\begin{definition}[Metric cosmological bundle]
-  Let $(M,g)$ be a spatially homogeneous and isotropic metric manifold. The cosmological bundle is defined as
+From these insights, we define the \emph{cosmological bundle} for metric gravity.
+\begin{definition}[metric cosmological bundle]
+  The cosmological bundle over a manifold $M$ which captures the information of a spatially homogeneous and isotropic metric spacetime $(M,g)$ is defined as
   \begin{equation}
     TM \oplus_M \operatorname{Vol}^{\frac{1}{3}}(M),
   \end{equation}
-  the sum of the tangent bundle and the bundle of densities with weight $\frac{1}{3}$.
+  i.e.\ the sum of the tangent bundle and the bundle of densities with weight $\frac{1}{3}$.
+\end{definition}
+A similar definition can be given for the area metric bundle. It has been shown \cite{Duell_2020} that a spatially homogeneous and isotropic area metric manifold is determined by \emph{two} spatial degrees of freedom, which are a density-valued scale factor and a second scalar-valued factor.\footnote{This already follows quite intuitively from the $3+1$ decomposition in Sect.~\ref{sect_three_plus_one}. As opposed to metric gravity, where a single three-metric determines all spatial components, we now have \emph{two} spatial metrics and one tracefree endomorphism which parameterize the 17 spatial degrees of freedom. If the fields are to be isotropic, they must be given by two scale factors for the metrics; the tracefree endomorphism must be zero. Instead of working with two density-valued functions, it is more convenient to use a redefinition where one of the function becomes scalar-valued.} Consequently, the area metric cosmological bundle can be defined as follows.
+\begin{definition}[area metric cosmological bundle]
+  The cosmological bundle over a manifold $M$ which captures the information of a spatially homogeneous and isotropic area metric spacetime $(M,G)$ is defined as
+  \begin{equation}
+    TM \oplus_M \operatorname{Vol}^{\frac{1}{3}}(M) \oplus_M M\times\mathbb R,
+  \end{equation}
+  i.e.\ the sum of the tangent bundle, the bundle of $\frac{1}{3}$-densities, and the line bundle.
 \end{definition}
 
-\begin{itemize}
-\item idea: symmetric field parameterized by vector fields and scalar (densities)
-\item examples: metric theory, area metric theory
-\end{itemize}
-
 \section{Recovering the FLRW model}
-\begin{itemize}
-\item equivariance equations on cosmological bundle for symmetric metric are solved by Friedmann equations
-\end{itemize}
+
+\newpage
 
 \section{Construction equations for area metric cosmology}
 \begin{itemize}
