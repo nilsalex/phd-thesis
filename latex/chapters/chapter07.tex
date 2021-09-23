@@ -5,7 +5,7 @@
 \section{The cosmological bundle}
 For the purpose of developing a symmetry reduction strategy, let us consider the cosmological symmetry, which assumes spacetime to be spatially homogeneous and isotropic (see e.g.~\cite{Weinberg_1972,Wald_1984}). It is well known what this entails for the metric field: implicitly, this symmetry comes with the assumption of a sliced spacetime, i.e.\ $M \cong \mathbb R \times \Sigma$. In appropriate coordinates on the product manifold, the covariant metric tensor then reads \cite{Weinberg_1972,Katanaev_2016}
 \begin{equation}
-  g = dt \otimes dt - a(t)^2 \gamma_{\alpha\beta} dx^\alpha \otimes dx^\beta,
+  g = dt \otimes dt - a(t)^2 \gamma,
 \end{equation}
 where the spatial part is given by the positive \emph{scale factor} $a(t) > 0$ and a constant curvature metric $\gamma$ on $\Sigma$.\footnote{Restricting the topology of the spatial manifold $\Sigma$ to either $\mathbb R^3$ or $S^3$.}
 
@@ -18,7 +18,7 @@ More formally, we have a slicing $\phi\colon\mathbb R\times\Sigma\rightarrow M$,
 \end{equation}
 of the spatial hypersurface $\Sigma$ into the spacetime manifold $M$. Each slicing introduces a time coordinate $t \vcentcolon= \pi_{\mathbb R} \circ \phi^{-1}$. The corresponding vector field $\partial_t$ defines the spatial and spatio-temporal components of the metric tensor by virtue of the conditions
 \begin{equation}
-  g(\partial_t,\partial_t) = 1\quad\text{and}\quad dt(X) = 0\Longrightarrow g(\partial_t,X) = 0.
+  g(\partial_t,\partial_t) = 1\quad\text{and}\quad dt(X) = 0\Rightarrow g(\partial_t,X) = 0.
 \end{equation}
 For the spatial components, we consider the pullback of the metric tensor onto the spatial slice $\Sigma$. This yields Riemannian 3-manifolds
 \begin{equation}
@@ -33,7 +33,7 @@ From these insights, we define the \emph{cosmological bundle} for metric gravity
 \begin{definition}[metric cosmological bundle]
   The cosmological bundle over a manifold $M$ which captures the information of a spatially homogeneous and isotropic metric spacetime $(M,g)$ is defined as
   \begin{equation}
-    TM \oplus_M \operatorname{Vol}^{\frac{1}{3}}(M),
+    E_\text{metric}^\text{(cosmological)} = TM \oplus_M \operatorname{Vol}^{\frac{1}{3}}(M),
   \end{equation}
   i.e.\ the sum of the tangent bundle and the bundle of densities with weight $\frac{1}{3}$.
 \end{definition}
@@ -41,7 +41,7 @@ A similar definition can be given for the area metric bundle. It has been shown 
 \begin{definition}[area metric cosmological bundle]
   The cosmological bundle over a manifold $M$ which captures the information of a spatially homogeneous and isotropic area metric spacetime $(M,G)$ is defined as
   \begin{equation}
-    TM \oplus_M \operatorname{Vol}^{\frac{1}{3}}(M) \oplus_M M\times\mathbb R,
+    E_\text{area}^\text{(cosmological)} = TM \oplus_M \operatorname{Vol}^{\frac{1}{3}}(M) \oplus_M \operatorname{Scalar}{\frac{1}{3}}(M),
   \end{equation}
   i.e.\ the sum of the tangent bundle, the bundle of $\frac{1}{3}$-densities, and the line bundle.
 \end{definition}
@@ -55,7 +55,46 @@ while $\frac{1}{3}$-densities transform according to the Gotay-Marsden coefficie
 \begin{equation}
   \gmc{}{}{n}{m} = -\frac{1}{3} \delta^n_m.
 \end{equation}
-Using the right coordinates, the scale factor $a$ depends only on coordinate time, such that the only nonvanishing derivatives are $\dot a$. The vector field, called $U$, depends on all coordinates.
+In order for the field equations to be of second derivative order with a principal polynomial that does not depend on derivatives of the geometry, we make the ansatz
+\begin{equation}
+  \begin{aligned}
+    L(a,\partial a, \partial\partial a, U, \partial U, \partial\partial U) = {} & \mathbin{\hphantom{+}} f_1(a) U^m U^n a_{,mn} & + & f_2(a) U^m U^n_{,mn} \\
+    {} & + f_3(a) U^m U^n a_{,m} a_{,n} & + & f_4(a) U^m U^n_{,n} a_{,m} \\
+    {} & + f_5(a) U^m U^n_{,m} a_{,n} & + & f_6(a) U^m_{,m} U^n_{,n} \\
+    {} & + f_7(a) U^m_{,n} U^n_{,m} & + & f_8(a) U^m a_{,m} \\
+    {} & + f_9(a) U^m_{,m} & + & f_{10}(a).
+  \end{aligned}
+\end{equation}
+The functions $f_1,\dots, f_{10}$ are arbitrary functions of the scale factor. Any occurrence of of a vector field $U$ would have to be contracted with a derivative of either $a$ or $U$, such that with our causality restrictions it is only appropriate to include linear and quadratic terms in the ansatz.
+
+Taking the trace of the equivariance equation \eqref{equivariance_eqn_2} restricts the functions $f_1,\dots, f_{10}$ to polynomials, as we obtain simple ordinary differential equations:
+\begin{equation}
+  \begin{aligned}
+    0 = {} & 2 f_1 - f_1^\prime a \quad & \Rightarrow & \quad f_1(a) = \kappa_1 a^2 \\
+    0 = {} & 3 f_2 - f_2^\prime a \quad & \Rightarrow & \quad f_2(a) = \kappa_2 a^3 \\
+    0 = {} & f_3 - f_3^\prime a \quad & \Rightarrow & \quad f_3(a) = \kappa_3 a \\
+    0 = {} & 2 f_4 - f_4^\prime a \quad & \Rightarrow & \quad f_4(a) = \kappa_4 a^2 \\
+    0 = {} & 2 f_5 - f_5^\prime a \quad & \Rightarrow & \quad f_5(a) = \kappa_5 a^2 \\
+    0 = {} & 3 f_6 - f_6^\prime a \quad & \Rightarrow & \quad f_6(a) = \kappa_6 a^3 \\
+    0 = {} & 3 f_7 - f_7^\prime a \quad & \Rightarrow & \quad f_7(a) = \kappa_7 a^3 \\
+    0 = {} & 2 f_8 - f_8^\prime a \quad & \Rightarrow & \quad f_8(a) = \kappa_8 a^2 \\
+    0 = {} & 3 f_9 - f_9^\prime a \quad & \Rightarrow & \quad f_9(a) = \kappa_9 a^3 \\
+    0 = {} & 3 f_{10} - f_{10}^\prime a \quad & \Rightarrow & \quad f_{10}(a) = \kappa_{10} a^3
+  \end{aligned}
+\end{equation}
+Evaluation of the remaining equivariance equations \eqref{equivariance_eqn_2}--\eqref{equivariance_eqn_4} further narrows down the gravitational constants $\kappa_1,\dots,\kappa_{10}$, leaving us with four independent constants in the Lagrangian density
+\begin{equation}
+  \begin{aligned}
+    L = {} & \mathbin{\hphantom{+}} \kappa_1 \times \bigg\lbrack a^2 U^m U^n a_{,mn} + \frac{1}{3} a^3 U^m U^n_{,mn} \\ {} & \hphantom{+ \kappa_1 \times \bigg\lbrack } + \frac{2}{3} a^2 U^m U^n_{,n} a_{,m} + a^2 U^m U^n_{,m} a_{,n} + \frac{1}{9} a^3 U^m_{,m} U^n_{,n} \bigg\rbrack \\
+    {} & + \kappa_3 \times \bigg\lbrack a U^m U^n a_{,m} a_{,n} + \frac{2}{3} a^2 U^m U^n_{,n} a_{,m} + \frac{1}{9} a^3 U^m_{,m} U^n_{,n}\bigg\rbrack \\
+    {} & + \kappa_8 \times \bigg\lbrack a^2 U^m a_{,m} + \frac{1}{3} a^3 U^m_{,m} \bigg\rbrack \\
+    {} & + \kappa_{10} \times \bigg\lbrack a^3 \bigg\rbrack \\
+      = {} & \mathbin{\hphantom{+}} \kappa_1 \times \bigg\lbrack a^2 U^m U^n a_{,mn} + \frac{1}{3} a^3 U^m U^n_{,mn} \\ {} & \hphantom{+ \kappa_1 \times \bigg\lbrack } + \frac{2}{3} a^2 U^m U^n_{,n} a_{,m} + a^2 U^m U^n_{,m} a_{,n} + \frac{1}{9} a^3 U^m_{,m} U^n_{,n} \bigg\rbrack \\
+    {} & + \kappa_3 \times \bigg\lbrack a U^m U^n a_{,m} a_{,n} + \frac{2}{3} a^2 U^m U^n_{,n} a_{,m} + \frac{1}{9} a^3 U^m_{,m} U^n_{,n}\bigg\rbrack \\
+    {} & + \kappa_8 \times \partial_m \bigg\lbrack \frac{1}{3} a^3 U^m \bigg\rbrack \\
+    {} & + \kappa_{10} \times \bigg\lbrack a^3 \bigg\rbrack.
+  \end{aligned}
+\end{equation}
 
 \newpage
 
