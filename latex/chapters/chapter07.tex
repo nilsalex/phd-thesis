@@ -1,6 +1,6 @@
 \chapter{Outlook: symmetry-reduced constructive gravity}\label{chapter_cosmo}
 
-\textit{In the previous chapters, we reduced the complexity of the covariant construction procedure by considering a perturbative equivalent. Consequently, the result was an approximation of the exact gravitational theory, valid for sufficiently weak gravitational fields. A second approach towards reducing the complexity of the equivariance equations is symmetry reduction, which assumes that the gravitational field exhibits certain symmetries. Ideally, these symmetries bring the construction equations into a much simpler form. The solutions of the reduced equations should be theories of gravity valid in this symmetry-reduced sector, comparable to the Friedmann equations for spatially homogeneous and isotropic Einstein gravity. In this chapter, we explore a possible approach towards symmetry-reduced covariant constructive gravity by reducing the bundle on which the procedure operates. Our main result will be that the FLRW model can be recovered without the need to know the full Einstein-Hilbert Lagrangian beforehand. The corresponding area metric equivalent will not be solved, only the construction equations are derived. For a more in-depth study of symmetry reduction in the context of canonical constructive gravity, see Ref.~\cite{Duell_2020}.}
+\textit{In the previous chapters, we reduced the complexity of the covariant construction procedure by considering a perturbative equivalent. Consequently, the result was an approximation of the exact gravitational theory, valid for sufficiently weak gravitational fields. A second approach towards reducing the complexity of the equivariance equations is symmetry reduction, which assumes that the gravitational field exhibits certain symmetries. Ideally, these symmetries bring the construction equations into a much simpler form. The solutions of the reduced equations should be theories of gravity valid in this symmetry-reduced sector, comparable to the Friedmann equations for spatially homogeneous and isotropic Einstein gravity. In this chapter, we explore a possible approach towards symmetry-reduced covariant constructive gravity by reducing the bundle on which the procedure operates. Our main result will be that the Friedmann-Lema\^itre-Robertson-Walker (FLRW) model can be recovered without the need to know the full Einstein-Hilbert Lagrangian beforehand. The corresponding area metric equivalent will not be solved, only the construction equations are derived. For a more in-depth study of symmetry reduction in the context of canonical constructive gravity, see Ref.~\cite{Duell_2020}.}
 
 \section{The cosmological bundle}
 For the purpose of developing a symmetry reduction strategy, let us consider the cosmological symmetry, which assumes spacetime to be spatially homogeneous and isotropic (see e.g.~\cite{Weinberg_1972,Wald_1984}). It is well known what this entails for the metric field: implicitly, this symmetry comes with the assumption of a sliced spacetime, i.e.\ $M \cong \mathbb R \times \Sigma$. In appropriate coordinates on the product manifold, the covariant metric tensor then reads \cite{Weinberg_1972,Katanaev_2016}
@@ -68,7 +68,7 @@ In order for the field equations to be of second derivative order with a princip
 The functions $f_1,\dots, f_{10}$ are arbitrary functions of the scale factor. Any occurrence of of a vector field $U$ would have to be contracted with a derivative of either $a$ or $U$, such that with our causality restrictions it is only appropriate to include linear and quadratic terms in the ansatz.
 
 Taking the trace of the equivariance equation \eqref{equivariance_eqn_2} restricts the functions $f_1,\dots, f_{10}$ to polynomials, as we obtain simple ordinary differential equations:
-\begin{equation}
+\begin{equation}\label{cosmo_ansaetze}
   \begin{aligned}
     0 = {} & 2 f_1 - f_1^\prime a \quad & \Rightarrow & \quad f_1(a) = \kappa_1 a^2 \\
     0 = {} & 3 f_2 - f_2^\prime a \quad & \Rightarrow & \quad f_2(a) = \kappa_2 a^3 \\
@@ -83,24 +83,58 @@ Taking the trace of the equivariance equation \eqref{equivariance_eqn_2} restric
   \end{aligned}
 \end{equation}
 Evaluation of the remaining equivariance equations \eqref{equivariance_eqn_2}--\eqref{equivariance_eqn_4} further narrows down the gravitational constants $\kappa_1,\dots,\kappa_{10}$, leaving us with four independent constants in the Lagrangian density
-\begin{equation}
+\begin{equation}\label{cosmo_lagrangian}
   \begin{aligned}
     L = {} & \mathbin{\hphantom{+}} \kappa_1 \times \bigg\lbrack a^2 U^m U^n a_{,mn} + \frac{1}{3} a^3 U^m U^n_{,mn} \\ {} & \hphantom{+ \kappa_1 \times \bigg\lbrack } + \frac{2}{3} a^2 U^m U^n_{,n} a_{,m} + a^2 U^m U^n_{,m} a_{,n} + \frac{1}{9} a^3 U^m_{,m} U^n_{,n} \bigg\rbrack \\
     {} & + \kappa_3 \times \bigg\lbrack a U^m U^n a_{,m} a_{,n} + \frac{2}{3} a^2 U^m U^n_{,n} a_{,m} + \frac{1}{9} a^3 U^m_{,m} U^n_{,n}\bigg\rbrack \\
     {} & + \kappa_8 \times \bigg\lbrack a^2 U^m a_{,m} + \frac{1}{3} a^3 U^m_{,m} \bigg\rbrack \\
     {} & + \kappa_{10} \times \bigg\lbrack a^3 \bigg\rbrack \\
-      = {} & \mathbin{\hphantom{+}} \kappa_1 \times \bigg\lbrack a^2 U^m U^n a_{,mn} + \frac{1}{3} a^3 U^m U^n_{,mn} \\ {} & \hphantom{+ \kappa_1 \times \bigg\lbrack } + \frac{2}{3} a^2 U^m U^n_{,n} a_{,m} + a^2 U^m U^n_{,m} a_{,n} + \frac{1}{9} a^3 U^m_{,m} U^n_{,n} \bigg\rbrack \\
+    \approx {} & \mathbin{\hphantom{+}} \kappa_1 \times \bigg\lbrack a^2 U^m U^n a_{,mn} + \frac{1}{3} a^3 U^m U^n_{,mn} \\ {} & \hphantom{+ \kappa_1 \times \bigg\lbrack } + \frac{2}{3} a^2 U^m U^n_{,n} a_{,m} + a^2 U^m U^n_{,m} a_{,n} + \frac{1}{9} a^3 U^m_{,m} U^n_{,n} \bigg\rbrack \\
     {} & + \kappa_3 \times \bigg\lbrack a U^m U^n a_{,m} a_{,n} + \frac{2}{3} a^2 U^m U^n_{,n} a_{,m} + \frac{1}{9} a^3 U^m_{,m} U^n_{,n}\bigg\rbrack \\
-    {} & + \kappa_8 \times \partial_m \bigg\lbrack \frac{1}{3} a^3 U^m \bigg\rbrack \\
-    {} & + \kappa_{10} \times \bigg\lbrack a^3 \bigg\rbrack.
+    {} & + \kappa_{10} \times \bigg\lbrack a^3 \bigg\rbrack,
   \end{aligned}
 \end{equation}
+where one constant, $\kappa_8$, only contributes to a boundary term, which will be dropped from now on.
 
-\newpage
+Let us couple the metric to a matter field by adding to the Lagrangian density \eqref{cosmo_lagrangian} a matter Lagrangian\footnote{Not a \emph{density} for the purposes of this section. We will always make the ``densitization'' using $\sqrt{-g} = a^3$ explicit.} $L_\text{matter}$. Expressed in coordinates where $U^a = \text{const}$, variations with respect to the fields $a$ and $U$ reproduce the well-known \emph{Friedmann equations} \cite{Friedman_1922}
+\begin{align}
+  \left(\frac{\dot a}{a}\right)^2 - \frac{\Lambda}{3} = {} & \frac{\kappa}{3} \rho, \label{friedmann_1}\\
+  \frac{\ddot a}{a} - \frac{\Lambda}{3} = {} & -\frac{\kappa}{6}(\rho + 3 p), \label{friedmann_2}
+\end{align}
+with combinations $\kappa$ and $\Lambda$ of the gravitational constants $\kappa_1,\kappa_3,\kappa_{10}$ and the derivative $\dot a \vcentcolon= U(a)$.
 
-\section{Construction equations for area metric cosmology}
-\begin{itemize}
-\item set up equivariance equations for area metric cosmological bundle
-\item proof: matter causality is metric
-\end{itemize}
+For the field equations \eqref{friedmann_1} and \eqref{friedmann_2} we introduced the \emph{energy density}
+\begin{equation}\label{energy_density}
+  \rho = \frac{1}{a^3}\left\lbrack -\frac{a}{3} \frac{\delta(a^3 L_\text{matter})}{\delta a} + U^p \frac{\delta(a^3L_\text{matter})}{\delta U^p}\right\rbrack
+\end{equation}
+and the \emph{pressure}
+\begin{equation}\label{pressure}
+  p = \frac{1}{a^3} \left\lbrack \frac{a}{3} \frac{\delta(a^3L_\text{matter})}{\delta a}\right\rbrack.
+\end{equation}
+An example for a matter field that couples to the FLRW metric is a spatially homogeneous and isotropic scalar field $\phi$ in a potential $V$, with dynamics according to the action
+\begin{equation}
+  S_\text{matter}\lbrack\phi\rbrack = \int \sqrt{-g}\lbrack g(d\phi,d\phi) - V(\phi)\rbrack d^4x = \int a^3\lbrack (U(\phi))^2 - V(\phi)\rbrack d^4x.
+\end{equation}
+The corresponding energy density and pressure as defined in Eqns.~\eqref{energy_density} and \eqref{pressure} are given by
+\begin{align}
+  \rho = {} & (\dot\phi)^2 + V(\phi) \label{scalar_energy_density}\\
+  p = {} & (\dot\phi)^2 - V(\phi) \label{scalar_pressure}.
+\end{align}
+Together, energy density and pressure constitute the metric stress-energy tensor
+\begin{equation}
+  T^{ab} = \frac{2}{\sqrt{-g}}\frac{\delta(\sqrt{-g}L_\text{matter})}{\delta g_{ab}} = (\rho + p)U^aU^b + pg^{ab},
+\end{equation}
+as can be verified by inserting the expressions \eqref{scalar_energy_density} and \eqref{scalar_pressure} for $\rho$ and $p$ in above equation.
+
+Summing up, we have found the Friedmann equations \eqref{friedmann_1} and \eqref{friedmann_2} as the dynamical equations for the remaining degrees of freedom in spatially isotropic and homogeneous metric cosmology---without recurrence to the Einstein equation, just by performing the symmetry reduction \emph{beforehand} and applying the covariant construction procedure to the reduced problem. The equations are parameterized by the gravitational constant $\kappa$ and the cosmological constant $\Lambda$. All inferences that can be drawn from the Friedmann equations already follow from this simplified approach---demonstrating the potential of symmetry-reduced covariant constructive gravity for investigations into the cosmological sector of modified theories of gravity.
+
+\section{Towards area metric cosmology}
+
+In principle, the same procedure can be applied to the cosmological bundle of area metric gravity, resulting in a parameterization of all possible symmetry-reduced gravitational theories for the area metric tensor. The only new ingredient as compared to metric cosmology are the Gotay-Marsden coefficients for scalar fields, which are
+\begin{equation}
+  \gmc{}{}{n}{m} = 0.
+\end{equation}
+This is not surprising at all---the Gotay-Marsden coefficients define the transformation behaviour with respect to spacetime diffeomorphisms. A scalar is, by definition, diffeomorphism \emph{invariant} and the corresponding coefficients are thus zero. As a consequence, the functional form of the dependence on the scalar is much less restricted, i.e.\ a result equivalent to Eq.~\eqref{cosmo_ansaetze} cannot be derived. Any solution will contain undetermined \emph{functions}, not only constants.
+
+An in-depth study of the equivalent problem in \emph{canonical} constructive gravity has been performed in Ref.~\cite{Duell_2020}.
 
