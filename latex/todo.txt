@@ -1,15 +1,4 @@
-order up to or only kappa^0 or kappa^1 ??
 perturbative causal compatibility: cones + O(2) ??
-& {} = -> = {} &
-k_{12}
-scalebox
 g(r)
-Giesel_2012: check observer quantities, observer def
-space before citation
-quote before intro. we can come back to the quote at the end
-gm intertwiner commutator
-Haskell not in texttt
 reference for lorentz tensors eta and epsilon
-no closed expression for fourth degree poly legendre?
 t_0 (inspiral time)
-open source acknowledgements
