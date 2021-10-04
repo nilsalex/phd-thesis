@@ -1,7 +1,5 @@
-dependency -> dependence
 order up to or only kappa^0 or kappa^1 ??
 perturbative causal compatibility: cones + O(2) ??
-upright differentials
 & {} = -> = {} &
 k_{12}
 scalebox

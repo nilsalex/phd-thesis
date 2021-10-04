@@ -42,7 +42,7 @@ Assuming $M$ to be orientable with volume form $\Omega\in\Lambda^nM$, a Lagrangi
 
 The claim of \eqref{lagrangian_density} becomes apparent in local coordinates, where a horizontal $n$-form on $\pi_k$ appears as
 \begin{equation}\label{lagrangian_local}
-  \textstyle\bigwedge^n_0\pi_k\ni \mathscr L = \mathscr L(x^i,u^A,u^A_i,\dots) \mathrm dx^1\wedge \dots \wedge \mathrm dx^n.
+  \textstyle\bigwedge^n_0\pi_k\ni \mathscr L = \mathscr L(x^i,u^A,u^A_i,\dots) dx^1\wedge \dots \wedge dx^n.
 \end{equation}
 From \eqref{lagrangian_local} and \eqref{lagrangian_density}, it is also clear how the notion of a Lagrangian as a horizontal $n$-form captures in a geometric way the notion used elsewhere as a bundle map $J^kE \rightarrow \Lambda^nM$ (see \cite{Saunders_1989,Gotay_1992,Alex_2020}).
 
@@ -72,7 +72,7 @@ The intrinsic equivalent to the Euler-Lagrange equations in local coordinates in
 \begin{proposition}[\cite{Saunders_1989}]
   Given a Lagrangian $\mathscr L = L\Omega \in \bigwedge^n_0\pi_k$, there exists an $n$-form $\Theta_L\in\bigwedge^{n}_0\pi_{2k-1,k-1}\cap\bigwedge^{n}_{1}\pi_{2k-1}$, such that, globally, the variation of the Lagrangian is given by
   \begin{equation}\label{global_lagrange_form}
-    \delta L = \pi^\ast_{2k,k} \left( \mathrm dL\wedge\Omega\right) + \mathrm d_h \Theta_L
+    \delta L = \pi^\ast_{2k,k} \left( dL\wedge\Omega\right) + d_h \Theta_L
   \end{equation}
   and extremals of $\mathscr L$ are extremals of $\Theta_L$ in the sense that
   \begin{equation}
@@ -84,13 +84,13 @@ The intrinsic equivalent to the Euler-Lagrange equations in local coordinates in
   See \cite{Saunders_1989}.
 \end{proof}
 
-This definition generalises the local derivation of \eqref{euler_lagrange_local}: the variation $\delta L$ is obtained by lifting $\mathrm d\mathscr L$ to $\pi_{2k}$ and cancelling nonhorizontal terms (over $E$) by adding a derivative, which corresponds to repeated integrations by parts.
+This definition generalises the local derivation of \eqref{euler_lagrange_local}: the variation $\delta L$ is obtained by lifting $d\mathscr L$ to $\pi_{2k}$ and cancelling nonhorizontal terms (over $E$) by adding a derivative, which corresponds to repeated integrations by parts.
 
 A possible\footnote{Generally, $\Theta_L$ is not uniquely defined. \cite{Saunders_1989}} coordinate expression for $\Theta_L$ is \cite{Saunders_1989}
 \begin{equation}\label{local_cartan_form}
   \Theta_L = L\Omega + \sum_{s=0}^{k-1} \sum_{l=0}^{k-s-1} (-1)^l D_{i_1} \cdots D_{i_l} \left(\frac{\partial L}{\partial u^A_{j i_1 \dots i_{l} p_1 \dots p_s}}\right) \psi^A_{p_1\dots p_s} \wedge \left(i_{\partial_j}\Omega\right),
 \end{equation}
-where the forms $\psi^A_{p_1\dots p_s} = \mathrm d u^A_{p_1\dots p_s} - u^A_{p_1\dots p_sq} \mathrm dx^q$ span the contact system of $\pi_k$ (see \cite{Saunders_1989}).
+where the forms $\psi^A_{p_1\dots p_s} = d u^A_{p_1\dots p_s} - u^A_{p_1\dots p_sq} dx^q$ span the contact system of $\pi_k$ (see \cite{Saunders_1989}).
 
 Straight-forward application of \eqref{global_lagrange_form} to \eqref{local_cartan_form} yields the well-known coordinate expression
 \begin{equation}
@@ -137,13 +137,13 @@ and on component functions of covector fields as\footnote{As for any group homom
 ((\varphi^{-1})^\ast\omega)_{(y)j}(y(\varphi(p))) = \frac{\partial (x^i\circ \varphi^{-1})}{\partial y^j}\Bigg\rvert_{\varphi(p)} \cdot \omega_{(x)i}(x(p)).
 \end{equation}
 
-We wish to encode \eqref{lagrangian_diffeo_invariance} as local conditions on the Lagrangian density. To this end, consider a coordinate representation $\mathscr L = L\mathrm d^nx$. 
+We wish to encode \eqref{lagrangian_diffeo_invariance} as local conditions on the Lagrangian density. To this end, consider a coordinate representation $\mathscr L = Ld^nx$. 
 \begin{proposition}
-  Let $\mathscr L = L_{(x)}\mathrm d^nx$ be a coordinate representation of a diffeomorphism invariant Lagrangian, induced by a coordinate chart $(U,x)$ on $M$. It follows from the invariance condition \eqref{lagrangian_diffeo_invariance} that $L_{(x)}$ is \textbf{diffeomorphism equivariant}, i.e.\ it holds for all $\varphi\in\mathrm{Diff}(M)$ that, over the intersection of $U$ and $\varphi(U)$,
+  Let $\mathscr L = L_{(x)}d^nx$ be a coordinate representation of a diffeomorphism invariant Lagrangian, induced by a coordinate chart $(U,x)$ on $M$. It follows from the invariance condition \eqref{lagrangian_diffeo_invariance} that $L_{(x)}$ is \textbf{diffeomorphism equivariant}, i.e.\ it holds for all $\varphi\in\mathrm{Diff}(M)$ that, over the intersection of $U$ and $\varphi(U)$,
   \begin{equation}\label{lagrangian_density_diffeo_equivariance}
-    L_{(x)}\circ j^k_{(x)}(\varphi_E) = \lvert \mathrm d\varphi_{(x)}\rvert^{-1} L_{(x)}.
+    L_{(x)}\circ j^k_{(x)}(\varphi_E) = \lvert d\varphi_{(x)}\rvert^{-1} L_{(x)}.
   \end{equation}
-  $\lvert \mathrm d\varphi_{(x)}\rvert$ denotes the determinant of the Jacobian of $\varphi$ in terms of the coordinate chart $(U,x)$.
+  $\lvert d\varphi_{(x)}\rvert$ denotes the determinant of the Jacobian of $\varphi$ in terms of the coordinate chart $(U,x)$.
 \end{proposition}
 \begin{proof}
   The result follows from the coordinate expression \eqref{diffeo_covector_coordinates} for the pullback of one forms, which extends to horizontal forms on the jet bundle.
@@ -245,7 +245,7 @@ If required for calculations, Gotay-Marsden coefficients are easily expressed us
 The Gotay-Marsden coefficients are the defining objects for the PDE version of the invariance of $L$ under infinitesimal diffeomorphisms. This constitutes the central result concerning the first axiom and shall be proved in the following.
 
 \begin{theorem}\label{equivariance_eqns_thm}
-  Let $L$ be the local Lagrangian density of a second derivative order Lagrangian $\mathscr L = L\mathrm d^4x \in \textstyle\bigwedge_0^n\pi_2$. If $\mathscr L$ is diffeomorphism invariant, i.e.\ satisfies the invariance condition \eqref{lagrangian_diffeo_invariance} of the first axiom of covariant constructive gravity, its local representation $L$ satisfies a system of first-order linear partial differential equations given by
+  Let $L$ be the local Lagrangian density of a second derivative order Lagrangian $\mathscr L = Ld^4x \in \textstyle\bigwedge_0^n\pi_2$. If $\mathscr L$ is diffeomorphism invariant, i.e.\ satisfies the invariance condition \eqref{lagrangian_diffeo_invariance} of the first axiom of covariant constructive gravity, its local representation $L$ satisfies a system of first-order linear partial differential equations given by
   \begin{subequations}\label{equivariance_eqns}
     \begin{align}
       0 &{} = L_{,m} \label{equivariance_eqn_1}\\
@@ -313,19 +313,19 @@ Using the infinitesimal version $\mathcal L_{\xi_{J^{2k-1}E}} \Theta_L = 0$ of t
   \end{equation}
   is a closed differential form, i.e.
   \begin{equation}\label{first_noether_eq}
-    0 = \mathrm d \boldsymbol{j}(\sigma).
+    0 = d \boldsymbol{j}(\sigma).
   \end{equation}
 \end{theorem}
 \begin{proof}
   Applying the Cartan formula to the infinitesimal diffeomorphism invariance condition for $\Theta_L$ (which follows from Prop.~\ref{prop_cartan_diffeo}) gives
   \begin{equation}
-    0 = \mathcal L_{\xi_{J^{2k-1}E}} \Theta_L = \mathrm d\,\iota_{\xi_{J^{2k-1}E}} \Theta_L + \iota_{\xi_{J^{2k-1}E}} \mathrm d \Theta_L
+    0 = \mathcal L_{\xi_{J^{2k-1}E}} \Theta_L = d\,\iota_{\xi_{J^{2k-1}E}} \Theta_L + \iota_{\xi_{J^{2k-1}E}} d \Theta_L
   \end{equation}
   such that
   \begin{equation}
     \begin{aligned}
-      \mathrm d \left((j^{2k-1}\sigma)^\ast \iota_{\xi_{J^{2k-1}E}} \Theta_L \right) &{} = (j^{2k-1}\sigma)^\ast ( \mathrm d\,\iota_{\xi_{J^{2k-1}E}} \Theta_L ) \\
-                                                                             &{} = -(j^{2k-1}\sigma)^\ast (\iota_{\xi_{J^{2k-1}E}} \mathrm d \Theta_L ).
+      d \left((j^{2k-1}\sigma)^\ast \iota_{\xi_{J^{2k-1}E}} \Theta_L \right) &{} = (j^{2k-1}\sigma)^\ast ( d\,\iota_{\xi_{J^{2k-1}E}} \Theta_L ) \\
+                                                                             &{} = -(j^{2k-1}\sigma)^\ast (\iota_{\xi_{J^{2k-1}E}} d \Theta_L ).
     \end{aligned}
   \end{equation}
   One of the defining properties of the Cartan form $\Theta_L$ is that extremals of $\mathscr L$ are extremals of $\Theta_L$. Because $\sigma$, satisfying the Euler-Lagrange equations, is an extremal of $\mathscr L$, it also satisfies the condition \cite{Gotay_1991}
@@ -453,7 +453,7 @@ Evaluating the field equations at this ansatz and taking the limit $\lambda\righ
 \begin{equation}\label{wkb_section}
   \underbrace{\left(\frac{\partial E_A}{\partial u^B_I}\right)J^{ij}_Ik_ik_j}_{T_{AB}(k)}a^B = 0,
 \end{equation}
-which depends on the wavefront $S$ only via the wave covector $k=-\mathrm dS$. Eq.~\ref{wkb_section} is a linear equation for the amplitudes $a^B$ with coefficients from the $r\times r$ matrix $T_{AB}(k)$, where $r$ denotes the fibre dimension of the theory. This matrix, called the \emph{principal symbol} of the field equations, plays an important r\^ole in the short-wavelength limit: if the theory admits solutions with nontrivial amplitudes $a^B$, the principal symbol $T_{AB}(k)$ must necessarily be noninjective. By virtue of this condition, the principal symbol selects the physically admissible wave covectors in the WKB ansatz. As a square matrix is noninjective if and only if its determinant vanishes, admissible wave covectors can equivalently be characterised by a vanishing condition on the determinant of $T_{AB}(k)$.
+which depends on the wavefront $S$ only via the wave covector $k=-dS$. Eq.~\ref{wkb_section} is a linear equation for the amplitudes $a^B$ with coefficients from the $r\times r$ matrix $T_{AB}(k)$, where $r$ denotes the fibre dimension of the theory. This matrix, called the \emph{principal symbol} of the field equations, plays an important r\^ole in the short-wavelength limit: if the theory admits solutions with nontrivial amplitudes $a^B$, the principal symbol $T_{AB}(k)$ must necessarily be noninjective. By virtue of this condition, the principal symbol selects the physically admissible wave covectors in the WKB ansatz. As a square matrix is noninjective if and only if its determinant vanishes, admissible wave covectors can equivalently be characterised by a vanishing condition on the determinant of $T_{AB}(k)$.
 
 There is, however, a problem with this approach: in the presence of gauge symmetries, there are nontrivial solutions equivalent to the trivial solution $a^B=0$. These solutions will also be contained in the kernel of the principal symbol, rendering the naive conditions on wave covectors formulated above meaningless. More specifically, assuming a gauge symmetry with $s$-dimensional gauge orbits, there are exactly $s$ independent functions $\chi_{(i)}^A(k)$ which are equivalent to the trivial solution and span an $s$-dimensional subspace of the kernel of $T_{AB}(k)$. In order to allow for solutions which are \emph{not} equivalent to the trivial solution, the kernel needs to be of dimension greater or equal than $s+1$.
 
@@ -477,7 +477,7 @@ to arrive at the so-called \emph{principal polynomial} $\mathcal P(k)$.
     \mathcal P(k) = \frac{Q^{A_1\dots A_sB_1\dots B_s}}{\epsilon^{\mu_1\dots\mu_s}\epsilon^{\nu_1\dots\nu_s}\left\lbrack\prod_{i=1}^s\chi_{(\mu_i)}^{A_i}\right\rbrack\left\lbrack\prod_{j=1}^s\chi_{(\nu_j)}^{B_j}\right\rbrack}.
   \end{equation}
 \end{definition}
-The principal polynomial is a homogeneous polynomial of order $2r-4s$ in the components $k_a$ of the wave covector and has---as is clear from the derivation above---the important property that in order for an ansatz \eqref{wkb_ansatz} to describe a nontrivial solution in the short-wavelength limit the wave covector $k=-\mathrm dS$ must be a root of $\mathcal P$. Thus, the complete information about the propagation of waves in the infinite frequency limit is encoded in the principal symbol. This is an example for the more general result that the eligibility of a theory as a \emph{physically relevant} theory hinges on properties of $\mathcal P$. More specifically, it has been shown that a theory can only be \emph{predictive}, \emph{interpretable}, and \emph{quantizable} if the principal polynomial satisfies certain algebraic conditions, which further propagate to conditions on the underlying geometry. \cite{R_tzel_2011,Rivera_2012}
+The principal polynomial is a homogeneous polynomial of order $2r-4s$ in the components $k_a$ of the wave covector and has---as is clear from the derivation above---the important property that in order for an ansatz \eqref{wkb_ansatz} to describe a nontrivial solution in the short-wavelength limit the wave covector $k=-dS$ must be a root of $\mathcal P$. Thus, the complete information about the propagation of waves in the infinite frequency limit is encoded in the principal symbol. This is an example for the more general result that the eligibility of a theory as a \emph{physically relevant} theory hinges on properties of $\mathcal P$. More specifically, it has been shown that a theory can only be \emph{predictive}, \emph{interpretable}, and \emph{quantizable} if the principal polynomial satisfies certain algebraic conditions, which further propagate to conditions on the underlying geometry. \cite{R_tzel_2011,Rivera_2012}
 
 The principal polynomial is also closely related to the Cauchy problem of the field equations, as a Cauchy problem can only be well-posed within a region of $M$ if $\mathcal P$ restricts to a \emph{hyperbolic}\footnote{A homogeneous polynomial $\mathcal P$ of degree $d$ is hyperbolic if there exists a covector $h$ such that $\mathcal P(h)\neq 0$ and any shifted covector $h+\lambda w$ intersects the vanishing set of $\mathcal P$ exactly $d$ times. Such a covector $h$ is said to be hyperbolic with respect to $\mathcal P$.} polynomial in this region. Furthermore, given a theory with hyperbolic principal polynomial, admissible initial data hypersurfaces are characterised by the condition that the surface normal be hyperbolic with respect to $\mathcal P$. \cite{H_rmander_1977,Ivrii_1974} Predictivity is the \emph{raison d'\^etre} for physical theories, which is why we will restrict our attention to tensor field theories with hyperbolic principal polynomials.
 

@@ -316,7 +316,7 @@ Every tangent space $T_{\phi(s,\lambda)}M$ has a holonomic basis
 \end{equation}
 where the vectors on the right are understood as pushforwards of holonomic basis vectors on $T_s\Sigma$ and $T_\lambda\mathbb R$. The same construction yields a holonomic basis
 \begin{equation}
-  \mathrm dx^a = (\mathrm dt, \mathrm dx^\alpha)
+  dx^a = (dt, dx^\alpha)
 \end{equation}
 for the cotangent spaces $T_{\phi(s,\lambda)}^\ast M$. The bundle $\pi_\text{area}$, constructed as subbundle of $T^4_0M$, inherits a $3+1$ split from the decomposition of tangent and cotangent spaces, and so does the second jet bundle of $\pi_\text{area}$.
 
@@ -328,7 +328,7 @@ Based on a slicing, we now introduce an observer definition\footnote{see also Re
   \end{equation}
   and a dual coframe
   \begin{equation}
-    (n = \lambda\cdot \mathrm dt, \epsilon^{\alpha}),
+    (n = \lambda\cdot dt, \epsilon^{\alpha}),
   \end{equation}
   where the temporal direction and codirection must satisfy\footnote{$DP$ denotes the formal derivative of $P$ as a polynomial.}
   \begin{equation}\label{frame_conditions}
@@ -353,14 +353,14 @@ a vector field $v$ decomposes as
 \end{equation}
 The holonomic components are thus determined by lapse $N$, shift $N^\alpha$, and the observer quantities $v(n)$ and $v(\epsilon^\alpha)$ as
 \begin{equation}
-  v(\mathrm dt) = v(n)\quad\text{and}\quad v(\mathrm dx^\alpha) = -\frac{1}{N}N^\alpha v(n) + v(\epsilon^\alpha).
+  v(dt) = v(n)\quad\text{and}\quad v(dx^\alpha) = -\frac{1}{N}N^\alpha v(n) + v(\epsilon^\alpha).
 \end{equation}
 Obviously, the information contained in $N$, $N^\alpha$, $v(n)$, and $v(\epsilon^\alpha)$ is redundant---four holonomic components are represented using 8 observer quantities. This is where the frame conditions \eqref{frame_conditions} come into play: consider the decomposition of the area metric field into \cite{Giesel_2012}
 \begin{gather}
-  G(\mathrm dt,\mathrm dx^\alpha,\mathrm dt,\mathrm dx^\beta) = \frac{1}{N^2} G(n,\epsilon^\alpha,n,\epsilon^\beta), \\
-  G(\mathrm dt,\mathrm dx^\alpha, \mathrm dx^\beta, \mathrm dx^\gamma) = -\frac{2}{N^2} G(n,\epsilon^\alpha,n,\epsilon^{\lbrack\gamma})N^{\beta\rbrack} + \frac{1}{N} G(n,\epsilon^\alpha,\epsilon^\beta,\epsilon^\gamma), \\
+  G(dt,dx^\alpha,dt,dx^\beta) = \frac{1}{N^2} G(n,\epsilon^\alpha,n,\epsilon^\beta), \\
+  G(dt,dx^\alpha, dx^\beta, dx^\gamma) = -\frac{2}{N^2} G(n,\epsilon^\alpha,n,\epsilon^{\lbrack\gamma})N^{\beta\rbrack} + \frac{1}{N} G(n,\epsilon^\alpha,\epsilon^\beta,\epsilon^\gamma), \\
   \begin{aligned}
-    G(\mathrm dx^\alpha, \mathrm dx^\beta, \mathrm dx^\gamma, \mathrm dx^\delta) &{} = \frac{4}{N^2} N^{\lbrack\alpha}G(n,\epsilon^{\beta\rbrack},n,\epsilon^{\lbrack\delta})N^{\gamma\rbrack} + \frac{2}{N} N^{\lbrack\alpha}G(n,\epsilon^{\beta\rbrack},\epsilon^\gamma,\epsilon^\delta) \\
+    G(dx^\alpha, dx^\beta, dx^\gamma, dx^\delta) &{} = \frac{4}{N^2} N^{\lbrack\alpha}G(n,\epsilon^{\beta\rbrack},n,\epsilon^{\lbrack\delta})N^{\gamma\rbrack} + \frac{2}{N} N^{\lbrack\alpha}G(n,\epsilon^{\beta\rbrack},\epsilon^\gamma,\epsilon^\delta) \\
                                                                                  &{} \hphantom{=} + \frac{2}{N} N^{\lbrack\gamma}G(n,\epsilon^{\delta\rbrack},\epsilon^\alpha,\epsilon^\beta) + G(\epsilon^\alpha,\epsilon^\beta,\epsilon^\gamma,\epsilon^\delta).
   \end{aligned}
 \end{gather}
@@ -449,9 +449,9 @@ are satisfied \cite{Schneider_2017}. This choice reduces the degrees of freedom 
 Let us briefly collect the results of a similar decomposition and gauge fixing for metric gravity perturbed around the Minkowski metric. This will be of use later when we compare area metric gravity with metric gravity and highlight the differences. The metric tensor has 10 degrees of freedom and, as already remarked, decomposes into shift $N^\alpha$, lapse $N$, and spatial metric $\hat g^{\alpha\beta}$ by virtue of the relations
 \begin{equation}\label{metric_three_plus_one}
   \begin{aligned}
-    g(\mathrm dt,\mathrm dt) &{} = \frac{1}{N^2}, \\
-    g(\mathrm dt,\mathrm dx^\alpha) &{} = -\frac{N^\alpha}{N^2}, \\
-    g(\mathrm dx^\alpha,\mathrm dx^\beta) &{} = \frac{N^\alpha N^\beta}{N^2} - \hat g^{\alpha\beta}.
+    g(dt,dt) &{} = \frac{1}{N^2}, \\
+    g(dt,dx^\alpha) &{} = -\frac{N^\alpha}{N^2}, \\
+    g(dx^\alpha,dx^\beta) &{} = \frac{N^\alpha N^\beta}{N^2} - \hat g^{\alpha\beta}.
   \end{aligned}
 \end{equation}
 Around $\eta$, the observer quantities expand as
@@ -511,7 +511,7 @@ The first restriction of the area metric gravity parameter range we will make is
 \end{equation}
 If the point particle $M$ is an idealisation of a matter field that obeys GLED dynamics, its action is given by \cite{R_tzel_2011,Rivera_2012}
 \begin{equation}
-  S_\text{matter}\lbrack\gamma\rbrack = -M \int \mathrm d\lambda \mathcal P_\text{GLED}(\mathcal L^{-1}(\dot\gamma(\lambda)))^{-\frac{1}{4}},
+  S_\text{matter}\lbrack\gamma\rbrack = -M \int d\lambda \mathcal P_\text{GLED}(\mathcal L^{-1}(\dot\gamma(\lambda)))^{-\frac{1}{4}},
 \end{equation}
 where $\mathcal L^{-1}$ is the inverse of the Legendre map associated with the principal polynomial. In the Einstein equivalent, this action coincides with the common notion of the length of the particle worldline as measured using the covariant metric tensor. The full expansion for arbitrary curves $\gamma$ is employed in the following section, it suffices here to consider the special case \eqref{stationary_worldline} and find the only nonvanishing contribution
 \begin{equation}\label{scalar_source}
@@ -625,7 +625,7 @@ with constants
 \end{equation}
 Performing a spatial Fourier transform of the vacuum scalar equations~\eqref{coupled_wave_equations}, we can translate them into a system of linear, first-order ordinary differential equations for the modes $\tilde v(t,k)$ and $\tilde w(t,k)$
 \begin{equation}
-  \frac{\mathrm d}{\mathrm dt}\begin{pmatrix}\tilde v \\ \tilde w \\ \dot{\tilde v} \\ \dot{\tilde w}\end{pmatrix} = \begin{pmatrix}0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 1 \\ -(k^2 + \nu^2) & -\sigma & 0 & 0 \\ \sigma & -(k^2 + \nu^2) & 0 & 0\end{pmatrix}\begin{pmatrix}\tilde v \\ \tilde w \\ \dot{\tilde v} \\ \dot{\tilde w}\end{pmatrix}.
+  \frac{d}{dt}\begin{pmatrix}\tilde v \\ \tilde w \\ \dot{\tilde v} \\ \dot{\tilde w}\end{pmatrix} = \begin{pmatrix}0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 1 \\ -(k^2 + \nu^2) & -\sigma & 0 & 0 \\ \sigma & -(k^2 + \nu^2) & 0 & 0\end{pmatrix}\begin{pmatrix}\tilde v \\ \tilde w \\ \dot{\tilde v} \\ \dot{\tilde w}\end{pmatrix}.
 \end{equation}
 What is now interesting about this system are the eigenvalues of the time evolution, which are the four complex roots
 \begin{equation}
@@ -717,11 +717,11 @@ Before proceeding to make use of the iterative solution strategy and solving the
 
 A binary star consists of two slowly moving point masses $m_i$ describing two world lines $\gamma_i\colon\mathbb R\rightarrow M$. The metric field is a section $g$ of the metric bundle and defines the matter action $S_\text{matter}$ via the length functional\footnote{From now on, we do not use geometrised units but state every occurrence of the speed of light $c$ and Newton's constant $G$ explicitly.}
 \begin{equation}\label{metric_matter}
-  S_\text{matter}\lbrack\gamma_{(1)},\gamma_{(2)},g) = \sum_{i=1,2} m_i c \int \mathrm d\lambda \sqrt{g^{-1}(\dot\gamma_{(i)}(\lambda),\dot\gamma_{(i)}(\lambda)}).
+  S_\text{matter}\lbrack\gamma_{(1)},\gamma_{(2)},g) = \sum_{i=1,2} m_i c \int d\lambda \sqrt{g^{-1}(\dot\gamma_{(i)}(\lambda),\dot\gamma_{(i)}(\lambda)}).
 \end{equation}
 Einstein gravity completes Eq.~\eqref{metric_matter} to a predictive theory by providing dynamics for the metric $g$ in terms of the Einstein-Hilbert action
 \begin{equation}
-  S_\text{gravity}\lbrack g\rbrack = \frac{c^3}{16\pi G}\int\mathrm d^4x \sqrt{-\operatorname{det}g}R.
+  S_\text{gravity}\lbrack g\rbrack = \frac{c^3}{16\pi G}\int d^4x \sqrt{-\operatorname{det}g}R.
 \end{equation}
 We use the parameterisation $\gamma_{(i)}^0(\lambda) = c\lambda$ and obtain by variation the Euler-Lagrange equations
 \begin{equation}\label{einstein_equation}
@@ -788,7 +788,7 @@ Solving Eq.~\eqref{poisson_equation} yields the linearised solution
 effectively composed of one scalar field, the Newtonian potential
 \begin{equation}\label{newtonian_potential}
   \begin{aligned}
-    \phi(\vec x,t) = {} & - \int \mathrm d^3\vec y\frac{\rho(\vec y,t)}{\lvert\vec x-\vec y\rvert} \\
+    \phi(\vec x,t) = {} & - \int d^3\vec y\frac{\rho(\vec y,t)}{\lvert\vec x-\vec y\rvert} \\
     = {} & - \frac{m_1}{\lvert\vec x-\vec\gamma_{(1)}(t)\rvert} - \frac{m_2}{\lvert\vec x-\vec\gamma_{(2)}(t)\rvert}.
   \end{aligned}
 \end{equation}
@@ -808,7 +808,7 @@ After all, slowly moving matter obeys---to first order---the Newtonian laws of g
 
 This comes with the same inconsistencies that plague Newtonian gravity: as is obvious from the formula \eqref{newtonian_potential}, the potential sourced by a point mass diverges at the very location of the mass itself. Consequently, whenever a particle ``feels'' its own field, which is certainly the case in Eq.~\eqref{newton_equation}, infinities are involved. The culprit is the idealisation of the matter distribution as point masses. One of the remedies pointed out in Ref.\ \cite{Poisson_2014} is to forgo this idealisation and model the stars as extended fluids---taking the limit of negligible extension where necessary. Alternatively, the diverging integrals may be regularised, which has the same impact on the results. Effectively, both approaches are implemented the same way: we keep the point mass idealisation but discard diverging integrals, i.e.~when solving for the trajectory of the first particle, the diverging term
 \begin{equation}
-  m_1 \int\mathrm d^3\vec y \frac{\delta^{(3)}(\vec y - \vec\gamma_{(1)}(t))}{\lvert\vec y - \vec\gamma_{(1)}(t)\rvert}
+  m_1 \int d^3\vec y \frac{\delta^{(3)}(\vec y - \vec\gamma_{(1)}(t))}{\lvert\vec y - \vec\gamma_{(1)}(t)\rvert}
 \end{equation}
 does not contribute. This also holds, \emph{mutatis mutandis}, for the second particle.
 
@@ -855,7 +855,7 @@ We are thus left with the wave equation \eqref{metric_second_order_wave_equation
 \end{equation}
 Such an equation is solved by convolution of the source with the retarded Green's function
 \begin{equation}
-  \psi(\vec x,t) = \int\mathrm d^3\vec y\frac{\varphi(\tau,\vec y)}{\lvert\vec x-\vec y\rvert},
+  \psi(\vec x,t) = \int d^3\vec y\frac{\varphi(\tau,\vec y)}{\lvert\vec x-\vec y\rvert},
 \end{equation}
 where the source is evaluated at the retarded time
 \begin{equation}
@@ -863,7 +863,7 @@ where the source is evaluated at the retarded time
 \end{equation}
 For radiation into the far zone, we are only interested in the result at points in spacetime with $R=\lvert\vec x\rvert\gg r$. A first approximation in this regime is given by the zeroth order $\vec x - \vec y \approx R$, which yields the simplified integral
 \begin{equation}
-  \psi(\vec x,t) = \frac{1}{R}\int\mathrm d^3\vec y\varphi(\tau,\vec y),
+  \psi(\vec x,t) = \frac{1}{R}\int d^3\vec y\varphi(\tau,\vec y),
 \end{equation}
 where from now on $\tau = t-R/c$. This approximation is valid to lowest order, because for the first part of the source (the first summand in Eq.~\eqref{metric_second_order_wave_equation}), the integration variable $\vec y$ is confined to the matter distribution, a region of radius $r$, such that
 \begin{equation}
@@ -873,11 +873,11 @@ For the second part, the source occupies an unbounded region but decreases in ma
 
 The integrals that remain to be evaluated are
 \begin{equation}
-  K^{\alpha\beta} = \int\mathrm d^3\vec y\sum_{i=1,2}m_i\delta^{(3)}(\vec y-\vec\gamma_{(i)}(\tau))\dot\gamma^\alpha_{(i)}\dot\gamma^\beta_{(i)}
+  K^{\alpha\beta} = \int d^3\vec y\sum_{i=1,2}m_i\delta^{(3)}(\vec y-\vec\gamma_{(i)}(\tau))\dot\gamma^\alpha_{(i)}\dot\gamma^\beta_{(i)}
 \end{equation}
 and, after dropping a boundary term,
 \begin{equation}
-    U^{\alpha\beta} = \int\mathrm d^3\vec y\partial^\alpha\phi\partial^\beta\phi.
+    U^{\alpha\beta} = \int d^3\vec y\partial^\alpha\phi\partial^\beta\phi.
 \end{equation}
 Evaluating $K^{\alpha\beta}$, whose integrand is a simple delta distribution, gives
 \begin{equation}
@@ -889,11 +889,11 @@ Here, the reduced mass
 \end{equation}
 makes its first appearance. In order to evaluate the second integral, we first substitute the Newtonian potential with the unevaluated integral expression \eqref{newtonian_potential}, such that
 \begin{equation}
-  U^{\alpha\beta} = \int\mathrm d^3\vec y\int\mathrm d^3\vec{y^\prime}\int\mathrm d^3\vec{y^{\prime\prime}} \frac{\rho(\vec{y^\prime})\rho(\vec{y^{\prime\prime}})}{\lvert\vec y-\vec{y^\prime}\rvert^3 \lvert\vec y-\vec{y^{\prime\prime}}\rvert^3} (y^\alpha - y^{\prime\alpha}) (y^\beta - y^{\prime\prime\beta}).
+  U^{\alpha\beta} = \int d^3\vec y\int d^3\vec{y^\prime}\int d^3\vec{y^{\prime\prime}} \frac{\rho(\vec{y^\prime})\rho(\vec{y^{\prime\prime}})}{\lvert\vec y-\vec{y^\prime}\rvert^3 \lvert\vec y-\vec{y^{\prime\prime}}\rvert^3} (y^\alpha - y^{\prime\alpha}) (y^\beta - y^{\prime\prime\beta}).
 \end{equation}
 The integration over $\vec y$ now yields
 \begin{equation}
-  U^{\alpha\beta} = 2\pi \int\mathrm d^3\vec{y^\prime} \rho(\vec{y^\prime}) \int\mathrm d^3\vec{y^{\prime\prime}}\frac{\rho(\vec{y^{\prime\prime}})}{\lvert\vec{y^\prime}-\vec{y^{\prime\prime}}\rvert} \left\lbrack \gamma^{\alpha\beta} - \frac{(y^{\prime\alpha} - y^{\prime\prime\alpha})(y^{\prime\beta} - y^{\prime\prime\beta})}{\lvert\vec{y^\prime}-\vec{y^{\prime\prime}}\rvert^2}\right\rbrack,
+  U^{\alpha\beta} = 2\pi \int d^3\vec{y^\prime} \rho(\vec{y^\prime}) \int d^3\vec{y^{\prime\prime}}\frac{\rho(\vec{y^{\prime\prime}})}{\lvert\vec{y^\prime}-\vec{y^{\prime\prime}}\rvert} \left\lbrack \gamma^{\alpha\beta} - \frac{(y^{\prime\alpha} - y^{\prime\prime\alpha})(y^{\prime\beta} - y^{\prime\prime\beta})}{\lvert\vec{y^\prime}-\vec{y^{\prime\prime}}\rvert^2}\right\rbrack,
 \end{equation}
 which corresponds to the repeated application of delta distributions. Making sure not to include diverging terms, as explained earlier, the evaluation yields
 \begin{equation}
@@ -913,7 +913,7 @@ Finally, it should be noted (see also the discussion in Ref.\ \cite{Poisson_2014
 \subsection{Solution in area metric gravity}
 In the area metric gravity scenario, the point masses are subject to the action
 \begin{equation}\label{area_matter_action}
-  S_\text{matter}\lbrack\gamma_{(1)},\gamma_{(2)},G) = \sum_{i=1,2} m_i c\int\mathrm d\lambda \mathcal P_\text{GLED}(L^{-1}(\dot\gamma_{(i)}(\lambda)))^{-\frac{1}{4}},
+  S_\text{matter}\lbrack\gamma_{(1)},\gamma_{(2)},G) = \sum_{i=1,2} m_i c\int d\lambda \mathcal P_\text{GLED}(L^{-1}(\dot\gamma_{(i)}(\lambda)))^{-\frac{1}{4}},
 \end{equation}
 which we already encountered when discussing the linearised Schwarzschild solution. This time, the masses are not at rest, such that the ``full'' linearised expression for generic worldlines is needed. It comes in very handy that the GLED polynomial is to first order equivalent to the quadratic polynomial (see Eq.~\eqref{gled_poly_first_order})
 \begin{equation}
@@ -930,14 +930,14 @@ Since the causality is effectively metric, the integrand in the point particle a
 such that we obtain the linearised action
 \begin{equation}\label{area_linearized_matter_action}
   \begin{aligned}
-    S_\text{matter}\lbrack\gamma_{(1)},\gamma_{(2)},N+H) = {} & \sum_{i=1,2} m_i c\int\mathrm d\lambda \Big\{ \eta_{ab}\dot\gamma^a_{(i)}\dot\gamma^b_{(i)} + 2A\dot\gamma^0_{(i)}\dot\gamma^0_{(i)} - 2b_\alpha\dot\gamma^0_{(i)}\dot\gamma^\alpha_{(i)} \\
+    S_\text{matter}\lbrack\gamma_{(1)},\gamma_{(2)},N+H) = {} & \sum_{i=1,2} m_i c\int d\lambda \Big\{ \eta_{ab}\dot\gamma^a_{(i)}\dot\gamma^b_{(i)} + 2A\dot\gamma^0_{(i)}\dot\gamma^0_{(i)} - 2b_\alpha\dot\gamma^0_{(i)}\dot\gamma^\alpha_{(i)} \\
     {} & \quad\quad + \left\lbrack\frac{1}{2}u_{\alpha\beta} + \frac{1}{2}\gamma^{\mu\nu}v_{\mu\nu}\gamma^{\alpha\beta}\right\rbrack \dot\gamma^\alpha_{(i)} \dot\gamma^\beta_{(i)} \Big\} + \mathcal O(H^2).
   \end{aligned}
 \end{equation}
 
-In addition to the linearised matter action \eqref{area_linearized_matter_action}, we also need the gravitational action expanded to third order in the area metric perturbation. Sect.~\ref{section_area_construction} was dedicated to the construction of third-order area metric Lagrangian densities $\mathcal L = L \mathrm d^4x$. The result of this construction procedure will be used here in the action
+In addition to the linearised matter action \eqref{area_linearized_matter_action}, we also need the gravitational action expanded to third order in the area metric perturbation. Sect.~\ref{section_area_construction} was dedicated to the construction of third-order area metric Lagrangian densities $\mathcal L = L d^4x$. The result of this construction procedure will be used here in the action
 \begin{equation}
-  S_\text{gravity}\lbrack N+H\rbrack = \frac{c^3}{16\pi G}\int \mathrm d^4x \mathcal L + \mathcal O(H^4).
+  S_\text{gravity}\lbrack N+H\rbrack = \frac{c^3}{16\pi G}\int d^4x \mathcal L + \mathcal O(H^4).
 \end{equation}
 
 Like before, the zeroth iteration is already solved by construction---the flat instance $N$ of the area metric field solves the vacuum field equations.
@@ -957,8 +957,8 @@ This is similar to the stationary case considered in Sect.~\ref{sect_area_linear
 Since the vector and transverse traceless tensor equations are not sourced at all, we solve these by setting the respective modes to zero. Again, it is possible to add background radiation to the solution, as long as it remains negligible. The scalar modes are solved by superposition of the linearised Schwarzschild solutions \eqref{linearized_schwarzschild_solution}, in the integral representation as
 \begin{equation}\label{area_schwarzschild_integral}
   \begin{aligned}
-    A_{(1)} = {} & -\frac{1}{c^2} \int\mathrm d^3\vec y\rho(\vec y)\left\lbrack\frac{\alpha}{\lvert\vec x-\vec y\rvert} + \frac{\beta\mathrm e^{-\mu\lvert\vec x-\vec y\rvert}}{\lvert\vec x-\vec y\rvert} \right\rbrack, \\
-    \tilde V_{(1)} = {} & -\frac{1}{c^2} \int\mathrm d^3\vec y\rho(\vec y)\left\lbrack\frac{\gamma\mathrm e^{-\mu\lvert\vec x-\vec y\rvert}}{\lvert\vec x-\vec y\rvert} \right\rbrack, \\
+    A_{(1)} = {} & -\frac{1}{c^2} \int d^3\vec y\rho(\vec y)\left\lbrack\frac{\alpha}{\lvert\vec x-\vec y\rvert} + \frac{\beta\mathrm e^{-\mu\lvert\vec x-\vec y\rvert}}{\lvert\vec x-\vec y\rvert} \right\rbrack, \\
+    \tilde V_{(1)} = {} & -\frac{1}{c^2} \int d^3\vec y\rho(\vec y)\left\lbrack\frac{\gamma\mathrm e^{-\mu\lvert\vec x-\vec y\rvert}}{\lvert\vec x-\vec y\rvert} \right\rbrack, \\
     \tilde U_{(1)} = {} & 4 A_{(1)} - (3 + 8 \frac{\beta}{\gamma})\tilde V_{(1)},
   \end{aligned}
 \end{equation}
@@ -996,8 +996,8 @@ As before, when solving the metric problem, the vectors tangent to the worldline
 The contribution from the second-order field equations is again calculated using \texttt{cadabra} \cite{Peeters2007, Peeters_2018}. The process is roughly as follows: first, the the third-order ansätze \eqref{ansatz_ABC}--\eqref{ansatz_ABCI} and the corresponding coefficient relations are loaded into the programme. Then, the Lagrangian is decomposed into observer quantities, shift, and lapse, according to the $3+1$ decomposition introduced in Sect.~\ref{sect_three_plus_one}. All fields, except for the field $u^{\alpha\beta}$ which will be varied, are replaced with the solution from the first iteration, using abbreviations
 \begin{equation}
   \begin{aligned}
-    X = &{} \int\mathrm d^3\vec y\rho(\vec y)\frac{1}{\lvert\vec x-\vec y\rvert}, \\
-    Y = &{} \int\mathrm d^3\vec y\rho(\vec y)\frac{\mathrm e^{-\mu\lvert\vec x-\vec y\rvert}}{\lvert\vec x-\vec y\rvert}.
+    X = &{} \int d^3\vec y\rho(\vec y)\frac{1}{\lvert\vec x-\vec y\rvert}, \\
+    Y = &{} \int d^3\vec y\rho(\vec y)\frac{\mathrm e^{-\mu\lvert\vec x-\vec y\rvert}}{\lvert\vec x-\vec y\rvert}.
   \end{aligned}
 \end{equation}
 This simplifies the Lagrangian significantly, because it only depends on the scalar fields $X$ and $Y$, as well as the field $u^{\alpha\beta}$. Performing the variation with respect to the remaining tensorial field, projecting the result onto the transverse traceless tensor mode, and further simplifying finally yields
@@ -1012,11 +1012,11 @@ Being also a massless wave equation, the differential equation \eqref{area_massl
 \end{equation}
 with a kinetic term
 \begin{equation}
-  K^{\alpha\beta} = \int\mathrm d^3\vec y\sum_{i=1,2}m_i\delta^{(3)}(\vec y-\vec\gamma_{(i)}(\tau))\dot\gamma^\alpha_{(i)}\dot\gamma^\beta_{(i)}
+  K^{\alpha\beta} = \int d^3\vec y\sum_{i=1,2}m_i\delta^{(3)}(\vec y-\vec\gamma_{(i)}(\tau))\dot\gamma^\alpha_{(i)}\dot\gamma^\beta_{(i)}
 \end{equation}
 and the potential terms
 \begin{equation}
-  \Phi_{(\mu)\alpha\beta} = \int\mathrm d^3\vec y \int\mathrm d^3\vec{y^\prime} \int\mathrm d^3\vec{y^{\prime\prime}} \rho(\vec{y^\prime}) \rho(\vec{y^{\prime\prime}}) \left(\partial_\alpha\frac{\mathrm e^{-\mu\lvert\vec z\rvert}}{\lvert\vec z\rvert}\right)_{\!\!\vec z=\vec y-\vec{y^\prime}} \left(\partial_\beta\frac{\mathrm e^{-\mu\lvert\vec z\rvert}}{\lvert\vec z\rvert}\right)_{\!\!\vec z=\vec y-\vec{y^{\prime\prime}}}.
+  \Phi_{(\mu)\alpha\beta} = \int d^3\vec y \int d^3\vec{y^\prime} \int d^3\vec{y^{\prime\prime}} \rho(\vec{y^\prime}) \rho(\vec{y^{\prime\prime}}) \left(\partial_\alpha\frac{\mathrm e^{-\mu\lvert\vec z\rvert}}{\lvert\vec z\rvert}\right)_{\!\!\vec z=\vec y-\vec{y^\prime}} \left(\partial_\beta\frac{\mathrm e^{-\mu\lvert\vec z\rvert}}{\lvert\vec z\rvert}\right)_{\!\!\vec z=\vec y-\vec{y^{\prime\prime}}}.
 \end{equation}
 
 Working out the integrals results in a first prediction for the gravitational radiation produced by a binary star subject to area metric gravity. On the massless transverse traceless tensor mode, radiation is emitted into the far zone $R\gg r$ according to the formula
@@ -1055,7 +1055,7 @@ Solving the wave equations \eqref{tracefree_second_order} is again a matter of c
 \end{equation}
 and thus solved by the massive propagator
 \begin{equation}
-  G_\text{ret}(x,y) = \theta(x^0-y^0)\int\frac{\mathrm d^3\vec k}{(2\pi)^3}\frac{\operatorname{sin}\lbrack\omega_k(x^0-y^0)\rbrack}{\omega_k} \mathrm e^{\mathrm i\vec k\cdot(\vec x-\vec y)},
+  G_\text{ret}(x,y) = \theta(x^0-y^0)\int\frac{d^3\vec k}{(2\pi)^3}\frac{\operatorname{sin}\lbrack\omega_k(x^0-y^0)\rbrack}{\omega_k} \mathrm e^{\mathrm i\vec k\cdot(\vec x-\vec y)},
 \end{equation}
 where $\theta$ is the Heaviside step function and the massive dispersion relation
 \begin{equation}
@@ -1190,9 +1190,9 @@ While the gravitational radiation that causes geodesic deviation is produced as 
 
 An effect that cannot be observed in a solely linearised setting is \emph{radiation reaction}: during the iterative solution procedure, the matter trajectories have been fixed to first order, which provides the background for the second-order gravitational field we were interested in. This is by no means necessary---it is possible to solve for higher orders $n$ before fixing the matter fields, which then enables the prediction of the gravitational field to order $n+1$. The modern treatment of post-Newtonian and post-Minkowskian general relativity proceeds in exactly this way \cite{Poisson_2014}. Doing so, the matter trajectories accumulate corrections, which are \emph{backreactions} from the gravitational field sourced by the matter content itself. In the context of a gravitationally bound matter distribution which emits gravitational radiation to second order, these backreactions are often referred to as radiation reaction.
 
-In general relativity, the aforementioned modern perturbative treatment yields detailed predictions for the deviation of a binary system from the Kepler orbits. These calculations are quite intricate, taking into account not only higher perturbation orders but also the internal structure of the binaries. For a tentative qualitative result, however, we do not need to go there. Noether's second theorem (see Thm.~\ref{thm_second_noether}) provides us with a tool that resembles energy conservation equations.\footnote{The notion of \emph{energy} in general relativity and, more specifically, \emph{energy conservation} is subject to many debates. General relativity does not exhibit the kind of time-translation symmetry that is usually the justification for the definition of energy. In the setting considered here, where the matter content is localised to a specific region of spacetime and the geometry is asymptotically flat, such a notion can be recovered from symmetries that hold asymptotically. \cite{Arnowitt_1960} For our purposes, we do not rely on the interpretation of certain quantities as energies or momenta. They are just derived quantities from the fundamental fields. Changes in these quantities are interesting insofar as they pertain to changes in the underlying fields.} Loosely speaking, gravitational waves radiate away energy from the system, decimating the radius of the Kepler orbits, which results---via Kepler's third law---in the binary star \emph{spinning up}. The qualitative analysis from ``energy conservation'' yields a rate of change for the angular frequency but cannot predict how exactly the trajectories are affected, e.g.~how the phase shifts. Still, the prediction\footnote{Considering, of course, the eccentric case with the appropriate parameters.} for the orbital period decrease $\mathrm dP/\mathrm dt$ of the Hulse-Taylor pulsar PSR\,B1913+6 is in very strong agreement with the measurement, as the ratio amounts to \cite{Weisberg_2016}
+In general relativity, the aforementioned modern perturbative treatment yields detailed predictions for the deviation of a binary system from the Kepler orbits. These calculations are quite intricate, taking into account not only higher perturbation orders but also the internal structure of the binaries. For a tentative qualitative result, however, we do not need to go there. Noether's second theorem (see Thm.~\ref{thm_second_noether}) provides us with a tool that resembles energy conservation equations.\footnote{The notion of \emph{energy} in general relativity and, more specifically, \emph{energy conservation} is subject to many debates. General relativity does not exhibit the kind of time-translation symmetry that is usually the justification for the definition of energy. In the setting considered here, where the matter content is localised to a specific region of spacetime and the geometry is asymptotically flat, such a notion can be recovered from symmetries that hold asymptotically. \cite{Arnowitt_1960} For our purposes, we do not rely on the interpretation of certain quantities as energies or momenta. They are just derived quantities from the fundamental fields. Changes in these quantities are interesting insofar as they pertain to changes in the underlying fields.} Loosely speaking, gravitational waves radiate away energy from the system, decimating the radius of the Kepler orbits, which results---via Kepler's third law---in the binary star \emph{spinning up}. The qualitative analysis from ``energy conservation'' yields a rate of change for the angular frequency but cannot predict how exactly the trajectories are affected, e.g.~how the phase shifts. Still, the prediction\footnote{Considering, of course, the eccentric case with the appropriate parameters.} for the orbital period decrease $dP/dt$ of the Hulse-Taylor pulsar PSR\,B1913+6 is in very strong agreement with the measurement, as the ratio amounts to \cite{Weisberg_2016}
 \begin{equation}
-  \frac{(\mathrm dP/\mathrm dt)_\text{observed}}{(\mathrm dP/\mathrm dt)_\text{predicted}} = 0.9983 \pm 0.0016.
+  \frac{(dP/dt)_\text{observed}}{(dP/dt)_\text{predicted}} = 0.9983 \pm 0.0016.
 \end{equation}
 
 Again, let us first illustrate the calculation for metric gravity before diving into area metric gravity. The total Lagrangian density of Maxwell electrodynamics and Einstein gravity is
@@ -1206,26 +1206,26 @@ Following a normal coordinate argument\footnote{For the metric tensor bundle, th
 If the section $g$ of the metric bundle satisfies the Euler-Lagrange equations, the integral equation
 \begin{equation}
   \begin{aligned}
-    0 = {} & \int_\Sigma \partial_0\left\lbrack \gmc{A}{B}{0}{0} g^B \frac{\delta L}{\delta g^A}\right\rbrack\mathrm d^3x \\
-    = {} & \int_\Sigma \partial_0\left\lbrack \gmc{A}{B}{0}{0} g^B \frac{\delta L_\text{matter}}{\delta g^A}\right\rbrack\mathrm d^3x + \int_\Sigma \partial_0\left\lbrack \gmc{A}{B}{0}{0} g^B \frac{\delta L_\text{gravity}}{\delta g^A}\right\rbrack\mathrm d^3x
+    0 = {} & \int_\Sigma \partial_0\left\lbrack \gmc{A}{B}{0}{0} g^B \frac{\delta L}{\delta g^A}\right\rbrack d^3x \\
+    = {} & \int_\Sigma \partial_0\left\lbrack \gmc{A}{B}{0}{0} g^B \frac{\delta L_\text{matter}}{\delta g^A}\right\rbrack d^3x + \int_\Sigma \partial_0\left\lbrack \gmc{A}{B}{0}{0} g^B \frac{\delta L_\text{gravity}}{\delta g^A}\right\rbrack d^3x
   \end{aligned}
 \end{equation}
 over a spatial slice $\Sigma$ holds. Renaming the first term and making use of the Noether identity \eqref{metric_noether} for the second term, this yields
 \begin{equation}
   \begin{aligned}
-    0 = {} & \partial_0 \underbrace{\int_\Sigma \gmc{A}{B}{0}{0} g^B \frac{\delta L_\text{matter}}{\delta g^A}\mathrm d^3x}_{=\vcentcolon \mathcal H_\text{matter}} + \int_\Sigma \partial_0\left\lbrack \gmc{A}{B}{0}{0} g^B \frac{\delta L_\text{gravity}}{\delta g^A}\right\rbrack\mathrm d^3x \\
-    = {} & \frac{1}{c} \dot{\mathcal H}_\text{matter} - \int_\Sigma \partial_\alpha\left\lbrack \gmc{A}{B}{\alpha}{0} g^B \frac{\delta L_\text{gravity}}{\delta g^A}\right\rbrack\mathrm d^3x.
+    0 = {} & \partial_0 \underbrace{\int_\Sigma \gmc{A}{B}{0}{0} g^B \frac{\delta L_\text{matter}}{\delta g^A}d^3x}_{=\vcentcolon \mathcal H_\text{matter}} + \int_\Sigma \partial_0\left\lbrack \gmc{A}{B}{0}{0} g^B \frac{\delta L_\text{gravity}}{\delta g^A}\right\rbrack d^3x \\
+    = {} & \frac{1}{c} \dot{\mathcal H}_\text{matter} - \int_\Sigma \partial_\alpha\left\lbrack \gmc{A}{B}{\alpha}{0} g^B \frac{\delta L_\text{gravity}}{\delta g^A}\right\rbrack d^3x.
   \end{aligned}
 \end{equation}
 Finally, we apply the Gauß theorem to the second integral, such that
 \begin{equation}\label{first_balance_equation}
-  \dot{\mathcal H}_\text{matter} = c \int_{S_\infty} \gmc{A}{B}{\alpha}{0} g^B \frac{\delta L_\text{gravity}}{\delta g^A} \mathrm dS_\alpha,
+  \dot{\mathcal H}_\text{matter} = c \int_{S_\infty} \gmc{A}{B}{\alpha}{0} g^B \frac{\delta L_\text{gravity}}{\delta g^A} dS_\alpha,
 \end{equation}
 which should be understood as the limit of surface integrals over a family of appropriate closed surfaces that approach infinity.
 
 The variations of both Lagrangians have already been worked out for Eq.~\eqref{einstein_equation}. For the matter part, we obtain to lowest nontrivial order
 \begin{equation}
-  \mathcal H_\text{matter} = 2\int_\Sigma g^{0a}\frac{\delta L_\text{matter}}{\delta g^{0a}}\mathrm d^3x \approx -\frac{1}{c} \lbrack mc^2 + \frac{1}{2}m\eta r^2\omega^2\rbrack = \frac{1}{c}\lbrack E_0 + E\rbrack
+  \mathcal H_\text{matter} = 2\int_\Sigma g^{0a}\frac{\delta L_\text{matter}}{\delta g^{0a}}d^3x \approx -\frac{1}{c} \lbrack mc^2 + \frac{1}{2}m\eta r^2\omega^2\rbrack = \frac{1}{c}\lbrack E_0 + E\rbrack
 \end{equation}
 with the constant energy $E_0 = -mc^2$ for the system at rest and the kinetic energy
 \begin{equation}
@@ -1238,16 +1238,16 @@ Thus, the left-hand side of the balance equation \eqref{first_balance_equation} 
 For the right hand side, we have the full densitised Einstein tensor $\mathcal G^{ab} = \frac{16\pi G}{c^3} \frac{\delta L_\text{gravity}}{\delta g_{ab}}$ at our disposal. To lowest order, the integral amounts to
 \begin{equation}\label{metric_spindown_rhs}
   \begin{aligned}
-    c\int_{S_\infty} \gmc{A}{B}{\alpha}{0} \frac{\delta L_\text{gravity}}{\delta g^A}g^B\mathrm dS_\alpha = {} & \frac{c^4}{8\pi G}\int_{S_\infty} g_{0a} \mathcal G^{a\alpha}\mathrm dS_\alpha \\
-    \approx {} & \frac{c^4}{8\pi G} \int_{S_\infty} \mathcal G^{0\alpha} \mathrm dS_\alpha.
+    c\int_{S_\infty} \gmc{A}{B}{\alpha}{0} \frac{\delta L_\text{gravity}}{\delta g^A}g^BdS_\alpha = {} & \frac{c^4}{8\pi G}\int_{S_\infty} g_{0a} \mathcal G^{a\alpha}dS_\alpha \\
+    \approx {} & \frac{c^4}{8\pi G} \int_{S_\infty} \mathcal G^{0\alpha} dS_\alpha.
   \end{aligned}
 \end{equation}
 Since the integral is evaluated at infinity, only the radiation part is relevant. But this part is given by transverse traceless tensor perturbations, such that divergences and traces of the spatial perturbation $h^{\mu\nu}$ can readily be dropped when extracting the lowest nonvanishing order of the integral \eqref{metric_spindown_rhs}. Doing so, we arrive at
 \begin{equation}
   \begin{aligned}
-    \int_{S_\infty} \mathcal G^{0\alpha}\mathrm dS_\alpha = {} & -\frac{1}{4} \int_{S_\infty} \lbrack \partial^\alpha h_{\mu\nu}\partial_0 h^{\mu\nu} + 2\partial_0\partial^\alpha h_{\mu\nu} h^{\mu\nu}\rbrack \mathrm dS_\alpha \\
-    = {} & \frac{1}{4c^2} \int_{S_\infty} \lbrack \dot h_{\mu\nu}\dot h^{\mu\nu} + 2\ddot h_{\mu\nu} h^{\mu\nu}\rbrack \mathrm dS \\
-  = {} & -\frac{1}{4c^2} \int_{S_\infty} \dot h_{\mu\nu}\dot h^{\mu\nu} \mathrm dS + \frac{1}{4c^2}\int_{S_\infty} \lbrack h_{\mu\nu}h^{\mu\nu}\rbrack^{\scalebox{1.2}{$\cdot\cdot$}} \mathrm dS,
+    \int_{S_\infty} \mathcal G^{0\alpha}dS_\alpha = {} & -\frac{1}{4} \int_{S_\infty} \lbrack \partial^\alpha h_{\mu\nu}\partial_0 h^{\mu\nu} + 2\partial_0\partial^\alpha h_{\mu\nu} h^{\mu\nu}\rbrack dS_\alpha \\
+    = {} & \frac{1}{4c^2} \int_{S_\infty} \lbrack \dot h_{\mu\nu}\dot h^{\mu\nu} + 2\ddot h_{\mu\nu} h^{\mu\nu}\rbrack dS \\
+  = {} & -\frac{1}{4c^2} \int_{S_\infty} \dot h_{\mu\nu}\dot h^{\mu\nu} dS + \frac{1}{4c^2}\int_{S_\infty} \lbrack h_{\mu\nu}h^{\mu\nu}\rbrack^{\scalebox{1.2}{$\cdot\cdot$}} dS,
   \end{aligned}
 \end{equation}
 which we further simplified using the identity (letting $N^\alpha = x^\alpha/R$)
@@ -1269,11 +1269,11 @@ where this time the projection onto the transverse traceless tensor mode is made
 \end{equation}
 Under these circumstances, the contraction $h_{\mu\nu} h^{\mu\nu}$ is constant with respect to coordinate time and thus does not contribute to the integral. The vectors $n$ and $\lambda$ only depend on the radius $R$ and coordinate time $t$, such that the angular dependence is completely contained within the TT projector. This reduces the integral to
 \begin{equation}
-  \int_{S_\infty}\mathcal G^{0\alpha}\mathrm dS_\alpha = -\frac{256\pi\eta^2(Gm)^5}{c^{10}r^5} n^\alpha n_\mu \lambda^\beta \lambda_\mu \langle(\mathrm{TT})^{\mu\nu}_{\hphantom{\mu\nu}\alpha\beta}\rangle,
+  \int_{S_\infty}\mathcal G^{0\alpha}dS_\alpha = -\frac{256\pi\eta^2(Gm)^5}{c^{10}r^5} n^\alpha n_\mu \lambda^\beta \lambda_\mu \langle(\mathrm{TT})^{\mu\nu}_{\hphantom{\mu\nu}\alpha\beta}\rangle,
 \end{equation}
 where only the angular average
 \begin{equation}
-  \langle X\rangle \vcentcolon= \frac{1}{4\pi}\int_S X \mathrm d\Omega
+  \langle X\rangle \vcentcolon= \frac{1}{4\pi}\int_S X d\Omega
 \end{equation}
 of the projector remains to be calculated. Referring to Ref.\ \cite{Poisson_2014} for the details, we just make use of the result
 \begin{equation}
@@ -1281,7 +1281,7 @@ of the projector remains to be calculated. Referring to Ref.\ \cite{Poisson_2014
 \end{equation}
 and arrive at
 \begin{equation}
-  \int_{S_\infty}\mathcal G^{0\alpha}\mathrm dS_\alpha = -\frac{256\pi}{5}\eta^2\left(\frac{Gm}{c^2r}\right)^5.
+  \int_{S_\infty}\mathcal G^{0\alpha}dS_\alpha = -\frac{256\pi}{5}\eta^2\left(\frac{Gm}{c^2r}\right)^5.
 \end{equation}
 Together with the left-hand side \eqref{balance_lhs} of the balance equation \eqref{first_balance_equation}, this yields a first approximation for the spin-up of a binary star due to radiation loss. The separation $r$ of the stars decreases with the rate
 \begin{equation}\label{metric_rate}
@@ -1312,8 +1312,8 @@ E = -\frac{1}{2} m \eta r^2\omega^2 = -\frac{1}{2} m\eta \frac{\alpha Gm}{r}\lbr
 For the gravity part, we again use \texttt{cadabra} \cite{Peeters2007,Peeters_2018} in order to derive the contributions from the transverse traceless $U^{\alpha\beta}$ modes \eqref{area_metric_radiation_massless} to $\frac{\delta L_\text{gravity}}{\delta b^\alpha}$. This yields via a similar calculation as before the right-hand side
 \begin{equation}
   \begin{aligned}
-    4 c \int_{S_\infty} \frac{\delta L_\text{gravity}}{\delta b_\alpha} \mathrm dS_\alpha = {} & \frac{c^2}{4\pi G} \int_{S_\infty} \left\lbrack (-\frac{1}{8\alpha})\dot U_{\alpha\beta}\dot U^{\alpha\beta} + (\frac{1}{4\alpha}-4k_{12})\left(U_{\alpha\beta}\dot U^{\alpha\beta}\right)^{\scalebox{1.2}{$\cdot$}}\right\rbrack \mathrm dS \\
-    = {} & -\frac{c^2}{32\pi\alpha G} \int_{S_\infty}\dot U_{\alpha\beta}\dot U^{\alpha\beta}\mathrm dS \\
+    4 c \int_{S_\infty} \frac{\delta L_\text{gravity}}{\delta b_\alpha} dS_\alpha = {} & \frac{c^2}{4\pi G} \int_{S_\infty} \left\lbrack (-\frac{1}{8\alpha})\dot U_{\alpha\beta}\dot U^{\alpha\beta} + (\frac{1}{4\alpha}-4k_{12})\left(U_{\alpha\beta}\dot U^{\alpha\beta}\right)^{\scalebox{1.2}{$\cdot$}}\right\rbrack dS \\
+    = {} & -\frac{c^2}{32\pi\alpha G} \int_{S_\infty}\dot U_{\alpha\beta}\dot U^{\alpha\beta}dS \\
     = {} & -\frac{128}{5} m \eta^2 \frac{(1+f(r))^3}{r^5}\frac{(\alpha Gm)^4}{c^6}
   \end{aligned}
 \end{equation}

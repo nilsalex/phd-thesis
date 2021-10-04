@@ -36,7 +36,7 @@ As already outlined in the introduction, Einstein gravity can be thought of as t
 \begin{equation}\label{lagrangian_maxwell}
   L_\text{Maxwell} = \sqrt{-\operatorname{det} g} g^{ac}g^{bd} F_{ab} F_{cd},
 \end{equation}
-where the electromagnetic potential enters via the field strength tensor $F = \mathrm dA$ and we write ``$\operatorname{det}g$'' for the determinant of the \emph{covariant} metric tensor, which is the inverse of the metric tensor chosen here as fundamental field.
+where the electromagnetic potential enters via the field strength tensor $F = dA$ and we write ``$\operatorname{det}g$'' for the determinant of the \emph{covariant} metric tensor, which is the inverse of the metric tensor chosen here as fundamental field.
 
 We now collect the ingredients for the construction algorithm. The fibre dimension of the bundle $S(T^2_0M)$ is 10, such that a suitable pair of intertwiners $(I,J)$ between this bundle and the unrestricted tensor bundle $T^2M$ is given by \\ \vspace{\baselineskip}
 \begin{equation}\label{inter_metric_I}
@@ -131,7 +131,7 @@ The same result holds for the equivariance equations restricted to the first jet
     0 &{} = L_{:am}^{\hphantom{:am}(p}g^{n)a}. \label{metric_order_1_eq_3}
   \end{align}
 \end{subequations}
-Equation~\ref{metric_order_1_eq_3} is a system of 40 individual equations for the 40 derivatives of $L$ with respect to the first derivatives of the metric tensor. The rank of this subsystem is full\footnote{If in doubt, such statements concerning our linear PDE systems can be verified without much computational effort by evaluation at randomly chosen points in the jet bundle. At worst, the rank at such points will be \emph{less} than at a generic point.}, which completely eliminates any possible dependency of $L$ on the first derivatives of $g$. The remaining system is equivalent to the zeroth-order system \eqref{metric_order_0_eq} with the unique solution $L=\sqrt{-\operatorname{det}g}$, demonstrating with a very quick derivation that there is no nontrivial diffeomorphism equivariant Lagrangian density of first derivative order for the metric tensor.
+Equation~\ref{metric_order_1_eq_3} is a system of 40 individual equations for the 40 derivatives of $L$ with respect to the first derivatives of the metric tensor. The rank of this subsystem is full\footnote{If in doubt, such statements concerning our linear PDE systems can be verified without much computational effort by evaluation at randomly chosen points in the jet bundle. At worst, the rank at such points will be \emph{less} than at a generic point.}, which completely eliminates any possible dependence of $L$ on the first derivatives of $g$. The remaining system is equivalent to the zeroth-order system \eqref{metric_order_0_eq} with the unique solution $L=\sqrt{-\operatorname{det}g}$, demonstrating with a very quick derivation that there is no nontrivial diffeomorphism equivariant Lagrangian density of first derivative order for the metric tensor.
 
 Before proceeding with the next example, it should be emphasised that the insights gained about metric gravitational theory compatible with Maxwell electrodynamics are not new as fare as the \emph{results} are concerned. Rather, we have seen how the developed framework readily reproduces the known results without much effort and yet again confirms earlier derivations.
 
@@ -228,7 +228,7 @@ As second example, we use a generalisation of the Proca theory, a theory for a \
   \begin{equation}
     L_\text{bi-Proca} = \omega_{(g,h)}\left( -g^{ac} g^{bd} F_{ab} F_{cd} + m^2 h^{ab} A_a A_b \right)
   \end{equation}
-  for an electromagnetic potential one-form $A$ with field strength $F=\mathrm dA$.
+  for an electromagnetic potential one-form $A$ with field strength $F=dA$.
 \end{definition}
 
 Both theories couple matter fields to geometry defined on $E_\text{bimetric}$. Consequently, the first steps in executing the construction algorithm are identical: define suitable intertwiners, calculate Gotay-Marsden coefficients, setup and solve the equivariance equations. A possible choice of intertwiners is to just reuse the intertwiners \eqref{inter_metric_I} and \eqref{inter_metric_J} defined for the metric bundle. Representing elements of the unrestricted bundle $T^2_0M\oplus T^2_0M$ as two matrices, $I_1^{ab},\dots,I_{10}^{ab}$ distribute the 10 degrees of freedom for the first metric over the first matrix, while $I_{11}^{ab},\dots,I_{20}^{ab}$ distribute the 10 degrees of freedom for the second metric over the second matrix. The intertwiner $J$ is defined equivalently.
