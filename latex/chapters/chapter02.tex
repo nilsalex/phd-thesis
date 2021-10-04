@@ -13,7 +13,7 @@ The two axioms of covariant constructive gravity have been motivated in Sect.~\r
 For a more precise formulation of the axioms, which will enable us to derive their consequences for gravitational theories coupled to novel matter, an introduction of the basic concepts of Lagrangian field theory is in order.
 
 \section{Lagrangian field theory}
-For the purpose of the present work, a \emph{Lagrangian field theory} will be a geometric formulation of certain conditions on sections $\sigma\in\Gamma(\pi)$---called \emph{fields}---of some bundle $E\overset{\pi}{\longrightarrow} M$. These conditions select the physical realizations of fields admissible by the theory and constitute the \emph{dynamical laws}. The bundle $\pi$ shall be constructed from a tensor bundle, i.e.\ be a sub-bundle of some tensor bundle $T^r_sM$. It is possible to extend the framework to include other bundles, with the caveat that a lift of the action of the diffeomorphism group on $M$ to $E$ may have to be specified manually. Although not relevant for much of the development of the theory, the base manifolds to be considered later for concrete examples will be spacetime manifolds of dimension 4.
+For the purpose of the present work, a \emph{Lagrangian field theory} will be a geometric formulation of certain conditions on sections $\sigma\in\Gamma(\pi)$---called \emph{fields}---of some bundle $E\overset{\pi}{\longrightarrow} M$. These conditions select the physical realisations of fields admissible by the theory and constitute the \emph{dynamical laws}. The bundle $\pi$ shall be constructed from a tensor bundle, i.e.\ be a sub-bundle of some tensor bundle $T^r_sM$. It is possible to extend the framework to include other bundles, with the caveat that a lift of the action of the diffeomorphism group on $M$ to $E$ may have to be specified manually. Although not relevant for much of the development of the theory, the base manifolds to be considered later for concrete examples will be spacetime manifolds of dimension 4.
 
 \begin{example}
   Two examples for Lagrangian field theories are
@@ -34,7 +34,7 @@ A bundle is denoted as $E\overset{\pi}{\longrightarrow}M$, where $E$ is the tota
   \end{equation}
 In other words, $\mathscr L$ is a horizontal $n$-form on the $k$-th-order jet bundle $\pi_k$ of $\pi$.
 
-Assuming $M$ to be orientable with volume form $\Omega\in\Lambda^nM$, a Lagrangian $\mathscr L$ is equivalently characterized by its \textbf{Lagrangian density} $L\in C^\infty(J^k\pi)$,
+Assuming $M$ to be orientable with volume form $\Omega\in\Lambda^nM$, a Lagrangian $\mathscr L$ is equivalently characterised by its \textbf{Lagrangian density} $L\in C^\infty(J^k\pi)$,
   \begin{equation}\label{lagrangian_density}
   \mathscr L = L\pi_k^\ast\Omega.
 \end{equation}
@@ -68,7 +68,7 @@ Lagrangian field theory now stipulates that sections $\sigma\in\Gamma(\pi)$ are 
   See \cite{Saunders_1989}.
 \end{proof}
 
-The intrinsic equivalent to the Euler-Lagrange equations in local coordinates introduces a new object, the \emph{Cartan form}, which plays a central r\^ole in the geometrization of Lagrangian field theory.
+The intrinsic equivalent to the Euler-Lagrange equations in local coordinates introduces a new object, the \emph{Cartan form}, which plays a central r\^ole in the geometrisation of Lagrangian field theory.
 \begin{proposition}[\cite{Saunders_1989}]
   Given a Lagrangian $\mathscr L = L\Omega \in \bigwedge^n_0\pi_k$, there exists an $n$-form $\Theta_L\in\bigwedge^{n}_0\pi_{2k-1,k-1}\cap\bigwedge^{n}_{1}\pi_{2k-1}$, such that, globally, the variation of the Lagrangian is given by
   \begin{equation}\label{global_lagrange_form}
@@ -84,7 +84,7 @@ The intrinsic equivalent to the Euler-Lagrange equations in local coordinates in
   See \cite{Saunders_1989}.
 \end{proof}
 
-This definition generalizes the local derivation of \eqref{euler_lagrange_local}: the variation $\delta L$ is obtained by lifting $\mathrm d\mathscr L$ to $\pi_{2k}$ and cancelling nonhorizontal terms (over $E$) by adding a derivative, which corresponds to repeated integrations by parts.
+This definition generalises the local derivation of \eqref{euler_lagrange_local}: the variation $\delta L$ is obtained by lifting $\mathrm d\mathscr L$ to $\pi_{2k}$ and cancelling nonhorizontal terms (over $E$) by adding a derivative, which corresponds to repeated integrations by parts.
 
 A possible\footnote{Generally, $\Theta_L$ is not uniquely defined. \cite{Saunders_1989}} coordinate expression for $\Theta_L$ is \cite{Saunders_1989}
 \begin{equation}\label{local_cartan_form}
@@ -108,7 +108,7 @@ In later sections, we will restrict our attention to Lagrangians of second deriv
 
 \section{Axiom I: diffeomorphism invariance}
 
-In the language of jet bundles, the first axiom can be formalized as equivariance condition under a certain group action on the Lagrangian. The group in question is the diffeomorphism group $\mathrm{Diff}(M)$, acting on $M$ by function application. By virtue of the pushforward-pullback construction, sub-bundles of tensor bundles carry a canonical action of $\mathrm{Diff}(M)$ as bundle automorphisms, denoted as $\varphi_E\in \mathrm{Aut}(E)$ for every $\varphi\in\mathrm{Diff}(M)$. We call this the \emph{lift} of the diffeomorphism $\varphi$. This action, in turn, lifts naturally to the jet bundles over $E$.
+In the language of jet bundles, the first axiom can be formalised as equivariance condition under a certain group action on the Lagrangian. The group in question is the diffeomorphism group $\mathrm{Diff}(M)$, acting on $M$ by function application. By virtue of the pushforward-pullback construction, sub-bundles of tensor bundles carry a canonical action of $\mathrm{Diff}(M)$ as bundle automorphisms, denoted as $\varphi_E\in \mathrm{Aut}(E)$ for every $\varphi\in\mathrm{Diff}(M)$. We call this the \emph{lift} of the diffeomorphism $\varphi$. This action, in turn, lifts naturally to the jet bundles over $E$.
 
 \begin{definition}[prolongation of morphisms \cite{Saunders_1989}]
   Let $E \overset{\pi_E}{\longrightarrow} M$ and $H \overset{\pi_H}{\longrightarrow} N$ be two bundles. The $k$th-order jet bundle lift of a bundle morphism $(F,f)$ from $\pi_E$ to $\pi_H$ is the unique bundle morphism $(j^k(F),f)$ from $J^k\pi_E$ to $J^k\pi_H$ such that for any section $\phi$ of $\pi_E$ the identity $j^k(F) \circ j^k\phi\circ f^{-1} = j^k (F\circ\phi\circ f^{-1})$ holds.
@@ -178,7 +178,7 @@ Concrete implementations of $I$ and $J$ will be introduced in Chap.~\ref{chapter
   \end{aligned}
 \end{equation}
 
-Proceeding to derive the infinetismal version of axiom 1, we first need to specify what is meant by \emph{infinitesimal}. As the symmetry group in question is the diffeomorphism group on the base manifold, the infinitesimal equivalent is the corresponding Lie algebra $\Gamma(TM)$ of sections of the tangent bundle over $M$. The Lie bracket is given by the Lie bracket of vector fields. In a given coordinate chart, an element $\xi\in\Gamma(TM)$ defines an infinitesimal diffeomorphism as
+Proceeding to derive the infinitesimal version of axiom 1, we first need to specify what is meant by \emph{infinitesimal}. As the symmetry group in question is the diffeomorphism group on the base manifold, the infinitesimal equivalent is the corresponding Lie algebra $\Gamma(TM)$ of sections of the tangent bundle over $M$. The Lie bracket is given by the Lie bracket of vector fields. In a given coordinate chart, an element $\xi\in\Gamma(TM)$ defines an infinitesimal diffeomorphism as
 \begin{equation}\label{diffeo_infinitesimal}
   x^i \mapsto x^i + \xi^i.
 \end{equation}
@@ -190,7 +190,7 @@ and
 \begin{equation}
   \omega_i \mapsto \omega_i - \omega_j \xi^j_{,i}.
 \end{equation}
-On higher-ranked tensor bundles, the action generalizes to
+On higher-ranked tensor bundles, the action generalises to
 \begin{equation}
   T^A \mapsto T^A + C^{A\hphantom Bn}_{\hphantom AB\hphantom nm}T^B \xi^m_{,n},
 \end{equation}
@@ -282,7 +282,7 @@ The Gotay-Marsden coefficients are the defining objects for the PDE version of t
 Since \eqref{infinitesimal_with_vector} holds for any $\xi\in\Gamma(TM)$, the individual contributions for $\xi$, $\partial\xi$, $\partial\partial\xi$, $\partial\partial\partial\xi$ are satisfied separately.
 \end{proof}
 
-On a four-dimensional spacetime manifold, Thm.~\ref{equivariance_eqns_thm} yields a system of 140 linear PDEs of first order for the Lagrangian density $L$. Any diffeomorphism invariant tensor field theory of second derivative order must satisfy this system and, conversely, any solution to the system provides a candidate for a diffeomorphism invariant theory. Thus, the search for such theories has been reduced to the mathematical task of solving PDEs of a certain (simple!) form. The only ingredients which depend on the specific theory at hand are the Gotay-Marsden coefficients, such that it is possible to derive certain properties of the system without knowlegde of the concrete tensor bundle.
+On a four-dimensional spacetime manifold, Thm.~\ref{equivariance_eqns_thm} yields a system of 140 linear PDEs of first order for the Lagrangian density $L$. Any diffeomorphism invariant tensor field theory of second derivative order must satisfy this system and, conversely, any solution to the system provides a candidate for a diffeomorphism invariant theory. Thus, the search for such theories has been reduced to the mathematical task of solving PDEs of a certain (simple!) form. The only ingredients which depend on the specific theory at hand are the Gotay-Marsden coefficients, such that it is possible to derive certain properties of the system without knowledge of the concrete tensor bundle.
 
 The literature on this kind of PDEs is very extensive (see e.g.\ \cite{Seiler_2010}) with many applications throughout science. There are strong results on the properties and solutions which provide a good basis for our work with Eqns.~\ref{equivariance_eqn_1}--\ref{equivariance_eqn_4} in the following.
 
@@ -295,7 +295,7 @@ which follow from the action of the diffeomorphism group on the bundle. \cite{Go
 \section{Noether theorems}
 Diffeomorphism invariance of the Lagrangian as required by the first axiom results in a number of interesting properties of the theory. Among these are identities for the Euler-Lagrange equations and conservation laws for the dynamics given by the Euler-Lagrange equations, which are examples for the well-known Noether theorems. In analogy to the derivation for theories of first derivative order in Ref.\ \cite{Gotay_1992}, we shall now prove a version of the Noether theorems for the second-order formalism developed above.
 
-The first step is to realize that the Cartan form for a diffeomorphism invariant Lagrangian is itself diffeomorphism invariant.
+The first step is to realise that the Cartan form for a diffeomorphism invariant Lagrangian is itself diffeomorphism invariant.
 \begin{proposition}[\cite{Abraham_1987,Gotay_1998}]\label{prop_cartan_diffeo}
   Let $\mathscr L$ be a diffeomorphism invariant Lagrangian, i.e.\ $j^k(\varphi_E)^\ast \mathscr L=\mathscr L$. Any corresponding Cartan form $\Theta_L$ satisfies the diffeomorphism invariance condition
   \begin{equation}
@@ -335,7 +335,7 @@ Using the infinitesimal version $\mathcal L_{\xi_{J^{2k-1}E}} \Theta_L = 0$ of t
   for extremals of $\Theta_L$. The condition holds for arbitrary vector fields $\Xi$ on $J^{2k-1}E$, including the vector fields $\xi_{J^{2k-1}E}$.
 \end{proof}
 
-Eq.~\ref{first_noether_eq} defines a current which is conserved \emph{on shell}, i.e.\ whenever the Euler-Lagrange equations hold. Thm.\ 3.1 of Ref.\ \cite{Gotay_1992} already shows---for theories defined on the first jet bundle---how the current arises from the so-called \emph{stress-energy-momentum} tensor. This result can now be generalized to tensor field theories of second derivative order. For the following calculations, we introduce the abbreviations $\omega=d^nx$, $\omega_i = \iota_{\partial_i} \omega$, $\omega_{ij} = \iota_{\partial_i} \iota_{\partial_j} \omega$, and so forth.
+Eq.~\ref{first_noether_eq} defines a current which is conserved \emph{on shell}, i.e.\ whenever the Euler-Lagrange equations hold. Thm.\ 3.1 of Ref.\ \cite{Gotay_1992} already shows---for theories defined on the first jet bundle---how the current arises from the so-called \emph{stress-energy-momentum} tensor. This result can now be generalised to tensor field theories of second derivative order. For the following calculations, we introduce the abbreviations $\omega=d^nx$, $\omega_i = \iota_{\partial_i} \omega$, $\omega_{ij} = \iota_{\partial_i} \iota_{\partial_j} \omega$, and so forth.
 \begin{theorem}[Gotay-Marsden stress-energy-momentum tensor]\label{sem_thm}
   Let $\Theta_L$ be the diffeomorphism invariant Cartan form corresponding to a diffeomorphism invariant Lagrangian of second derivative order ($k=2$). For any local section $\sigma$ of the underlying bundle, there exists a unique $(1,1)$-tensor density $\mathcal T(\sigma)$ on the base manifold $M$ such that for all vector fields $\xi$ with compact support on $M$ and embedded hypersurfaces $i_\Sigma \colon \Sigma \rightarrow M$
   \begin{equation}\label{sem_definition}
@@ -413,7 +413,7 @@ Eq.~\ref{first_noether_eq} defines a current which is conserved \emph{on shell},
   where $\frac{\delta L}{\delta u^A} =  L_{:A} - D_p L_{:A}^{\hphantom{:A}p} + D_p D_q L_{:A}^{\hphantom{:A}I} J_I^{pq}$ denotes the variational derivative. 
 \end{proof}
 
-According to \eqref{sem_tensor_result}, the Gotay-Marsden stress-energy-momentum tensor density vanishes identically \emph{on-shell}, i.e.\ for sections solving the Euler-Lagrange equations---a recurring theme in the analysis of generally covariant theories. The first-order version of Thm.~\ref{sem_thm}, proven in Ref.\ \cite{Gotay_1992}, settled a long-standing debate about SEM tensors densities by providing a definition which is based on Noether theory and naturally satisfies a \emph{generalized Belinfante-Rosenfeld formula}\footnote{For general relativity, the Belinfante-Rosenfeld formula \cite{Belinfante_1940,Rosenfeld_1940} relates the SEM tensor density obtained from Noether theory by considering translations to the Hilbert SEM tensor density, which is defined as the source density of the Einstein equations. \cite{Gotay_1992} This comes with a seemingly \emph{ad hoc} symmetrization of the Noether SEM tensor density. The generalized Belinfante-Rosenfeld formula \cite{Gotay_1992} relates the Gotay-Marsden SEM tensor density \eqref{sem_tensor_result} to the Noether SEM tensor density without such choices, just by considering currents and spacetime diffeomorphisms.}.
+According to \eqref{sem_tensor_result}, the Gotay-Marsden stress-energy-momentum tensor density vanishes identically \emph{on-shell}, i.e.\ for sections solving the Euler-Lagrange equations---a recurring theme in the analysis of generally covariant theories. The first-order version of Thm.~\ref{sem_thm}, proven in Ref.\ \cite{Gotay_1992}, settled a long-standing debate about SEM tensors densities by providing a definition which is based on Noether theory and naturally satisfies a \emph{generalised Belinfante-Rosenfeld formula}\footnote{For general relativity, the Belinfante-Rosenfeld formula \cite{Belinfante_1940,Rosenfeld_1940} relates the SEM tensor density obtained from Noether theory by considering translations to the Hilbert SEM tensor density, which is defined as the source density of the Einstein equations. \cite{Gotay_1992} This comes with a seemingly \emph{ad hoc} symmetrisation of the Noether SEM tensor density. The generalised Belinfante-Rosenfeld formula \cite{Gotay_1992} relates the Gotay-Marsden SEM tensor density \eqref{sem_tensor_result} to the Noether SEM tensor density without such choices, just by considering currents and spacetime diffeomorphisms.}.
 
 In addition, the Gotay-Marsden SEM tensor density lends itself for a concise formulation of Noether's second theorem, based on a previous result \cite{Gotay_1992} for first-order theories.
 \begin{theorem}[Second Noether theorem]\label{thm_second_noether}
@@ -441,7 +441,7 @@ for the \emph{Euler-Lagrange equations}, which is exactly the statement of Noeth
 \section{Axiom II: causal compatibility}\label{sect_causal_compatibility}
 \textit{This section follows very closely Sect.\ II.B of Ref.\ \cite{Alex_2020}.}
 
-For the mathematical formulation of the second axiom, we utilize the close relation of the causal structure of field equations to the short-wavelength limit of the theory. \cite{R_tzel_2011,D_ll_2018} First, we restrict to Lagrangians which are \emph{degenerate} in the sense that the Euler-Lagrange equations---although defined on $J^4E$---depend only on second derivatives and lower, i.e.
+For the mathematical formulation of the second axiom, we utilise the close relation of the causal structure of field equations to the short-wavelength limit of the theory. \cite{R_tzel_2011,D_ll_2018} First, we restrict to Lagrangians which are \emph{degenerate} in the sense that the Euler-Lagrange equations---although defined on $J^4E$---depend only on second derivatives and lower, i.e.
 \begin{equation}
   \delta L = \pi^\ast_{2k,k}\delta \tilde L
 \end{equation}
@@ -453,7 +453,7 @@ Evaluating the field equations at this ansatz and taking the limit $\lambda\righ
 \begin{equation}\label{wkb_section}
   \underbrace{\left(\frac{\partial E_A}{\partial u^B_I}\right)J^{ij}_Ik_ik_j}_{T_{AB}(k)}a^B = 0,
 \end{equation}
-which depends on the wavefront $S$ only via the wave covector $k=-\mathrm dS$. Eq.~\ref{wkb_section} is a linear equation for the amplitudes $a^B$ with coefficients from the $r\times r$ matrix $T_{AB}(k)$, where $r$ denotes the fibre dimension of the theory. This matrix, called the \emph{principal symbol} of the field equations, plays an important r\^ole in the short-wavelength limit: if the theory admits solutions with nontrivial amplitudes $a^B$, the principal symbol $T_{AB}(k)$ must necessarily be noninjective. By virtue of this condition, the principal symbol selects the physically admissible wave covectors in the WKB ansatz. As a square matrix is noninjective if and only if its determinant vanishes, admissible wave covectors can equivalently be characterized by a vanishing condition on the determinant of $T_{AB}(k)$.
+which depends on the wavefront $S$ only via the wave covector $k=-\mathrm dS$. Eq.~\ref{wkb_section} is a linear equation for the amplitudes $a^B$ with coefficients from the $r\times r$ matrix $T_{AB}(k)$, where $r$ denotes the fibre dimension of the theory. This matrix, called the \emph{principal symbol} of the field equations, plays an important r\^ole in the short-wavelength limit: if the theory admits solutions with nontrivial amplitudes $a^B$, the principal symbol $T_{AB}(k)$ must necessarily be noninjective. By virtue of this condition, the principal symbol selects the physically admissible wave covectors in the WKB ansatz. As a square matrix is noninjective if and only if its determinant vanishes, admissible wave covectors can equivalently be characterised by a vanishing condition on the determinant of $T_{AB}(k)$.
 
 There is, however, a problem with this approach: in the presence of gauge symmetries, there are nontrivial solutions equivalent to the trivial solution $a^B=0$. These solutions will also be contained in the kernel of the principal symbol, rendering the naive conditions on wave covectors formulated above meaningless. More specifically, assuming a gauge symmetry with $s$-dimensional gauge orbits, there are exactly $s$ independent functions $\chi_{(i)}^A(k)$ which are equivalent to the trivial solution and span an $s$-dimensional subspace of the kernel of $T_{AB}(k)$. In order to allow for solutions which are \emph{not} equivalent to the trivial solution, the kernel needs to be of dimension greater or equal than $s+1$.
 
@@ -472,14 +472,14 @@ vanish.\footnote{The vanishing of the order-$s$ adjugate matrix is equivalent to
 \end{equation}
 to arrive at the so-called \emph{principal polynomial} $\mathcal P(k)$.
 \begin{definition}[principal polynomial \cite{D_ll_2018}]\label{def_principal_polynomial}
-  Consider a bundle $E\overset{\pi}{\longrightarrow}M$ with fibre dimension $r$ and a Lagrangian field theory on a jet bundle over $\pi$ that results in Euler-Lagrange equations of second derviative order. Assume the $s$ vectors $(\chi^A_{(i)}(k))_{i=1\dots s}$ to be generators of the gauge transformations of the theory. In particular, the $\chi^A_{(i)}$ span the left and right kernel of the principal symbol $T_{AB}(k)$. Choosing $s$ rows and columns of $T$ such that the order-$s$ adjugate matrix entry $Q^{A_1\dots A_sB_1\dots B_s}$ does not vanish, we define the \textbf{principal polynomial} as the quotient
+  Consider a bundle $E\overset{\pi}{\longrightarrow}M$ with fibre dimension $r$ and a Lagrangian field theory on a jet bundle over $\pi$ that results in Euler-Lagrange equations of second derivative order. Assume the $s$ vectors $(\chi^A_{(i)}(k))_{i=1\dots s}$ to be generators of the gauge transformations of the theory. In particular, the $\chi^A_{(i)}$ span the left and right kernel of the principal symbol $T_{AB}(k)$. Choosing $s$ rows and columns of $T$ such that the order-$s$ adjugate matrix entry $Q^{A_1\dots A_sB_1\dots B_s}$ does not vanish, we define the \textbf{principal polynomial} as the quotient
   \begin{equation}\label{principal_polynomial}
     \mathcal P(k) = \frac{Q^{A_1\dots A_sB_1\dots B_s}}{\epsilon^{\mu_1\dots\mu_s}\epsilon^{\nu_1\dots\nu_s}\left\lbrack\prod_{i=1}^s\chi_{(\mu_i)}^{A_i}\right\rbrack\left\lbrack\prod_{j=1}^s\chi_{(\nu_j)}^{B_j}\right\rbrack}.
   \end{equation}
 \end{definition}
 The principal polynomial is a homogeneous polynomial of order $2r-4s$ in the components $k_a$ of the wave covector and has---as is clear from the derivation above---the important property that in order for an ansatz \eqref{wkb_ansatz} to describe a nontrivial solution in the short-wavelength limit the wave covector $k=-\mathrm dS$ must be a root of $\mathcal P$. Thus, the complete information about the propagation of waves in the infinite frequency limit is encoded in the principal symbol. This is an example for the more general result that the eligibility of a theory as a \emph{physically relevant} theory hinges on properties of $\mathcal P$. More specifically, it has been shown that a theory can only be \emph{predictive}, \emph{interpretable}, and \emph{quantizable} if the principal polynomial satisfies certain algebraic conditions, which further propagate to conditions on the underlying geometry. \cite{R_tzel_2011,Rivera_2012}
 
-The principal polynomial is also closely related to the Cauchy problem of the field equations, as a Cauchy problem can only be well-posed within a region of $M$ if $\mathcal P$ restricts to a \emph{hyperbolic}\footnote{A homogeneous polynomial $\mathcal P$ of degree $d$ is hyperbolic if there exists a covector $h$ such that $\mathcal P(h)\neq 0$ and any shifted covector $h+\lambda w$ intersects the vanishing set of $\mathcal P$ exactly $d$ times. Such a covector $h$ is said to be hyperbolic with respect to $\mathcal P$.} polynomial in this region. Furthermore, given a theory with hyperbolic principal polynomial, admissible initial data hypersurfaces are characterized by the condition that the surface normal be hyperbolic with respect to $\mathcal P$. \cite{H_rmander_1977,Ivrii_1974} Predictivity is the \emph{raison d'\^etre} for physical theories, which is why we will restrict our attention to tensor field theories with hyperbolic principal polynomials.
+The principal polynomial is also closely related to the Cauchy problem of the field equations, as a Cauchy problem can only be well-posed within a region of $M$ if $\mathcal P$ restricts to a \emph{hyperbolic}\footnote{A homogeneous polynomial $\mathcal P$ of degree $d$ is hyperbolic if there exists a covector $h$ such that $\mathcal P(h)\neq 0$ and any shifted covector $h+\lambda w$ intersects the vanishing set of $\mathcal P$ exactly $d$ times. Such a covector $h$ is said to be hyperbolic with respect to $\mathcal P$.} polynomial in this region. Furthermore, given a theory with hyperbolic principal polynomial, admissible initial data hypersurfaces are characterised by the condition that the surface normal be hyperbolic with respect to $\mathcal P$. \cite{H_rmander_1977,Ivrii_1974} Predictivity is the \emph{raison d'\^etre} for physical theories, which is why we will restrict our attention to tensor field theories with hyperbolic principal polynomials.
 
 Two geometric objects are important for the formulation of the axiom of causal compatibility: the vanishing set $V_p\in T_p^\ast M$ of $\mathcal P$ and the set $C_p\in T_p^\ast M$ of all hyperbolic covectors with respect to $\mathcal P$. Both sets are defined at each point and thus form distributions $V$ and $C$ on $M$. The vanishing set $V_p$ consists of all admissible wave covectors in the infinite frequency limit, restricting the propagation directions of fields in spacetime. The set $C_p\in T_p^\ast M$, on the other hand, contains the information about possible choices of initial data hypersurfaces. It constitutes a convex cone \cite{Garding_1959} and is commonly called the \emph{hyperbolicity cone} \cite{R_tzel_2011,Rivera_2012}.
 
