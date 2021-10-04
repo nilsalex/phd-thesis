@@ -14,7 +14,7 @@ The coefficients $A,B,C,D$ can be chosen freely, leaving us with 4 degrees of fr
 \begin{equation}
   S^{abcd} = A \cdot \epsilon^{abcd} + \frac{C - D}{2} \left( \eta^{ac}\eta^{bd} - \eta^{ad}\eta^{bc} \right).
 \end{equation}
-Two coefficients $A$ and $\frac{C-D}{2}$ would parameterize such an ansatz.
+Two coefficients $A$ and $\frac{C-D}{2}$ would parameterise such an ansatz.
 
 In order to execute the perturbative construction algorithm, we need to find a basis for the ansätze \eqref{ansatz_reduced} up to the desired perturbation order. This is, in principle, achieved by listing all possible products of $\epsilon$ and $\eta$ and assigning to each term a unique coefficient. Each product will contain at most one $\epsilon$, because the product of two $\epsilon$ symbols amounts to a linear combination of products of Minkowski metrics.
 
@@ -99,11 +99,11 @@ sum xs = go 0 xs
   \captionof{listing}{Haskell implementation of the \texttt{sum} function.}
   \label{code_haskell_sum}
 \end{code}
-The \texttt{sum} function in Listing~\ref{code_haskell_sum} demonstrates how functional programming approaches certain tasks. The input is a \texttt{List} of integers, a functional data structure that matches either the empty list \mintinline{haskell}{[]} or an integer appended to some list, e.g.\ \mintinline{haskell}{5 : xs}. Data is \emph{consumed} by matching on patterns and results are \emph{produced} by building up expressions, in this case repeated applications of the \mintinline{haskell}{(+)} function in line 5. It is, by design, impossible to slip in side effects, which is why functions in Haskell are \emph{pure}. This leads to the important property called \emph{referential trasparency}, meaning that expressions can be replaced by their values without changing the behaviour of the programme.
+The \texttt{sum} function in Listing~\ref{code_haskell_sum} demonstrates how functional programming approaches certain tasks. The input is a \texttt{List} of integers, a functional data structure that matches either the empty list \mintinline{haskell}{[]} or an integer appended to some list, e.g.\ \mintinline{haskell}{5 : xs}. Data is \emph{consumed} by matching on patterns and results are \emph{produced} by building up expressions, in this case repeated applications of the \mintinline{haskell}{(+)} function in line 5. It is, by design, impossible to slip in side effects, which is why functions in Haskell are \emph{pure}. This leads to the important property called \emph{referential transparency}, meaning that expressions can be replaced by their values without changing the behaviour of the programme.
 
 Because of its purity and, importantly, the powerful type system based on System F \cite{Girard_1972}, Haskell allows to write programmes that are both efficient and safe. As we will see, the objects we are concerned with have natural representations as functional data types and the manipulations that need to be performed translate into efficient, pure functions operating on these types.
 
-We will only sketch the implementation of the ansatz generation procedure outlined above. Performance optimizations like strictness annotations and unpacking are not given explicitly. For all details, see Ref.\ \cite{Reinhart_2019} and the documentation \cite{Reinhart_2019_sparse-tensor} of the package. There are more differences between the presentation here and the production code, which have been introduced deliberately for lighter reading.
+We will only sketch the implementation of the ansatz generation procedure outlined above. Performance optimisations like strictness annotations and unpacking are not given explicitly. For all details, see Ref.\ \cite{Reinhart_2019} and the documentation \cite{Reinhart_2019_sparse-tensor} of the package. There are more differences between the presentation here and the production code, which have been introduced deliberately for lighter reading.
 
 As already mentioned, an ansatz has a representation as a functional data structure. Let us begin with the individual $\eta$ and $\epsilon$ tensors in Listing~\ref{code_haskell_eta_epsilon}.
 \begin{code}
@@ -203,20 +203,20 @@ addAnsatz _ _ = error "cannot add incompatible ansätze"
 \end{code}
 The occurrence of \mintinline{haskell}{error} functions means that the function \mintinline{haskell}{addAnsatz} is \emph{partial}, i.e.\ does not compute an output for any input. This could be cured by refining the return type of the function, but doing so is not really necessary for this use case, as the input is under our control: we will neither add incompatible ansätze, nor will two leaves with distinct variables be added. The curious reader may be referred to the next section, where we actually introduce methods for catching such runtime errors already at the type level.
 
-Ansatz generation proceeds as follows: starting with the empty forest, we consider each possible ansatz term separately, one at a time, for example $\eta^{ab} \eta^{cd} \eta^{ef}$. For each such term, it is first checked whether the ansatz already contains the term, utilizing fast lookup in the sorted forest. If it is contained, we can discard the term and proceed with the next one. If, on the other hand, the term is \emph{new}, it is assigned a new variable, symmetrized, and added to the ansatz.
+Ansatz generation proceeds as follows: starting with the empty forest, we consider each possible ansatz term separately, one at a time, for example $\eta^{ab} \eta^{cd} \eta^{ef}$. For each such term, it is first checked whether the ansatz already contains the term, utilising fast lookup in the sorted forest. If it is contained, we can discard the term and proceed with the next one. If, on the other hand, the term is \emph{new}, it is assigned a new variable, symmetrised, and added to the ansatz.
 
 When all possible ansatz terms have been added (or discarded, for that matter), the linear dependencies are identified and removed, like explained before. For the linear algebra part, the package \texttt{hmatrix} \cite{Ruiz_2006} is used together with a custom implementation of Gaussian elimination that is tested for sufficient stability.
 
-For the handling of larger ansätze---up to 18 indices at the time of writing, which is enough for fourth-order area metric Lagrangians---a second mode has been implemented. In order for the matrix not to become too large, its is checked \emph{before insertion} whether a given symmetrized term would be linearly dependent on the already existing terms. This entails keeping track of the evaluation matrix, as re-evaluating the ansatz tensors for each term that is added would be too expensive. However, we do not have to perform Gaussian elimination, because it is not necessary to identify which column would introduce a rank defect---it is always the new one, because we ensure that the matrix rank is maximal with our construction. So, fast and numerically stable singular value decomposition can be used for computing ranks.
+For the handling of larger ansätze---up to 18 indices at the time of writing, which is enough for fourth-order area metric Lagrangians---a second mode has been implemented. In order for the matrix not to become too large, its is checked \emph{before insertion} whether a given symmetrised term would be linearly dependent on the already existing terms. This entails keeping track of the evaluation matrix, as re-evaluating the ansatz tensors for each term that is added would be too expensive. However, we do not have to perform Gaussian elimination, because it is not necessary to identify which column would introduce a rank defect---it is always the new one, because we ensure that the matrix rank is maximal with our construction. So, fast and numerically stable singular value decomposition can be used for computing ranks.
 
-Overall, the second method is a bit slower for ansätze with 14 indices (needed for third-order area metric Lagrangians) than the first method, taking a couple of seconds to compute on modern workstation hardware. For the fourth-order ansätze, however, it is the only option. With all the optimization work that has been done, like exploting the symmetries in order to reduce the number of terms that are even considered for insertion or, likewise, reducing the number of index combinations to be probed (see \cite{Reinhart_2019} or the source code and documentation \cite{Reinhart_2019_sparse-tensor}), the computation times have been reduced drastically. The largest fourth-order ansätze with 18 indices are computed within about three hours, using three gigabytes of memory. To the knowledge of the author, the methods developed for the canonical approach \cite{Schneider_2017} (to which this method is applicable as well) do not achieve this efficiency.
+Overall, the second method is a bit slower for ansätze with 14 indices (needed for third-order area metric Lagrangians) than the first method, taking a couple of seconds to compute on modern workstation hardware. For the fourth-order ansätze, however, it is the only option. With all the optimisation work that has been done, like exploiting the symmetries in order to reduce the number of terms that are even considered for insertion or, likewise, reducing the number of index combinations to be probed (see \cite{Reinhart_2019} or the source code and documentation \cite{Reinhart_2019_sparse-tensor}), the computation times have been reduced drastically. The largest fourth-order ansätze with 18 indices are computed within about three hours, using three gigabytes of memory. To the knowledge of the author, the methods developed for the canonical approach \cite{Schneider_2017} (to which this method is applicable as well) do not achieve this efficiency.
 
 We will encounter the generated ansätze in Chap.~\ref{chapter_weak_area} when constructing perturbative area metric gravity. But first, let us walk through the second Haskell package developed in the course of this thesis.
 
 \section{Equivariance equations}\label{sect_safe-tensor}
-In principle, \texttt{sparse-tensor} provides the machinery for setting up and solving the equivariance equations. It even contains some safeguards against composing tensors of incompatible ranks, but not nearly enough in order to safely mirror Eqns.\ \eqref{prolong_0}--\eqref{prolong_2} in a Haskell programme. For this purpose, the package \texttt{safe-tensor}\footnote{See \cite{Alex_2020_safe-tensor}. The source code is publicly available at \url{https://github.com/nilsalex/safe-tensor}, the package is also available via hackage at \url{https://hackage.haskell.org/package/safe-tensor}.} has been developed, which implements index-based tensor calculus as known from mathematical physics. \texttt{safe-tensor} makes it comparably easy and, above all, \emph{safe} to perform all kinds of operations on tensors, including transpositions of indices, contractions, symmetrizations, tensor products, and tensor sums.
+In principle, \texttt{sparse-tensor} provides the machinery for setting up and solving the equivariance equations. It even contains some safeguards against composing tensors of incompatible ranks, but not nearly enough in order to safely mirror Eqns.\ \eqref{prolong_0}--\eqref{prolong_2} in a Haskell programme. For this purpose, the package \texttt{safe-tensor}\footnote{See \cite{Alex_2020_safe-tensor}. The source code is publicly available at \url{https://github.com/nilsalex/safe-tensor}, the package is also available via hackage at \url{https://hackage.haskell.org/package/safe-tensor}.} has been developed, which implements index-based tensor calculus as known from mathematical physics. \texttt{safe-tensor} makes it comparably easy and, above all, \emph{safe} to perform all kinds of operations on tensors, including transpositions of indices, contractions, symmetrisations, tensor products, and tensor sums.
 
-Central for the design of the tensor type provided by the package is the \emph{generalized rank} of a tensor. The tensors we deal with, a good example being the Gotay-Marsden coefficients $\gmc{A}{B}{n}{m}$, can be considered as multilinear maps over \emph{different} vector spaces. Applying this interpretation to $C$, we get a map
+Central for the design of the tensor type provided by the package is the \emph{generalised rank} of a tensor. The tensors we deal with, a good example being the Gotay-Marsden coefficients $\gmc{A}{B}{n}{m}$, can be considered as multilinear maps over \emph{different} vector spaces. Applying this interpretation to $C$, we get a map
 \begin{equation}
   C \colon V_\text{area}^\ast \times V_\text{area} \times V^\ast \times V \rightarrow \mathbb R
 \end{equation}
@@ -237,15 +237,15 @@ Let us consider more examples:
 \end{align}
 \footnotetext{Index labels can be arbitrary!}
 
-The contraction of a rank is obtained by removing duplicate indices. If as a result there are no indices associated to a vector space, it is also removed from the generalized rank. Revisiting the previous example \eqref{eq_to_contract}, application of the contraction yields
+The contraction of a rank is obtained by removing duplicate indices. If as a result there are no indices associated to a vector space, it is also removed from the generalised rank. Revisiting the previous example \eqref{eq_to_contract}, application of the contraction yields
 \begin{equation}
   \operatorname{contract}(\operatorname{rank}(\gmc{B}{A}{p}{p} N^A)) = \{(\text{STArea}, 21, \{B\}, \{\})\}.
 \end{equation}
 
-The rules of the tensor calculus we are going to implement can now be stated using the generalized rank of a tensor. Note that some rules already follow from the definition of a generalized rank, but are stated again for completeness.
+The rules of the tensor calculus we are going to implement can now be stated using the generalised rank of a tensor. Note that some rules already follow from the definition of a generalised rank, but are stated again for completeness.
 \begin{enumerate}
-  \item Each tensor carries a generalized rank as defined above.
-  \item Transpositions of indices corresponding to the \emph{same} set do not change the generalized rank, i.e.\ $\operatorname{rank}(T^{Aab}) = \operatorname{rank}(T^{Aba})$. Transpositions of indices corresponding to different sets (that is, transpositions across different vector spaces or covariant \emph{and} contravariant indices) are not defined.
+  \item Each tensor carries a generalised rank as defined above.
+  \item Transpositions of indices corresponding to the \emph{same} set do not change the generalised rank, i.e.\ $\operatorname{rank}(T^{Aab}) = \operatorname{rank}(T^{Aba})$. Transpositions of indices corresponding to different sets (that is, transpositions across different vector spaces or covariant \emph{and} contravariant indices) are not defined.
   \item Contractions are always allowed. If for some vector space the intersection of covariant and contravariant indices is nonempty, the rank is reduced as described. Otherwise, a contraction has no effect.
   \item Taking the product of two tensors merges both ranks and is thus only allowed if the two tensors do not share indices corresponding to the same vector space in the same (upper or lower) position. For example
     \begin{equation}
@@ -254,17 +254,17 @@ The rules of the tensor calculus we are going to implement can now be stated usi
   \item Adding and subtracting two tensors is only allowed if both ranks coincide. The result has, of course, the same rank.
 \end{enumerate}
 
-Listing~\ref{code_haskell_rank_type} contains the definition of the \mintinline{haskell}{Rank} type as used by the \texttt{safe-tensor} package. The function \mintinline{haskell}{sane} can be specialized to the type \mintinline{haskell}{sane :: Rank -> Bool}. It provides a check for whether a given generalized rank satisfies all constraints and can be used to decide whether a certain tensor can be defined or, more importantly, whether a certain operation would yield a tensor of invalid rank and is thus forbidden.
+Listing~\ref{code_haskell_rank_type} contains the definition of the \mintinline{haskell}{Rank} type as used by the \texttt{safe-tensor} package. The function \mintinline{haskell}{sane} can be specialised to the type \mintinline{haskell}{sane :: Rank -> Bool}. It provides a check for whether a given generalised rank satisfies all constraints and can be used to decide whether a certain tensor can be defined or, more importantly, whether a certain operation would yield a tensor of invalid rank and is thus forbidden.
 
 \begin{code}
-  \captionof{listing}{Generalized rank type implementation in Haskell and the corresponding validity check. The type \mintinline{haskell}{Rank} and the function \mintinline{haskell}{sane} are the foundation for the tensor type to be defined later. \mintinline{haskell}{Rank} contains all the information of a generalized rank: vector space labels, dimensions, and index lists. \mintinline{haskell}{sane} ensures that the constraints are satisfied: the list of sub-ranks for the individual vector spaces must be strictly ascending, but also the index lists itself. The listing is printed on the next page. Note that the \texttt{safe-tensor} package \cite{Alex_2020_safe-tensor} does not export a module called \texttt{Rank}, but the definitions are part of a larger module.}
+  \captionof{listing}{Generalised rank type implementation in Haskell and the corresponding validity check. The type \mintinline{haskell}{Rank} and the function \mintinline{haskell}{sane} are the foundation for the tensor type to be defined later. \mintinline{haskell}{Rank} contains all the information of a generalised rank: vector space labels, dimensions, and index lists. \mintinline{haskell}{sane} ensures that the constraints are satisfied: the list of sub-ranks for the individual vector spaces must be strictly ascending, but also the index lists itself. The listing is printed on the next page. Note that the \texttt{safe-tensor} package \cite{Alex_2020_safe-tensor} does not export a module called \texttt{Rank}, but the definitions are part of a larger module.}
   \label{code_haskell_rank_type}
   \begin{minted}[frame=single,linenos,samepage]{haskell}
 module Rank where
 
 -- type for nonempty lists: data NonEmpty a = a :| [a]
 import Data.List.NonEmpty (NonEmpty ((:|)))
--- type-level natural numers and symbols
+-- type-level natural numbers and symbols
 import Data.Singletons.TypeLits (Nat, Symbol)
 
 -- vector space, contains a label vId and the dimension vDim
@@ -277,13 +277,13 @@ data IList a
   | Con (NonEmpty a)
   deriving (Ord, Eq)
 
--- generalized rank, a list of vector spaces with associated index lists
+-- generalised rank, a list of vector spaces with associated index lists
 type GRank s n = [(VSpace s n, IList s)]
 
--- generalized rank used for type-level computations
+-- generalised rank used for type-level computations
 type Rank = GRank Symbol Nat
 
--- check whether a generalized rank is valid
+-- check whether a generalised rank is valid
 sane :: (Ord a, Ord b) => [(VSpace a b, IList a)] -> Bool
 sane [] = True
 sane [(_, is)] = isAscendingIList is
@@ -338,7 +338,7 @@ instance Functor (Tensor r) where
   \captionof{listing}{The \mintinline{haskell}{Tensor} GADT and its instances.}
   \label{code_haskell_tensor_type}
 \end{code}
-The \mintinline{haskell}{Tensor} type is a so-called \emph{generalized algebraic datatype}, short GADT, which means that the type of each constructor can be specified explicitly. There are three of such constructors:
+The \mintinline{haskell}{Tensor} type is a so-called \emph{generalised algebraic datatype}, short GADT, which means that the type of each constructor can be specified explicitly. There are three of such constructors:
 \begin{itemize}
   \item \mintinline{haskell}{ZeroTensor} yields the zero tensor for any valid \mintinline{haskell}{Rank} type. It is useful to introduce this special value, because it allows to short-circuit a lot of calculations: for example, when this constructor is encountered while calculating a sum, it can be ignored. For a product, on the other hand, we can automatically return the result \mintinline{haskell}{ZeroTensor} and need not inspect the second factor.
   \item \mintinline{haskell}{Scalar} as the base case for the recursive definition of a tensor wraps for the \emph{empty} \mintinline{haskell}{Rank} type \mintinline{haskell}{'[]} a value of type \mintinline{text}{v}. It should be interpreted as the result of a ``fully applied'' tensor.
@@ -428,7 +428,7 @@ The product of two \mintinline{haskell}{Scalar} values is equally as simple, as 
 
 Transpositions of indices and contractions are implemented similarly by descending into the relevant subtensors and manipulating the functional data structure appropriately. With the module \texttt{Math.Tensor.Basic}, the \texttt{safe-tensor} package exports all necessary basic tensors for setting up the perturbative equivariance equations~\ref{prolong_0}--\ref{prolong_2} for metric and area metric theories---including Kronecker deltas, bundle intertwiners, Gotay-Marsden coefficients, Minkowski metrics and Levi-Civita symbols.
 
-Because handling the refined tensor type defined in the \texttt{Math.Tensor.Safe} module is at times quite unwieldy, the package also provides an \emph{opaque} variant. Values of this opaque type are constructed from a tensor that has a generalized rank, but the rank cannot be extracted---it is \emph{hidden}. The opaque type is exported by the \texttt{Math.Tensor} module, see Listing~\ref{code_haskell_existential_type} for the definition.
+Because handling the refined tensor type defined in the \texttt{Math.Tensor.Safe} module is at times quite unwieldy, the package also provides an \emph{opaque} variant. Values of this opaque type are constructed from a tensor that has a generalised rank, but the rank cannot be extracted---it is \emph{hidden}. The opaque type is exported by the \texttt{Math.Tensor} module, see Listing~\ref{code_haskell_existential_type} for the definition.
 
 \begin{code}
   \begin{minted}[frame=single,linenos,samepage]{haskell}
@@ -443,7 +443,7 @@ data T :: Type -> Type where
   \label{code_haskell_existential_type}
 \end{code}
 
-With the opaque type \mintinline{haskell}{T}, tensor operations are always well-typed, but may not always yield a result because of rank mismatches. This is implemented utilizing the \mintinline{haskell}{MonadError} type class, for example in the definition of tensor addition presentend in Listing~\ref{code_haskell_T_addition}.
+With the opaque type \mintinline{haskell}{T}, tensor operations are always well-typed, but may not always yield a result because of rank mismatches. This is implemented utilising the \mintinline{haskell}{MonadError} type class, for example in the definition of tensor addition presented in Listing~\ref{code_haskell_T_addition}.
 
 \begin{code}
   \begin{minted}[frame=single,linenos,samepage]{haskell}
@@ -463,7 +463,7 @@ With the opaque type \mintinline{haskell}{T}, tensor operations are always well-
                    Disproved _ ->
                      throwError "Rank of summands is not sane."
                Disproved _ ->
-                 throwError "Generalized tensor ranks do not match."
+                 throwError "Generalised tensor ranks do not match."
   \end{minted}
   \captionof{listing}{Addition of opaque tensors.}
   \label{code_haskell_T_addition}
