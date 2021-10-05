@@ -1,0 +1,76 @@
+\documentclass[%
+english,
+12pt,
+twoside=false,
+headsepline,
+numbers=noenddot,
+parskip=half,
+a4paper,
+%draft
+final
+]{scrarticle}
+
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\setmainlanguage[variant=british]{english}
+\setdefaultlanguage[variant=british]{english}
+
+\usepackage{microtype}
+\usepackage{ellipsis}
+
+\usepackage{hyperref}
+
+\usepackage[sorting=none]{biblatex}
+\addbibresource{../bibliography.bib}
+
+\setcounter{biburllcpenalty}{7000}
+\setcounter{biburlucpenalty}{8000}
+
+\pagestyle{empty}
+
+% \DeclareUrlCommand\Code{\urlstyle{tt}}
+% \expandafter\def\expandafter\UrlBreaks\expandafter{\UrlBreaks
+% \do\/\do\a\do\b\do\c\do\d\do\e\do\f\do\g\do\h\do\i\do\j\do\k
+% \do\l\do\m\do\n\do\o\do\p\do\q\do\r\do\s\do\t\do\u\do\v
+% \do\w\do\x\do\y\do\z
+% \do\A\do\B\do\C\do\D\do\E\do\F\do\G\do\H\do\I\do\J\do\K
+% \do\L\do\M\do\N\do\O\do\P\do\Q\do\R\do\S\do\T\do\U\do\V
+% \do\W\do\X\do\Y\do\Z\do\.}
+
+\begin{document}
+
+\enlargethispage{\baselineskip}
+
+\begin{center}
+  \large Publication List
+
+  \normalsize Nils Alex \\ \today
+\end{center}
+
+\subsection*{Journal articles}
+\subsubsection*{Physics}
+
+\fullcite{Alex_2020}
+
+\fullcite{Alex_2020_2}
+
+\subsubsection*{Biology}
+
+\fullcite{L_hr_2020}
+
+\subsection*{Conference proceedings}
+
+\fullcite{Alex_2019}
+
+\fullcite{Reinhart_2018}
+
+\subsection*{Computer code}
+
+\fullcite{Reinhart_2019_sparse-tensor}
+
+\fullcite{Alex_2020_safe-tensor}
+
+\fullcite{Alex_2020_area-metric-gravity}
+
+\end{document}
+
