@@ -1,3 +1,1 @@
-perturbative causal compatibility: cones + O(2) ??
-g(r)
 t_0 (inspiral time)
