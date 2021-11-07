@@ -1,7 +1,7 @@
 \chapter{Computational methods for perturbative constructive gravity}
 \label{chapter_computational_methods}
 
-\textit{The results from the previous chapter provide us with a comprehensive algorithm for the perturbative construction of gravitational theories. While consisting almost entirely of linear algebra, the execution of the algorithm is not feasible without the help of the computer. Therefore, we dedicate this section to the presentation of two Haskell libraries: the first one, \texttt{sparse-tensor}, implements the generation of Lorentz invariant perturbation ansätze. The second library, \texttt{safe-tensor}, is designed for safe and efficient evaluation and solution of the equivariance equations.}
+The results from the previous chapter provide us with a comprehensive algorithm for the perturbative construction of gravitational theories. While consisting almost entirely of linear algebra, the execution of the algorithm is not feasible without the help of the computer. Therefore, we dedicate this section to the presentation of two Haskell libraries: the first one, \texttt{sparse-tensor}, implements the generation of Lorentz invariant perturbation ansätze. The second library, \texttt{safe-tensor}, is designed for safe and efficient evaluation and solution of the equivariance equations.
 
 \section{Ansatz generation}
 A central finding of Chap.~\ref{chapter_perturbation} is that the perturbation ansätze inherit the Lorentz invariance of the expansion point. This has important practical ramifications: for example, instead of the 10 coefficients $a_A$ in the expansion of a metric Lagrangian, we can just work with the one-dimensional Lorentz invariant coefficient $c\cdot J_A^{ab} \eta_{ab}$. That means, before even considering the equivariance equations, the dimensionality of the ansatz can already be reduced a lot.
@@ -71,7 +71,7 @@ from which we read off the linearly independent columns $A$, $B$, and $D$. The s
 
 The Haskell package \texttt{sparse-tensor}\footnote{See \cite{Reinhart_2019_sparse-tensor}. The source code is publicly available at \url{https://github.com/TobiReinhart/sparse-tensor}.} exports the module \texttt{\Code{Math.Tensor.LorentzGenerator}}, which implements the procedure outlined above. Haskell is a purely functional language with lazy semantics by default. \cite{Marlow_2010} In practice, this means that the programmer does not modify state but composes expressions, which are evaluated only when asked for. Consider, for example, a routine that sums up the elements of an array. First, let us look at an implementation in C.
 \begin{code}
-  \begin{minted}[frame=single,linenos]{C}
+  \begin{minted}[frame=single,linenos,samepage]{C}
 int sum(int array[], int length) {
   int result = 0;
 
@@ -83,20 +83,20 @@ int sum(int array[], int length) {
   return result;
 }
   \end{minted}
-  \captionof{listing}{C implementation of the \texttt{sum} function.}
+  \captionof{listing}[C implementation of the \texttt{sum} function]{C implementation of the \texttt{sum} function.}
 \end{code}
 Note how state---in the form of the \texttt{result} variable---is created, modified, and eventually returned. At any point of the programme, it is possible to perform arbitrary side effects, which could modify the input data, alter the local state (consisting of counter variable \texttt{i} and result variable \texttt{result}), print something to the user's screen, and so on.
 
 In Haskell, on the other hand, a na\"ive\footnote{Performance considerations put aside.} implementation of the \texttt{sum} function reads quite differently.
 \begin{code}
-  \begin{minted}[frame=single,linenos]{haskell}
+  \begin{minted}[frame=single,linenos,samepage]{haskell}
 sum :: [Int] -> Int
 sum xs = go 0 xs
   where
     go acc [] = acc
     go acc (y:ys) = go (acc+y) ys
   \end{minted}
-  \captionof{listing}{Haskell implementation of the \texttt{sum} function.}
+  \captionof{listing}[Haskell implementation of the \texttt{sum} function]{Haskell implementation of the \texttt{sum} function.}
   \label{code_haskell_sum}
 \end{code}
 The \texttt{sum} function in Listing~\ref{code_haskell_sum} demonstrates how functional programming approaches certain tasks. The input is a \texttt{List} of integers, a functional data structure that matches either the empty list \mintinline{haskell}{[]} or an integer appended to some list, e.g.\ \mintinline{haskell}{5 : xs}. Data is \emph{consumed} by matching on patterns and results are \emph{produced} by building up expressions, in this case repeated applications of the \mintinline{haskell}{(+)} function in line 5. It is, by design, impossible to slip in side effects, which is why functions in Haskell are \emph{pure}. This leads to the important property called \emph{referential transparency}, meaning that expressions can be replaced by their values without changing the behaviour of the programme.
@@ -107,36 +107,36 @@ We will only sketch the implementation of the ansatz generation procedure outlin
 
 As already mentioned, an ansatz has a representation as a functional data structure. Let us begin with the individual $\eta$ and $\epsilon$ tensors in Listing~\ref{code_haskell_eta_epsilon}.
 \begin{code}
-  \begin{minted}[frame=single]{haskell}
+  \begin{minted}[frame=single,samepage]{haskell}
 -- data type representing an \eta^{a b} tensor
 data Eta     = Eta     Char Char           deriving (Eq, Ord)
 -- data type representing an \epsilon^{a b c d} tensor
 data Epsilon = Epsilon Char Char Char Char deriving (Eq, Ord)
   \end{minted}
-  \captionof{listing}{Haskell representation of $\eta$ and $\epsilon$ tensors.}
+  \captionof{listing}[Haskell representation of $\eta$ and $\epsilon$ tensors]{Haskell representation of $\eta$ and $\epsilon$ tensors.}
   \label{code_haskell_eta_epsilon}
 \end{code}
 These types are, essentially, named wrappers for the index labels. We also need a type that represents a coefficient. For our purposes, an integer prefactor (because we will never perform division) and a variable label, also an integer, will suffice. See Listing~\ref{code_haskell_coefficient}.
 \begin{code}
-  \begin{minted}[frame=single]{haskell}
+  \begin{minted}[frame=single,samepage]{haskell}
 -- data type representing a coefficient c * A_i
 data Coeff = Coeff Int Int
   \end{minted}
-  \captionof{listing}{Haskell representation of a scaled ansatz coefficient.}
+  \captionof{listing}[Haskell representation of a scaled ansatz coefficient]{Haskell representation of a scaled ansatz coefficient.}
   \label{code_haskell_coefficient}
 \end{code}
 Now, the central type for the generation of ansätze is a List of trees, called \emph{forest}. From now on, we leave $\epsilon$ tensors out of the picture. As they appear at most once, we will always sort the trees such that an $\epsilon$---if present---is the root. In everything that follows, a distinction has to be made when operating on the roots of ansatz trees, but everything else concerns only trees of $\eta$ tensors. With this caveat, the data type is as shown in Listing~\ref{code_haskell_ansatz_forest}.
 \begin{code}
-  \begin{minted}[frame=single]{haskell}
+  \begin{minted}[frame=single,samepage]{haskell}
 data Forest a b = Forest [(a, Forest a b)] | Leaf b
 type Ansatz = Forest Eta Coeff
   \end{minted}
-  \captionof{listing}{Haskell representation of an ansatz consisting only of $\eta$ tensors.}
+  \captionof{listing}[Haskell representation of an $\eta$ ansatz tensor]{Haskell representation of an ansatz consisting only of $\eta$ tensors.}
   \label{code_haskell_ansatz_forest}
 \end{code}
 We will always keep the forests sorted in two ways: the list of trees \mintinline{haskell}{[(Eta, Forest Eta Coeff)]} is sorted, meaning that e.g.\ $\eta^{ab}$ comes before $\eta^{cd}$, but also all $\eta$ tensors appearing in the inner forest must come after the outer $\eta$ tensor---so it is forbidden to insert an $\eta^{ab}$ below a node $\eta^{cd}$.
 \begin{code}
-  \begin{minted}[frame=single]{haskell}
+  \begin{minted}[frame=single,samepage]{haskell}
     Eta 'a' 'b'
      |
      +---- Eta 'c' 'd'
@@ -166,7 +166,7 @@ We will always keep the forests sorted in two ways: the list of trees \mintinlin
             +---- Eta 'd' 'e' - Coeff 1 6
     ...
   \end{minted}
-  \captionof{listing}{First 6 $\eta$-only terms of an ansatz tensor with 6 indices.}
+  \captionof{listing}[First 6 $\eta$-only terms of an ansatz tensor with 6 indices]{First 6 $\eta$-only terms of an ansatz tensor with 6 indices.}
   \label{code_haskell_ansatz6}
 \end{code}
 An example representation of the first 6 $\eta$-only terms for the ansatz
@@ -175,7 +175,7 @@ An example representation of the first 6 $\eta$-only terms for the ansatz
 \end{equation}
 is given in Listing~\ref{code_haskell_ansatz6}. Such a sorted tree is easily traversed for updates, insertions, deletions, \emph{et cetera}. Also, the evaluation of specific components is greatly simplified: \mintinline{haskell}{Eta 'a' 'b'} only has to be evaluated once, and very importantly, for components where $\eta^{ab} = 0$, the whole tree can be discarded. Let us give one example for an operation on ansatz forests, namely the sum of two ansätze in Listing~\ref{code_haskell_ansatz_sum}.
 \begin{code}
-  \begin{minted}[frame=single,linenos]{haskell}
+  \begin{minted}[frame=single,linenos,samepage]{haskell}
 addAnsatz :: Ansatz -> Ansatz -> Ansatz
 addAnsatz (Leaf coeff1) (Leaf coeff2) = Leaf (addCoeffs coeff1 coeff2)
   where
@@ -198,7 +198,7 @@ addAnsatz (Forest fs1) (Forest fs2) = Forest (addForests fs1 fs2)
           GT -> y : addForests (x:xs) ys
 addAnsatz _ _ = error "cannot add incompatible ansätze"
   \end{minted}
-  \captionof{listing}{Sum of two ansatz forests.}
+  \captionof{listing}[Sum of two ansatz forests]{Sum of two ansatz forests.}
   \label{code_haskell_ansatz_sum}
 \end{code}
 The occurrence of \mintinline{haskell}{error} functions means that the function \mintinline{haskell}{addAnsatz} is \emph{partial}, i.e.\ does not compute an output for any input. This could be cured by refining the return type of the function, but doing so is not really necessary for this use case, as the input is under our control: we will neither add incompatible ansätze, nor will two leaves with distinct variables be added. The curious reader may be referred to the next section, where we actually introduce methods for catching such runtime errors already at the type level.
@@ -257,7 +257,7 @@ The rules of the tensor calculus we are going to implement can now be stated usi
 Listing~\ref{code_haskell_rank_type} contains the definition of the \mintinline{haskell}{Rank} type as used by the \texttt{safe-tensor} package. The function \mintinline{haskell}{sane} can be specialised to the type \mintinline{haskell}{sane :: Rank -> Bool}. It provides a check for whether a given generalised rank satisfies all constraints and can be used to decide whether a certain tensor can be defined or, more importantly, whether a certain operation would yield a tensor of invalid rank and is thus forbidden.
 
 \begin{code}
-  \captionof{listing}{Generalised rank type implementation in Haskell and the corresponding validity check. The type \mintinline{haskell}{Rank} and the function \mintinline{haskell}{sane} are the foundation for the tensor type to be defined later. \mintinline{haskell}{Rank} contains all the information of a generalised rank: vector space labels, dimensions, and index lists. \mintinline{haskell}{sane} ensures that the constraints are satisfied: the list of sub-ranks for the individual vector spaces must be strictly ascending, but also the index lists itself. The listing is printed on the next page. Note that the \texttt{safe-tensor} package \cite{Alex_2020_safe-tensor} does not export a module called \texttt{Rank}, but the definitions are part of a larger module.}
+  \captionof{listing}[Generalised rank type implementation in Haskell]{Generalised rank type implementation in Haskell and the corresponding validity check. The type \mintinline{haskell}{Rank} and the function \mintinline{haskell}{sane} are the foundation for the tensor type to be defined later. \mintinline{haskell}{Rank} contains all the information of a generalised rank: vector space labels, dimensions, and index lists. \mintinline{haskell}{sane} ensures that the constraints are satisfied: the list of sub-ranks for the individual vector spaces must be strictly ascending, but also the index lists itself. The listing is printed on the next page. Note that the \texttt{safe-tensor} package \cite{Alex_2020_safe-tensor} does not export a module called \texttt{Rank}, but the definitions are part of a larger module.}
   \label{code_haskell_rank_type}
   \begin{minted}[frame=single,linenos,samepage]{haskell}
 module Rank where
@@ -277,7 +277,7 @@ data IList a
   | Con (NonEmpty a)
   deriving (Ord, Eq)
 
--- generalised rank, a list of vector spaces with associated index lists
+-- generalised rank, a list of vector spaces with assoc. index lists
 type GRank s n = [(VSpace s n, IList s)]
 
 -- generalised rank used for type-level computations
@@ -308,7 +308,7 @@ In order to make such decisions at the \emph{type} level, we leverage the machin
 
 We use the type \mintinline{Haskell}{Sane} together with a second type \mintinline{haskell}{TailR} derived from the function \mintinline{haskell}{tailR}\footnote{This function yields, for a nonempty rank, the ``tail'' of the rank after removing the first index.} for the definition of the \mintinline{haskell}{Tensor} type in Listing~\ref{code_haskell_tensor_type}.
 \begin{code}
-  \begin{minted}[frame=single,linenos]{haskell}
+  \begin{minted}[frame=single,linenos,samepage]{haskell}
 -- (...) skipping some language extensions
 module Math.Tensor.Safe where
 -- (...) skipping some imports
@@ -335,7 +335,7 @@ instance Functor (Tensor r) where
     fmap f (Scalar s)  = Scalar (f s)
     fmap f (Tensor ts) = Tensor (fmap (fmap (fmap f)) ms)
   \end{minted}
-  \captionof{listing}{The \mintinline{haskell}{Tensor} GADT and its instances.}
+  \captionof{listing}[The tensor GADT and its instances]{The \mintinline{haskell}{Tensor} GADT and its instances.}
   \label{code_haskell_tensor_type}
 \end{code}
 The \mintinline{haskell}{Tensor} type is a so-called \emph{generalised algebraic datatype}, short GADT, which means that the type of each constructor can be specified explicitly. There are three of such constructors:
@@ -347,11 +347,11 @@ The \mintinline{haskell}{Tensor} type is a so-called \emph{generalised algebraic
 
 A few instances have been defined for the \mintinline{haskell}{Tensor} type. \mintinline{haskell}{Eq} and \mintinline{haskell}{Show} have generic implementations, while the \mintinline{haskell}{NFData} implementation just amounts to recursive evaluation. The \mintinline{haskell}{Functor} instance is the first manipulation we defined for the \mintinline{haskell}{Tensor} type: it allows to apply functions directly to the values of the tensor, for example scalar multiplication as defined in Listing~\ref{code_haskell_scalar_mult}.
 \begin{code}
-  \begin{minted}[frame=single,linenos]{haskell}
+  \begin{minted}[frame=single,linenos,samepage]{haskell}
 scalarMult :: forall r v. Num v => v -> Tensor r v -> Tensor r v
 scalarMult s = fmap (s*)
   \end{minted}
-  \captionof{listing}{Scalar multiplication leveraging the \mintinline{haskell}{Functor} instance.}
+  \captionof{listing}[Scalar multiplication of tensors]{Scalar multiplication leveraging the \mintinline{haskell}{Functor} instance.}
   \label{code_haskell_scalar_mult}
 \end{code}
 Tensors of the same rank are added by merging the tensors, performing a recursive addition whenever an index is present in both summands. The requirement that both ranks coincide is encoded as constraint on the types. See Listing~\ref{code_haskell_tensor_addition} for the implementation. In Listing~\ref{repl_addition}, the addition of two tensors is demonstrated using the interactive repl\footnote{\textbf{r}ead-\textbf{e}val-\textbf{p}rint loop} \emph{ghci}. The tensor \mintinline{text}{delta_ab} represents the Kronecker delta $\delta^a_b$, while \mintinline{text}{delta_ac} represents $\delta^a_c$. Consequently, the expression \mintinline{text}{delta_ab &+ delta_ac} is ill-typed. On the other hand, \mintinline{text}{delta_ab &+ delta_ab} is well-typed and yields the expected result $2\cdot\delta^a_b$.
@@ -367,7 +367,8 @@ Tensors of the same rank are added by merging the tensors, performing a recursiv
   where
     xs'' = unionWith (&+) xs xs'
 
-    unionWith :: (a -> a -> a) -> [(Int, a)] -> [(Int, a)] -> [(Int, a)]
+    unionWith :: (a -> a -> a) -> [(Int, a)] -> [(Int, a)] ->
+                 [(Int, a)]
     unionWith f [] ys = ys
     unionWith f ys [] = ys
     unionWith f ys@((iy,vy):ys') zs@((iz,vz):zs') =
@@ -376,7 +377,7 @@ Tensors of the same rank are added by merging the tensors, performing a recursiv
         EQ -> (iy,f vy vz) : unionWith f ys' zs'
         GT -> (iz,vz) : unionWith f ys zs'
   \end{minted}
-  \captionof{listing}{Recursive addition of tensors.}
+  \captionof{listing}[Recursive addition of tensors]{Recursive addition of tensors.}
   \label{code_haskell_tensor_addition}
 \end{code}
 \begin{code}
@@ -391,7 +392,7 @@ True
     • In the expression: delta_ab &+ delta_ac
       In an equation for ‘it’: it = delta_ab &+ delta_ac
   \end{minted}
-  \captionof{listing}{Addition of tensors in the interactive repl \emph{ghci}. The addition of two tensors with the same rank produces a result, while addition of tensors with different ranks yields a type error.}
+  \captionof{listing}[Interactive addition of tensors]{Addition of tensors in the interactive repl \emph{ghci}. The addition of two tensors with the same rank produces a result, while addition of tensors with different ranks yields a type error.}
   \label{repl_addition}
 \end{code}
 
@@ -399,7 +400,7 @@ True
 
 More intricate operations make use of the second feature from the \texttt{singletons} package, which are the singleton types that are generated for our lifted rank types. Singleton types are inhabited by only one value. As such, they are able to bridge the gap between compile time and run time, which are usually separate phases in Haskell. See \cite{Eisenberg_2012} for more details. With singletons, we can implement e.g.\ typesafe tensor multiplication as sketched in Listing~\ref{code_haskell_tensor_multiplication}.
 \begin{code}
-  \begin{minted}[frame=single,linenos]{haskell}
+  \begin{minted}[frame=single,linenos,samepage]{haskell}
 (&*) :: forall (r :: Rank) (r' :: Rank) (r'' :: Rank) v.
         (Num v, 'Just r'' ~ MergeR r r', SingI r, SingI r') =>
         Tensor r v -> Tensor r' v -> Tensor r'' v
@@ -417,7 +418,7 @@ mult sr sr' ZeroTensor ZeroTensor =
     Sub Dict -> ZeroTensor
 -- more ZeroTensor cases omitted
   \end{minted}
-  \captionof{listing}{Typesafe tensor multiplication implemented using \texttt{singletons}. The ranks must satisfy a \mintinline{haskell}{SingI} constraint. With this constraint, the singleton values can be retrieved and passed to the implementation of the multiplication function.}
+  \captionof{listing}[Typesafe tensor multiplication]{Typesafe tensor multiplication implemented using \texttt{singletons}. The ranks must satisfy a \mintinline{haskell}{SingI} constraint. With this constraint, the singleton values can be retrieved and passed to the implementation of the multiplication function.}
   \label{code_haskell_tensor_multiplication}
 \end{code}
 The tensor multiplication makes us of a new function, \texttt{mergeR}, which takes two ranks and returns the rank of the tensor product---if the ranks allow to take this product. Lifted to the type level, this encodes the requirement that the ranks be compatible in the constraint \mintinline{haskell}{'Just r'' ~ MergeR r r'}. The \mintinline{haskell}{SingI} instances are used in order to retrieve the singleton values corresponding to the Rank type. These are passed to the implementation function \texttt{mult}.
@@ -439,7 +440,7 @@ module Math.Tensor where
 data T :: Type -> Type where
   T :: forall (r :: Rank) v. SingI r => Tensor r v -> Tensor r v
   \end{minted}
-  \captionof{listing}{Opaque tensor type with existentially quantified rank.}
+  \captionof{listing}[Opaque tensor type]{Opaque tensor type with existentially quantified rank.}
   \label{code_haskell_existential_type}
 \end{code}
 
@@ -465,7 +466,7 @@ With the opaque type \mintinline{haskell}{T}, tensor operations are always well-
                Disproved _ ->
                  throwError "Generalised tensor ranks do not match."
   \end{minted}
-  \captionof{listing}{Addition of opaque tensors.}
+  \captionof{listing}[Addition of opaque tensors]{Addition of opaque tensors.}
   \label{code_haskell_T_addition}
 \end{code}
 

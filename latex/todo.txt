@@ -1,1 +1,2 @@
 t_0 (inspiral time)
+on-shell / on shell

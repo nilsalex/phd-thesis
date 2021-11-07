@@ -1,13 +1,13 @@
 \chapter{The axioms of covariant constructive gravity}\label{chapter_axioms}
-\textit{In this chapter, we will cast the two axioms of covariant constructive gravity in precise mathematical language. The basis for our theory is Lagrangian field theory defined in terms of jet bundles, whose basic notions we collect first. In particular, we will encounter the Cartan form, which is central for the global, coordinate-independent treatment of the Lagrangian variation problem. With this machinery at hand, we define the first axiom as equivariance condition for the Lagrangian with respect to spacetime diffeomorphisms. We then derive a few consequences that follow from this axiom: most importantly, a system of partial differential equations for a local representative of the Lagrangian, but also the existence of a stress-energy-momentum tensor. The former is fundamental for an algorithmic approach towards implementing the axiom, the latter is very useful for proving Noether's theorems in this setting. At the end of this chapter, we show how the relevant objects for a mathematical formulation of the second axiom are constructed. Finally, we present the second axiom using the terminology established so far.}
+In this chapter, we will cast the two axioms of covariant constructive gravity in precise mathematical language. The basis for our theory is Lagrangian field theory defined in terms of jet bundles, whose basic notions we collect first. In particular, we will encounter the Cartan form, which is central for the global, coordinate-independent treatment of the Lagrangian variation problem. With this machinery at hand, we define the first axiom as equivariance condition for the Lagrangian with respect to spacetime diffeomorphisms. We then derive a few consequences that follow from this axiom: most importantly, a system of partial differential equations for a local representative of the Lagrangian, but also the existence of a stress-energy-momentum tensor. The former is fundamental for an algorithmic approach towards implementing the axiom, the latter is very useful for proving Noether's theorems in this setting. At the end of this chapter, we show how the relevant objects for a mathematical formulation of the second axiom are constructed. Finally, we present the second axiom using the terminology established so far.
 
 The two axioms of covariant constructive gravity have been motivated in Sect.~\ref{section_intro_ccg}. Let us recall the informal definitions as phrased in Ref.\ \cite{Alex_2020}.
 
-\begin{axiom}[diffeomorphism invariance \cite{Alex_2020}]
-  The dynamical laws that govern gravity are invariant under spacetime diffeomorphisms.
+\begin{axiom}[diffeomorphism invariance]
+  ``The dynamical laws that govern gravity are invariant under spacetime diffeomorphisms.'' \cite{Alex_2020}
 \end{axiom}
-\begin{axiom}[causal compatibility \cite{Alex_2020}]
-  Provided that spacetime is additionally inhabited by matter fields, their dynamics is causally compatible with the gravitational dynamics.
+\begin{axiom}[causal compatibility]
+  ``Provided that spacetime is additionally inhabited by matter fields, their dynamics is causally compatible with the gravitational dynamics.'' \cite{Alex_2020}
 \end{axiom}
 
 For a more precise formulation of the axioms, which will enable us to derive their consequences for gravitational theories coupled to novel matter, an introduction of the basic concepts of Lagrangian field theory is in order.
@@ -18,23 +18,23 @@ For the purpose of the present work, a \emph{Lagrangian field theory} will be a 
 \begin{example}
   Two examples for Lagrangian field theories are
   \begin{itemize}
-    \item Einstein gravity on the symmetric sub-bundle of $T^2_0M$ of inverse metric tensors\footnote{The equivalent formulation as a theory for a metric tensor fields takes place on the bundle $T^0_2M$.} with dynamical laws given by the Einstein equations, and
+    \item Einstein gravity on the symmetric sub-bundle of $T^2_0M$ of inverse metric tensors\footnote{The equivalent formulation as a theory for a metric tensor field takes place on the bundle $T^0_2M$.} with dynamical laws given by the Einstein equations, and
     \item Maxwell electrodynamics on the bundle $T^\ast M$ of potential one-forms with dynamical laws given by the Maxwell equations.
   \end{itemize}
 \end{example}
 
-Both theories are \emph{Lagrangian} because they derive their dynamical laws in a certain geometric manner. The mechanism will be explained in the following, but first, let us fix some of the notation involved.
+Both theories are Lagrangian because they derive their dynamical laws in a certain geometric manner. The mechanism will be explained in the following, but first, let us fix some of the notation involved.
 
 A bundle is denoted as $E\overset{\pi}{\longrightarrow}M$, where $E$ is the total space, $M$ is the base manifold, $\pi$ is the submersion. As a shorthand, it is common to write just $\pi$---it is then understood that total space and base manifold are domain and co-domain of $\pi$, respectively. The dimension of $M$ is written as $n$, the dimension of a typical fibre $F$ of $\pi$ as $m$. Coordinate functions on $E$ are denoted by $(x^i,u^A)$. Such coordinates extend to the $k$th jet bundle $J^kE \overset{\pi_k}{\longrightarrow}M$ over $\pi$ as $(x^i,\allowbreak u^A,\allowbreak u^A_{i_1},\allowbreak u^A_{i_1i_2},\allowbreak \dots,\allowbreak u^A_{i_1\dots i_k})$. The literature on jet bundles mostly employs multi-indices for higher-order jet bundles (see e.g.\ Ref.\ \cite{Saunders_1989}), which is certainly the right approach for studying the properties of jet bundles, but for practical calculations on the second-order jet bundle performed below the intertwiner technique (see Def.~\ref{def_intertwiner}) will be used. This technique is equally able to take care of ambiguities regarding symmetric indices. Prolongations of sections $\sigma$ are denoted with $j^k(\sigma)$, projections between jet bundles of different order with $\pi_{k,k^\prime}(\sigma)$. The latter are submersions in their own right and thus also define bundle projections. Total derivatives are written as $D_i$. Throughout, the Einstein summation convention is used.
 
 \begin{definition}[Lagrangian \cite{Saunders_1989}]
-  Let $M$ be a smooth manifold of dimension $n$ and $E \overset{\pi}{\longrightarrow} M$ a smooth fibre bundle over $M$ with typical fibre $F$. A \textbf{Lagrangian} $\mathscr L$ of order $k$ is an element
+  Let $M$ be a smooth manifold of dimension $n$ and $E \overset{\pi}{\longrightarrow} M$ a smooth fibre bundle over $M$ with typical fibre $F$. A \emph{Lagrangian} $\mathscr L$ of order $k$ is an element
   \begin{equation}
     \mathscr L \in \textstyle\bigwedge^n_0\pi_k.
   \end{equation}
 In other words, $\mathscr L$ is a horizontal $n$-form on the $k$-th-order jet bundle $\pi_k$ of $\pi$.
 
-Assuming $M$ to be orientable with volume form $\Omega\in\Lambda^nM$, a Lagrangian $\mathscr L$ is equivalently characterised by its \textbf{Lagrangian density} $L\in C^\infty(J^k\pi)$,
+Assuming $M$ to be orientable with volume form $\Omega\in\Lambda^nM$, a Lagrangian $\mathscr L$ is equivalently characterised by its \emph{Lagrangian density} $L\in C^\infty(J^k\pi)$,
   \begin{equation}\label{lagrangian_density}
   \mathscr L = L\pi_k^\ast\Omega.
 \end{equation}
@@ -50,7 +50,7 @@ From \eqref{lagrangian_local} and \eqref{lagrangian_density}, it is also clear h
 From now on, we will consider smooth, orientable base manifolds $M$ and smooth bundles over the base manifold. Depending on the context, the symbol $\Omega$ will denote either the form on $M$ or the pullback to various bundles over $M$.
 
 \begin{definition}[local action functional \cite{Saunders_1989}]
-  Given a Lagrangian $\mathscr L \in \bigwedge^n_0\pi_k$ and a compact $n$-dimensional submanifold $C \subset M$, the \textbf{local action functional} is defined as the map
+  Given a Lagrangian $\mathscr L \in \bigwedge^n_0\pi_k$ and a compact $n$-dimensional submanifold $C \subset M$, the \emph{local action functional} is defined as the map
   \begin{equation}
     \sigma \mapsto S\lbrack\sigma\rbrack = \int_C (j^k\sigma)^\ast\mathscr L
   \end{equation}
@@ -59,7 +59,7 @@ for all local sections $\sigma$ of $\pi$ with support on $C$.
 
 Lagrangian field theory now stipulates that sections $\sigma\in\Gamma(\pi)$ are physical if they are extremals of the action functional. The well-known \emph{Euler-Lagrange equations} from the calculus of variations provide a necessary condition in local coordinates which such sections extremals must satisfy.
 \begin{proposition}[\cite{Saunders_1989}]
-  Let $L\in C^\infty(J^k\pi)$ be a Lagrangian density. Let $C$ be a compact submanifold of $M$ and $\sigma$ be a local section of $\pi$ such that the local action functional $S\lbrack\sigma\rbrack$ is defined. If $\sigma$ is an extremal of $S$, it satisfies the \textbf{Euler-Lagrange equations}
+  Let $L\in C^\infty(J^k\pi)$ be a Lagrangian density. Let $C$ be a compact submanifold of $M$ and $\sigma$ be a local section of $\pi$ such that the local action functional $S\lbrack\sigma\rbrack$ is defined. If $\sigma$ is an extremal of $S$, it satisfies the \emph{Euler-Lagrange equations}
   \begin{equation}\label{euler_lagrange_local}
     (j^{2k}\sigma)^\ast\left( \sum_{l=0}^{k} (-1)^l D_{i_1} \cdots D_{i_l} \frac{\partial L}{\partial u^A_{i_1\cdots i_l}}\right) = 0.
   \end{equation}
@@ -78,7 +78,7 @@ The intrinsic equivalent to the Euler-Lagrange equations in local coordinates in
   \begin{equation}
     \pi_{2k-1,k}^\ast (j^k\sigma)^\ast\mathscr L = (j^{2k-1}\sigma)^\ast\Theta_L.
   \end{equation}
-  Such a form $\Theta_L$ is called a \textbf{Cartan form}.
+  Such a form $\Theta_L$ is called a \emph{Cartan form}.
 \end{proposition}
 \begin{proof}
   See \cite{Saunders_1989}.
@@ -115,7 +115,7 @@ In the language of jet bundles, the first axiom can be formalised as equivarianc
 \end{definition}
 A proof for the existence and uniqueness of this construction can be found in Ref.\ \cite{Saunders_1989}. With the notion of the \emph{lift} of a bundle automorphism at hand, we now give the first axiom a precise meaning.
 \begin{definition}[diffeomorphism invariant theory]
-  A Lagrangian field theory is called \textbf{diffeomorphism invariant} if its Lagrangian $\mathscr L\in\textstyle\bigwedge_0^n\pi_k$ is invariant with respect to the lifted action of $\mathrm{Diff}(M)$ on $J^kE$, i.e.\ if for all $\varphi\in\mathrm{Diff}(M)$
+  A Lagrangian field theory is called \emph{diffeomorphism invariant} if its Lagrangian $\mathscr L\in\textstyle\bigwedge_0^n\pi_k$ is invariant with respect to the lifted action of $\mathrm{Diff}(M)$ on $J^kE$, i.e.\ if for all $\varphi\in\mathrm{Diff}(M)$
   \begin{equation}\label{lagrangian_diffeo_invariance}
     j^k(\varphi_E)^\ast \mathscr L = \mathscr L.
   \end{equation}
@@ -139,7 +139,7 @@ and on component functions of covector fields as\footnote{As for any group homom
 
 We wish to encode \eqref{lagrangian_diffeo_invariance} as local conditions on the Lagrangian density. To this end, consider a coordinate representation $\mathscr L = Ld^nx$. 
 \begin{proposition}
-  Let $\mathscr L = L_{(x)}d^nx$ be a coordinate representation of a diffeomorphism invariant Lagrangian, induced by a coordinate chart $(U,x)$ on $M$. It follows from the invariance condition \eqref{lagrangian_diffeo_invariance} that $L_{(x)}$ is \textbf{diffeomorphism equivariant}, i.e.\ it holds for all $\varphi\in\mathrm{Diff}(M)$ that, over the intersection of $U$ and $\varphi(U)$,
+  Let $\mathscr L = L_{(x)}d^nx$ be a coordinate representation of a diffeomorphism invariant Lagrangian, induced by a coordinate chart $(U,x)$ on $M$. It follows from the invariance condition \eqref{lagrangian_diffeo_invariance} that $L_{(x)}$ is \emph{diffeomorphism equivariant}, i.e.\ it holds for all $\varphi\in\mathrm{Diff}(M)$ that, over the intersection of $U$ and $\varphi(U)$,
   \begin{equation}\label{lagrangian_density_diffeo_equivariance}
     L_{(x)}\circ j^k_{(x)}(\varphi_E) = \lvert d\varphi_{(x)}\rvert^{-1} L_{(x)}.
   \end{equation}
@@ -160,7 +160,7 @@ Since the bundles in question are (sub-bundles of) tensor bundles $T^m_nM$, it i
       J&{} \colon T^m_nM\rightarrow E,
     \end{aligned}
   \end{equation}
-  which cover $\mathrm{id}_M$ and satisfy $J\circ I = \mathrm{id}_E$ is called a pair of \textbf{intertwiners} for $\pi$.
+  which cover $\mathrm{id}_M$ and satisfy $J\circ I = \mathrm{id}_E$ is called a pair of \emph{intertwiners} for $\pi$.
 \end{definition}
 It follows from the property $J\circ I=\mathrm{id}_E$ that $J$ is a \emph{surjection} and $I$ is an \emph{injection}. Expressed in adapted coordinates, it is clear how the coordinate representations of $I$ and $J$ relate fibre coordinates to each other,
 \begin{equation}
@@ -341,7 +341,7 @@ Eq.~\ref{first_noether_eq} defines a current which is conserved \emph{on shell},
   \begin{equation}\label{sem_definition}
     \int_\Sigma i_\Sigma^\ast\boldsymbol{j}(\sigma) = \int_\Sigma \mathcal T^{\,n}_{\,m}(\sigma)\xi^m \omega_n.
   \end{equation}
-  The tensor density $\mathcal T(\sigma)$ is called the \textbf{Gotay-Marsden stress-energy-momentum (SEM) tensor}.
+  The tensor density $\mathcal T(\sigma)$ is called the \emph{Gotay-Marsden stress-energy-momentum (SEM) tensor}.
 \end{theorem}
 \begin{proof}
   With the Cartan form for a second-derivative-order theory being uniquely defined (see Prop.~\ref{prop_cartan_unique}), there is always the coordinate expression \eqref{local_cartan_form}. Setting $k=2$ and making use of intertwiners for second-derivative indices, this expression reads
@@ -439,8 +439,9 @@ With the Gotay-Marsden SEM tensor density replaced by its definition, Eq.\ \eqre
 for the \emph{Euler-Lagrange equations}, which is exactly the statement of Noether's second theorem. The identity holds \emph{off-shell}, i.e.\ for any section of the tensor bundle regardless of whether it satisfies Euler-Lagrange equations.
 
 \section{Axiom II: causal compatibility}\label{sect_causal_compatibility}
-\textit{This section follows very closely Sect.\ II.B of Ref.\ \cite{Alex_2020}.}
+This section follows very closely Sect.\ II.B of Ref.\ \cite{Alex_2020}.
 
+\itshape
 For the mathematical formulation of the second axiom, we utilise the close relation of the causal structure of field equations to the short-wavelength limit of the theory. \cite{R_tzel_2011,D_ll_2018} First, we restrict to Lagrangians which are \emph{degenerate} in the sense that the Euler-Lagrange equations---although defined on $J^4E$---depend only on second derivatives and lower, i.e.
 \begin{equation}
   \delta L = \pi^\ast_{2k,k}\delta \tilde L
@@ -472,7 +473,7 @@ vanish.\footnote{The vanishing of the order-$s$ adjugate matrix is equivalent to
 \end{equation}
 to arrive at the so-called \emph{principal polynomial} $\mathcal P(k)$.
 \begin{definition}[principal polynomial \cite{D_ll_2018}]\label{def_principal_polynomial}
-  Consider a bundle $E\overset{\pi}{\longrightarrow}M$ with fibre dimension $r$ and a Lagrangian field theory on a jet bundle over $\pi$ that results in Euler-Lagrange equations of second derivative order. Assume the $s$ vectors $(\chi^A_{(i)}(k))_{i=1\dots s}$ to be generators of the gauge transformations of the theory. In particular, the $\chi^A_{(i)}$ span the left and right kernel of the principal symbol $T_{AB}(k)$. Choosing $s$ rows and columns of $T$ such that the order-$s$ adjugate matrix entry $Q^{A_1\dots A_sB_1\dots B_s}$ does not vanish, we define the \textbf{principal polynomial} as the quotient
+  Consider a bundle $E\overset{\pi}{\longrightarrow}M$ with fibre dimension $r$ and a Lagrangian field theory on a jet bundle over $\pi$ that results in Euler-Lagrange equations of second derivative order. Assume the $s$ vectors $(\chi^A_{(i)}(k))_{i=1\dots s}$ to be generators of the gauge transformations of the theory. In particular, the $\chi^A_{(i)}$ span the left and right kernel of the principal symbol $T_{AB}(k)$. Choosing $s$ rows and columns of $T$ such that the order-$s$ adjugate matrix entry $Q^{A_1\dots A_sB_1\dots B_s}$ does not vanish, we define the \emph{principal polynomial} as the quotient
   \begin{equation}\label{principal_polynomial}
     \mathcal P(k) = \frac{Q^{A_1\dots A_sB_1\dots B_s}}{\epsilon^{\mu_1\dots\mu_s}\epsilon^{\nu_1\dots\nu_s}\left\lbrack\prod_{i=1}^s\chi_{(\mu_i)}^{A_i}\right\rbrack\left\lbrack\prod_{j=1}^s\chi_{(\nu_j)}^{B_j}\right\rbrack}.
   \end{equation}
@@ -485,12 +486,13 @@ Two geometric objects are important for the formulation of the axiom of causal c
 
 Let us now consider the situation where a theory for some matter field coupled to geometry has been prescribed, say on a bundle $E_\text{grav} \oplus_M J^1 E_\text{mat}$, and the principal polynomial $\mathcal P_\text{mat}$ is hyperbolic. Both distributions $V_\text{mat}$ and $C_\text{mat}$ exist and they contain all relevant information about the causality of the matter theory. The objective of covariant constructive gravity is to close the matter theory by providing a dynamical theory of the geometry, defined on the bundle $J^2E_\text{grav}$. As a result, we obtain distributions $V_\text{grav}$ and $C_\text{grav}$ of vanishing sets and hyperbolicity cones for the gravitational theory. The principle of causal compatibility between matter theory and gravitational theory now mandates following relation between both pairs of distributions.
 \begin{definition}[causally compatible gravitational closure]\label{causal_compatibility_def}
-  Consider two bundles $E_\text{grav}\overset{\pi_\text{grav}}{\longrightarrow}M$ and $E_\text{mat}\overset{\pi_\text{mat}}{\longrightarrow}M$ and a Lagrangian matter field theory on $E_\text{grav} \oplus_M J^1E_\text{mat}$ whose Euler-Lagrange equations are linear in the matter field. The corresponding principal polynomial $\mathcal P_\text{mat}$ shall be hyperbolic and thus defines the vanishing set distribution $V_\text{mat}$ and the hyperbolicity cone distribution $C_\text{mat}$. We say that a gravitational Lagrangian field theory on $J^2E_\text{grav}$ with Euler-Lagrange equations of second derivative order, a principal polynomial $\mathcal P_\text{grav}$, and distributions $V_\text{grav},C_\text{grav}$ is \textbf{causally compatible} with the matter field theory if
+  Consider two bundles $E_\text{grav}\overset{\pi_\text{grav}}{\longrightarrow}M$ and $E_\text{mat}\overset{\pi_\text{mat}}{\longrightarrow}M$ and a Lagrangian matter field theory on $E_\text{grav} \oplus_M J^1E_\text{mat}$ whose Euler-Lagrange equations are linear in the matter field. The corresponding principal polynomial $\mathcal P_\text{mat}$ shall be hyperbolic and thus defines the vanishing set distribution $V_\text{mat}$ and the hyperbolicity cone distribution $C_\text{mat}$. We say that a gravitational Lagrangian field theory on $J^2E_\text{grav}$ with Euler-Lagrange equations of second derivative order, a principal polynomial $\mathcal P_\text{grav}$, and distributions $V_\text{grav},C_\text{grav}$ is \emph{causally compatible} with the matter field theory if
   \begin{equation}\label{axiom2_eq}
     C_\text{grav} = C_\text{mat}\quad \text{and}\quad V_\text{mat} \subseteq V_\text{grav}.
   \end{equation}
 \end{definition}
 The first condition immediately implies that $\mathcal P_\text{grav}$ is hyperbolic as well. Furthermore, it ensures that both theories share their initial value surfaces and allow for a unified observer definition \cite{R_tzel_2011,Rivera_2012}. As recent measurements showed with a high degree of certainty that gravitational waves propagate at the speed of light \cite{Liu_2020}, we include the second condition for the distribution of vanishing sets into the definition of causal compatibility. It requires that wave covectors of the matter theory are admissible wave covectors of the gravitational theory, but leaves open the possibility for different modes of propagation.
 
+\normalfont
 Before closing this section about the second axiom, a remark about its practical implications is in order. As we will see during the perturbative implementation of the covariant constructive gravity programme, the requirement of diffeomorphism invariance alone already restricts the principal polynomial of the gravitational field equations quite a lot, such that up to the third iteration of the perturbative construction procedure we will not need to enforce Eq.~\ref{axiom2_eq} explicitly---at least for our chosen example. For the nonperturbative construction of general relativity, the condition will not be needed at all. This hints at the promising possibility that the second axiom may actually be weakened by the extent to which it may already be implied by the first axiom.
 

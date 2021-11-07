@@ -1,11 +1,12 @@
 \chapter{Application: gravitational radiation from birefringent matter dynamics}
 \label{chapter_weak_area}
 
-\textit{So far, we have developed the general framework of covariant constructive gravity and derived a perturbative equivalent. A few examples illustrated the constructions, but the presentation focused on broad applicability to various geometries, without any specific bundle or matter theory in mind. In this chapter, we shift our focus and consider in depth the application of the framework to generalised linear electrodynamics, a birefringent generalisation of Maxwell electrodynamics introduced in Chapter~\ref{chapter_construction_algorithm}. Applying the perturbative construction procedure to third order yields gravitational field equations to second order. We will carefully analyse a $3+1$ split for the linear part of this theory and restrict to a certain sector with, in a very specific sense, physically sane phenomenology. Afterwards, we solve the two-body problem to first order and obtain the orbits of a binary system in area metric gravity. Building up on this solution, the second order of the field equations is used to derive the emission of gravitational radiation from the binary system and the radiative loss, which causes spin-up of the system. The binary star subject to area metric gravity turns out to exhibit qualitatively new behaviour as compared to Einstein gravity, e.g.~additional massive modes of gravitational radiation and a modification of Kepler's third law.}
+So far, we have developed the general framework of covariant constructive gravity and derived a perturbative equivalent. A few examples illustrated the constructions, but the presentation focused on broad applicability to various geometries, without any specific bundle or matter theory in mind. In this chapter, we shift our focus and consider in depth the application of the framework to generalised linear electrodynamics, a birefringent generalisation of Maxwell electrodynamics introduced in Chapter~\ref{chapter_construction_algorithm}. Applying the perturbative construction procedure to third order yields gravitational field equations to second order. We will carefully analyse a $3+1$ split for the linear part of this theory and restrict to a certain sector with, in a very specific sense, physically sane phenomenology. Afterwards, we solve the two-body problem to first order and obtain the orbits of a binary system in area metric gravity. Building up on this solution, the second order of the field equations is used to derive the emission of gravitational radiation from the binary system and the radiative loss, which causes spin-up of the system. The binary star subject to area metric gravity turns out to exhibit qualitatively new behaviour as compared to Einstein gravity, e.g.~additional massive modes of gravitational radiation and a modification of Kepler's third law.
 
-\textit{To a large extent, the work presented in this chapter has been published as Ref.\ \cite{Alex_2020_2}. The results on radiation loss are not part of this publication.}
+To a large extent, the work presented in this chapter has been published as Ref.\ \cite{Alex_2020_2}. The results on radiation loss are not part of this publication.
 
 \section{Construction of third-order area metric Lagrangians}\label{section_area_construction}
+\itshape
 The matter theory in question is generalised linear electrodynamics (GLED) as defined in Def.~\ref{def_gled} with the Lagrangian density
 \begin{equation*}
   L_\text{GLED} = \omega_G G^{abcd} F_{ab} F_{cd},
@@ -133,6 +134,7 @@ We will now proceed to show that the possible principal polynomials arising from
   where $\gmc{B}{A}{n}{m}$ are the Gotay-Marsden coefficients corresponding to the field bundle. In other words, the Euler-Lagrange equations transform as tensor density of weight 1.
 \end{proposition}
 \begin{proof}
+  \itshape
   The claim follows from expanding the left hand side of Eq.~\eqref{trafo_euler_lagrange} as
   \begin{equation}
     \delta_\xi E_A = E_{A:B} \delta_\xi u^B + E_{A:B}^{\hphantom{A:B}p} \delta_\xi u^B_{\hphantom Bp} + E_{A:B}^{\hphantom{A:B}I} \delta_\xi u^B_{\hphantom BI},
@@ -151,6 +153,7 @@ This transformation behaviour carries over to the principal symbol of the Euler-
   \end{equation}
 \end{proposition}
 \begin{proof}
+  \itshape
   The idea of the proof is as before: we insert the just proven transformation behaviour of the Euler-Lagrange equations $E_A$ and of covectors $k$, which is
   \begin{equation}
     \delta_\xi k_a = - k_m \xi^m_{,a},
@@ -172,6 +175,7 @@ We are now in a position to prove the first part of the central result, which is
   \end{equation}
 \end{theorem}
 \begin{proof}
+  \itshape
   From the transformation behaviour of the area metric field and covectors, it follows that an infinitesimal diffeomorphism acts on generators $\chi^A_{(i)}(k) = \gmc{A}{B}{n}{i} u^B k_n$ of gauge transforms as
   \begin{equation}
     \delta_\xi \chi^A_{(i)}(k) = \gmc{A}{B}{n}{m} \chi^B_{(i)}(k) \xi^m_{,n} - \chi^A_{(m)}(k)\xi^m_{,i}.
@@ -243,6 +247,7 @@ The second part of the central result follows from these equations. All we have 
   where $\omega$ denotes a density of weight $\frac{57}{13}$ on the area metric bundle and $P_\text{GLED}^{(\leq 1)}$ is the expansion of the GLED polynomial to first order. In particular, to first order in the perturbation, both principal polynomials describe the same null surfaces and hyperbolicity cones.
 \end{theorem}
 \begin{proof}
+  \itshape
   Knowing that the principal polynomial of area metric gravity transforms as a density of weight 57, we can construct possible candidates by solving the equivariance equations \eqref{polynomial_equivariance_eqns}. To this end, we make the ansatz
   \begin{equation}\label{poly_ansatz}
     \begin{aligned}
@@ -1184,6 +1189,7 @@ In such a case, the area metric deviation coincides with the metric deviation up
 
 More intrusive modifications would come from vector or scalar contributions to Eq.~\eqref{geodesic_deviation}. Taking a closer look at the corresponding deformation matrices \eqref{vector_detector_frame}--\eqref{scalar_detector_frame}, it is apparent what these could entail: more interesting patterns of deformations that include contractions and expansions in the direction of the incident wave---an effect that is unknown from Einstein gravity. However, if nonmetric deformations can be observed at all, they are well-hidden in the scalar modes, as a substitution of the area metric perturbations in Eq.~\eqref{geodesic_deviation} shows. The vector contribution from $\varphi^{\alpha\beta}$ is cancelled by the shift perturbation $b^\alpha$ using the vector field equations \eqref{vector_equations_reduced}. What remains are the massless TT perturbations $U^{\alpha\beta}$, whose effect has already been discussed, and a scalar contribution. Without more knowledge of the radiation on \emph{all} scalar modes, it is not possible to give a definite prediction about the effect of scalar waves on test matter.
 
+\normalfont
 
 \subsection{Binary star spin-up}
 While the gravitational radiation that causes geodesic deviation is produced as second-order effect, the deviation \emph{per se} has only been studied to first order in the previous section. Similar results would hold for incident waves that have their origin in linearised gravity, like the radiation that is emitted from nongravitationally bound systems \cite{M_ller_2018}.

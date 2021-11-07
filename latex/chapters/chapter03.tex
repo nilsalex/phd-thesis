@@ -1,11 +1,11 @@
 \chapter{The construction algorithm}
 \label{chapter_construction_algorithm}
 
-\textit{Having introduced the axioms of covariant constructive gravity and cast them in precise mathematical language, we consolidate the results and state the algorithm for the construction of modified gravity Lagrangians from novel matter theories. After a discussion about practical implications in general, we proceed with sketching the application to a few examples.}
+Having introduced the axioms of covariant constructive gravity and cast them in precise mathematical language, we consolidate the results and state the algorithm for the construction of modified gravity Lagrangians from novel matter theories. After a discussion about practical implications in general, we proceed with sketching the application to a few examples.
 
 \section{General formulation}
 
-The results obtained so far allow us to formulate a comprehensive algorithm for the construction of gravitational Lagrangians. These Lagrangians are the most general conceivable Lagrangians within our formalism that satisfy both axioms of covariant constructive gravity. All that has to be provided is a matter theory that couples to geometry and the algorithm will yield all candidates for gravitational theories that determine the so far undetermined dynamics of the gravitational field, finally giving the theory predictive power. In this sense, the task of searching for modified gravitational theories boils down to the solution of PDE systems to ensure general covariance and of algebraic equations to match the causalities.
+The results obtained so far allow us to formulate a comprehensive algorithm for the construction of gravitational Lagrangians, which has already been presented in Ref.\ \cite{Alex_2020}. These Lagrangians are the most general conceivable Lagrangians within our formalism that satisfy both axioms of covariant constructive gravity. All that has to be provided is a matter theory that couples to geometry and the algorithm will yield all candidates for gravitational theories that determine the so far undetermined dynamics of the gravitational field, finally giving the theory predictive power. In this sense, the task of searching for modified gravitational theories boils down to the solution of PDE systems to ensure general covariance and of algebraic equations to match the causalities.
 
 \begin{algorithm}[H]\label{algorithm}
   \DontPrintSemicolon
@@ -19,7 +19,7 @@ The results obtained so far allow us to formulate a comprehensive algorithm for 
   restrict the gravitational theory to second-derivative-order field equations \;
   calculate the principal polynomials \eqref{principal_polynomial} $\mathcal P_\text{grav}$ and $\mathcal P_\text{mat}$ \;
   solve the causal compatibility conditions $C_\text{grav} = C_\text{mat}$ and $V_\text{grav} \subseteq V_\text{mat}$
-  \caption{Gravitational closure using covariant constructive gravity}
+  \caption{Gravitational closure using covariant constructive gravity \cite{Alex_2020}}
 \end{algorithm}
 
 Let us comment on the algorithm step by step: the first step, calculating the Gotay-Marsden coefficients, is trivial. The coefficients follow from the prescribed or inherited action of diffeomorphisms on the geometry bundle. For purely covariant or contravariant tensor bundles, Prop.~\ref{prop_gmc_intertwiner} already gives the final expression. These coefficients have to be inserted into Eqns.\ \eqref{equivariance_eqn_1}--\eqref{equivariance_eqn_4} in order to execute step 2. As a result, we obtain a system of linear, first-order partial differential equations for the Lagrangian density $L$ with coefficients that are linear in the independent variables. More precisely, the PDEs are of the form
@@ -216,15 +216,15 @@ A lot of work has already been done in order to answer the question: \emph{What 
 
 Let us consider two examples for bimetric matter theories. The first theory prescribes the dynamics for two scalar fields, each field coupling to its own metric.
 \begin{definition}[bimetric Klein-Gordon theory]
-  Let $M$ be a four-dimensional spacetime manifold. The bundle $E_\text{bimetric} = S(T^2_0M) \oplus S(T^2_0M)$ constructed as the direct sum of two metric bundles is called the bimetric bundle. Sections $(g,h)$ of this bundle serve as coefficients for the Lagrangian density of the \textbf{bimetric Klein-Gordon theory}
+  Let $M$ be a four-dimensional spacetime manifold. The bundle $E_\text{bimetric} = S(T^2_0M) \oplus S(T^2_0M)$ constructed as the direct sum of two metric bundles is called the bimetric bundle. Sections $(g,h)$ of this bundle serve as coefficients for the Lagrangian density of the \emph{bimetric Klein-Gordon theory}
   \begin{equation}
     L_\text{2KG} = \sqrt{-\operatorname{det}g}g^{ab} \phi_{,a}\phi_{,b} - m_\phi^2 \phi^2 + \sqrt{-\operatorname{det}h}h^{ab} \psi_{,a}\psi_{,b} - m_\psi^2 \psi^2,
   \end{equation}
-  where $\phi$ and $\psi$ are smooth functions $\phi,\psi\colon M\rightarrow \mathbb R$ called \textbf{scalar fields} with nonnegative \textbf{masses} $m_\phi$ and $m_\psi$.
+  where $\phi$ and $\psi$ are smooth functions $\phi,\psi\colon M\rightarrow \mathbb R$ called \emph{scalar fields} with nonnegative \emph{masses} $m_\phi$ and $m_\psi$.
 \end{definition}
 As second example, we use a generalisation of the Proca theory, a theory for a \emph{massive} electromagnetic potential.
 \begin{definition}[bimetric Proca theory \cite{Wierzba_2018}]
-  Consider again the bundle $E_\text{bimetric}$. Sections $(g,h)$ of this bundle together with a scalar density $\omega_{(g,h)}$ constructed from $g$ and $h$ serve as coefficients for the Lagrangian density of the \textbf{bimetric Proca theory}
+  Consider again the bundle $E_\text{bimetric}$. Sections $(g,h)$ of this bundle together with a scalar density $\omega_{(g,h)}$ constructed from $g$ and $h$ serve as coefficients for the Lagrangian density of the \emph{bimetric Proca theory}
   \begin{equation}
     L_\text{bi-Proca} = \omega_{(g,h)}\left( -g^{ac} g^{bd} F_{ab} F_{cd} + m^2 h^{ab} A_a A_b \right)
   \end{equation}
