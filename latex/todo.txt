@@ -1,2 +1,10 @@
 t_0 (inspiral time)
 how much of cosmo chapter is from publication?
+
+einheitlich:
+  - refs at end of sentence
+  - chap. & co
+  - eqn numbers
+  - ref numbers
+  - footnotes at end of sentence
+  - footnotes end with periods

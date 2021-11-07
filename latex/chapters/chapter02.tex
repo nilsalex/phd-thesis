@@ -178,7 +178,7 @@ Concrete implementations of $I$ and $J$ will be introduced in Chap.~\ref{chapter
   \end{aligned}
 \end{equation}
 
-Proceeding to derive the infinitesimal version of axiom 1, we first need to specify what is meant by \emph{infinitesimal}. As the symmetry group in question is the diffeomorphism group on the base manifold, the infinitesimal equivalent is the corresponding Lie algebra $\Gamma(TM)$ of sections of the tangent bundle over $M$. The Lie bracket is given by the Lie bracket of vector fields. In a given coordinate chart, an element $\xi\in\Gamma(TM)$ defines an infinitesimal diffeomorphism as
+Proceeding to derive the infinitesimal version of axiom~I, we first need to specify what is meant by \emph{infinitesimal}. As the symmetry group in question is the diffeomorphism group on the base manifold, the infinitesimal equivalent is the corresponding Lie algebra $\Gamma(TM)$ of sections of the tangent bundle over $M$. The Lie bracket is given by the Lie bracket of vector fields. In a given coordinate chart, an element $\xi\in\Gamma(TM)$ defines an infinitesimal diffeomorphism as
 \begin{equation}\label{diffeo_infinitesimal}
   x^i \mapsto x^i + \xi^i.
 \end{equation}
@@ -211,7 +211,7 @@ As it turns out, the map $\xi\mapsto \xi_E$ indeed defines a homomorphism betwee
   \end{equation}
 \end{proposition}
 \begin{proof}
-  The map $\xi \rightarrow \xi_E$ is the differential of the lift $\phi \rightarrow \phi_E$ of diffeomorphisms $\varphi\in\operatorname{Diff}(M)$ to vector bundle automorphisms $\varphi_E\in\operatorname{Aut}(E)$. This lift is a Lie group homomorphism, i.e.\ $(\phi\circ\psi)_E = \phi_E\circ\psi_E$. Eq.\ \eqref{lie_algebra_homo} follows from the functoriality of the Lie algebra. Note that $\operatorname{Diff}(M)$ is not a finite-dimensional Lie group, so the results from the theory of finite-dimensional Lie groups are not applicable as they are. See e.g. \cite{Glockner_2015}.
+  The map $\xi \rightarrow \xi_E$ is the differential of the lift $\phi \rightarrow \phi_E$ of diffeomorphisms $\varphi\in\operatorname{Diff}(M)$ to vector bundle automorphisms $\varphi_E\in\operatorname{Aut}(E)$. This lift is a Lie group homomorphism, i.e.\ $(\phi\circ\psi)_E = \phi_E\circ\psi_E$. Eq.~\eqref{lie_algebra_homo} follows from the functoriality of the Lie algebra. Note that $\operatorname{Diff}(M)$ is not a finite-dimensional Lie group, so the results from the theory of finite-dimensional Lie groups are not applicable as they are. See e.g. \cite{Glockner_2015}.
 
 \end{proof}
 A useful corollary of the homomorphism property of the Lie algebra lift $\xi\mapsto\xi_E$, which will play a r\^ole in Sect.~\ref{sect_involution}, is the following fact about Gotay-Marsden coefficients.
@@ -284,7 +284,7 @@ Since \eqref{infinitesimal_with_vector} holds for any $\xi\in\Gamma(TM)$, the in
 
 On a four-dimensional spacetime manifold, Thm.~\ref{equivariance_eqns_thm} yields a system of 140 linear PDEs of first order for the Lagrangian density $L$. Any diffeomorphism invariant tensor field theory of second derivative order must satisfy this system and, conversely, any solution to the system provides a candidate for a diffeomorphism invariant theory. Thus, the search for such theories has been reduced to the mathematical task of solving PDEs of a certain (simple!) form. The only ingredients which depend on the specific theory at hand are the Gotay-Marsden coefficients, such that it is possible to derive certain properties of the system without knowledge of the concrete tensor bundle.
 
-The literature on this kind of PDEs is very extensive (see e.g.\ \cite{Seiler_2010}) with many applications throughout science. There are strong results on the properties and solutions which provide a good basis for our work with Eqns.~\ref{equivariance_eqn_1}--\ref{equivariance_eqn_4} in the following.
+The literature on this kind of PDEs is very extensive (see e.g.\ \cite{Seiler_2010}) with many applications throughout science. There are strong results on the properties and solutions which provide a good basis for our work with Eqns.~\eqref{equivariance_eqn_1}--\eqref{equivariance_eqn_4} in the following.
 
 The PDE system will be referred to as \emph{equivariance equations} from now on. In a similar form, these equations already appear in Ref.\ \cite{Gotay_1992} during the derivation of conservation laws arising from diffeomorphism invariance. As they were not meant to be solved for the Lagrangian density, the presentation is not as explicit as here. Also note that Ref.\ \cite{Gotay_1992} considers theories of arbitrary differential index but only the first jet bundle, whereas the present derivation takes place on the second jet bundle but is restricted to a differential index of 1, i.e.\ tensor field theories of second derivative order. The extension to theories with arbitrary differential index is possible---there will be a series of Gotay-Marsden coefficients
 \begin{equation}
@@ -335,7 +335,7 @@ Using the infinitesimal version $\mathcal L_{\xi_{J^{2k-1}E}} \Theta_L = 0$ of t
   for extremals of $\Theta_L$. The condition holds for arbitrary vector fields $\Xi$ on $J^{2k-1}E$, including the vector fields $\xi_{J^{2k-1}E}$.
 \end{proof}
 
-Eq.~\ref{first_noether_eq} defines a current which is conserved \emph{on shell}, i.e.\ whenever the Euler-Lagrange equations hold. Thm.\ 3.1 of Ref.\ \cite{Gotay_1992} already shows---for theories defined on the first jet bundle---how the current arises from the so-called \emph{stress-energy-momentum} tensor. This result can now be generalised to tensor field theories of second derivative order. For the following calculations, we introduce the abbreviations $\omega=d^nx$, $\omega_i = \iota_{\partial_i} \omega$, $\omega_{ij} = \iota_{\partial_i} \iota_{\partial_j} \omega$, and so forth.
+Eq.~\eqref{first_noether_eq} defines a current which is conserved \emph{on shell}, i.e.\ whenever the Euler-Lagrange equations hold. Thm.\ 3.1 of Ref.\ \cite{Gotay_1992} already shows---for theories defined on the first jet bundle---how the current arises from the so-called \emph{stress-energy-momentum} tensor. This result can now be generalised to tensor field theories of second derivative order. For the following calculations, we introduce the abbreviations $\omega=d^nx$, $\omega_i = \iota_{\partial_i} \omega$, $\omega_{ij} = \iota_{\partial_i} \iota_{\partial_j} \omega$, and so forth.
 \begin{theorem}[Gotay-Marsden stress-energy-momentum tensor]\label{sem_thm}
   Let $\Theta_L$ be the diffeomorphism invariant Cartan form corresponding to a diffeomorphism invariant Lagrangian of second derivative order ($k=2$). For any local section $\sigma$ of the underlying bundle, there exists a unique $(1,1)$-tensor density $\mathcal T(\sigma)$ on the base manifold $M$ such that for all vector fields $\xi$ with compact support on $M$ and embedded hypersurfaces $i_\Sigma \colon \Sigma \rightarrow M$
   \begin{equation}\label{sem_definition}
@@ -362,7 +362,7 @@ Eq.~\ref{first_noether_eq} defines a current which is conserved \emph{on shell},
   \end{equation}
   where $L$ and its derivatives are to be understood as being evaluated at prolongations of the section $\sigma$.
 
-  Using $\xi^A = \gmc{A}{B}{n}{m}u^B\xi^m_{,n}$ and $\xi^A_p = D_p(\gmc{A}{B}{n}{m}u^B\xi^m_{,n})-u^A_m\xi^m_{,p}$ from Eq.~\ref{vector_field_2nd_prolongation} yields the current in its expanded form, which is
+  Using $\xi^A = \gmc{A}{B}{n}{m}u^B\xi^m_{,n}$ and $\xi^A_p = D_p(\gmc{A}{B}{n}{m}u^B\xi^m_{,n})-u^A_m\xi^m_{,p}$ from Eq.~\eqref{vector_field_2nd_prolongation} yields the current in its expanded form, which is
   \begin{equation}\label{sem_calculation_current}
     \begin{aligned}
       \boldsymbol{j}(\sigma) &{} = \big\lbrack L\delta^n_m - L_{:A}^{\hphantom{:A}n}\sigma^A_{,m} + D_iL_{:A}^{\hphantom{:A}I}J_I^{in}\sigma^A_{,m}-L_{:A}^{\hphantom{:A}I}J_I^{np}I^J_{mp}\sigma^A_{,J}\big\rbrack \xi^m \omega_n \\
@@ -413,7 +413,7 @@ Eq.~\ref{first_noether_eq} defines a current which is conserved \emph{on shell},
   where $\frac{\delta L}{\delta u^A} =  L_{:A} - D_p L_{:A}^{\hphantom{:A}p} + D_p D_q L_{:A}^{\hphantom{:A}I} J_I^{pq}$ denotes the variational derivative. 
 \end{proof}
 
-According to \eqref{sem_tensor_result}, the Gotay-Marsden stress-energy-momentum tensor density vanishes identically \emph{on shell}, i.e.\ for sections solving the Euler-Lagrange equations---a recurring theme in the analysis of generally covariant theories. The first-order version of Thm.~\ref{sem_thm}, proven in Ref.\ \cite{Gotay_1992}, settled a long-standing debate about SEM tensors densities by providing a definition which is based on Noether theory and naturally satisfies a \emph{generalised Belinfante-Rosenfeld formula}\footnote{For general relativity, the Belinfante-Rosenfeld formula \cite{Belinfante_1940,Rosenfeld_1940} relates the SEM tensor density obtained from Noether theory by considering translations to the Hilbert SEM tensor density, which is defined as the source density of the Einstein equations. \cite{Gotay_1992} This comes with a seemingly \emph{ad hoc} symmetrisation of the Noether SEM tensor density. The generalised Belinfante-Rosenfeld formula \cite{Gotay_1992} relates the Gotay-Marsden SEM tensor density \eqref{sem_tensor_result} to the Noether SEM tensor density without such choices, just by considering currents and spacetime diffeomorphisms.}.
+According to \eqref{sem_tensor_result}, the Gotay-Marsden stress-energy-momentum tensor density vanishes identically \emph{on shell}, i.e.\ for sections solving the Euler-Lagrange equations---a recurring theme in the analysis of generally covariant theories. The first-order version of Thm.~\ref{sem_thm}, proven in Ref.\ \cite{Gotay_1992}, settled a long-standing debate about SEM tensors densities by providing a definition which is based on Noether theory and naturally satisfies a \emph{generalised Belinfante-Rosenfeld formula}.\footnote{For general relativity, the Belinfante-Rosenfeld formula \cite{Belinfante_1940,Rosenfeld_1940} relates the SEM tensor density obtained from Noether theory by considering translations to the Hilbert SEM tensor density, which is defined as the source density of the Einstein equations. \cite{Gotay_1992} This comes with a seemingly \emph{ad hoc} symmetrisation of the Noether SEM tensor density. The generalised Belinfante-Rosenfeld formula \cite{Gotay_1992} relates the Gotay-Marsden SEM tensor density \eqref{sem_tensor_result} to the Noether SEM tensor density without such choices, just by considering currents and spacetime diffeomorphisms.}
 
 In addition, the Gotay-Marsden SEM tensor density lends itself for a concise formulation of Noether's second theorem, based on a previous result \cite{Gotay_1992} for first-order theories.
 \begin{theorem}[Second Noether theorem]\label{thm_second_noether}
@@ -423,7 +423,7 @@ In addition, the Gotay-Marsden SEM tensor density lends itself for a concise for
   \end{equation}
 \end{theorem}
 \begin{proof}
-  Starting from the first expression for $\mathcal T^n_m$ obtained in Eq.\ \eqref{sem_last_calc}, which is
+  Starting from the first expression for $\mathcal T^n_m$ obtained in Eq.~\eqref{sem_last_calc}, which is
   \begin{equation}
     \begin{aligned}
       \mathcal T^n_m = {} & L\delta^n_m - L_{:A}^{\hphantom{:A}n}u^A_{\hphantom Am} - 2 L_{:A}^{\hphantom{:A}I}J_I^{np} I^J_{mp} u^A_{\hphantom AJ} \\
@@ -432,11 +432,11 @@ In addition, the Gotay-Marsden SEM tensor density lends itself for a concise for
   \end{equation}
   the identity \eqref{second_noether} follows via a direct computation of the divergence. Two terms in the intermediate result are reduced using the equivariance equations \eqref{equivariance_eqn_3} and \eqref{equivariance_eqn_4}.
 \end{proof}
-With the Gotay-Marsden SEM tensor density replaced by its definition, Eq.\ \eqref{second_noether} indeed reveals the differential relation
+With the Gotay-Marsden SEM tensor density replaced by its definition, Eq.~\eqref{second_noether} indeed reveals the differential relation
 \begin{equation}
   -D_n \left(\frac{\delta L}{\delta u^A}\gmc{A}{B}{n}{m}u^B\right) = \frac{\delta L}{\delta u^A} u^A_{\hphantom Am}
 \end{equation}
-for the \emph{Euler-Lagrange equations}, which is exactly the statement of Noether's second theorem. The identity holds \emph{off shell}, i.e.\ for any section of the tensor bundle regardless of whether it satisfies Euler-Lagrange equations.
+for the Euler-Lagrange equations, which is exactly the statement of Noether's second theorem. The identity holds \emph{off shell}, i.e.\ for any section of the tensor bundle regardless of whether it satisfies the Euler-Lagrange equations.
 
 \section{Axiom II: causal compatibility}\label{sect_causal_compatibility}
 This section follows very closely Sect.\ II.B of Ref.\ \cite{Alex_2020}.
@@ -454,7 +454,7 @@ Evaluating the field equations at this ansatz and taking the limit $\lambda\righ
 \begin{equation}\label{wkb_section}
   \underbrace{\left(\frac{\partial E_A}{\partial u^B_I}\right)J^{ij}_Ik_ik_j}_{T_{AB}(k)}a^B = 0,
 \end{equation}
-which depends on the wavefront $S$ only via the wave covector $k=-dS$. Eq.~\ref{wkb_section} is a linear equation for the amplitudes $a^B$ with coefficients from the $r\times r$ matrix $T_{AB}(k)$, where $r$ denotes the fibre dimension of the theory. This matrix, called the \emph{principal symbol} of the field equations, plays an important r\^ole in the short-wavelength limit: if the theory admits solutions with nontrivial amplitudes $a^B$, the principal symbol $T_{AB}(k)$ must necessarily be noninjective. By virtue of this condition, the principal symbol selects the physically admissible wave covectors in the WKB ansatz. As a square matrix is noninjective if and only if its determinant vanishes, admissible wave covectors can equivalently be characterised by a vanishing condition on the determinant of $T_{AB}(k)$.
+which depends on the wavefront $S$ only via the wave covector $k=-dS$. Eq.~\eqref{wkb_section} is a linear equation for the amplitudes $a^B$ with coefficients from the $r\times r$ matrix $T_{AB}(k)$, where $r$ denotes the fibre dimension of the theory. This matrix, called the \emph{principal symbol} of the field equations, plays an important r\^ole in the short-wavelength limit: if the theory admits solutions with nontrivial amplitudes $a^B$, the principal symbol $T_{AB}(k)$ must necessarily be noninjective. By virtue of this condition, the principal symbol selects the physically admissible wave covectors in the WKB ansatz. As a square matrix is noninjective if and only if its determinant vanishes, admissible wave covectors can equivalently be characterised by a vanishing condition on the determinant of $T_{AB}(k)$.
 
 There is, however, a problem with this approach: in the presence of gauge symmetries, there are nontrivial solutions equivalent to the trivial solution $a^B=0$. These solutions will also be contained in the kernel of the principal symbol, rendering the naive conditions on wave covectors formulated above meaningless. More specifically, assuming a gauge symmetry with $s$-dimensional gauge orbits, there are exactly $s$ independent functions $\chi_{(i)}^A(k)$ which are equivalent to the trivial solution and span an $s$-dimensional subspace of the kernel of $T_{AB}(k)$. In order to allow for solutions which are \emph{not} equivalent to the trivial solution, the kernel needs to be of dimension greater or equal than $s+1$.
 
@@ -494,5 +494,5 @@ Let us now consider the situation where a theory for some matter field coupled t
 The first condition immediately implies that $\mathcal P_\text{grav}$ is hyperbolic as well. Furthermore, it ensures that both theories share their initial value surfaces and allow for a unified observer definition \cite{R_tzel_2011,Rivera_2012}. As recent measurements showed with a high degree of certainty that gravitational waves propagate at the speed of light \cite{Liu_2020}, we include the second condition for the distribution of vanishing sets into the definition of causal compatibility. It requires that wave covectors of the matter theory are admissible wave covectors of the gravitational theory, but leaves open the possibility for different modes of propagation.
 
 \normalfont
-Before closing this section about the second axiom, a remark about its practical implications is in order. As we will see during the perturbative implementation of the covariant constructive gravity programme, the requirement of diffeomorphism invariance alone already restricts the principal polynomial of the gravitational field equations quite a lot, such that up to the third iteration of the perturbative construction procedure we will not need to enforce Eq.~\ref{axiom2_eq} explicitly---at least for our chosen example. For the nonperturbative construction of general relativity, the condition will not be needed at all. This hints at the promising possibility that the second axiom may actually be weakened by the extent to which it may already be implied by the first axiom.
+Before closing this section about the second axiom, a remark about its practical implications is in order. As we will see during the perturbative implementation of the covariant constructive gravity programme, the requirement of diffeomorphism invariance alone already restricts the principal polynomial of the gravitational field equations quite a lot, such that up to the third iteration of the perturbative construction procedure we will not need to enforce Eq.~\eqref{axiom2_eq} explicitly---at least for our chosen example. For the nonperturbative construction of general relativity, the condition will not be needed at all. This hints at the promising possibility that the second axiom may actually be weakened by the extent to which it may already be implied by the first axiom.
 
