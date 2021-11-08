@@ -1,0 +1,70 @@
+\documentclass[%
+english,
+12pt,
+twoside=false,
+headsepline,
+numbers=noenddot,
+parskip=half,
+a4paper,
+%draft
+final
+]{scrarticle}
+
+\usepackage{fontspec}
+\usepackage{csquotes}
+\usepackage{polyglossia}
+\setmainlanguage[babelshorthands=true,spelling=new]{german}
+\setdefaultlanguage[babelshorthands=true,spelling=new]{german}
+
+\usepackage{microtype}
+\usepackage{ellipsis}
+
+\usepackage{hyperref}
+
+\usepackage[sorting=none]{biblatex}
+\addbibresource{../bibliography.bib}
+
+\setcounter{biburllcpenalty}{7000}
+\setcounter{biburlucpenalty}{8000}
+
+\pagestyle{empty}
+
+\begin{document}
+
+\section*{Erklärung zur Urheberschaft}
+
+Ich habe die Veröffentlichung mit dem Titel \enquote{Covariant constructive gravity: A step-by-step guide towards alternative theories of gravity} \cite{Alex_2020} gemeinsam mit Nils Alex zu gleichen Teilen erarbeitet und angefertigt.
+
+Auch das Softwarepaket \enquote{sparse-tensor} \cite{Reinhart_2019_sparse-tensor} habe ich gemeinsam und zu gleichen Teilen mit Nils Alex entwickelt. Davon ausgenommen sind die Implementierung von Tensoren mit gemischten Indextypen sowie die Optimierung der Ansatzerzeugung, welche größtenteils von mir alleine stammen.
+
+Der Verwendung beider Werke in der Dissertation \enquote{Covariant Constructive Gravity} stimme ich zu.
+
+\printbibliography[heading=none]
+
+\vspace{1cm}
+
+\begin{flushleft}
+\makebox[.4\textwidth]{\hrulefill}\hfill \makebox[.4\textwidth]{\hrulefill}\\
+\makebox[.4\textwidth]{(Ort, Datum)}\hfill
+\makebox[.4\textwidth]{(Tobias Reinhart)}\\
+\end{flushleft}
+
+\newpage
+\section*{Erklärung zur Urheberschaft}
+
+Ich habe die Veröffentlichung mit dem Titel \enquote{Covariant constructive gravity: A step-by-step guide towards alternative theories of gravity} \cite{Alex_2020} gemeinsam mit Tobias Reinhart zu gleichen Teilen erarbeitet und angefertigt.
+
+Auch das Softwarepaket \enquote{sparse-tensor} \cite{Reinhart_2019_sparse-tensor} habe ich gemeinsam und zu gleichen Teilen mit Tobias Reinhart entwickelt. Davon ausgenommen sind die Implementierung von Tensoren mit gemischten Indextypen sowie die Optimierung der Ansatzerzeugung, welche größtenteils von Tobias Reinhart alleine stammen.\footnote{Diese Einschränkung betrifft nicht die verfeinerten Tensortypen aus dem Paket \enquote{safe-tensor}, dessen alleiniger Urheber ich bin.}
+
+\printbibliography[heading=none]
+
+\vspace{1cm}
+
+\begin{flushleft}
+\makebox[.4\textwidth]{\hrulefill}\hfill \makebox[.4\textwidth]{\hrulefill}\\
+\makebox[.4\textwidth]{(Ort, Datum)}\hfill
+\makebox[.4\textwidth]{(Nils Alex)}\\
+\end{flushleft}
+
+\end{document}
+
