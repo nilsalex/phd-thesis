@@ -1,8 +1,11 @@
 \chapter{Outlook: symmetry-reduced constructive gravity}\label{chapter_cosmo}
 
-In the previous chapters, we reduced the complexity of the covariant construction procedure by considering a perturbative equivalent. Consequently, the result was an approximation of the exact gravitational theory, valid for sufficiently weak gravitational fields. A second approach towards reducing the complexity of the equivariance equations is symmetry reduction, which assumes that the gravitational field exhibits certain symmetries. Ideally, these symmetries bring the construction equations into a much simpler form. The solutions of the reduced equations should be theories of gravity valid in this symmetry-reduced sector, comparable to the Friedmann equations for spatially homogeneous and isotropic Einstein gravity. In this chapter, we explore a possible approach towards symmetry-reduced covariant constructive gravity by reducing the bundle on which the procedure operates. Our main result will be that the Friedmann-Lema\^itre-Robertson-Walker (FLRW) model can be recovered without the need to know the full Einstein-Hilbert Lagrangian beforehand. The corresponding area metric equivalent will not be solved, only the construction equations are derived. For a more in-depth study of symmetry reduction in the context of canonical constructive gravity, see Ref.\ \cite{Duell_2020}.
+In the previous chapters, we reduced the complexity of the covariant construction procedure by considering a perturbative equivalent. Consequently, the result was an approximation of the exact gravitational theory, valid for sufficiently weak gravitational fields. A second approach towards reducing the complexity of the equivariance equations is symmetry reduction, which assumes that the gravitational field exhibits certain symmetries. Ideally, these symmetries bring the construction equations into a much simpler form. The solutions of the reduced equations should be theories of gravity valid in this symmetry-reduced sector, comparable to the Friedmann equations for spatially homogeneous and isotropic Einstein gravity. In this chapter, we explore a possible approach towards symmetry-reduced covariant constructive gravity by reducing the bundle on which the procedure operates. Our main result will be that the Friedmann-Lema\^itre-Robertson-Walker (FLRW) model can be recovered without the need to know the full Einstein-Hilbert Lagrangian beforehand. The area metric equivalent will not be solved, only the construction equations are derived. For a more in-depth study of symmetry reduction in the context of canonical constructive gravity, see Ref.\ \cite{Duell_2020}.
 
 \section{The cosmological bundle}
+The introduction of the metric cosmological bundle follows the presentation in Ref.\ \cite{Alex_2020}.
+
+\itshape
 For the purpose of developing a symmetry reduction strategy, let us consider the cosmological symmetry, which assumes spacetime to be spatially homogeneous and isotropic (see e.g.\ \cite{Weinberg_1972,Wald_1984}). It is well known what this entails for the metric field: implicitly, this symmetry comes with the assumption of a sliced spacetime, i.e.\ $M \cong \mathbb R \times \Sigma$. In appropriate coordinates on the product manifold, the covariant metric tensor then reads \cite{Weinberg_1972,Katanaev_2016}
 \begin{equation}
   g = dt \otimes dt - a(t)^2 \gamma,
@@ -37,6 +40,7 @@ From these insights, we define the \emph{cosmological bundle} for metric gravity
   \end{equation}
   i.e.\ the sum of the tangent bundle and the bundle of densities with weight $\frac{1}{3}$.
 \end{definition}
+\normalfont
 A similar definition can be given for the area metric bundle. It has been shown \cite{Duell_2020} that a spatially homogeneous and isotropic area metric manifold is determined by \emph{two} spatial degrees of freedom, which are a density-valued scale factor and a second scalar-valued factor.\footnote{This already follows quite intuitively from the $3+1$ decomposition in Sect.~\ref{sect_three_plus_one}. As opposed to metric gravity, where a single three-metric determines all spatial components, we now have \emph{two} spatial metrics and one tracefree endomorphism which parameterise the 17 spatial degrees of freedom. If the fields are to be isotropic, they must be given by two scale factors for the metrics; the tracefree endomorphism must be zero. Instead of working with two density-valued functions, it is more convenient to use a redefinition where one of the functions becomes scalar-valued.} Consequently, the area metric cosmological bundle can be defined as follows.
 \begin{definition}[area metric cosmological bundle]
   The cosmological bundle over a manifold $M$ which captures the information of a spatially homogeneous and isotropic area metric spacetime $(M,G)$ is defined as
@@ -47,6 +51,9 @@ A similar definition can be given for the area metric bundle. It has been shown 
 \end{definition}
 
 \section{Recovering the FLRW model}
+The recovering of the FLRW model follows the presentation in Ref.\ \cite{Alex_2020}, but provides additional detail concerning the ansätze and the evaluation of the equivariance equations for the ansätze.
+
+\itshape
 Having defined the metric cosmological bundle $TM \oplus_M \operatorname{Vol}^{\frac{1}{3}}(M)$, setting up the equivariance equations \eqref{equivariance_eqn_1}--\eqref{equivariance_eqn_4} is just a matter of deriving the Gotay-Marsden coefficients. For vector fields, Prop.~\ref{prop_gmc_intertwiner} yields
 \begin{equation}
   \gmc{a}{b}{n}{m} = \delta^a_m \delta^n_b,
@@ -55,6 +62,8 @@ while $\frac{1}{3}$-densities transform according to the Gotay-Marsden coefficie
 \begin{equation}
   \gmc{}{}{n}{m} = -\frac{1}{3} \delta^n_m.
 \end{equation}
+
+\normalfont
 In order for the field equations to be of second derivative order with a principal polynomial that does not depend on derivatives of the geometry, we make the ansatz
 \begin{equation}
   \begin{aligned}
@@ -93,6 +102,7 @@ Evaluation of the remaining equivariance equations \eqref{equivariance_eqn_2}--\
 \end{equation}
 where one constant, $\kappa_8$, only contributes to a boundary term, which will be dropped from now on.
 
+\itshape
 Let us couple the metric to a matter field by adding to the Lagrangian density \eqref{cosmo_lagrangian} a matter Lagrangian\footnote{Not a \emph{density} for the purposes of this section. We will always make the ``densitisation'' using $\sqrt{-g} = a^3$ explicit.} $L_\text{matter}$. Expressed in coordinates where $U^a = \text{const}$, variations with respect to the fields $a$ and $U$ reproduce the well-known \emph{Friedmann equations} \cite{Friedman_1922}
 \begin{align}
   \left(\frac{\dot a}{a}\right)^2 - \frac{\Lambda}{3} = {} & \frac{\kappa}{3} \rho, \label{friedmann_1}\\
@@ -125,6 +135,7 @@ as can be verified by inserting the expressions \eqref{scalar_energy_density} an
 
 Summing up, we have found the Friedmann equations \eqref{friedmann_1} and \eqref{friedmann_2} as the dynamical equations for the remaining degrees of freedom in spatially isotropic and homogeneous metric cosmology---without recurrence to the Einstein equation, just by performing the symmetry reduction \emph{beforehand} and applying the covariant construction procedure to the reduced problem. The equations are parameterised by the gravitational constant $\kappa$ and the cosmological constant $\Lambda$. All inferences that can be drawn from the Friedmann equations already follow from this simplified approach---demonstrating the potential of symmetry-reduced covariant constructive gravity for investigations into the cosmological sector of modified theories of gravity.
 
+\normalfont
 \section{Towards area metric cosmology}
 
 In principle, the same procedure can be applied to the cosmological bundle of area metric gravity, resulting in a parameterisation of all possible symmetry-reduced gravitational theories for the area metric tensor. The only new ingredient as compared to metric cosmology are the Gotay-Marsden coefficients for scalar fields, which are
