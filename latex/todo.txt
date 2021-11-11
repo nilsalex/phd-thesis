@@ -1,5 +1,4 @@
 t_0 (inspiral time)
-how much of cosmo chapter is from publication?
 
 einheitlich:
   - refs at end of sentence
