@@ -48,7 +48,7 @@ in the ansatz \eqref{ansatz_area_gravity}. This task is solved using the Haskell
 \begin{equation*}
   210 + \frac{21\cdot 22}{2} + 21\cdot 210 + \frac{84\cdot 85}{2} + \frac{21\cdot 22\cdot 23}{6} + \frac{21\cdot 22}{2} \cdot  210 + 21\cdot\frac{84\cdot 85}{2} = 133672
 \end{equation*}
-to only 237. In principle, the correctness of the ansatz can be verified by showing that it is the most generic solution to the ansatz equations\footnote{Eq.~\eqref{ansatz_equation} and similar.}. All we have to show is that the dimensionality of the ansatz equals the corank of the linear system of ansatz equations. For the ansatz including third-order coefficients, the system is quite large---considering that the coefficient space is already of dimension 133672---such that, on standard hardware, the rank cannot be computed na\"ively by storing the matrix in memory and using methods like singular value decomposition or fraction-free Gaussian elimination. It is rather easy, however, to use the aforementioned methods and work out the corank of the linear system determining the Lorentz invariant ansatz coefficients to \emph{second} order, as the dimension of this ansatz space is only $210 + \frac{21\cdot 22}{2} + 21 \cdot 210 + \frac{84\cdot 85}{2} = 8421$. Confirming the number of obtained basis ansätze up to second order, the corank of the corresponding system is indeed 40.
+to only 237. In principle, the correctness of the ansatz can be verified by showing that it is the most generic solution to the ansatz equations.\footnote{Eq.~\eqref{ansatz_equation} and similar.} All we have to show is that the dimensionality of the ansatz equals the corank of the linear system of ansatz equations. For the ansatz including third-order coefficients, the system is quite large---considering that the coefficient space is already of dimension 133672---such that, on standard hardware, the rank cannot be computed na\"ively by storing the matrix in memory and using methods like singular value decomposition or fraction-free Gaussian elimination. It is rather easy, however, to use the aforementioned methods and work out the corank of the linear system determining the Lorentz invariant ansatz coefficients to \emph{second} order, as the dimension of this ansatz space is only $210 + \frac{21\cdot 22}{2} + 21 \cdot 210 + \frac{84\cdot 85}{2} = 8421$. Confirming the number of obtained basis ansätze up to second order, the corank of the corresponding system is indeed 40.
 \begin{table}
   \centering
   \begin{tabular}{l r r}
@@ -135,7 +135,7 @@ We will now proceed to show that the possible principal polynomials arising from
 \end{proposition}
 \begin{proof}
   \itshape
-  The claim follows from expanding the left hand side of Eq.~\eqref{trafo_euler_lagrange} as
+  The claim follows from expanding the left-hand side of Eq.~\eqref{trafo_euler_lagrange} as
   \begin{equation}
     \delta_\xi E_A = E_{A:B} \delta_\xi u^B + E_{A:B}^{\hphantom{A:B}p} \delta_\xi u^B_{\hphantom Bp} + E_{A:B}^{\hphantom{A:B}I} \delta_\xi u^B_{\hphantom BI},
   \end{equation}
@@ -176,7 +176,7 @@ We are now in a position to prove the first part of the central result, which is
 \end{theorem}
 \begin{proof}
   \itshape
-  From the transformation behaviour of the area metric field and covectors, it follows that an infinitesimal diffeomorphism acts on generators $\chi^A_{(i)}(k) = \gmc{A}{B}{n}{i} u^B k_n$ of gauge transforms as
+  From the transformation behaviour of area metric tensors and covectors, it follows that an infinitesimal diffeomorphism acts on generators $\chi^A_{(i)}(k) = \gmc{A}{B}{n}{i} u^B k_n$ of gauge transforms as
   \begin{equation}
     \delta_\xi \chi^A_{(i)}(k) = \gmc{A}{B}{n}{m} \chi^B_{(i)}(k) \xi^m_{,n} - \chi^A_{(m)}(k)\xi^m_{,i}.
   \end{equation}
@@ -203,7 +203,7 @@ We are now in a position to prove the first part of the central result, which is
         &{} \hphantom{=} + \epsilon^{A_1A_2A_3A\dots A_{21}} \gmc{A_4}{A}{n}{m} \epsilon^{B_1\dots B_{21}} T_{A_5B_5}T_{A_6B_6}\dots T_{A_{21}B_{21}} \xi^m_{,n}. \\
     \end{aligned}
   \end{equation}
-  Applying the same technique to the index set $[B_1\dots B_{21} B]$ and carrying out the contraction $\gmc{A}{A}{n}{m} = 21\delta^{n}_{m}$, the identity can be applied to the second and third terms in Eq.~\eqref{Q_trafo}, such that we finally obtain
+  Applying the same technique to the index set $[B_1\dots B_{21} B]$ and carrying out the contraction $\gmc{A}{A}{n}{m} = 21\cdot\delta^{n}_{m}$, the identity can be applied to the second and third terms in Eq.~\eqref{Q_trafo}, such that we finally obtain
   \begin{equation}
     \begin{aligned}
       \delta_\xi Q^{A_1\dots A_4B_1\dots B_4} &{} = -59 \cdot Q^{A_1\dots A_4B_1\dots B_4} \xi^m_{,m} \\
@@ -522,7 +522,7 @@ where $\mathcal L^{-1}$ is the inverse of the Legendre map associated with the p
 \begin{equation}\label{scalar_source}
   \frac{\delta S_\text{matter}}{\delta A(x)} = -M\delta^{(3)}(x).
 \end{equation}
-With the matter distribution being stationary, we consider a stationary ansatz for the solution to the field equations by assuming that the time derivatives of the gravitational field vanish. Using the source \eqref{scalar_source} as the right-hand side of the linearised field equations \eqref{scalar_equations}--\eqref{tensor_equations} yields vector and tensor equations that are trivially sourced by zero and as such only admit the trivial solution $B^\alpha = U^\alpha = W^\alpha = 0$ and $U^{\alpha\beta} = V^{\alpha\beta} = W^{\alpha\beta} = 0$.\footnote{See \cite{Alex_2019}, where it is shown how the Fourier transform yields a linear system of full rank. Maple code for this calculation is available at Ref.\ \cite{Alex_2020_area-metric-gravity}.} The scalar equations take the form
+With the matter distribution being stationary, we consider a stationary ansatz for the solution to the field equations by assuming that the time derivatives of the gravitational field vanish. Using the source \eqref{scalar_source} as the left-hand side of the linearised field equations \eqref{scalar_equations}--\eqref{tensor_equations} yields vector and tensor equations that are trivially sourced by zero and as such only admit the trivial solution $B^\alpha = U^\alpha = W^\alpha = 0$ and $U^{\alpha\beta} = V^{\alpha\beta} = W^{\alpha\beta} = 0$.\footnote{See \cite{Alex_2019}, where it is shown how the Fourier transform yields a linear system of full rank. Maple code for this calculation is available at Ref.\ \cite{Alex_2020_area-metric-gravity}.} The scalar equations take the form
 \begin{equation}
   E_i^{(\text{scalar})} = M \delta^{(3)}(x) \delta^0_i + \sum_j\lbrack a_{ij} S_j + b_{ij} \Delta S_j + c_{ij} \Delta\Delta S_j\rbrack
 \end{equation}
@@ -568,7 +568,7 @@ These conditions are equivalent to the vanishing of the linear combinations
   s_1 + 4 s_4 = 0\quad\text{and}\quad s_6 = 0,
 \end{equation}
 which we from now on implement, reducing the number of first-order gravitational constants by two to eight. Thus, we have ruled out the possibility of deviating \emph{too much}\footnote{In the specific sense explained above.} from Einstein gravity already in the regime of weak birefringence and restricted perturbative area metric gravity to a phenomenologically plausible sector. In this subtheory, the scalar fields around a point mass reduce to
-\begin{equation}\label{linearized_schwarzschild_solution}
+\begin{equation}\label{linearised_schwarzschild_solution}
   \begin{aligned}
     V(x) &{} = 0, \\
     W(x) &{} = 0, \\
@@ -734,7 +734,7 @@ We use the parameterisation $\gamma_{(i)}^0(\lambda) = c\lambda$ and obtain by v
 \end{equation}
 and
 \begin{equation}\label{geodesic_equation}
-  0 = \ddot\gamma^a_{(i)} + \Gamma^a_{\hphantom abc}\dot\gamma^b_{(i)}\gamma^c_{(i)}.
+  0 = \ddot\gamma^a_{(i)} + \Gamma^a_{\hphantom abc}\dot\gamma^b_{(i)}\dot\gamma^c_{(i)}.
 \end{equation}
 The first equation \eqref{einstein_equation} consists of the densitised Einstein tensor on the left-hand side and the stress-energy-momentum tensor of the point particle on the right-hand side. Eq.~\eqref{geodesic_equation} is the geodesic equation on a pseudo-Riemannian manifold with the Christoffel symbols $\Gamma^a_{\hphantom abc}$. Using the slow-motion condition
 \begin{equation}
@@ -811,7 +811,7 @@ such that on the linearised background provided by the first iteration
 \end{equation}
 After all, slowly moving matter obeys---to first order---the Newtonian laws of gravity!
 
-This comes with the same inconsistencies that plague Newtonian gravity: as is obvious from the formula \eqref{newtonian_potential}, the potential sourced by a point mass diverges at the very location of the mass itself. Consequently, whenever a particle ``feels'' its own field, which is certainly the case in Eq.~\eqref{newton_equation}, infinities are involved. The culprit is the idealisation of the matter distribution as point masses. One of the remedies pointed out in Ref.\ \cite{Poisson_2014} is to forgo this idealisation and model the stars as extended fluids---taking the limit of negligible extension where necessary. Alternatively, the diverging integrals may be regularised, which has the same impact on the results. Effectively, both approaches are implemented the same way: we keep the point mass idealisation but discard diverging integrals, i.e.~when solving for the trajectory of the first particle, the diverging term
+The equations of motion come with the same inconsistencies that plague Newtonian gravity: as is obvious from the formula \eqref{newtonian_potential}, the potential sourced by a point mass diverges at the very location of the mass itself. Consequently, whenever a particle ``feels'' its own field, which is certainly the case in Eq.~\eqref{newton_equation}, infinities are involved. The culprit is the idealisation of the matter distribution as point masses. One of the remedies pointed out in Ref.\ \cite{Poisson_2014} is to forgo this idealisation and model the stars as extended fluids---taking the limit of negligible extension where necessary. Alternatively, the diverging integrals may be regularised, which has the same impact on the results. Effectively, both approaches are implemented the same way: we keep the point mass idealisation but discard diverging integrals, i.e.~when solving for the trajectory of the first particle, the diverging term
 \begin{equation}
   m_1 \int d^3\vec y \frac{\delta^{(3)}(\vec y - \vec\gamma_{(1)}(t))}{\lvert\vec y - \vec\gamma_{(1)}(t)\rvert}
 \end{equation}
@@ -909,7 +909,7 @@ We finally put together both parts with the proper constants and the prefactor o
 \begin{equation}\label{metric_radiation}
   G^2h^{\alpha\beta}_{(2)} = \frac{4\eta}{c^4 R} \frac{(Gm)^2}{r}\lbrack\lambda^\alpha\lambda^\beta - n^\alpha n^\beta\rbrack^\text{TT},
 \end{equation}
-parameterised by properties of the matter distribution (total mass $m$, reduced mass $\eta$, separation $r$), the speed of light $c$, and Newton's gravitational constant $G$. This is in exact accordance with the literature \cite{Poisson_2014} and, of course, no surprise: contemporary methods employ what is called post-Minkowskian and post-Newtonian theory \cite{Poisson_2014}, which provide a framework for more complex calculations. However, the pedestrian approach presented here is derived from the same full theory and is thus equally valid.
+parameterised by properties of the matter distribution (total mass $m$, reduced mass $\eta$, separation $r$), the speed of light $c$, and Newton's gravitational constant $G$. This is in exact accordance with the literature \cite{Poisson_2014} and, of course, no surprise. Contemporary methods employ what is called post-Minkowskian and post-Newtonian theory \cite{Poisson_2014}, which provide a framework for more complex calculations. However, the pedestrian approach presented here is derived from the same full theory and is thus equally valid.
 
 The strength of this solution procedure is that it does not presuppose knowledge of the exact (i.e.~unperturbed) dynamics and is not restricted to metric theories. Both properties are important for the analysis of the binary star in area metric gravity, a nonmetric theory of gravity for which there are no known exact dynamics. Even though we followed a top-down approach and derived the perturbative expansion of the Einstein field equations from its full form, it would have been possible to construct this expansion from the bottom up, order by order. In the following section, this will be the \emph{only} option.
 
@@ -925,22 +925,22 @@ which we already encountered when discussing the linearised Schwarzschild soluti
   P^{(\leq 1)}_\text{GLED}(k) = [1-\frac{1}{24}\epsilon(H)] \eta(k,k) + \frac{1}{2} H(k,k),
 \end{equation}
 which using the $3+1$ split introduced in Sect.~\ref{sect_three_plus_one} decomposes into
-\begin{equation}\label{area_metric_linearized_poly}
+\begin{equation}\label{area_metric_linearised_poly}
     P^{(\leq 1)}_\text{GLED}(k) = \eta(k,k) + \lbrack -2A\rbrack (k_0)^2 + \lbrack -2b^\alpha\rbrack k_0 k_\alpha + \lbrack -\frac{1}{2} u^{\alpha\beta} - \frac{1}{2} \gamma_{\mu\nu} v^{\mu\nu} \gamma^{\alpha\beta} \rbrack k_\alpha k_\beta.
 \end{equation}
-Since the causality is effectively metric, the integrand in the point particle action \eqref{area_matter_action} is given by the inverse of this metric \cite{R_tzel_2011,Rivera_2012}. To linear order, the inverse is calculated as
-\begin{equation}\label{area_matter_linearized_poly}
+Since the causality is effectively metric, the integrand in the point particle action \eqref{area_matter_action} is given by the inverse of this metric. \cite{R_tzel_2011,Rivera_2012} To linear order, the inverse is calculated as
+\begin{equation}\label{area_matter_linearised_poly}
   \lbrack\eta + h\rbrack^{-1}_{\hphantom{-1}ab} = \eta_{ab} - \eta_{ap}\eta_{pq} h^{pq} + \mathcal O(h^2),
 \end{equation}
 such that we obtain the linearised action
-\begin{equation}\label{area_linearized_matter_action}
+\begin{equation}\label{area_linearised_matter_action}
   \begin{aligned}
     S_\text{matter}\lbrack\gamma_{(1)},\gamma_{(2)},N+H) = {} & \sum_{i=1,2} m_i c\int d\lambda \Big\{ \eta_{ab}\dot\gamma^a_{(i)}\dot\gamma^b_{(i)} + 2A\dot\gamma^0_{(i)}\dot\gamma^0_{(i)} - 2b_\alpha\dot\gamma^0_{(i)}\dot\gamma^\alpha_{(i)} \\
     {} & \quad\quad + \left\lbrack\frac{1}{2}u_{\alpha\beta} + \frac{1}{2}\gamma^{\mu\nu}v_{\mu\nu}\gamma^{\alpha\beta}\right\rbrack \dot\gamma^\alpha_{(i)} \dot\gamma^\beta_{(i)} \Big\} + \mathcal O(H^2).
   \end{aligned}
 \end{equation}
 
-In addition to the linearised matter action \eqref{area_linearized_matter_action}, we also need the gravitational action expanded to third order in the area metric perturbation. Sect.~\ref{section_area_construction} was dedicated to the construction of third-order area metric Lagrangian densities $\mathcal L = L d^4x$. The result of this construction procedure will be used here in the action
+In addition to the linearised matter action \eqref{area_linearised_matter_action}, we also need the gravitational action expanded to third order in the area metric perturbation. Sect.~\ref{section_area_construction} was dedicated to the construction of third-order area metric Lagrangian densities $\mathcal L = L d^4x$. The result of this construction procedure will be used here in the action
 \begin{equation}
   S_\text{gravity}\lbrack N+H\rbrack = \frac{c^3}{16\pi G}\int d^4x \mathcal L + \mathcal O(H^4).
 \end{equation}
@@ -951,7 +951,7 @@ Due to the slow-motion condition, the first-order field equations
 \begin{equation}
   e_{(1)}\lbrack H_{(1)}\rbrack = - T_{(0)}\lbrack\gamma_{(1)},\gamma_{(2)}\rbrack,
 \end{equation}
-which where derived in Sect.~\ref{section_iterative_solution}, are only sourced by the variation of the matter action \eqref{area_linearized_matter_action} with respect to the lapse, via the equation
+which were derived in Sect.~\ref{section_iterative_solution}, are only sourced by the variation of the matter action \eqref{area_linearised_matter_action} with respect to the lapse, via the equation
 \begin{equation}
   \left(\frac{\delta S_\text{matter}}{\delta A}\right)_{(1)}\lbrack H_{(1)}\rbrack = c \rho(\vec x,t).
 \end{equation}
@@ -959,7 +959,7 @@ This is similar to the stationary case considered in Sect.~\ref{sect_area_linear
 \begin{equation}
   \rho(\vec x,t) = \sum_{i=1,2} m_i \delta^{(3)}(\vec x - \vec\gamma_{(i)}(t)).
 \end{equation}
-Since the vector and transverse traceless tensor equations are not sourced at all, we solve these by setting the respective modes to zero. Again, it is possible to add background radiation to the solution, as long as it remains negligible. The scalar modes are solved by superposition of the linearised Schwarzschild solutions \eqref{linearized_schwarzschild_solution}, in the integral representation as
+Since the vector and transverse traceless tensor equations are not sourced at all, we solve these by setting the respective modes to zero. Again, it is possible to add background radiation to the solution, as long as it remains negligible. The scalar modes are solved by superposition of the linearised Schwarzschild solutions \eqref{linearised_schwarzschild_solution}, in the integral representation as
 \begin{equation}\label{area_schwarzschild_integral}
   \begin{aligned}
     A_{(1)} = {} & -\frac{1}{c^2} \int d^3\vec y\rho(\vec y)\left\lbrack\frac{\alpha}{\lvert\vec x-\vec y\rvert} + \frac{\beta\mathrm e^{-\mu\lvert\vec x-\vec y\rvert}}{\lvert\vec x-\vec y\rvert} \right\rbrack, \\
@@ -977,7 +977,7 @@ or in the evaluated form
 \end{equation}
 The constants $\alpha$, $\beta$, $\gamma$, and $\mu$ are the four relevant first-order gravitational constants \eqref{schwarzschild_constants} for stationary or slowly moving matter configurations.
 
-For the second part of the first iteration, the matter trajectories have to be fixed. We again exploit the fact that the matter action is effectively metric, because as a consequence of this circumstance, the stars are to this order subject to the same geodesic equation \eqref{newton_equation} as in Einstein gravity. The Christoffel symbols are derived from the effective metric \eqref{area_matter_linearized_poly} with $h^{00} = -2A$, such that
+For the second part of the first iteration, the matter trajectories have to be fixed. We again exploit the fact that the matter action is effectively metric, because as a consequence of this circumstance, the stars are to this order subject to the same geodesic equation \eqref{newton_equation} as in Einstein gravity. The Christoffel symbols are derived from the effective metric \eqref{area_matter_linearised_poly} with $h^{00} = -2A$, such that
 \begin{equation}\label{newton_equation_area}
   \ddot \gamma^{\alpha}_{(i)} = - c^2 G \partial^\alpha A_{(1)},
 \end{equation}
@@ -993,7 +993,7 @@ Let us start solving the second iteration by considering the massless transverse
 \begin{equation}
   \bigg\lbrack\frac{\delta L}{\delta u^{\alpha\beta}}\bigg\rbrack^\text{TT} = \frac{1}{8\alpha} \Box U_{\alpha\beta}.
 \end{equation}
-As before, when solving the metric problem, the vectors tangent to the worldlines contribute a factor of $\sqrt{G}$ each, such that there is no contribution from $T_{(1)}\lbrack\gamma_{(1)},\gamma_{(2)},H_{(1)})$, but only from the lower order $T_{(0)}\lbrack\gamma_{(1)},\gamma_{(2)}\rbrack$. Evaluating this term by variation of the matter action \eqref{area_linearized_matter_action} with respect to the field $u^{\alpha\beta}$, we obtain the equation
+As before, when solving the metric problem, the vectors tangent to the worldlines contribute a factor of $\sqrt{G}$ each, such that there is no contribution from $T_{(1)}\lbrack\gamma_{(1)},\gamma_{(2)},H_{(1)})$, but only from the lower order $T_{(0)}\lbrack\gamma_{(1)},\gamma_{(2)}\rbrack$. Evaluating this term by variation of the matter action \eqref{area_linearised_matter_action} with respect to the field $u^{\alpha\beta}$, we obtain the equation
 \begin{equation}\label{area_massless_tt_equation}
   -\frac{c^3G}{16\pi} \frac{1}{8\alpha} \Box U^{\alpha\beta}_{(2)} = \left\{\frac{1}{4c}\sum_{i=1,2} m_i \delta^{(3)}(\vec x-\vec\gamma_{(i)}(t))\dot\gamma^\alpha_{(i)}\dot\gamma^\beta_{(i)} + \left(\frac{\delta S_\text{gravity}}{\delta u_{\alpha\beta}}\right)_{(2)}\lbrack GH_{(1)}\rbrack \right\}^\text{TT}.
 \end{equation}
@@ -1041,7 +1041,7 @@ Considering that the area metric perturbation induced by the metric perturbation
 
 The remaining propagating modes of the area metric perturbation have all shown to be governed by massive wave equations (see Sect.~\ref{sect_area_linear_eom}). Let us first consider the traceless modes, i.e.~the massive transverse traceless tensors, the vectors, and the traceless scalars. Since the coefficients in the relevant wave equations \eqref{scalar_equations_reduced}--\eqref{tensor_equations_reduced} are the same for all of these modes, regardless of whether the equations are of scalar, vector, or tensor type, all propagating traceless modes can be considered on the same footing.
 
-We define the tracefree auxiliary field $\tilde v^{\alpha\beta} = v^{\alpha\beta} - \frac{1}{3}\gamma^{\alpha\beta}\gamma_{\mu\nu}v^{\mu\nu}$. Taking appropriate linear combinations of the linearised field equations (see e.g.~\eqref{tensor_equations_decoupled}), the modes $\tilde v^{\alpha\beta}$ decouple from the modes $w^{\alpha\beta}$, such that the left-hand side $e_{(1)}\lbrack H_{(2)}\rbrack$ of the second iteration equations is given by $\Box\tilde v^{\alpha\beta}_{(2)} + \nu^2\tilde v^{\alpha\beta}_{(2)}$ and $\Box w^{\alpha\beta}_{(2)} + \nu^2 w^{\alpha\beta}_{(2)}$, respectively. Because the linearised matter action \eqref{area_linearized_matter_action} does only depend on the trace of $v^{\alpha\beta}$ and is entirely independent of $w^{\alpha\beta}$, there is no matter contribution to the second iteration. A calculation of the contribution $e_{(2)}\lbrack H_{(1)}\rbrack$, employing the previously outlined \texttt{cadabra}-based technique, yields the wave equations
+We define the tracefree auxiliary field $\tilde v^{\alpha\beta} = v^{\alpha\beta} - \frac{1}{3}\gamma^{\alpha\beta}\gamma_{\mu\nu}v^{\mu\nu}$. Taking appropriate linear combinations of the linearised field equations (see e.g.~\eqref{tensor_equations_decoupled}), the modes $\tilde v^{\alpha\beta}$ decouple from the modes $w^{\alpha\beta}$, such that the left-hand side $e_{(1)}\lbrack H_{(2)}\rbrack$ of the second iteration equations is given by $\Box\tilde v^{\alpha\beta}_{(2)} + \nu^2\tilde v^{\alpha\beta}_{(2)}$ and $\Box w^{\alpha\beta}_{(2)} + \nu^2 w^{\alpha\beta}_{(2)}$, respectively. Because the linearised matter action \eqref{area_linearised_matter_action} does only depend on the trace of $v^{\alpha\beta}$ and is entirely independent of $w^{\alpha\beta}$, there is no matter contribution to the second iteration. A calculation of the contribution $e_{(2)}\lbrack H_{(1)}\rbrack$, employing the previously outlined \texttt{cadabra}-based technique, yields the wave equations
 \begin{equation}\label{tracefree_second_order}
   \begin{aligned}
     \Box\tilde v^{\alpha\beta}_{(2)} + \nu^2\tilde v^{\alpha\beta}_{(2)} = {} & \delta \lbrack\partial^\alpha X\partial^\beta Y\rbrack^\text{TF}, \\
@@ -1068,7 +1068,7 @@ where $\theta$ is the Heaviside step function and the massive dispersion relatio
 \end{equation}
 holds. The convolution integrals work out differently this time, depending on the value of $\omega_0 \vcentcolon= 2\omega$.
 \begin{enumerate}
-  \item \underline{nonradiating solution}: $\omega_0 < c\nu$
+  \item \textbf{nonradiating solution}: $\omega_0 < c\nu$
 
     The gravitational fields decay exponentially with distance $R$ from the binary system, e.g.~in the orbit-adapted frame they are given as
     \begin{equation}\label{nonradiation_solution}
@@ -1082,7 +1082,7 @@ holds. The convolution integrals work out differently this time, depending on th
       \end{aligned}
     \end{equation}
     For the traceless modes $w^{\alpha\beta}$, we obtain the same solution, but with prefactor $\epsilon$ instead of $\delta$. Note that the oscillating part has a ``direct'' dependence on the coordinate time $t$. Characteristic behaviour of a radiating solution would be a dependence through the retarded time $\tau$.
-  \item \underline{radiating solution}: $\omega_0 > c\nu$
+  \item \textbf{radiating solution}: $\omega_0 > c\nu$
 
     The nonoscillating part of the previous solution \eqref{nonradiation_solution} is not affected. Since it decreases exponentially with $R$ and we are interested in the far zone $R \gg r$, it will be dropped from now on---being shadowed by another contribution that is proportional to $\frac{1}{R}$. This term \emph{radiates} according to
     \begin{equation}
@@ -1092,7 +1092,7 @@ holds. The convolution integrals work out differently this time, depending on th
     \begin{equation}\label{phase_massive}
       \varphi = \omega_0t-\sqrt{\omega_0^2 - (c\nu)^2} \frac{R}{c} =\vcentcolon \omega_0t - \tilde\omega\frac{R}{c}.
     \end{equation}
-    Earlier, for the massless modes, we had $\varphi = \omega_0\tau$, or equivalently $\frac{\varphi}{2} = \omega \tau$. Again, the solution for $w^{\alpha\beta}$ is the same up to the prefactor of $\delta$, which has to be replaced with $\epsilon$. The dependence on coordinate time is only via a retardation term \eqref{phase_massive}.
+    Earlier, for the massless modes, we had $\varphi = \omega_0\tau$ or, equivalently, $\frac{\varphi}{2} = \omega \tau$. Again, the solution for $w^{\alpha\beta}$ is the same up to the prefactor of $\delta$, which has to be replaced with $\epsilon$. The dependence on coordinate time is only via a retardation term \eqref{phase_massive}.
 \end{enumerate}
 
 The fact that radiation is ``switched on'' only above a certain angular frequency threshold is an expected and welcome property. It is \emph{expected} because of the mass $\nu$ in the wave equations. An analogy would be a massive particle in relativistic quantum field theory, which requires a minimum energy---its mass---in order to be created. Earlier results \cite{M_ller_2018} in area metric gravity discovered a similar behaviour for electromagnetically bound binaries, which has now been shown to extend to gravitationally bound systems, where radiation is an effect of gravitational self-coupling. The result is certainly encouraging for the viability of area metric gravity, as it once again keeps the theory very close to Einstein gravity and introduces only modest modifications, assuming that parameters are chosen appropriately. Without this property, it would be impossible to reconcile area metric gravity with the metric theory, ruling it out as a candidate for a modified theory of gravity. On the other hand, we observe a new \emph{quality}: propagation of massive gravitational waves on nonmetric\footnote{In the sense of not inducible by a metric tensor.} modes.
@@ -1177,7 +1177,7 @@ oscillating with the phase $\varphi(t) = 2\omega\tau = 2\omega(t - \frac{R}{c})$
 
 Predictions of this effect exist since the inception of general relativity. \cite{Einstein_1916_2, Einstein_1918} The confirmation of metric geodesic deviation due to incident gravitational radiation in 2015 by the LIGO and Virgo collaborations \cite{Abbott_2016} marks the culmination of 100 years of general relativity research.
 
-As far as massless modes of radiation are concerned, geodesic deviation in \emph{area metric} gravity looks roughly the same: from Eq.~\eqref{area_metric_linearized_poly}, we know that the spatial part $\varphi^{\alpha\beta}$ of the effective metric that constitutes the linearised principal polynomial and enters the deviation equation \eqref{geodesic_deviation} amounts to
+As far as massless modes of radiation are concerned, geodesic deviation in \emph{area metric} gravity looks roughly the same: from Eq.~\eqref{area_metric_linearised_poly}, we know that the spatial part $\varphi^{\alpha\beta}$ of the effective metric that constitutes the linearised principal polynomial and enters the deviation equation \eqref{geodesic_deviation} amounts to
 \begin{equation}
   \varphi^{\alpha\beta} = \frac{1}{2} u^{\alpha\beta} + \frac{1}{2}\gamma_{\mu\nu}v^{\mu\nu} \gamma^{\alpha\beta}.
 \end{equation}
@@ -1194,9 +1194,9 @@ More intrusive modifications would come from vector or scalar contributions to E
 \subsection{Binary star spin-up}
 While the gravitational radiation that causes geodesic deviation is produced as second-order effect, the deviation \emph{per se} has only been studied to first order in the previous section. Similar results would hold for incident waves that have their origin in linearised gravity, like the radiation that is emitted from nongravitationally bound systems \cite{M_ller_2018}.
 
-An effect that cannot be observed in a solely linearised setting is \emph{radiation reaction}: during the iterative solution procedure, the matter trajectories have been fixed to first order, which provides the background for the second-order gravitational field we were interested in. This is by no means necessary---it is possible to solve for higher orders $n$ before fixing the matter fields, which then enables the prediction of the gravitational field to order $n+1$. The modern treatment of post-Newtonian and post-Minkowskian general relativity proceeds in exactly this way \cite{Poisson_2014}. Doing so, the matter trajectories accumulate corrections, which are \emph{backreactions} from the gravitational field sourced by the matter content itself. In the context of a gravitationally bound matter distribution which emits gravitational radiation to second order, these backreactions are often referred to as radiation reaction.
+An effect that cannot be observed in a solely linearised setting is \emph{radiation reaction}: during the iterative solution procedure, the matter trajectories have been fixed to first order, which provides the background for the second-order gravitational field we were interested in. This is by no means necessary---it is possible to solve for higher orders $n$ before fixing the matter fields, which then enables the prediction of the gravitational field to order $n+1$. The modern treatment of post-Newtonian and post-Minkowskian general relativity proceeds in exactly this way. \cite{Poisson_2014} Doing so, the matter trajectories accumulate corrections, which are \emph{backreactions} from the gravitational field sourced by the matter content itself. In the context of a gravitationally bound matter distribution which emits gravitational radiation to second order, these backreactions are often referred to as radiation reaction.
 
-In general relativity, the aforementioned modern perturbative treatment yields detailed predictions for the deviation of a binary system from the Kepler orbits. These calculations are quite intricate, taking into account not only higher perturbation orders but also the internal structure of the binaries. For a tentative qualitative result, however, we do not need to go there. Noether's second theorem (see Thm.~\ref{thm_second_noether}) provides us with a tool that resembles energy conservation equations.\footnote{The notion of \emph{energy} in general relativity and, more specifically, \emph{energy conservation} is subject to many debates. General relativity does not exhibit the kind of time-translation symmetry that is usually the justification for the definition of energy. In the setting considered here, where the matter content is localised to a specific region of spacetime and the geometry is asymptotically flat, such a notion can be recovered from symmetries that hold asymptotically. \cite{Arnowitt_1960} For our purposes, we do not rely on the interpretation of certain quantities as energies or momenta. They are just derived quantities from the fundamental fields. Changes in these quantities are interesting insofar as they pertain to changes in the underlying fields.} Loosely speaking, gravitational waves radiate away energy from the system, decimating the radius of the Kepler orbits, which results---via Kepler's third law---in the binary star \emph{spinning up}. The qualitative analysis from ``energy conservation'' yields a rate of change for the angular frequency but cannot predict how exactly the trajectories are affected, e.g.~how the phase shifts. Still, the prediction\footnote{Considering, of course, the eccentric case with the appropriate parameters.} for the orbital period decrease $dP/dt$ of the Hulse-Taylor pulsar PSR\,B1913+6 is in very strong agreement with the measurement, as the ratio amounts to \cite{Weisberg_2016}
+In general relativity, the aforementioned modern perturbative treatment yields detailed predictions for the deviation of a binary system from Kepler orbits. These calculations are quite intricate, taking into account not only higher perturbation orders but also the internal structure of the binaries. For a tentative qualitative result, however, we do not need to go there. Noether's second theorem (see Thm.~\ref{thm_second_noether}) provides us with a tool that resembles energy conservation equations.\footnote{The notion of \emph{energy} in general relativity and, more specifically, \emph{energy conservation} is subject to many debates. General relativity does not exhibit the kind of time-translation symmetry that is usually the justification for the definition of energy. In the setting considered here, where the matter content is localised to a specific region of spacetime and the geometry is asymptotically flat, such a notion can be recovered from symmetries that hold asymptotically. \cite{Arnowitt_1960} For our purposes, we do not rely on the interpretation of certain quantities as energies or momenta. They are just derived quantities from the fundamental fields. Changes in these quantities are interesting insofar as they pertain to changes in the underlying fields.} Loosely speaking, gravitational waves radiate away energy from the system, decimating the radius of the Kepler orbits, which results---via Kepler's third law---in the binary star \emph{spinning up}. The qualitative analysis from ``energy conservation'' yields a rate of change for the angular frequency but cannot predict how exactly the trajectories are affected, e.g.~how the phase shifts. Still, the prediction\footnote{Considering, of course, the eccentric case with the appropriate parameters.} for the orbital period decrease $dP/dt$ of the Hulse-Taylor pulsar PSR\,B1913+6 is in very strong agreement with the measurement, as the ratio amounts to \cite{Weisberg_2016}
 \begin{equation}
   \frac{(dP/dt)_\text{observed}}{(dP/dt)_\text{predicted}} = 0.9983 \pm 0.0016.
 \end{equation}
@@ -1241,7 +1241,7 @@ Thus, the left-hand side of the balance equation \eqref{first_balance_equation} 
 \begin{equation}\label{balance_lhs}
   \dot{\mathcal H}_\text{matter} = \frac{1}{c}\dot E = \frac{1}{2c}\eta G m^2 \frac{\dot r}{r^2}.
 \end{equation}
-For the right hand side, we have the full densitised Einstein tensor $\mathcal G^{ab} = \frac{16\pi G}{c^3} \frac{\delta L_\text{gravity}}{\delta g_{ab}}$ at our disposal. To lowest order, the integral amounts to
+For the right-hand side, we have the full densitised Einstein tensor $\mathcal G^{ab} = \frac{16\pi G}{c^3} \frac{\delta L_\text{gravity}}{\delta g_{ab}}$ at our disposal. To lowest order, the integral amounts to
 \begin{equation}\label{metric_spindown_rhs}
   \begin{aligned}
     c\int_{S_\infty} \gmc{A}{B}{\alpha}{0} \frac{\delta L_\text{gravity}}{\delta g^A}g^BdS_\alpha = {} & \frac{c^4}{8\pi G}\int_{S_\infty} g_{0a} \mathcal G^{a\alpha}dS_\alpha \\

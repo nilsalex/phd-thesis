@@ -25,7 +25,7 @@ For the purpose of the present work, a \emph{Lagrangian field theory} will be a 
 
 Both theories are Lagrangian because they derive their dynamical laws in a certain geometric manner. The mechanism will be explained in the following, but first, let us fix some of the notation involved.
 
-A bundle is denoted as $E\overset{\pi}{\longrightarrow}M$, where $E$ is the total space, $M$ is the base manifold, $\pi$ is the submersion. As a shorthand, it is common to write just $\pi$---it is then understood that total space and base manifold are domain and co-domain of $\pi$, respectively. The dimension of $M$ is written as $n$, the dimension of a typical fibre $F$ of $\pi$ as $m$. Coordinate functions on $E$ are denoted by $(x^i,u^A)$. Such coordinates extend to the $k$th jet bundle $J^kE \overset{\pi_k}{\longrightarrow}M$ over $\pi$ as $(x^i,\allowbreak u^A,\allowbreak u^A_{i_1},\allowbreak u^A_{i_1i_2},\allowbreak \dots,\allowbreak u^A_{i_1\dots i_k})$. The literature on jet bundles mostly employs multi-indices for higher-order jet bundles (see e.g.\ Ref.\ \cite{Saunders_1989}), which is certainly the right approach for studying the properties of jet bundles, but for practical calculations on the second-order jet bundle performed below the intertwiner technique (see Def.~\ref{def_intertwiner}) will be used. This technique is equally able to take care of ambiguities regarding symmetric indices. Prolongations of sections $\sigma$ are denoted with $j^k(\sigma)$, projections between jet bundles of different order with $\pi_{k,k^\prime}(\sigma)$. The latter are submersions in their own right and thus also define bundle projections. Total derivatives are written as $D_i$. Throughout, the Einstein summation convention is used.
+A bundle is denoted as $E\overset{\pi}{\longrightarrow}M$, where $E$ is the total space, $M$ is the base manifold, $\pi$ is the submersion. As a shorthand, it is common to write just $\pi$---it is then understood that total space and base manifold are domain and co-domain of $\pi$, respectively. The dimension of $M$ is written as $n$, the dimension of a typical fibre $F$ of $\pi$ as $m$. Coordinate functions on $E$ are denoted by $(x^i,u^A)$. Such coordinates extend to the $k$th jet bundle $J^kE \overset{\pi_k}{\longrightarrow}M$ over $\pi$ as $(x^i,\allowbreak u^A,\allowbreak u^A_{i_1},\allowbreak u^A_{i_1i_2},\allowbreak \dots,\allowbreak u^A_{i_1\dots i_k})$. The literature on jet bundles mostly employs multi-indices for higher-order jet bundles (see e.g.\ Ref.\ \cite{Saunders_1989}), which is certainly the right approach for studying the properties of jet bundles, but for practical calculations on the second-order jet bundle performed below the intertwiner technique (see Def.~\ref{def_intertwiner}) will be used. This technique is equally able to take care of ambiguities regarding symmetric indices. Prolongations of sections $\sigma$ are denoted with $j^k(\sigma)$, projections between jet bundles of different orders with $\pi_{k,k^\prime}(\sigma)$. The latter are submersions in their own right and thus also define bundle projections. Total derivatives are written as $D_i$. Throughout, the Einstein summation convention is used.
 
 \begin{definition}[Lagrangian \cite{Saunders_1989}]
   Let $M$ be a smooth manifold of dimension $n$ and $E \overset{\pi}{\longrightarrow} M$ a smooth fibre bundle over $M$ with typical fibre $F$. A \emph{Lagrangian} $\mathscr L$ of order $k$ is an element
@@ -137,7 +137,7 @@ and on component functions of covector fields as\footnote{As for any group homom
 ((\varphi^{-1})^\ast\omega)_{(y)j}(y(\varphi(p))) = \frac{\partial (x^i\circ \varphi^{-1})}{\partial y^j}\Bigg\rvert_{\varphi(p)} \cdot \omega_{(x)i}(x(p)).
 \end{equation}
 
-We wish to encode \eqref{lagrangian_diffeo_invariance} as local conditions on the Lagrangian density. To this end, consider a coordinate representation $\mathscr L = Ld^nx$. 
+We wish to encode \eqref{lagrangian_diffeo_invariance} as local conditions on the Lagrangian density. To this end, consider a coordinate representation $\mathscr L = L_{(x)}d^nx$. 
 \begin{proposition}
   Let $\mathscr L = L_{(x)}d^nx$ be a coordinate representation of a diffeomorphism invariant Lagrangian, induced by a coordinate chart $(U,x)$ on $M$. It follows from the invariance condition \eqref{lagrangian_diffeo_invariance} that $L_{(x)}$ is \emph{diffeomorphism equivariant}, i.e.\ it holds for all $\varphi\in\mathrm{Diff}(M)$ that, over the intersection of $U$ and $\varphi(U)$,
   \begin{equation}\label{lagrangian_density_diffeo_equivariance}
@@ -257,7 +257,7 @@ The Gotay-Marsden coefficients are the defining objects for the PDE version of t
   \end{subequations}
 \end{theorem}
 \begin{proof}
-  Given a vector field $X$ on $E$, the lift to the total space $J^2E$ of the second jet bundle is uniquely defined \cite{Saunders_1989}. Applying this lift to the vector field $\xi_E$ corresponding to $\xi\in \Gamma(TM)$ yields the vector field
+  Given a vector field $X$ on $E$, the lift to the total space $J^2E$ of the second jet bundle is uniquely defined. \cite{Saunders_1989} Applying this lift to the vector field $\xi_E$ corresponding to $\xi\in \Gamma(TM)$ yields the vector field
   \begin{equation}\label{vector_field_2nd_prolongation}
     \begin{aligned}
       \xi_{J^2E} &{} \vcentcolon= \xi^m\partial_m \\
@@ -267,7 +267,7 @@ The Gotay-Marsden coefficients are the defining objects for the PDE version of t
                  &{} \hphantom{\vcentcolon=} + \gmc{A}{B}{n}{m} J_I^{pq} u^B \xi^m_{,npq} \partial_A^{\hphantom AI}.
     \end{aligned}
   \end{equation}
-  Like before, the map $\xi\mapsto\xi_{J^2E}$ constitutes a Lie algebra morphism from $\Gamma(TM)$ to $\Gamma(\pi_2)$.
+  Like before, the map $\xi\mapsto\xi_{J^2E}$ constitutes a Lie algebra morphism from $\Gamma(TM)$ to $\Gamma(TJ^2E)$.
 
   Assuming that \eqref{lagrangian_density_diffeo_equivariance} holds, we obtain the infinitesimal version by acting on $L$ with $\xi_{J^2E}$ for the left-hand side and approximating $\lvert d\varphi\rvert^{-1}$ as $1 - \xi^m_{,m}$ for the right-hand side. Equating both sides yields
   \begin{equation}\label{infinitesimal_with_vector}
@@ -306,7 +306,7 @@ The first step is to realise that the Cartan form for a diffeomorphism invariant
   See \cite{Abraham_1987,Gotay_1998}.
 \end{proof}
 Using the infinitesimal version $\mathcal L_{\xi_{J^{2k-1}E}} \Theta_L = 0$ of the diffeomorphism invariance of $\Theta_L$, the first Noether theorem follows as a direct consequence.
-\begin{theorem}[First Noether theorem \cite{Gotay_1992}]\label{thm_first_noether}
+\begin{theorem}[first Noether theorem \cite{Gotay_1992}]\label{thm_first_noether}
   Let $\mathscr L$ be a diffeomorphism invariant Lagrangian and $\Theta_L$ a corresponding Cartan form. For any lifted generator $\xi_{J^{2k-1}E}$ of the diffeomorphism action and any section $\sigma\in\Gamma(\pi)$ satisfying the Euler-Lagrange equations $j^{2k}(\sigma)^\ast(\delta L)=0$, it follows that the current defined as
   \begin{equation}
     \boldsymbol{j}(\sigma) = (j^{2k-1}\sigma)^\ast \iota_{\xi_{J^{2k-1}E}} \Theta_L
@@ -416,7 +416,7 @@ Eq.~\eqref{first_noether_eq} defines a current which is conserved \emph{on shell
 According to \eqref{sem_tensor_result}, the Gotay-Marsden stress-energy-momentum tensor density vanishes identically \emph{on shell}, i.e.\ for sections solving the Euler-Lagrange equations---a recurring theme in the analysis of generally covariant theories. The first-order version of Thm.~\ref{sem_thm}, proven in Ref.\ \cite{Gotay_1992}, settled a long-standing debate about SEM tensors densities by providing a definition which is based on Noether theory and naturally satisfies a \emph{generalised Belinfante-Rosenfeld formula}.\footnote{For general relativity, the Belinfante-Rosenfeld formula \cite{Belinfante_1940,Rosenfeld_1940} relates the SEM tensor density obtained from Noether theory by considering translations to the Hilbert SEM tensor density, which is defined as the source density of the Einstein equations. \cite{Gotay_1992} This comes with a seemingly \emph{ad hoc} symmetrisation of the Noether SEM tensor density. The generalised Belinfante-Rosenfeld formula \cite{Gotay_1992} relates the Gotay-Marsden SEM tensor density \eqref{sem_tensor_result} to the Noether SEM tensor density without such choices, just by considering currents and spacetime diffeomorphisms.}
 
 In addition, the Gotay-Marsden SEM tensor density lends itself for a concise formulation of Noether's second theorem, based on a previous result \cite{Gotay_1992} for first-order theories.
-\begin{theorem}[Second Noether theorem]\label{thm_second_noether}
+\begin{theorem}[second Noether theorem]\label{thm_second_noether}
   Consider a second-derivative-order Lagrangian with local representative $L$ on a tensor field bundle. If the Lagrangian is invariant with respect to diffeomorphisms, the corresponding Gotay-Marsden stress-energy-momentum tensor density $\mathcal T^n_m$ satisfies the differential relation
   \begin{equation}\label{second_noether}
     D_n \mathcal T^n_m = \frac{\delta L}{\delta u^A} u^A_{\hphantom Am}.
