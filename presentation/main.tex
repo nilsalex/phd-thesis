@@ -1,18 +1,50 @@
 \documentclass{beamer}
 \usepackage{amsmath}
 \usetheme{metropolis}
+\usepackage{xcolor}
+
 \title{Covariant Constructive Gravity}
 \date{14 June 2022}
 \author{Nils Alex}
 \institute{FAU Erlangen-Nürnberg}
+
 \begin{document}
     \maketitle
 
+    \begin{frame}{Outline}
+        \tableofcontents
+    \end{frame}
 
-    \section{Constructive Gravity}\label{sec:constructive-gravity}
+
+    \section{Matter and Gravity}\label{sec:matter-and-gravity}
+
     \begin{frame}{Matter and Gravity}
+        \Large
+        \textit{``Space tells matter how to move \\
+        Matter tells space how to curve''}
+
+        \normalsize
+        ---John Archibald Wheeler, Gravitation (1973)
+    \end{frame}
+
+    \begin{frame}{Matter and Gravity}
+        Maxwell's equations
+        \begin{align*}
+            \operatorname{div} E &= 4\pi \rho & \operatorname{div} B &= 0 \\
+            \operatorname{rot} E &= - \partial_t B & \operatorname{rot} B &= 4\pi j + \partial_t E
+        \end{align*} \pause
+        derived from the covariant action
         \[
-            S_\text{Maxwell} = \int \eta^{ac} \eta^{bd} F_{ab} F_{cd} d^4 x
+            S_\text{Maxwell} = \int \only<2>{\eta^{ac} \eta^{bd} F_{ab} F_{cd}} \only<3>{{\color{red}\eta^{ac} \eta^{bd}} {\color{blue}F_{ab} F_{cd}}} d^4 x
         \]
     \end{frame}
+
+    \section{Covariant Constructive Gravity}\label{sec:covariant-constructive-gravity}
+
+    \section{Perturbation Theory}\label{sec:perturbation-theory}
+
+    \section{Application: Gravitational Radiation from Birefringent Theories}\label{sec:application}
+
+    \section{Conclusions}\label{sec:conclusions}
+
 \end{document}
