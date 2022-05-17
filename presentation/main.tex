@@ -1,50 +1,81 @@
 \documentclass{beamer}
+\usepackage{fontspec}
+\usepackage{polyglossia}
 \usepackage{amsmath}
-\usetheme{metropolis}
 \usepackage{xcolor}
 
+\usetheme{metropolis}
+\setmainlanguage[babelshorthands=true]{german}
+
 \title{Covariant Constructive Gravity}
-\date{14 June 2022}
+\date{14.\ Juni 2022}
 \author{Nils Alex}
 \institute{FAU Erlangen-Nürnberg}
 
 \begin{document}
     \maketitle
 
-    \begin{frame}{Outline}
+    \begin{frame}{Gliederung}
         \tableofcontents
     \end{frame}
 
 
-    \section{Matter and Gravity}\label{sec:matter-and-gravity}
+    \section{Gravitation: Materie und Geometrie}\label{sec:materie-und-geometrie}
 
-    \begin{frame}{Matter and Gravity}
+    \begin{frame}{}
         \Large
-        \textit{``Space tells matter how to move \\
-        Matter tells space how to curve''}
+        \textit{„Space tells matter how to move \\
+        Matter tells space how to curve“}
 
         \normalsize
         ---John Archibald Wheeler, Gravitation (1973)
     \end{frame}
 
-    \begin{frame}{Matter and Gravity}
-        Maxwell's equations
-        \begin{align*}
-            \operatorname{div} E &= 4\pi \rho & \operatorname{div} B &= 0 \\
-            \operatorname{rot} E &= - \partial_t B & \operatorname{rot} B &= 4\pi j + \partial_t E
-        \end{align*} \pause
-        derived from the covariant action
-        \[
-            S_\text{Maxwell} = \int \only<2>{\eta^{ac} \eta^{bd} F_{ab} F_{cd}} \only<3>{{\color{red}\eta^{ac} \eta^{bd}} {\color{blue}F_{ab} F_{cd}}} d^4 x
-        \]
+    \begin{frame}{Space tells matter how to move ...}
+        \begin{itemize}
+            \item{Punktmassen maximieren die {\color{blue}Länge} ihrer Weltlinie \\
+                \[ S = m \int \sqrt{{\color{blue}g(}\dot\gamma(\lambda),\dot\gamma(\lambda){\color{blue})}} d\lambda \]} \pause
+            \item{Die Konstanten der Maxwell-Gleichungen
+                \begin{align*}
+                    \mathop{\color{blue}\operatorname{div}} E &= 4\pi \rho & \operatorname{div} B &= 0 \\
+                    \mathop{\color{blue}+} \partial_t E \mathop{\color{blue}-} \mathop{\color{blue}\operatorname{rot}} B &= \mathop{\color{blue}-}4\pi j & \partial_t B + \operatorname{rot} E &= 0,
+                \end{align*}
+                sind Geometrie, erkennbar an der kovarianten Wirkung
+                \[
+                    S = \int \sqrt{-\color{blue}g}{\color{blue}g^{ac}g^{bd}} F_{ab} F_{cd} d^4 x
+                \]
+            }
+        \end{itemize}
     \end{frame}
 
-    \section{Covariant Constructive Gravity}\label{sec:covariant-constructive-gravity}
+    \begin{frame}{Space tells matter how to move ...}
+        \begin{itemize}
+            \item{Das gesamte Standardmodell der Teilchenphysik ist von metrischer Geometrie bestimmt.} \pause
+            \item{... wer bestimmt die Geometrie?}
+        \end{itemize}
+    \end{frame}
 
-    \section{Perturbation Theory}\label{sec:perturbation-theory}
+    \begin{frame}{... Matter tells space how to curve}
+        \begin{itemize}
+            \item{Gravitation ist die dynamische Theorie der Raumzeitmetrik} \pause
+            \item{Einstein-Hilbert:
+                \begin{gather*}
+                    S = \int \sqrt{-g} R d^4 x \\
+                    \Rightarrow G_{ab} = T_{ab}
+                \end{gather*}}
+        \end{itemize}
+    \end{frame}
 
-    \section{Application: Gravitational Radiation from Birefringent Theories}\label{sec:application}
 
-    \section{Conclusions}\label{sec:conclusions}
+    \section{Constructive Gravity}\label{sec:constructive-gravity}
+
+
+    \section{Störungstheorie}\label{sec:stoerungstheorie}
+
+
+    \section{Anwendung: Gravitationswellen von Doppelbrechender Materie}\label{sec:anwendung}
+
+
+    \section{Ausblick}\label{sec:ausblick}
 
 \end{document}
