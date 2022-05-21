@@ -16,7 +16,7 @@
     \maketitle
 
     \begin{frame}{Gliederung}
-        \tableofcontents
+        \tableofcontents[pausesections]
     \end{frame}
 
 
@@ -31,43 +31,58 @@
         ---John Archibald Wheeler, Gravitation (1973)
     \end{frame}
 
-    \begin{frame}{Space tells matter how to move ...}
+    \begin{frame}{Space tells matter how to move \ldots}
         \begin{itemize}
-            \item{Punktmassen maximieren die {\color{blue}Länge} ihrer Weltlinie \\
-                \[ S = m \int \sqrt{{\color{blue}g(}\dot\gamma(\lambda),\dot\gamma(\lambda){\color{blue})}} d\lambda \]} \pause
-            \item{Die Konstanten der Maxwell-Gleichungen
-                \begin{align*}
-                    \mathop{\color{blue}\operatorname{div}} E &= 4\pi \rho & \operatorname{div} B &= 0 \\
-                    \mathop{\color{blue}+} \partial_t E \mathop{\color{blue}-} \mathop{\color{blue}\operatorname{rot}} B &= \mathop{\color{blue}-}4\pi j & \partial_t B + \operatorname{rot} E &= 0,
-                \end{align*}
-                sind Geometrie, erkennbar an der kovarianten Wirkung
-                \[
-                    S = \int \sqrt{-\color{blue}g}{\color{blue}g^{ac}g^{bd}} F_{ab} F_{cd} d^4 x
-                \]
-            }
+            \item Punktmassen maximieren die {\color{blue}Länge} ihrer Weltlinie \\
+            \[ S = m \int \sqrt{{\color{blue}g(}\dot\gamma(\lambda),\dot\gamma(\lambda){\color{blue})}} d\lambda \] \pause
+            \item Die Konstanten der Maxwell-Gleichungen
+            \begin{align*}
+                \mathop{\color{blue}\operatorname{div}} E &= 4\pi \rho & \operatorname{div} B &= 0 \\
+                \mathop{\color{blue}+} \partial_t E \mathop{\color{blue}-} \mathop{\color{blue}\operatorname{rot}} B &= \mathop{\color{blue}-}4\pi j & \partial_t B + \operatorname{rot} E &= 0,
+            \end{align*}
+            sind Geometrie, erkennbar an der kovarianten Wirkung
+            \[
+                S = \int \sqrt{-\color{blue}g}{\color{blue}g^{ac}g^{bd}} F_{ab} F_{cd} d^4 x
+            \]
         \end{itemize}
     \end{frame}
 
-    \begin{frame}{Space tells matter how to move ...}
+    \begin{frame}{Space tells matter how to move \ldots}
         \begin{itemize}
-            \item{Das gesamte Standardmodell der Teilchenphysik ist von metrischer Geometrie bestimmt.} \pause
-            \item{... wer bestimmt die Geometrie?}
+            \item Das gesamte Standardmodell der Teilchenphysik ist von metrischer Geometrie bestimmt. \pause
+            \item \ldots wer bestimmt die Geometrie?
         \end{itemize}
     \end{frame}
 
     \begin{frame}{... Matter tells space how to curve}
         \begin{itemize}
-            \item{Gravitation ist die dynamische Theorie der Raumzeitmetrik} \pause
-            \item{Einstein-Hilbert:
-                \begin{gather*}
-                    S = \int \sqrt{-g} R d^4 x \\
-                    \Rightarrow G_{ab} = T_{ab}
-                \end{gather*}}
+            \item Gravitation ist die dynamische Theorie der Raumzeitmetrik \pause
+            \item Einstein-Hilbert:
+            \begin{gather*}
+                S = \int \sqrt{-g} R d^4 x \\
+                \Rightarrow G_{ab} = T_{ab}
+            \end{gather*}
         \end{itemize}
     \end{frame}
 
 
     \section{Constructive Gravity}\label{sec:constructive-gravity}
+
+    \begin{frame}{Eindeutigkeit der Allgemeinen Relativitätstheorie}
+        Einsteins Allgemeine Relativitätstheorie (ART) ist die einzig mögliche dynamische Theorie
+        der Raumzeitmetrik \pause
+        \begin{itemize}
+            \item \textbf{HKT (1976):} ART als eindeutige Darstellung der kanonischen Dirac-Algebra
+            \begin{align*}
+                \{ D(\vec N), D(\vec M) \} &= -D(\mathcal L_{\vec M} \vec N) \\
+                \{ H(N), D(\vec M) \} &= -H(\mathcal L_{\vec M} N) \\
+                \{ H(N), H(M) \} &= H(g^{\alpha\beta}(M\partial_\alpha N - N\partial_\alpha M))
+            \end{align*} \pause
+            \item \textbf{Lovelock (1969):} Einstein-Gleichungen folgen aus allgemeiner Kovarianz \pause
+            \item \textbf{Deser (1970):} Einstein-Hilbert-Wirkung folgt aus linearisierter ART und allgemein kovarianten
+            Selbstwechselwirkungstermen bis Ordnung $\infty$
+        \end{itemize}
+    \end{frame}
 
 
     \section{Störungstheorie}\label{sec:stoerungstheorie}
