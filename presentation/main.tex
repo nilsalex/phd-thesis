@@ -3,6 +3,8 @@
 \usepackage{polyglossia}
 \usepackage{amsmath}
 \usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{calc,tikzmark}
 
 \usetheme{metropolis}
 \setmainlanguage[babelshorthands=true]{german}
@@ -33,8 +35,8 @@
 
     \begin{frame}{Space tells matter how to move \ldots}
         \begin{itemize}
-            \item Punktmassen maximieren die {\color{blue}Länge} ihrer Weltlinie \\
-            \[ S = m \int \sqrt{{\color{blue}g(}\dot\gamma(\lambda),\dot\gamma(\lambda){\color{blue})}} d\lambda \] \pause
+            \item {\setlength{\belowdisplayskip}{-5pt}Punktmassen maximieren die {\color{blue}Länge} ihrer Weltlinie
+                \[ S = m \int \sqrt{{\color{blue}g(}\dot\gamma(\lambda),\dot\gamma(\lambda){\color{blue})}} d\lambda \]} \pause
             \item Die Konstanten der Maxwell-Gleichungen
             \begin{align*}
                 \mathop{\color{blue}\operatorname{div}} E &= 4\pi \rho & \operatorname{div} B &= 0 \\
@@ -49,7 +51,7 @@
 
     \begin{frame}{Space tells matter how to move \ldots}
         \begin{itemize}
-            \item Das gesamte Standardmodell der Teilchenphysik ist von metrischer Geometrie bestimmt. \pause
+            \item Das gesamte Standardmodell der Teilchenphysik (SMTP) ist von metrischer Geometrie bestimmt. \pause
             \item \ldots wer bestimmt die Geometrie?
         \end{itemize}
     \end{frame}
@@ -72,7 +74,8 @@
         Einsteins Allgemeine Relativitätstheorie (ART) ist die einzig mögliche dynamische Theorie
         der Raumzeitmetrik \pause
         \begin{itemize}
-            \item \textbf{HKT (1976):} ART als eindeutige Darstellung der kanonischen Dirac-Algebra
+            \setlength{\belowdisplayskip}{-10pt}
+            \item \textbf{Hochman, Kuchař, Teitelboim (1976):} kanonische ART als eindeutige Darstellung der Dirac-Algebra
             \begin{align*}
                 \{ D(\vec N), D(\vec M) \} &= -D(\mathcal L_{\vec M} \vec N) \\
                 \{ H(N), D(\vec M) \} &= -H(\mathcal L_{\vec M} N) \\
@@ -82,6 +85,28 @@
             \item \textbf{Deser (1970):} Einstein-Hilbert-Wirkung folgt aus linearisierter ART und allgemein kovarianten
             Selbstwechselwirkungstermen bis Ordnung $\infty$
         \end{itemize}
+    \end{frame}
+
+    \begin{frame}{Modifizierte Gravitation}
+        \begin{itemize}
+            \item SMTP + ART haben nur begrenzte Gültigkeit \pause
+            \begin{itemize}
+                \item Rotationskurven von Galaxien \pause
+                \item Singularitäten (Schwarze Löcher, Urknall) \pause
+                \item Teilchenphysik ?? \pause
+                \item \ldots \pause
+            \end{itemize}
+            \item Modifikationen oder Erweiterungen unterliegen den Eindeutigkeitsresultaten! \pause
+            \begin{itemize}
+                \item Materietheorie bleibt rein metrisch, oder \pause
+                \item \only<8-9>{Materietheorie benutzt andere Geometrie, oder}\only<10>{\alert{\tikzmarknode{a}{Materietheorie benutzt andere Geometrie}}, oder} \pause
+                \item Grundannahmen müssen verworfen werden \pause
+            \end{itemize}
+        \end{itemize}
+        \begin{tikzpicture}[overlay,remember picture]
+            \draw<10>[->,mLightBrown,thick,smooth,out=30,in=270] ([yshift=-1.2cm]a.south) to ([xshift=.77cm,yshift=-3pt]a.south);
+            \node<10>[mLightBrown] at ([xshift=-.45cm,yshift=-1.45cm]a.south) {Constructive Gravity};
+        \end{tikzpicture}
     \end{frame}
 
 
