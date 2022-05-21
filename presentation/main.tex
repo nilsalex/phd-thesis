@@ -2,6 +2,8 @@
 \usepackage{fontspec}
 \usepackage{polyglossia}
 \usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{mathrsfs}
 \usepackage{xcolor}
 \usepackage{tikz}
 \usetikzlibrary{calc,tikzmark}
@@ -122,11 +124,12 @@
     \begin{frame}{Kanonische Konstruktive Gravitation}
         \begin{itemize}
             \item Resultat von HKT lässt sich verallgemeinern für beliebige tensorielle Geometrien \pause
-            \item Konstruktionsprinzip: Constraint-Algebra der Gravitation muss die
+            \item Prinzip: Constraint-Algebra der Gravitation muss die
             Hyperflächendeformationsalgebra implementieren \pause
             \item Entspricht einem unendlichen System von PDEs für die Lagrangedichte \pause
             \item Störungstheorie oder Symmetriereduktion möglich \pause
-            \item Giesel et al.\ (2012), \ldots
+            \item Kausalität ?? \pause
+            \item Giesel et al.\ (2012), ?? \ldots
         \end{itemize}
     \end{frame}
 
@@ -134,7 +137,8 @@
         \begin{itemize}
             \item Komplementärer Ansatz: Postulat der allgemeinen Kovarianz direkt für die Lagrangedichte \pause
             \item Verwandt mit Lovelock und Deser \pause
-            \item „Kovariant“, weil kein 3+1 Split die manifeste Diffeomorphismeninvarianz bricht
+            \item „Kovariant“, weil kein 3+1 Split die manifeste Diffeomorphismeninvarianz bricht \pause
+            \item Prinzipien, mathematische Implementierung, Beispiele im Rest dieses Vortrages
         \end{itemize}
     \end{frame}
 
@@ -142,6 +146,19 @@
     \section{Kovariante Konstruktive Gravitation}\label{sec:covariant-constructive-gravity}
 
     \begin{frame}{Lagrange-Formalismus}
+        \begin{itemize}
+            \item Geometrie ist ein Tensorbündel $E \xrightarrow{\pi} M$ über einer differenzierbaren
+            Raumzeitmannigfaltigkeit\footnote{$\operatorname{dim} M = n, \operatorname{dim} E = n + m$}, z.B.\ \pause
+            \begin{itemize}
+                \item Metrisches Bündel $\operatorname{Sym}(T^0_2 M)$ \pause
+                \item Bi-Metrisches Bündel $\operatorname{Sym}(T^0_2 M) \oplus_M \operatorname{Sym}(T^0_2 M)$ \pause
+                \item Area-Metrisches Bündel als Sub-Bündel von $T^4_0 M$ \pause
+            \end{itemize}
+            \item Lagrangian $\mathscr L \in \bigwedge^n_0 \pi_2$ ist eine horizontale $n$-Form auf dem
+            2.\ Jet-Bündel $J^2 E \xrightarrow{\pi_2} M$ \pause
+            \item In Koordinaten
+            \[ \mathscr{L} = L(x^i, u^A, u^A_i, u^A_{ij}) dx^1 \wedge \dots \wedge dx^n \]
+        \end{itemize}
     \end{frame}
 
 
