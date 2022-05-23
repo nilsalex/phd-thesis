@@ -11,6 +11,9 @@
 \usetheme{metropolis}
 \setmainlanguage[babelshorthands=true]{german}
 
+\newcommand{\gmc}[4]{\ensuremath{C^{#1\hphantom{#2}#3}_{\hphantom{#1}{#2}\hphantom{#3}#4}}}
+\newcommand{\gmcd}[4]{\ensuremath{C_{#1\hphantom{#2#3}#4}^{\hphantom{#1}{#2}#3}}}
+
 \title{Covariant Constructive Gravity}
 \date{14.\ Juni 2022}
 \author{Nils Alex}
@@ -148,7 +151,7 @@
     \begin{frame}{Lagrange-Formalismus}
         \begin{itemize}
             \item Geometrie ist ein Tensorbündel $E \xrightarrow{\pi} M$ über einer differenzierbaren
-            Raumzeitmannigfaltigkeit\footnote{$\operatorname{dim} M = n, \operatorname{dim} E = n + m$}, z.B.\ \pause
+            Raumzeitmannigfaltigkeit, z.B.\ \pause
             \begin{itemize}
                 \item Metrisches Bündel $\operatorname{Sym}(T^0_2 M)$ \pause
                 \item Bi-Metrisches Bündel $\operatorname{Sym}(T^0_2 M) \oplus_M \operatorname{Sym}(T^0_2 M)$ \pause
@@ -156,8 +159,29 @@
             \end{itemize}
             \item Lagrangian $\mathscr L \in \bigwedge^n_0 \pi_2$ ist eine horizontale $n$-Form auf dem
             2.\ Jet-Bündel $J^2 E \xrightarrow{\pi_2} M$ \pause
-            \item In Koordinaten
-            \[ \mathscr{L} = L(x^i, u^A, u^A_i, u^A_{ij}) dx^1 \wedge \dots \wedge dx^n \]
+            \item {\setlength{\belowdisplayskip}{-10pt}In Koordinaten
+                \[ \mathscr{L} = L(x^i, u^A, u^A_i, u^A_{ij}) dx^1 \wedge \dots \wedge dx^n \]} \pause
+            \item Euler-Lagrange-Gleichungen: Notwendige Bedingung für physikalische Felder $\sigma\in\Gamma(\pi)$
+            \[ (j^2\sigma)^\ast \left( \frac{\partial L}{\partial u^A} - D_i \frac{\partial L}{\partial u^A_i} + D_{ij} \frac{\partial L}{\partial u^A_{ij}}\right) = 0 \]
+        \end{itemize}
+    \end{frame}
+
+    \begin{frame}{Allgemeine Kovarianz}
+        \begin{itemize}
+            \item Raumzeit-Diffeomorphismen $\varphi\in\operatorname{Diff}(M)$ induzieren Vektorbündel-Automorphismen
+            $\varphi_E\in\operatorname{Aut}(E)$ (Pushforward, Pullback) \pause
+            \item Diese wiederum induzieren Jetbündel-Morphismen $j^2(\varphi_E)$ \pause
+            \item $\mathscr L$ ist invariant unter Diffeo's \pause $\Leftrightarrow$ \alert{$j^2(\varphi_E)^\ast\mathscr{L} = \mathscr{L}$} \pause
+            \item Lokale Äquivarianz: $\mathscr L = L d^n x$ \pause $\Rightarrow$ \alert{$L\circ j^2(\varphi_E) = \lvert d\varphi\rvert^{-1} L$}
+        \end{itemize}
+    \end{frame}
+
+    \begin{frame}{Äquivarianz-Gleichungen}
+        \begin{itemize}
+            \item<1-> Vektorfelder $\xi\in\Gamma(TM)$ sind infinitesimale Diffeo's \[ x^i \mapsto x^i + \xi^i \]
+            \item<2-> Lift auf das Tangentialbündel von $E$ \[ \xi \mapsto \xi_E \vcentcolon= \xi^m\partial_m + \onslide<3-> \underbrace{\onslide<2-> \gmc{A}{B}{m}{n} \onslide<3-> }_{\mathclap{\text{\alert{Gotay-Marsden-Koeffizienten}}}} \onslide<2-> u^B \xi^m_{,n} \partial_A \]
+            \item<4-> \makebox[2cm]{Kovektor:\hfill} $\xi_E  =\xi^m \partial_m \underbrace{- \delta^a_m \delta^n_b}_{\gmcd{a}{b}{m}{n}} \omega_a \xi^m_{,n} \frac{\partial}{\partial \omega^b} $
+            \item<5-> \makebox[2cm]{Metrik:\hfill} $\xi_E  =\xi^m \partial_m + \underbrace{2 \delta^a_m \delta^b_c \delta^n_d}_{\gmc{ab}{cd}{m}{n}} g^{cd} \xi^m_{,n} \frac{\partial}{\partial g^{ab}} $
         \end{itemize}
     \end{frame}
 
