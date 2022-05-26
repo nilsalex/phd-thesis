@@ -81,7 +81,8 @@
         der Raumzeitmetrik \pause
         \begin{itemize}
             \setlength{\belowdisplayskip}{-10pt}
-            \item \textbf{Hochman, Kuchař, Teitelboim (1976):} kanonische ART als eindeutige Darstellung der Dirac-Algebra
+            \item \textbf{Hochman, Kuchař, Teitelboim (1976):} kanonische ART
+            als eindeutige Darstellung der Dirac-Algebra
             \begin{align*}
                 \{ D(\vec N), D(\vec M) \} &= -D(\mathcal L_{\vec M} \vec N) \\
                 \{ H(N), D(\vec M) \} &= -H(\mathcal L_{\vec M} N) \\
@@ -207,7 +208,8 @@
 
     \begin{frame}{Eigenschaften der Äquivarianzgleichungen}
         \begin{itemize}
-            \item \textbf{Theorem:} Die Äquivarianzgleichungen sind \alert{involutiv} und folglich \alert{formal integrierbar}. \pause
+            \item \textbf{Theorem:} Die Äquivarianzgleichungen sind
+            \alert{involutiv} und folglich \alert{formal integrierbar}. \pause
             \item Folgt aus der Involutionstheorie für PDEs und einem Beweis für das spezielle System \pause
             \item Ergebnis ist von fundamentaler Bedeuting für den konstruktiven Ansatz \pause
             \begin{itemize}
@@ -220,16 +222,50 @@
 
     \begin{frame}{Exakte Lösung: Einstein}
         \begin{itemize}
-            \item Zweites Jet-Bündel über dem metrischen Tensorbündel hat Dimension $4+10+40+100 = 154$ ($\operatorname{dim}M = 4$) \pause
-            \item Äquivarianzgleichungen sind involutiv und haben Rang 136 \pause
+            \item Zweites Jet-Bündel über dem metrischen Tensorbündel hat
+            Dimension $4+10+40+100 = 154$ ($\operatorname{dim}M = 4$) \pause
+            \item Äquivarianzgleichungen sind involutiv und haben Rang 140 \pause
             \item $\Rightarrow$ allgemeine Lösung ist von der Form
-            \[ L(x,g,\partial g,\partial\partial g) = \sqrt{-g} \cdot F(\psi_1,\ldots,\psi_14) \]
-            mit beliebiger Funktion $F$ und 14 Krümmungsskalaren $\Psi_i(g,\partial g,\partial\partial g)$
+            \[ L(x,g,\partial g,\partial\partial g) = \sqrt{-g} \cdot F(\psi_1,\ldots,\psi_{14}) \]
+            mit beliebiger Funktion $F$ und 14 Krümmungsskalaren $\Psi_i(g,\partial g,\partial\partial g)$ \pause
+            \item Beschränkung auf 2.\ Ableitungsordnung $\Rightarrow$ \alert{Einstein-Hilbert}
+            \[ L = \frac{1}{2\kappa}\sqrt{-g}(\underbrace{R}_{\psi_1} - 2\Lambda)\]
+        \end{itemize}
+    \end{frame}
+
+    \begin{frame}{Neuartige Materie}
+        \begin{itemize}
+            \item \textbf{Beispiel:} Zwei Skalarfelder gekoppelt an zwei verschiedene Metriken
+            \[ L = \sqrt{-g} g^{ab} \phi_{,a}\phi_{,b} - m_\phi^2 \phi^2 + \sqrt{-h} h^{ab} \psi_{,a}\psi_{,b} - m_\psi^2 \psi^2 \] \pause
+            \item Geometriebündel ist die Summe von zwei Metrikbündeln \pause
+            \item Gotay-Marsden-Koeffizienten $\Rightarrow$ Äquivarianzgleichungen \pause
+            \item Lichtkegel
+            \[ P(k) = g(k,k) h(k,k) = 0 \]
+            gibt zusätzliche Bedingungen für relevante Lösungen im Sinne von Kovarianter
+            Konstruktiver Gravitation (kausale Kompatibilität)
         \end{itemize}
     \end{frame}
 
 
     \section{Störungstheorie}\label{sec:stoerungstheorie}
+
+    \begin{frame}{Potenzreihenansatz}
+        \begin{itemize}
+            \item Involutivität der Äquivarianzgleichungen impliziert formale Integrierbarkeit
+            \begin{itemize}
+                \item Formaler Potenzreihenansatz \[ L(x) = \sum_{k=0}^\infty a_k (x-x_0)^k \] ist iterativ lösbar
+                \item $n$-te Prolongation der PDE löst Ordnung $n$ des Ansatzes
+            \end{itemize}
+            \item \textbf{Perturbative Kovariante Konstruktive Gravitation:}
+            \begin{itemize}
+                \item \makebox[2cm]{\hfill$n=1$:} Theorie in der \alert{Minkowski}-Raumzeit
+                \item \makebox[2cm]{\hfill$1<n<\infty$:} Theorie für schwache Gravitationsfelder
+            \end{itemize}
+        \end{itemize}
+    \end{frame}
+
+    \begin{frame}{Lösungstechniken}
+    \end{frame}
 
 
     \section{Anwendung: Gravitationswellen von Doppelbrechender Materie}\label{sec:anwendung}
