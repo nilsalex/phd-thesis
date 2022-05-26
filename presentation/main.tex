@@ -1,3 +1,4 @@
+%! suppress = TooLargeSection
 \documentclass{beamer}
 \usepackage{fontspec}
 \usepackage{polyglossia}
@@ -62,7 +63,7 @@
         \end{itemize}
     \end{frame}
 
-    \begin{frame}{... Matter tells space how to curve}
+    \begin{frame}{\ldots{} Matter tells space how to curve}
         \begin{itemize}
             \item Gravitation ist die dynamische Theorie der Raumzeitmetrik \pause
             \item Einstein-Hilbert:
@@ -180,7 +181,7 @@
         \end{itemize}
     \end{frame}
 
-    \begin{frame}{Äquivarianzgleichungen}
+    \begin{frame}{\"Aquivarianzgleichungen}
         \begin{itemize}
             \item<1-> Vektorfelder $\xi\in\Gamma(TM)$ sind infinitesimale Diffeo's \[ x^i \mapsto x^i + \xi^i \]
             \item<2-> Lift auf das Tangentialbündel von $E$ \[ \xi \mapsto \xi_E \vcentcolon= \xi^m\partial_m + \onslide<3-> \underbrace{\onslide<2-> \gmc{A}{B}{m}{n} \onslide<3-> }_{\mathclap{\text{\alert{Gotay-Marsden-Koeffizienten}}}} \onslide<2-> u^B \xi^m_{,n} \partial_A \]
@@ -189,7 +190,7 @@
         \end{itemize}
     \end{frame}
 
-    \begin{frame}{Äquivarianzgleichungen}
+    \begin{frame}{\"Aquivarianzgleichungen}
         \setlength{\belowdisplayskip}{-10pt}
         Äquivarianzgleichungen für infinitesimale Diffeo's:
         \begin{align*}
@@ -223,7 +224,7 @@
     \begin{frame}{Exakte Lösung: Einstein}
         \begin{itemize}
             \item Zweites Jet-Bündel über dem metrischen Tensorbündel hat
-            Dimension $4+10+40+100 = 154$ ($\operatorname{dim}M = 4$) \pause
+            Dimension $4+10+40+100 = 154$ ($\dim M = 4$) \pause
             \item Äquivarianzgleichungen sind involutiv und haben Rang 140 \pause
             \item $\Rightarrow$ allgemeine Lösung ist von der Form
             \[ L(x,g,\partial g,\partial\partial g) = \sqrt{-g} \cdot F(\psi_1,\ldots,\psi_{14}) \]
@@ -256,7 +257,7 @@
                 \item Formaler Potenzreihenansatz \[ L(x) = \sum_{k=0}^\infty a_k (x-x_0)^k \] ist iterativ lösbar
                 \item $n$-te Prolongation der PDE löst Ordnung $n$ des Ansatzes
             \end{itemize}
-            \item \textbf{Perturbative Kovariante Konstruktive Gravitation:}
+            \item \textbf{Perturbative Kovariante Konstruktive Gravitation}
             \begin{itemize}
                 \item \makebox[2cm]{\hfill$n=1$:} Theorie in der \alert{Minkowski}-Raumzeit
                 \item \makebox[2cm]{\hfill$1<n<\infty$:} Theorie für schwache Gravitationsfelder
@@ -264,7 +265,65 @@
         \end{itemize}
     \end{frame}
 
-    \begin{frame}{Lösungstechniken}
+    \begin{frame}{Lorentzinvariante Ansätze}
+        \begin{itemize}
+            \item Störungsansatz für Lagrangian auf Jetbündel
+            \begin{align*}
+                G^A &= \underbrace{N^A}_{\mathclap{\text{Minkowski-Geometrie}}} + H^A \\
+                L &= a + a_A H^A + a_A^{\hphantom Ai} H^A_{\hphantom{A},i} + a_A^{\hphantom AI} H^A_{\hphantom{A},I} + a_{AB} H^A H^B + \ldots
+            \end{align*}
+            \item Beobachtung: $SO(1,3)$-Invarianz von $N$ überträgt sich auf Ansatzkoeffizienten $a, a_A, \ldots$
+            \item $\Rightarrow$ $a, a_A, \ldots$ sind zusammengesetzt aus
+            Minkowski-Metrik $\eta$ und Levi-Civita-Symbol $\epsilon$
+            \item Für metrische Theorien: $a_{ab} = \eta_{ab}$, $a_{ab}^{\hphantom{ab}i} = 0$, $a_{abcd} = A\cdot \eta_{ab} \eta_{cd} + B\cdot \eta_{ac} \eta_{bd} + C\cdot \eta_{ad} \eta_{bc}$, \ldots
+        \end{itemize}
+    \end{frame}
+
+    \begin{frame}{Ansatzerzeugung}
+        \begin{itemize}
+            \item Erzeugung von $SO(1,3)$-invarianten Ansätzen reduziert
+            \begin{itemize}
+                \item Anzahl der Unbestimmten
+                \item Anzahl der zu lösenden Äquivarianzgleichungen
+            \end{itemize}
+            \item Haskell-Implementierung auf Workstation-Hardware: bis zu 18 Raumzeitindizes mit typischen Symmetrien
+        \end{itemize}
+    \end{frame}
+
+    \begin{frame}{Perturbative Äquivarianzgleichungen}
+        \begin{itemize}
+            \item Für erzeugte Ansätze bleibt zu lösen (hier bis 2.\ Ordnung)
+            \begin{align*}
+                0 &{} = a_A \gmc{A}{B}{n}{m} N^B + a \delta^n_m \\
+                0 &{} = a_A^{\hphantom AI}\gmc{A}{B}{(n}{m} J^{pq)}_I N^B
+            \end{align*}
+            \begin{align*}
+                0 &{} = a_A \gmc{A}{B}{n}{m} + 2 a_{AB} \gmc{A}{C}{n}{m} N^C + a_B \delta^n_m \\
+                0 &{} = a_A^{\hphantom AI}\lbrack \gmc{A}{B}{n}{m} \delta^J_I - 2\delta^A_B J^{pn}_I I^J_{pm}\rbrack + a_{AB}^{\hphantom{AB}J}\gmc{A}{C}{n}{m} N^C + a_B^{\hphantom BJ} \delta^n_m \\
+                0 &{} = 2a_{A \hphantom pB}^{\hphantom A(p\hphantom Bq\mid} \gmc{A}{C}{\mid n)}{m} N^C + a_A^{\hphantom AI}\lbrack \gmc{A}{B}{(n}{m} 2J^{p)q}_I - \delta^A_B J^{pn}_I \delta^q_m\rbrack \\
+                0 &{} = a_{BA}^{\hphantom{BA}I} \gmc{A}{C}{(n}{m} J^{pq)}_I N^C + a_A^{\hphantom AI}\gmc{A}{B}{(n}{m} J^{pq)}_I
+            \end{align*}
+            \item Lineares System mit rationalen Koeffizienten $\Rightarrow$ exakte Lösungen leicht mit
+            Computer bestimmbar (fraction-free Gaussian elimination)
+        \end{itemize}
+    \end{frame}
+
+    \begin{frame}{Tensorkalkül mit dem Computer}
+        \begin{itemize}
+            \item Auswertung der Äquivarianzgleichungen nicht trivial
+            \begin{itemize}
+                \item Tensorprodukte, Symmetrisierungen, Kontraktionen
+                \item Flache Geometrie, Gotay-Marsden-Koeffizienten, Ansätze, \ldots
+                \item Reproduzierbar, für verschiedene Bündel
+            \end{itemize}
+            \item Umsetzung in Haskell
+            \begin{itemize}
+                \item Abbildung des Tensorkalküls im Typsystem
+                \item Typsichere DSL für Operationen (Produkte, Summen, \ldots)
+                \item Definition von benötigten Basistensoren
+                \item Lösen der linearen Systeme
+            \end{itemize}
+        \end{itemize}
     \end{frame}
 
 
