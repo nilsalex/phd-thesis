@@ -7,6 +7,7 @@
 \usepackage{mathrsfs}
 \usepackage{xcolor}
 \usepackage{tikz}
+\usepackage{booktabs}
 \usetikzlibrary{calc,tikzmark}
 
 \usetheme{metropolis}
@@ -369,9 +370,103 @@
         \begin{itemize}
             \item \alert{$G$} ist die \alert{Area-Metrik} mit Symmetrien
             \[ G^{\color{blue}ab\color{olive}cd} = -G^{\color{blue}ba\color{olive}cd} = G^{\color{olive}cd\color{blue}ab} \]
-            \item Area-Metrik-Bündel hat Faserdimension 21
-            \item Wirkung \[ S = \int \omega_{\alert{G}} \alert{G^{abcd}} F_{ab} F_{cd} d^4 x \]
+            \item Area-Metrik-Bündel $E_\text{Area}$ hat Faserdimension 21
+            \item $G$ bestimmt GLED-Wirkung \[ S = \int \omega_{\alert{G}} \alert{G^{abcd}} F_{ab} F_{cd} d^4 x \]
             \item Maxwell: $G^{abcd} = g^{ac} g^{bd} - g^{ad} g^{bc}$ (+ Dichte)
+        \end{itemize}
+    \end{frame}
+
+    \begin{frame}
+        \textbf{Fragestellung:} \\
+        Gegeben ein Doppelsternsystem aus doppelbrechender Materie, wie wirkt es
+        gravitativ auf Testmaterie und auf sich selbst? \pause
+
+        \alert{
+            \textbf{Antwort:} \\
+            Konstruktion einer kompatiblen Gravitationstheorie!
+        } \pause
+
+        \textbf{Erkenntnisgewinn:}
+        \begin{itemize}
+            \item Falsifikation der GLED
+            \item long shot: Erklärung unbekannter Phänomene?
+        \end{itemize}
+    \end{frame}
+
+
+    \begin{frame}{Konstruktion der Area-Metrik-Gravitation}
+        \begin{itemize}
+            \item Intertwiner und Gotay-Marsden-Koeffizienten
+            \begin{gather*}
+                I \colon E_\text{Area} \rightarrow T^4_0 M \\
+                J  \colon T^4_0 M \rightarrow E_\text{Area} \\
+                \gmc{A}{B}{n}{m} = 4 I^{pqrn}_B J_{pqrm}^A
+            \end{gather*}
+            \item Äquivarianzgleichungen: \\
+            140 PDE mit 319 unabhängigen Variablen
+            \item Keine exakte Lösung mit nichttrivialer Dynamik bekannt!
+        \end{itemize}
+    \end{frame}
+
+    \begin{frame}{Perturbative Konstruktion der Area-Metrik-Gravitation}
+        \begin{itemize}
+            \item Naheliegender Lorentz-Invarianter Ausgangspunkt
+            \[
+                N^{abcd} = \eta^{ac} \eta^{bd} - \eta^{ad} \eta^{bc} + \epsilon^{abcd}
+            \]
+            \item Computergenerierte Ansätze bis zur 3.\ Ordnung
+            \footnotesize
+            \begin{table}
+                \centering
+                \begin{tabular}{l r r}
+                    \toprule
+                    Ansatz                                            & Dimension \\
+                    \midrule
+                    $a_A^{\hphantom AI}$                              & 3         \\ \addlinespace[2pt]
+                    $a_{AB}$                                          & 6         \\ \addlinespace[2pt]
+                    $a_{A\hphantom pB}^{\hphantom Ap\hphantom Bq}$    & 15        \\ \addlinespace[2pt]
+                    $a_{AB}^{\hphantom{AB}I}$                         & 16        \\ \addlinespace[2pt]
+                    $a_{ABC}$                                         & 15        \\ \addlinespace[2pt]
+                    $a_{AB\hphantom pC}^{\hphantom{AB}p\hphantom Cq}$ & 110       \\ \addlinespace[2pt]
+                    $a_{ABC}^{\hphantom{ABC}I}$                       & 72        \\ \addlinespace[2pt]
+                    \bottomrule
+                \end{tabular}\label{tab:ansaetze}
+            \end{table}
+        \end{itemize}
+    \end{frame}
+
+    \begin{frame}{Perturbative Konstruktion der Area-Metrik-Gravitation}
+        \begin{itemize}
+            \item Auswertung und Lösung der Äquivarianzgleichungen
+            \begin{itemize}
+                \item Lagrangian parametrisiert durch 50 Konstanten
+                \item \alert{10 unabhängige Parameter für linearisierte Euler-Lagrange-Gleichungen} \\
+                $\rightarrow$ Am meisten Relevanz für hier diskutierte Dynamik
+            \end{itemize} \pause
+            \item Kausalität ist zu dieser Ordnung trivialerweise kompatibel mit GLED! \\
+            $\rightarrow$ Folgt aus Äquivarianz ohne explizite Rechnung
+        \end{itemize}
+    \end{frame}
+
+    \begin{frame}{Raum-Zeit-Split}
+        \begin{itemize}
+            \item Blätterung der Raumzeit in räumliche Hyperflächen
+            \item Induziert Aufteilung der 21 Freiheitsgrade $G^{abcd}$ in
+            \begin{itemize}
+                \item Lapse $N$ und Shift $N^\alpha$
+                \item Räumliche Tensoren $\hat G^{\alpha\beta}$, $\hat G_{\alpha\beta}$, $\hat G^\alpha_\beta$
+                \item Alle $\hat G$ symmetrisch, $\hat G^\alpha_\beta$ zusätzlich spurfrei
+                \item Ähnlich zur metrischen Theorie
+                \[ g^{ab} = \left( \begin{array}{c|c}
+                                       \frac{1}{N^2} & -\frac{N^\alpha}{N^2} \\ \hline -\frac{N^\alpha}{N^2} & \frac{N^\alpha N^\beta}{N^2} - \hat g^{\alpha\beta}
+                \end{array} \right) \]
+            \end{itemize}
+            \item Linearisiert + Eichfixiert (Diffeo-Symmetrie):
+            \begin{itemize}
+                \item 3 TT-Tensoren $U^{\alpha\beta}$, $V^{\alpha\beta}$, $W^{\alpha\beta}$
+                \item 3 Transversale Vektoren $B^\alpha$, $U^\alpha$, $W^\alpha$
+                \item 5 Longitudinale Skalare $A$, $\tilde U$, $\tilde V$, $V$, $W$
+            \end{itemize}
         \end{itemize}
     \end{frame}
 
