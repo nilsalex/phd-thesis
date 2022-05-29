@@ -62,19 +62,18 @@
 
     \begin{frame}{Space tells matter how to move \ldots}
         \begin{itemize}
-            \item Das gesamte Standardmodell der Teilchenphysik (SMTP) ist von metrischer Geometrie bestimmt. \pause
-            \item \ldots wer bestimmt die Geometrie?
+            \item Das gesamte Standardmodell der Teilchenphysik (SMTP) ist von metrischer Geometrie bestimmt.
+            \item \ldots{} wer oder was bestimmt die Geometrie?
         \end{itemize}
     \end{frame}
 
     \begin{frame}{\ldots{} Matter tells space how to curve}
         \begin{itemize}
-            \item Gravitation ist die dynamische Theorie der Raumzeitmetrik \pause
-            \item Einstein-Hilbert:
-            \begin{gather*}
-                S = \int \sqrt{-g} R d^4 x \\
-                \Rightarrow G_{ab} = T_{ab}
-            \end{gather*}
+            \item Gravitation ist die dynamische Theorie der Raumzeitmetrik
+            \item Einstein-Hilbert-Wirkung
+            \[ S = \int \sqrt{-g} R d^4 x \]
+            \item Bzw.\ Einsteinsche Feldgleichungen
+            \[ G_{ab} = T_{ab} \]
         \end{itemize}
     \end{frame}
 
@@ -103,22 +102,22 @@
         \begin{itemize}
             \item<1-> SMTP + ART haben nur begrenzte Gültigkeit
             \begin{itemize}
-                \item<2-> Rotationskurven von Galaxien
-                \item<3-> Singularitäten (Schwarze Löcher, Urknall)
-                \item<4-> Teilchenphysik ??
-                \item<5-> \ldots
+                \item<1-> Rotationskurven von Galaxien
+                \item<1-> Singularitäten (Schwarze Löcher, Urknall)
+                \item<1-> Teilchenphysik ??
+                \item<1-> \ldots
             \end{itemize}
-            \item<6-> Modifikationen oder Erweiterungen unterliegen den Eindeutigkeitsresultaten!
+            \item<2-> Modifikationen oder Erweiterungen unterliegen den Eindeutigkeitsresultaten!
             \begin{itemize}
-                \item<7-> Materietheorie bleibt rein metrisch, oder
-                \item<8-> \alert{\tikzmarknode{a}{Materietheorie benutzt andere Geometrie, oder}}
-                \item<9-> Grundannahmen müssen verworfen werden
+                \item<2-> Materietheorie bleibt rein metrisch, oder
+                \item<2-> \alert{\tikzmarknode{a}{Materietheorie benutzt andere Geometrie, oder}}
+                \item<2-> Grundannahmen müssen verworfen werden
             \end{itemize}
         \end{itemize}
-        \onslide<10>
+        \onslide<3>
         \begin{tikzpicture}[overlay,remember picture]
-            \draw<10>[->,mLightBrown,thick,smooth,out=30,in=270] ([xshift=-.4cm,yshift=-1.2cm]a.south) to ([xshift=.3cm,yshift=-3pt]a.south);
-            \node<10>[mLightBrown] at ([xshift=-.85cm,yshift=-1.45cm]a.south) {Constructive Gravity};
+            \draw<3>[->,mLightBrown,thick,smooth,out=30,in=270] ([xshift=-.4cm,yshift=-1.2cm]a.south) to ([xshift=.3cm,yshift=-3pt]a.south);
+            \node<3>[mLightBrown] at ([xshift=-.85cm,yshift=-1.45cm]a.south) {Constructive Gravity};
         \end{tikzpicture}
     \end{frame}
 
@@ -134,22 +133,21 @@
 
     \begin{frame}{Kanonische Konstruktive Gravitation}
         \begin{itemize}
-            \item Resultat von HKT lässt sich verallgemeinern für beliebige tensorielle Geometrien \pause
-            \item Prinzip: Constraint-Algebra der Gravitation muss die
-            Hyperflächendeformationsalgebra implementieren \pause
-            \item Entspricht einem unendlichen System von PDEs für die Lagrangedichte \pause
-            \item Störungstheorie oder Symmetriereduktion möglich \pause
-            \item Kausalität ?? \pause
+            \item Resultat von HKT lässt sich verallgemeinern für beliebige tensorielle Geometrien
+            \item Prinzip: Constraint-Algebra der Gravitation muss die Hyperflächendeformationsalgebra implementieren
+            \item Entspricht einem unendlichen System von PDEs für die Lagrangedichte
+            \item Störungstheorie oder Symmetriereduktion möglich
+            \item Kausalität ??
             \item Giesel et al.\ (2012), ?? \ldots
         \end{itemize}
     \end{frame}
 
     \begin{frame}{Kovariante Konstrutive Gravitation}
         \begin{itemize}
-            \item Postulat der allgemeinen Kovarianz direkt für Lagrangian \pause
-            \item Verwandt mit Lovelock und Deser \pause
-            \item „Kovariant“, weil kein 3+1 Split die manifeste Diffeomorphismeninvarianz bricht \pause
-            \item Prinzipien, mathematische Implementierung, Beispiele im Rest dieses Vortrages \pause
+            \item Postulat der allgemeinen Kovarianz direkt für Lagrangian
+            \item Verwandt mit Lovelock und Deser
+            \item „Kovariant“, weil kein 3+1 Split die manifeste Diffeomorphismeninvarianz bricht
+            \item Prinzipien, mathematische Implementierung, Beispiele im Rest dieses Vortrages
             \item N.A., Reinhart (2020); N.A. (2020)
         \end{itemize}
     \end{frame}
@@ -160,12 +158,12 @@
     \begin{frame}{Lagrange-Formalismus}
         \begin{itemize}
             \item Geometrie ist ein Tensorbündel $E \xrightarrow{\pi} M$ über einer differenzierbaren
-            Raumzeitmannigfaltigkeit, z.B.\ \pause
+            Raumzeitmannigfaltigkeit, z.B.\
             \begin{itemize}
-                \item Metrisches Bündel $\operatorname{Sym}(T^0_2 M)$ \pause
-                \item Bi-Metrisches Bündel $\operatorname{Sym}(T^0_2 M) \oplus_M \operatorname{Sym}(T^0_2 M)$ \pause
-                \item Area-Metrisches Bündel als Sub-Bündel von $T^4_0 M$ \pause
-            \end{itemize}
+                \item Metrisches Bündel $\operatorname{Sym}(T^0_2 M)$
+                \item Bi-metrisches Bündel $\operatorname{Sym}(T^0_2 M) \oplus_M \operatorname{Sym}(T^0_2 M)$
+                \item Area-metrisches Bündel als Sub-Bündel von $T^4_0 M$
+            \end{itemize} \pause
             \item Lagrangian $\mathscr L \in \bigwedge^n_0 \pi_2$ ist eine horizontale $n$-Form auf dem
             2.\ Jet-Bündel $J^2 E \xrightarrow{\pi_2} M$ \pause
             \item {\setlength{\belowdisplayskip}{-10pt}In Koordinaten
@@ -180,8 +178,8 @@
             \item Raumzeit-Diffeomorphismen $\varphi\in\operatorname{Diff}(M)$ induzieren Vektorbündel-Automorphismen
             $\varphi_E\in\operatorname{Aut}(E)$ (Pushforward, Pullback) \pause
             \item Diese wiederum induzieren Jetbündel-Morphismen $j^2(\varphi_E)$ \pause
-            \item $\mathscr L$ ist invariant unter Diffeo's \pause $\Leftrightarrow$ \alert{$j^2(\varphi_E)^\ast\mathscr{L} = \mathscr{L}$} \pause
-            \item Lokale Äquivarianz: $\mathscr L = L d^n x$ \pause $\Rightarrow$ \alert{$L\circ j^2(\varphi_E) = \lvert d\varphi\rvert^{-1} L$}
+            \item $\mathscr L$ ist invariant unter Diffeo's $\Leftrightarrow$ \alert{$j^2(\varphi_E)^\ast\mathscr{L} = \mathscr{L}$} \pause
+            \item Lokale Äquivarianz: $\mathscr L = L d^n x$ $\Rightarrow$ \alert{$L\circ j^2(\varphi_E) = \lvert d\varphi\rvert^{-1} L$}
         \end{itemize}
     \end{frame}
 
@@ -189,8 +187,11 @@
         \begin{itemize}
             \item<1-> Vektorfelder $\xi\in\Gamma(TM)$ sind infinitesimale Diffeo's \[ x^i \mapsto x^i + \xi^i \]
             \item<2-> Lift auf das Tangentialbündel von $E$ \[ \xi \mapsto \xi_E \vcentcolon= \xi^m\partial_m + \onslide<3-> \underbrace{\onslide<2-> \gmc{A}{B}{m}{n} \onslide<3-> }_{\mathclap{\text{\alert{Gotay-Marsden-Koeffizienten}}}} \onslide<2-> u^B \xi^m_{,n} \partial_A \]
-            \item<4-> \makebox[2cm]{Kovektor:\hfill} $\xi_E  =\xi^m \partial_m \underbrace{- \delta^a_m \delta^n_b}_{\gmcd{a}{b}{m}{n}} \omega_a \xi^m_{,n} \frac{\partial}{\partial \omega^b} $
-            \item<5-> \makebox[2cm]{Metrik:\hfill} $\xi_E  =\xi^m \partial_m + \underbrace{2 \delta^a_m \delta^b_c \delta^n_d}_{\gmc{ab}{cd}{m}{n}} g^{cd} \xi^m_{,n} \frac{\partial}{\partial g^{ab}} $
+            \item<4-> Beispiele
+            \begin{itemize}
+                \item<4-> \makebox[2.2cm]{Kovektor $\omega_a$:\hfill} $\xi_E  =\xi^m \partial_m \underbrace{- \delta^a_m \delta^n_b}_{\gmcd{a}{b}{m}{n}} \omega_a \xi^m_{,n} \frac{\partial}{\partial \omega^b} $
+                \item<4-> \makebox[2.2cm]{Metrik $g_{ab}$:\hfill} $\xi_E  =\xi^m \partial_m + \underbrace{2 \delta^a_m \delta^b_c \delta^n_d}_{\gmc{ab}{cd}{m}{n}} g^{cd} \xi^m_{,n} \frac{\partial}{\partial g^{ab}} $
+            \end{itemize}
         \end{itemize}
     \end{frame}
 
@@ -205,8 +206,8 @@
             0 =& {\color{blue}L_{:A}^{\hphantom{:A}I}} {\color{mLightBrown}\gmc{A}{B}{(n}{m}} J^{pq)}_I {\color{purple}u^B}
         \end{align*} \pause
         \begin{itemize}
-            \item System aus 140 linearen PDE erster Ordnung mit konstanten und linearen Koeffizienten \pause
-            \item Geometrieabhängigkeit nur in {\color{mLightBrown}Gotay-Marsden-Koeff.} \pause
+            \item System aus 140 linearen PDE erster Ordnung mit konstanten und linearen Koeffizienten
+            \item Geometrieabhängigkeit nur in {\color{mLightBrown}Gotay-Marsden-Koeff.}
             \item Lösungen des Systems sind Kandidaten für Gravitation!
         \end{itemize}
     \end{frame}
@@ -216,34 +217,35 @@
             \item \textbf{Theorem:} Die Äquivarianzgleichungen sind
             \alert{involutiv} und folglich \alert{formal integrierbar}. \pause
             \item Folgt aus der Involutionstheorie für PDEs und einem Beweis für das spezielle System \pause
-            \item Ergebnis ist von fundamentaler Bedeuting für den konstruktiven Ansatz \pause
+            \item Ergebnis ist von fundamentaler Bedeuting für den konstruktiven Ansatz
             \begin{itemize}
-                \item Aussagen über den Lösungsraum $\Rightarrow$ exakte Lösung\pause
-                \item Formaler Potenzreihenansatz $\Rightarrow$ perturbative Lösung \pause
-            \end{itemize}
-            \item Dieses Resultat existiert nicht im kanonischen Bild!
+                \item Aussagen über den Lösungsraum $\Rightarrow$ exakte Lösung
+                \item Formaler Potenzreihenansatz $\Rightarrow$ perturbative Lösung
+            \end{itemize} \pause
+            \item Nicht ableitbar im kanonischen Bild!
         \end{itemize}
     \end{frame}
 
     \begin{frame}{Exakte Lösung: Einstein}
         \begin{itemize}
             \item Zweites Jet-Bündel über dem metrischen Tensorbündel hat
-            Dimension $4+10+40+100 = 154$ ($\dim M = 4$) \pause
-            \item Äquivarianzgleichungen sind involutiv und haben Rang 140 \pause
-            \item $\Rightarrow$ allgemeine Lösung ist von der Form
+            Dimension $4+10+40+100 = 154$ ($\dim M = 4$)
+            \item Äquivarianzgleichungen sind involutiv und haben Rang 140
+            \item $\Rightarrow$ allgemeine Lösung
             \[ L(x,g,\partial g,\partial\partial g) = \sqrt{-g} \cdot F(\psi_1,\ldots,\psi_{14}) \]
-            mit beliebiger Funktion $F$ und 14 Krümmungsskalaren $\Psi_i(g,\partial g,\partial\partial g)$ \pause
+            mit beliebiger Funktion $F$ und 14 Krümmungsskalaren $\Psi_i$
             \item Beschränkung auf 2.\ Ableitungsordnung $\Rightarrow$ \alert{Einstein-Hilbert}
             \[ L = \frac{1}{2\kappa}\sqrt{-g}(\underbrace{R}_{\psi_1} - 2\Lambda)\]
         \end{itemize}
     \end{frame}
 
     \begin{frame}{Neuartige Materie}
+        \textbf{Beispiel bi-metrische Theorie:}\\ Skalarfelder gekoppelt an zwei verschiedene Metriken
+            {\setlength{\belowdisplayskip}{-5pt}
+        \[ L = \sqrt{-g} g^{ab} \phi_{,a}\phi_{,b} - m_\phi^2 \phi^2 + \sqrt{-h} h^{ab} \psi_{,a}\psi_{,b} - m_\psi^2 \psi^2 \]} \pause
         \begin{itemize}
-            \item \textbf{Beispiel:} Zwei Skalarfelder gekoppelt an zwei verschiedene Metriken
-            \[ L = \sqrt{-g} g^{ab} \phi_{,a}\phi_{,b} - m_\phi^2 \phi^2 + \sqrt{-h} h^{ab} \psi_{,a}\psi_{,b} - m_\psi^2 \psi^2 \] \pause
-            \item Geometriebündel ist die Summe von zwei Metrikbündeln \pause
-            \item Gotay-Marsden-Koeffizienten $\Rightarrow$ Äquivarianzgleichungen \pause
+            \item Geometriebündel ist die Summe von zwei Metrikbündeln
+            \item Gotay-Marsden-Koeffizienten $\Rightarrow$ Äquivarianzgleichungen
             \item Lichtkegel
             \[ P(k) = g(k,k) h(k,k) = 0 \]
             gibt zusätzliche Bedingungen für relevante Lösungen im Sinne von Kovarianter
