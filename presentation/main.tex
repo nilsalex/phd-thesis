@@ -3,11 +3,14 @@
 \usepackage{fontspec}
 \usepackage{polyglossia}
 \usepackage{amsmath}
+\usepackage{amssymb}
 \usepackage{mathtools}
 \usepackage{mathrsfs}
 \usepackage{xcolor}
 \usepackage{tikz}
 \usepackage{booktabs}
+\usepackage{caption}
+\usepackage{subcaption}
 \usetikzlibrary{calc,tikzmark}
 
 \usetheme{metropolis}
@@ -389,10 +392,9 @@
         \textbf{Erkenntnisgewinn:}
         \begin{itemize}
             \item Falsifikation der GLED
-            \item long shot: Erklärung unbekannter Phänomene?
+            \item long shot: Erklärung bislang unerklärter Phänomene?
         \end{itemize}
     \end{frame}
-
 
     \begin{frame}{Konstruktion der Area-Metrik-Gravitation}
         \begin{itemize}
@@ -470,7 +472,76 @@
         \end{itemize}
     \end{frame}
 
+    \begin{frame}{Linearisierte 3+1-Feldgleichungen}
+        Nach Beseitigung unphysikalischer Artefakte
+        \begin{itemize}
+            \item Divergierende Moden bei Wellengleichungen
+            \item Fernfeld-Modifikationen der lin.\ Schwarzschild-Lösung
+        \end{itemize}
+        durch Reduzierung von 10 auf 7 Konstanten \pause
+        bleiben ($X = W,V,U^\alpha,V^\alpha,V^{\alpha\beta},W^{\alpha\beta}$)
+        \begin{gather*}
+            \begin{aligned}
+                \text{(Quellterme)} &= \Box U^{\alpha\beta} \\
+                \text{(Quellterme)} &= \Box X + \nu^2 X \\
+                \text{(Quellterme)} &= \Box \tilde V + \mu^2 \tilde V \\
+            \end{aligned} \\
+            \text{Constraint-Gleichungen für }A, B^\alpha, \tilde U
+        \end{gather*}
+    \end{frame}
 
-    \section{Ausblick}\label{sec:ausblick}
+    \begin{frame}{Doppelsternsystem}
+        \begin{itemize}
+            \item Zwei Punktmassen $m_1,m_2$ mit Weltlinien $\gamma_1,\gamma_2$
+            \[ S = \sum_{i=1,2} m_i c \int d\lambda P_\text{GLED}(L^{-1}(\dot\gamma_{(i)}(\lambda)))^{-\frac{1}{4}} \] \pause
+            \item Iterative Lösung ähnliche zu Poisson, Will (2014) \pause
+            \begin{itemize}
+                \item Lösung der Trajektorien zu 1.\ Ordnung
+                \begin{itemize}
+                    \item Kreisförmige Orbits mit \alert{modifiziertem Kepler-Gesetz}
+                    \[\omega^2 = \frac{(G\alpha)m}{r^3}\lbrack 1 + \alert{f(r)} \rbrack \]
+                \end{itemize} \pause
+                \item Liefert Quellterme für Wellengleichungen 2.\ Ordnung
+                \begin{itemize}
+                    \item \alert{Strahlung auf $U^{\alpha\beta}$-Mode mit $f(r)$ korrigiert}
+                    \item \alert{Moden mit Masse $\nu$ strahlen ab $2\omega > \nu$}
+                    \item Für $\tilde V$ noch nicht quantifiziert
+                \end{itemize}
+            \end{itemize}
+        \end{itemize}
+    \end{frame}
+
+    \begin{frame}{Strahlungsverluste}
+        \begin{itemize}
+            \item Aus Diffeo-Invarianz folgt zweites Noether-Theorem
+            \[ -D_n \lbrack\frac{\delta L}{\delta G^A} \gmc{A}{B}{n}{m} G^B\rbrack = \frac{\delta L}{\delta G^A} G^A_{,m} \]
+            \item Angewandt auf Doppelsternsystem in masseloser Strahlungsphase:
+            \[ \left(\frac{1 + \alert{f(r)}}{r}\right)^{\scalebox{1.5}{\cdot}} = \frac{64}{5} \eta c \frac{1}{r^2} \left(\frac{\alpha Gm}{c^2 r}\lbrack 1+\alert{f(r)}\rbrack\right)^3\]
+            Korrektur der metrischen ODE mit $f(r)$!
+        \end{itemize}
+    \end{frame}
+
+    \begin{frame}{Strahlungsverluste}
+        \begin{figure}
+            \centering
+            \begin{subfigure}{.49\textwidth}
+                \centering
+                \resizebox{1.1\textwidth}{!}{\input{../latex/figures/plot1.pgf}}
+            \end{subfigure}
+            \hfill
+            \begin{subfigure}{.49\textwidth}
+                \centering
+                \resizebox{1.1\textwidth}{!}{\input{../latex/figures/plot2.pgf}}
+            \end{subfigure}
+            \caption{Radiusabnahme des Doppelsternsystems aufgrund von Strahlungsverlusten für verschiedene Gravitationskonstanten.}
+            \label{fig:spinup}
+        \end{figure}
+    \end{frame}
+
+
+    \section{Zusammenfassung und Ausblick}\label{sec:ausblick}
+
+    \begin{frame}{Zusammenfassung}
+    \end{frame}
 
 \end{document}
