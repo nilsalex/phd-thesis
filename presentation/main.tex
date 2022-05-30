@@ -7,11 +7,9 @@
 \usepackage{mathtools}
 \usepackage{mathrsfs}
 \usepackage{xcolor}
-\usepackage{tikz}
 \usepackage{booktabs}
 \usepackage{caption}
 \usepackage{subcaption}
-\usetikzlibrary{calc,tikzmark}
 
 \usetheme{metropolis}
 \setmainlanguage[babelshorthands=true]{german}
@@ -28,13 +26,6 @@
 \begin{document}
     \maketitle
 
-    \begin{frame}{Gliederung}
-        \tableofcontents[pausesections]
-    \end{frame}
-
-
-    \section{Gravitation: Zusammenspiel von Materie und Geometrie}\label{sec:materie-und-geometrie}
-
     \begin{frame}{}
         \Large
         \textit{„Space tells matter how to move \\
@@ -44,41 +35,36 @@
         ---John Archibald Wheeler, Gravitation (1973)
     \end{frame}
 
-    \begin{frame}{Space tells matter how to move \ldots}
-        \begin{itemize}
-            \item {\setlength{\belowdisplayskip}{-5pt}Punktmassen maximieren die {\color{blue}Länge} ihrer Weltlinie
-                \[ S = m \int \sqrt{{\color{blue}g(}\dot\gamma(\lambda),\dot\gamma(\lambda){\color{blue})}} d\lambda \]} \pause
-            \item Die Konstanten der Maxwell-Gleichungen
-            \begin{align*}
-                \mathop{\color{blue}\operatorname{div}} E &= 4\pi \rho & \operatorname{div} B &= 0 \\
-                \mathop{\color{blue}+} \partial_t E \mathop{\color{blue}-} \mathop{\color{blue}\operatorname{rot}} B &= \mathop{\color{blue}-}4\pi j & \partial_t B + \operatorname{rot} E &= 0,
-            \end{align*}
-            sind Geometrie, erkennbar an der kovarianten Wirkung
-            \[
-                S = \int {\color{blue}\sqrt{-g}g^{ac}g^{bd}} F_{ab} F_{cd} d^4 x
-            \]
-        \end{itemize}
+    \begin{frame}{Gliederung}
+        \tableofcontents[pausesections]
     \end{frame}
+
+
+    \section{Konstruktive Gravitation}\label{sec:constructive-gravity}
 
     \begin{frame}{Space tells matter how to move \ldots}
         \begin{itemize}
-            \item Das gesamte Standardmodell der Teilchenphysik (SMTP) ist von metrischer Geometrie bestimmt.
-            \item \ldots{} wer oder was bestimmt die Geometrie?
+            \item Punktmassen
+            \[ S = m \int \sqrt{{\color{blue}g(}\dot\gamma(\lambda),\dot\gamma(\lambda){\color{blue})}} d\lambda \]
+            \item Maxwell-Elektrodynamik
+            \[ S = \int {\color{blue}\sqrt{-g}g^{ac}g^{bd}} F_{ab} F_{cd} d^4 x \]
+            \item $\Rightarrow$ Gesamtes Standardmodell ist metrisch!
+            \item Dynamik der Raumzeitmetrik?
         \end{itemize}
     \end{frame}
 
     \begin{frame}{\ldots{} Matter tells space how to curve}
         \begin{itemize}
-            \item Gravitation ist die dynamische Theorie der Raumzeitmetrik
-            \item Einstein-Hilbert-Wirkung
-            \[ S = \int \sqrt{-g} R d^4 x \]
-            \item Bzw.\ Einsteinsche Feldgleichungen
-            \[ G_{ab} = T_{ab} \]
+            \item Gravitation ist dynamische Theorie der Raumzeitmetrik!
+            \item Allgemeine Relativitätstheorie
+            \begin{itemize}
+                \item Einstein-Hilbert-Wirkung
+                \[ S = \int \sqrt{-g} R d^4 x \]
+                \item Einsteinsche Feldgleichungen
+                \[ G_{ab} = T_{ab} \]
+            \end{itemize}
         \end{itemize}
     \end{frame}
-
-
-    \section{Konstruktive Gravitation}\label{sec:constructive-gravity}
 
     \begin{frame}{Eindeutigkeit der Allgemeinen Relativitätstheorie}
         Einsteins Allgemeine Relativitätstheorie (ART) ist die einzig mögliche dynamische Theorie
@@ -100,25 +86,16 @@
 
     \begin{frame}{Modifizierte Gravitation}
         \begin{itemize}
-            \item<1-> SMTP + ART haben nur begrenzte Gültigkeit
+            \item Standardmodell + ART nur begrenzt gültig
             \begin{itemize}
-                \item<1-> Rotationskurven von Galaxien
-                \item<1-> Singularitäten (Schwarze Löcher, Urknall)
-                \item<1-> Teilchenphysik ??
-                \item<1-> \ldots
+                \item Rotationskurven von Galaxien
+                \item Singularitäten (Schwarze Löcher, Urknall)
+                \item Anomalien der Teilchenphysik
             \end{itemize}
-            \item<2-> Modifikationen oder Erweiterungen unterliegen den Eindeutigkeitsresultaten!
-            \begin{itemize}
-                \item<2-> Materietheorie bleibt rein metrisch, oder
-                \item<2-> \alert{\tikzmarknode{a}{Materietheorie benutzt andere Geometrie, oder}}
-                \item<2-> Grundannahmen müssen verworfen werden
-            \end{itemize}
+            \item \emph{Irgendwelche} Modifikationen wahrscheinlich
+            \item Eingeschränkt durch Eindeutigkeitstheoreme! \pause
+            \item \alert{$\rightarrow$ Konstruktive Gravitation}
         \end{itemize}
-        \onslide<3>
-        \begin{tikzpicture}[overlay,remember picture]
-            \draw<3>[->,mLightBrown,thick,smooth,out=30,in=270] ([xshift=-.4cm,yshift=-1.2cm]a.south) to ([xshift=.3cm,yshift=-3pt]a.south);
-            \node<3>[mLightBrown] at ([xshift=-.85cm,yshift=-1.45cm]a.south) {Constructive Gravity};
-        \end{tikzpicture}
     \end{frame}
 
     \begin{frame}{Konstruktive Gravitation}
@@ -133,11 +110,10 @@
 
     \begin{frame}{Kanonische Konstruktive Gravitation}
         \begin{itemize}
-            \item Resultat von HKT lässt sich verallgemeinern für beliebige tensorielle Geometrien
-            \item Prinzip: Constraint-Algebra der Gravitation muss die Hyperflächendeformationsalgebra implementieren
-            \item Entspricht einem unendlichen System von PDEs für die Lagrangedichte
-            \item Störungstheorie oder Symmetriereduktion möglich
-            \item Kausalität ??
+            \item HKT für beliebige tensorielle Geometrien
+            \item Prinzip: Constraint-Algebra implementiert Dirac-Algebra
+            \item $\Leftrightarrow$ unendliches System von PDEs für Lagrangedichte
+            \item Lösungsstrategien: Perturbativ, Symmetriereduktion
             \item Giesel et al.\ (2012), ?? \ldots
         \end{itemize}
     \end{frame}
@@ -146,14 +122,19 @@
         \begin{itemize}
             \item Postulat der allgemeinen Kovarianz direkt für Lagrangian
             \item Verwandt mit Lovelock und Deser
-            \item „Kovariant“, weil kein 3+1 Split die manifeste Diffeomorphismeninvarianz bricht
-            \item Prinzipien, mathematische Implementierung, Beispiele im Rest dieses Vortrages
+            \item „Kovariant“, da kein 3+1 Split
+            \item Rest dieses Vortrages
+            \begin{itemize}
+                \item Prinzipien
+                \item Mathematische Implementierung
+                \item Beispiele
+            \end{itemize}
             \item N.A., Reinhart (2020); N.A. (2020)
         \end{itemize}
     \end{frame}
 
 
-    \section{Kovariante Konstruktive Gravitation}\label{sec:covariant-constructive-gravity}
+    \section{Kovariante Implementierung}\label{sec:covariant-constructive-gravity}
 
     \begin{frame}{Lagrange-Formalismus}
         \begin{itemize}
@@ -228,11 +209,10 @@
 
     \begin{frame}{Exakte Lösung: Einstein}
         \begin{itemize}
-            \item Zweites Jet-Bündel über dem metrischen Tensorbündel hat
-            Dimension $4+10+40+100 = 154$ ($\dim M = 4$)
+            \item Zweites metrisches Jet-Bündel hat Dimension 154
             \item Äquivarianzgleichungen sind involutiv und haben Rang 140
             \item $\Rightarrow$ allgemeine Lösung
-            \[ L(x,g,\partial g,\partial\partial g) = \sqrt{-g} \cdot F(\psi_1,\ldots,\psi_{14}) \]
+            \[ L = \sqrt{-g} \cdot F(\psi_1,\ldots,\psi_{14}) \]
             mit beliebiger Funktion $F$ und 14 Krümmungsskalaren $\Psi_i$
             \item Beschränkung auf 2.\ Ableitungsordnung $\Rightarrow$ \alert{Einstein-Hilbert}
             \[ L = \frac{1}{2\kappa}\sqrt{-g}(\underbrace{R}_{\psi_1} - 2\Lambda)\]
@@ -246,10 +226,8 @@
         \begin{itemize}
             \item Geometriebündel ist die Summe von zwei Metrikbündeln
             \item Gotay-Marsden-Koeffizienten $\Rightarrow$ Äquivarianzgleichungen
-            \item Lichtkegel
+            \item Materie-Lichtkegel
             \[ P(k) = g(k,k) h(k,k) = 0 \]
-            gibt zusätzliche Bedingungen für relevante Lösungen im Sinne von Kovarianter
-            Konstruktiver Gravitation (kausale Kompatibilität)
         \end{itemize}
     \end{frame}
 
@@ -262,7 +240,7 @@
             \begin{itemize}
                 \item Formaler Potenzreihenansatz \[ L(x) = \sum_{k=0}^\infty a_k (x-x_0)^k \] ist iterativ lösbar
                 \item $n$-te Prolongation der PDE löst Ordnung $n$ des Ansatzes
-            \end{itemize}
+            \end{itemize} \pause
             \item \textbf{Perturbative Kovariante Konstruktive Gravitation}
             \begin{itemize}
                 \item \makebox[2cm]{\hfill$n=1$:} Theorie in der \alert{Minkowski}-Raumzeit
