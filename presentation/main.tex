@@ -151,28 +151,19 @@
     \begin{frame}{Allgemeine Kovarianz}
         \begin{itemize}
             \item $\mathscr L$ invariant unter Diffeomorphismen $\varphi\in\operatorname{Diff}(M)$
-\[ \hspace{2cm} \Leftrightarrow j^2(\varphi_E)^\ast\mathscr{L} = \mathscr{L} \hspace{1000pt minus 1fil} \]
-            \item Lokale Koordinaten: $\mathscr L = L d^n x$
-            \[ \hspace{2cm}\Rightarrow L\circ j^2(\varphi_E) = \lvert d\varphi\rvert^{-1} L \hspace{1000pt minus 1fil} \]
-            \item Infinitesimale Version: Äquivarianzgleichungen
-        \end{itemize}
-    \end{frame}
-
-    \begin{frame}{\"Aquivarianzgleichungen}
-        \begin{itemize}
-            \item<1-> Vektorfelder $\xi\in\Gamma(TM)$ sind infinitesimale Diffeo's \[ x^i \mapsto x^i + \xi^i \]
-            \item<2-> Lift auf das Tangentialbündel von $E$ \[ \xi \mapsto \xi_E \vcentcolon= \xi^m\partial_m + \onslide<3-> \underbrace{\onslide<2-> \gmc{A}{B}{m}{n} \onslide<3-> }_{\mathclap{\text{\alert{Gotay-Marsden-Koeffizienten}}}} \onslide<2-> u^B \xi^m_{,n} \partial_A \]
-            \item<4-> Beispiele
-            \begin{itemize}
-                \item<4-> \makebox[2.2cm]{Kovektor $\omega_a$:\hfill} $\xi_E  =\xi^m \partial_m \underbrace{- \delta^a_m \delta^n_b}_{\gmcd{a}{b}{m}{n}} \omega_a \xi^m_{,n} \frac{\partial}{\partial \omega^b} $
-                \item<4-> \makebox[2.2cm]{Metrik $g_{ab}$:\hfill} $\xi_E  =\xi^m \partial_m + \underbrace{2 \delta^a_m \delta^b_c \delta^n_d}_{\gmc{ab}{cd}{m}{n}} g^{cd} \xi^m_{,n} \frac{\partial}{\partial g^{ab}} $
-            \end{itemize}
+\[ \Leftrightarrow j^2(\varphi_E)^\ast\mathscr{L} = \mathscr{L} \]
+            \item In lokalen Koordinaten
+            \[ \mathscr L = L d^n x\Rightarrow L\circ j^2(\varphi_E) = \lvert d\varphi\rvert^{-1} L \]
+            \item Infinitesimale Diffeo's
+            \begin{align*}
+                x^p &\mapsto x^p + \xi^p \\
+                G^A &\mapsto G^A + \underbrace{\gmc{A}{B}{n}{m}}_{\mathclap{\text{Gotay-Marsden-Koeffizienten}}} G^B \xi^n_m
+            \end{align*}
         \end{itemize}
     \end{frame}
 
     \begin{frame}{\"Aquivarianzgleichungen}
         \setlength{\belowdisplayskip}{-10pt}
-        Äquivarianzgleichungen für infinitesimale Diffeo's:
         \begin{align*}
             0 =& {\color{blue}L_{,m}} \\
             0 =& {\color{blue}L_{:A}} {\color{mLightBrown}\gmc{A}{B}{n}{m}} {\color{purple}u^B} + {\color{blue}L_{:A}} \left\lbrack {\color{mLightBrown}\gmc{A}{B}{n}{m}} \delta^q_p - \delta^A_B \delta^q_m \delta^n_p \right\rbrack {\color{purple}u^B_q} \\
@@ -190,13 +181,13 @@
     \begin{frame}{Eigenschaften der Äquivarianzgleichungen}
         \begin{itemize}
             \item \textbf{Theorem:} Die Äquivarianzgleichungen sind
-            \alert{involutiv} und folglich \alert{formal integrierbar}. \pause
-            \item Folgt aus der Involutionstheorie für PDEs und einem Beweis für das spezielle System \pause
+            \alert{involutiv} und folglich \alert{formal integrierbar}.
+            \item Folgt aus der Involutionstheorie für PDEs {\scriptsize \lbrack Seiler \rbrack}
             \item Ergebnis ist von fundamentaler Bedeuting für den konstruktiven Ansatz
             \begin{itemize}
                 \item Aussagen über den Lösungsraum $\Rightarrow$ exakte Lösung
                 \item Formaler Potenzreihenansatz $\Rightarrow$ perturbative Lösung
-            \end{itemize} \pause
+            \end{itemize}
             \item Nicht ableitbar im kanonischen Bild!
         \end{itemize}
     \end{frame}
