@@ -48,8 +48,8 @@
             \[ S = m \int \sqrt{{\color{blue}g(}\dot\gamma(\lambda),\dot\gamma(\lambda){\color{blue})}} d\lambda \]
             \item Maxwell-Elektrodynamik
             \[ S = \int {\color{blue}\sqrt{-g}g^{ac}g^{bd}} F_{ab} F_{cd} d^4 x \]
-            \item $\Rightarrow$ Gesamtes Standardmodell ist metrisch!
-            \item Dynamik der Raumzeitmetrik?
+            \item $\rightarrow$ Gesamtes Standardmodell ist metrisch!
+            \item Prädiktiv nur wenn Dynamik der Raumzeitmetrik bekannt!
         \end{itemize}
     \end{frame}
 
@@ -93,7 +93,7 @@
                 \item Anomalien der Teilchenphysik
             \end{itemize}
             \item \emph{Irgendwelche} Modifikationen wahrscheinlich
-            \item Eingeschränkt durch Eindeutigkeitstheoreme! \pause
+            \item Eingeschränkt durch Eindeutigkeitstheoreme!
             \item \alert{$\rightarrow$ Konstruktive Gravitation}
         \end{itemize}
     \end{frame}
@@ -101,9 +101,9 @@
     \begin{frame}{Konstruktive Gravitation}
         \begin{itemize}
             \item \textbf{Grundidee der Konstruktiven Gravitation:} \\
-            Modifizierte Gravitation ergibt sich aus der Betrachtung neuartiger Materietheorien. \pause
+            Modifizierte Gravitation ergibt sich aus der Betrachtung neuartiger Materietheorien.
             \item \textbf{Konstruktionsprinzip:} \\
-            Reproduktion der Eindeutigkeitstheoreme für Maxwell-Einstein \pause
+            Reproduktion der Eindeutigkeitstheoreme für Maxwell-Einstein
             \item Unterteilung je nach Art des Eindeutigkeitstheorems
         \end{itemize}
     \end{frame}
@@ -114,23 +114,19 @@
             \item Prinzip: Constraint-Algebra implementiert Dirac-Algebra
             \item $\Leftrightarrow$ unendliches System von PDEs für Lagrangedichte
             \item Lösungsstrategien: Perturbativ, Symmetriereduktion
-            \item Giesel et al.\ (2012), ?? \ldots
         \end{itemize}
+
+        \raggedleft\scriptsize \lbrack Giesel et al.\ (2012); Schuller, Witte (2014); Düll et al.\ (2019); \ldots \rbrack
     \end{frame}
 
     \begin{frame}{Kovariante Konstrutive Gravitation}
         \begin{itemize}
             \item Postulat der allgemeinen Kovarianz direkt für Lagrangian
             \item Verwandt mit Lovelock und Deser
-            \item „Kovariant“, da kein 3+1 Split
-            \item Rest dieses Vortrages
-            \begin{itemize}
-                \item Prinzipien
-                \item Mathematische Implementierung
-                \item Beispiele
-            \end{itemize}
-            \item N.A., Reinhart (2020); N.A. (2020)
+            \item Manifest „Kovariant“, da ohne 3+1-Split
         \end{itemize}
+
+        \raggedleft\scriptsize \lbrack N.A., Reinhart (2020); N.A.\ (2020) \ldots \rbrack
     \end{frame}
 
 
@@ -147,20 +143,18 @@
             \end{itemize} \pause
             \item Lagrangian $\mathscr L \in \bigwedge^n_0 \pi_2$ ist eine horizontale $n$-Form auf dem
             2.\ Jet-Bündel $J^2 E \xrightarrow{\pi_2} M$ \pause
-            \item {\setlength{\belowdisplayskip}{-10pt}In Koordinaten
-                \[ \mathscr{L} = L(x^i, u^A, u^A_i, u^A_{ij}) dx^1 \wedge \dots \wedge dx^n \]} \pause
-            \item Euler-Lagrange-Gleichungen: Notwendige Bedingung für physikalische Felder $\sigma\in\Gamma(\pi)$
-            \[ (j^2\sigma)^\ast \left( \frac{\partial L}{\partial u^A} - D_i \frac{\partial L}{\partial u^A_i} + D_{ij} \frac{\partial L}{\partial u^A_{ij}}\right) = 0 \]
+            \item In Koordinaten
+            \[ \mathscr{L} = L(x^i, u^A, u^A_i, u^A_{ij}) dx^1 \wedge \dots \wedge dx^n \]
         \end{itemize}
     \end{frame}
 
     \begin{frame}{Allgemeine Kovarianz}
         \begin{itemize}
-            \item Raumzeit-Diffeomorphismen $\varphi\in\operatorname{Diff}(M)$ induzieren Vektorbündel-Automorphismen
-            $\varphi_E\in\operatorname{Aut}(E)$ (Pushforward, Pullback) \pause
-            \item Diese wiederum induzieren Jetbündel-Morphismen $j^2(\varphi_E)$ \pause
-            \item $\mathscr L$ ist invariant unter Diffeo's $\Leftrightarrow$ \alert{$j^2(\varphi_E)^\ast\mathscr{L} = \mathscr{L}$} \pause
-            \item Lokale Äquivarianz: $\mathscr L = L d^n x$ $\Rightarrow$ \alert{$L\circ j^2(\varphi_E) = \lvert d\varphi\rvert^{-1} L$}
+            \item $\mathscr L$ invariant unter Diffeomorphismen $\varphi\in\operatorname{Diff}(M)$
+\[ \hspace{2cm} \Leftrightarrow j^2(\varphi_E)^\ast\mathscr{L} = \mathscr{L} \hspace{1000pt minus 1fil} \]
+            \item Lokale Koordinaten: $\mathscr L = L d^n x$
+            \[ \hspace{2cm}\Rightarrow L\circ j^2(\varphi_E) = \lvert d\varphi\rvert^{-1} L \hspace{1000pt minus 1fil} \]
+            \item Infinitesimale Version: Äquivarianzgleichungen
         \end{itemize}
     \end{frame}
 
