@@ -123,6 +123,7 @@
     \begin{frame}{Kovariante Konstrutive Gravitation}
         \begin{itemize}
             \item Postulat der allgemeinen Kovarianz direkt für Lagrangian
+            \item Zusätzliche Forderung nach kausaler Kompatibilität
             \item Verwandt mit Lovelock und Deser
             \item Manifest „Kovariant“, da ohne 3+1-Split
         \end{itemize}
@@ -322,12 +323,12 @@
                 \item Lorentzschem Kraftgesetz
                 \item Superposition
             \end{itemize}
-            \item $\Rightarrow$ Lineare Relation für \textit{Anregungen} und \textit{Feldstärken}
+            \item Lineare Relation für \textit{Anregungen} und \textit{Feldstärken}
             \[
                 H^{ab} = \alert{G^{abcd}} F_{cd}
             \]
             \item Quartischer Lichtkegel \[ 0 = P(k) = -\frac{1}{24} \omega_G^2 \epsilon_{mnpq} \epsilon_{rstu} G^{mnra} G^{bpsc} G^{dqtu} k_a k_b k_c k_d \]
-            \item \textbf{Doppelbrechung im Vakuum!}
+            \item $\Rightarrow$ \textbf{Doppelbrechung im Vakuum!}
             \item Verbot der Doppelbrechung $\Rightarrow$ Maxwell
         \end{itemize}
         % \[ S = \int \omega_G G^{abcd} F_{ab} F_{cd} d^4 x \]
@@ -442,7 +443,7 @@
             \item Divergierende Moden bei Wellengleichungen
             \item Fernfeld-Modifikationen der lin.\ Schwarzschild-Lösung
         \end{itemize}
-        durch Reduzierung von 10 auf 7 Konstanten \pause
+        durch Reduzierung von 10 auf 7 Konstanten
         bleiben ($X = W,V,U^\alpha,V^\alpha,V^{\alpha\beta},W^{\alpha\beta}$)
         \begin{gather*}
             \begin{aligned}
@@ -458,12 +459,12 @@
         \begin{itemize}
             \item Zwei Punktmassen $m_1,m_2$ mit Weltlinien $\gamma_1,\gamma_2$
             \[ S = \sum_{i=1,2} m_i c \int d\lambda P_\text{GLED}(L^{-1}(\dot\gamma_{(i)}(\lambda)))^{-\frac{1}{4}} \] \pause
-            \item Iterative Lösung ähnliche zu Poisson, Will (2014) \pause
+            \item Iterative Lösung \scriptsize \lbrack vgl.\ Poisson, Will (2014) \rbrack \pause
             \begin{itemize}
                 \item Lösung der Trajektorien zu 1.\ Ordnung
                 \begin{itemize}
                     \item Kreisförmige Orbits mit \alert{modifiziertem Kepler-Gesetz}
-                    \[\omega^2 = \frac{(G\alpha)m}{r^3}\lbrack 1 + \alert{f(r)} \rbrack \]
+                    \[\omega^2 = \frac{Gm}{r^3}\lbrack 1 + \alert{\underbrace{f(r)}_{\mathclap{\beta(1+\mu r)\mathrm e^{-\mu r}}}} \rbrack \]
                 \end{itemize} \pause
                 \item Liefert Quellterme für Wellengleichungen 2.\ Ordnung
                 \begin{itemize}
@@ -480,7 +481,7 @@
             \item Aus Diffeo-Invarianz folgt zweites Noether-Theorem
             \[ -D_n \lbrack\frac{\delta L}{\delta G^A} \gmc{A}{B}{n}{m} G^B\rbrack = \frac{\delta L}{\delta G^A} G^A_{,m} \]
             \item Angewandt auf Doppelsternsystem in masseloser Strahlungsphase:
-            \[ \left(\frac{1 + \alert{f(r)}}{r}\right)^{\scalebox{1.5}{\cdot}} = \frac{64}{5} \eta c \frac{1}{r^2} \left(\frac{\alpha Gm}{c^2 r}\lbrack 1+\alert{f(r)}\rbrack\right)^3\]
+            \[ \left(\frac{1 + \alert{f(r)}}{r}\right)^{\scalebox{1.5}{\cdot}} = \frac{64}{5} \eta c \frac{1}{r^2} \left(\frac{Gm}{c^2 r}\lbrack 1+\alert{f(r)}\rbrack\right)^3\]
             \alert{Korrektur der metrischen ODE mit $f(r)$!}
         \end{itemize}
     \end{frame}
@@ -531,7 +532,7 @@
         Wie könnte es weitergehen?
         \begin{itemize}
             \item Vollständige Lösung des Beispiels zur 2.\ Ordnung
-            \item Symmetriereduktion, z.B.\ Kosmologie
+            \item Symmetriereduktion, z.B.\ Kosmologie {\scriptsize \lbrack vgl.\ Düll, 2020\rbrack}
             \item Verbesserungen im kanonischen Ansatz
             \item Kausalität verstehen
             \item Kovariante kanonische Formulierung
