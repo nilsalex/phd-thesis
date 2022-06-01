@@ -104,7 +104,8 @@
             Modifizierte Gravitation ergibt sich aus der Betrachtung neuartiger Materietheorien.
             \item \textbf{Konstruktionsprinzip:} \\
             Reproduktion der Eindeutigkeitstheoreme für Maxwell-Einstein
-            \item Unterteilung je nach Art des Eindeutigkeitstheorems
+            \item \textbf{Unterteilung}: \\
+            Je nach Art des Eindeutigkeitstheorems
         \end{itemize}
     \end{frame}
 
@@ -116,7 +117,7 @@
             \item Lösungsstrategien: Perturbativ, Symmetriereduktion
         \end{itemize}
 
-        \raggedleft\scriptsize \lbrack Giesel et al.\ (2012); Schuller, Witte (2014); Düll et al.\ (2019); \ldots \rbrack
+        \raggedleft\scriptsize \lbrack Giesel et al.\ (2012); Schuller, Witte (2014); Düll et al.\ (2019) \rbrack
     \end{frame}
 
     \begin{frame}{Kovariante Konstrutive Gravitation}
@@ -126,7 +127,7 @@
             \item Manifest „Kovariant“, da ohne 3+1-Split
         \end{itemize}
 
-        \raggedleft\scriptsize \lbrack N.A., Reinhart (2020); N.A.\ (2020) \ldots \rbrack
+        \raggedleft\scriptsize \lbrack N.A., Reinhart (2020); N.A.\ (2020) \rbrack
     \end{frame}
 
 
@@ -134,15 +135,15 @@
 
     \begin{frame}{Lagrange-Formalismus}
         \begin{itemize}
-            \item Geometrie ist ein Tensorbündel $E \xrightarrow{\pi} M$ über einer differenzierbaren
-            Raumzeitmannigfaltigkeit, z.B.\
+            \item Differenzierbare Raumzeitmannigfaltigkeit $M$
+            \item Geometrie ist Tensorbündel $E \xrightarrow{\pi} M$
             \begin{itemize}
                 \item Metrisches Bündel $\operatorname{Sym}(T^0_2 M)$
                 \item Bi-metrisches Bündel $\operatorname{Sym}(T^0_2 M) \oplus_M \operatorname{Sym}(T^0_2 M)$
                 \item Area-metrisches Bündel als Sub-Bündel von $T^4_0 M$
-            \end{itemize} \pause
+            \end{itemize}
             \item Lagrangian $\mathscr L \in \bigwedge^n_0 \pi_2$ ist eine horizontale $n$-Form auf dem
-            2.\ Jet-Bündel $J^2 E \xrightarrow{\pi_2} M$ \pause
+            2.\ Jet-Bündel $J^2 E \xrightarrow{\pi_2} M$
             \item In Koordinaten
             \[ \mathscr{L} = L(x^i, u^A, u^A_i, u^A_{ij}) dx^1 \wedge \dots \wedge dx^n \]
         \end{itemize}
@@ -151,7 +152,7 @@
     \begin{frame}{Allgemeine Kovarianz}
         \begin{itemize}
             \item $\mathscr L$ invariant unter Diffeomorphismen $\varphi\in\operatorname{Diff}(M)$
-\[ \Leftrightarrow j^2(\varphi_E)^\ast\mathscr{L} = \mathscr{L} \]
+            \[ \Leftrightarrow {\underbrace{j^2(\varphi_E)}_{\mathclap{\text{Lift auf 2.\ Jet-Bündel}}}}^\ast\mathscr{L} = \mathscr{L} \]
             \item In lokalen Koordinaten
             \[ \mathscr L = L d^n x\Rightarrow L\circ j^2(\varphi_E) = \lvert d\varphi\rvert^{-1} L \]
             \item Infinitesimale Diffeo's
@@ -195,8 +196,8 @@
     \begin{frame}{Exakte Lösung: Einstein}
         \begin{itemize}
             \item Zweites metrisches Jet-Bündel hat Dimension 154
-            \item Äquivarianzgleichungen sind involutiv und haben Rang 140
-            \item $\Rightarrow$ allgemeine Lösung
+            \item Äquivarianzgleichungen haben Rang 140
+            \item Involutivität $\Rightarrow$ allgemeine Lösung
             \[ L = \sqrt{-g} \cdot F(\psi_1,\ldots,\psi_{14}) \]
             mit beliebiger Funktion $F$ und 14 Krümmungsskalaren $\Psi_i$
             \item Beschränkung auf 2.\ Ableitungsordnung $\Rightarrow$ \alert{Einstein-Hilbert}
@@ -221,29 +222,33 @@
 
     \begin{frame}{Potenzreihenansatz}
         \begin{itemize}
-            \item Involutivität der Äquivarianzgleichungen impliziert formale Integrierbarkeit
+            \item Störungsansatz für Lagrangian
+            \setlength{\belowdisplayskip}{-10pt}
+            \begin{align*}
+                G^A &= N^A + H^A \\
+                L &= a + a_A H^A + a_A^{\hphantom Ai} H^A_{\hphantom{A},i} + a_A^{\hphantom AI} H^A_{\hphantom{A},I} + a_{AB} H^A H^B + \ldots
+            \end{align*} \pause
+            \item Involutivität $\Rightarrow$ Formale Integrierbarkeit
             \begin{itemize}
-                \item Formaler Potenzreihenansatz \[ L(x) = \sum_{k=0}^\infty a_k (x-x_0)^k \] ist iterativ lösbar
-                \item $n$-te Prolongation der PDE löst Ordnung $n$ des Ansatzes
+                \item Potenzreihenansatz $ L = \sum_{k=0}^\infty a_k (X-X_0)^k $ iterativ lösbar
+                \item \alert{$n$-te Prolongation der PDE löst $n$-te Ordnung}
             \end{itemize} \pause
-            \item \textbf{Perturbative Kovariante Konstruktive Gravitation}
+            \item Perturbative Kovariante Konstruktive Gravitation
             \begin{itemize}
-                \item \makebox[2cm]{\hfill$n=1$:} Theorie in der \alert{Minkowski}-Raumzeit
-                \item \makebox[2cm]{\hfill$1<n<\infty$:} Theorie für schwache Gravitationsfelder
+                \item $n=0$: Minkowski-Hintergrund
+                \item $n=2$: Linearisierte Gravitation
+                \item $n=3$: Gravitative Selbstwechselwirkung
+                \item \ldots
             \end{itemize}
         \end{itemize}
     \end{frame}
 
     \begin{frame}{Lorentzinvariante Ansätze}
         \begin{itemize}
-            \item Störungsansatz für Lagrangian auf Jetbündel
-            \begin{align*}
-                G^A &= \underbrace{N^A}_{\mathclap{\text{Minkowski-Geometrie}}} + H^A \\
-                L &= a + a_A H^A + a_A^{\hphantom Ai} H^A_{\hphantom{A},i} + a_A^{\hphantom AI} H^A_{\hphantom{A},I} + a_{AB} H^A H^B + \ldots
-            \end{align*}
-            \item Beobachtung: $SO(1,3)$-Invarianz von $N$ überträgt sich auf Ansatzkoeffizienten $a, a_A, \ldots$
+            \item Korrespondenzprinzip: $N$ entspricht Minkowski-Geometrie \pause
+            \item \textbf{Beobachtung:} \\ $SO(1,3)$-Invarianz von $N$ überträgt sich auf $a, a_A, \ldots$ \pause
             \item $\Rightarrow$ $a, a_A, \ldots$ sind zusammengesetzt aus
-            Minkowski-Metrik $\eta$ und Levi-Civita-Symbol $\epsilon$
+            Minkowski-Metrik $\eta$ und Levi-Civita-Symbol $\epsilon$ \pause
             \item Für metrische Theorien: $a_{ab} = A \cdot \eta_{ab}$, $a_{ab}^{\hphantom{ab}i} = 0$, $a_{abcd} = A\cdot \eta_{ab} \eta_{cd} + B\cdot \eta_{ac} \eta_{bd} + C\cdot \eta_{ad} \eta_{bc} + D \cdot \epsilon_{abcd}$, \ldots
         \end{itemize}
     \end{frame}
@@ -352,13 +357,7 @@
         \alert{
             \textbf{Antwort:} \\
             Konstruktion einer kompatiblen Gravitationstheorie!
-        } \pause
-
-        \textbf{Erkenntnisgewinn:}
-        \begin{itemize}
-            \item Falsifikation der GLED
-            \item long shot: Erklärung bislang unerklärter Phänomene?
-        \end{itemize}
+        }
     \end{frame}
 
     \begin{frame}{Konstruktion der Area-Metrik-Gravitation}
