@@ -101,7 +101,7 @@
     \begin{frame}{Konstruktive Gravitation}
         \begin{itemize}
             \item \textbf{Grundidee der Konstruktiven Gravitation:} \\
-            Modifizierte Gravitation ergibt sich aus der Betrachtung neuartiger Materietheorien.
+            Modifizierte Gravitation ergibt sich aus der Betrachtung neuartiger Materietheorien
             \item \textbf{Konstruktionsprinzip:} \\
             Reproduktion der Eindeutigkeitstheoreme für Maxwell-Einstein
             \item \textbf{Unterteilung}: \\
@@ -172,9 +172,9 @@
             & + {\color{blue}L_{:A}^{\hphantom{:A}I}} \left\lbrack {\color{mLightBrown}\gmc{A}{B}{n}{m}} \delta^J_I - 2\delta^A_B J^{pn}_I I^J_{pm}\right\rbrack {\color{purple}u^B_J} + {\color{blue}L} \delta^n_m \\
             0 =& {\color{blue}L_{:A}^{\hphantom{:A}(p\mid}} {\color{mLightBrown}\gmc{A}{B}{\mid n)}{m}} {\color{purple}u^B} + {\color{blue}L_{:A}^{\hphantom{:A}I}}\left\lbrack {\color{mLightBrown}\gmc{A}{B}{(n}{m}} 2 J^{p)q}_I - \delta^A_B J^{pn}_I \delta^q_m\right\rbrack {\color{purple}u^B_q} \\
             0 =& {\color{blue}L_{:A}^{\hphantom{:A}I}} {\color{mLightBrown}\gmc{A}{B}{(n}{m}} J^{pq)}_I {\color{purple}u^B}
-        \end{align*} \pause
+        \end{align*}
         \begin{itemize}
-            \item System aus 140 linearen PDE erster Ordnung mit konstanten und linearen Koeffizienten
+            \item System aus 140 linearen PDEs erster Ordnung mit konstanten und linearen Koeffizienten
             \item Geometrieabhängigkeit nur in {\color{mLightBrown}Gotay-Marsden-Koeff.}
             \item Lösungen des Systems sind Kandidaten für Gravitation!
         \end{itemize}
@@ -185,10 +185,10 @@
             \item \textbf{Theorem:} Die Äquivarianzgleichungen sind
             \alert{involutiv} und folglich \alert{formal integrierbar}.
             \item Folgt aus der Involutionstheorie für PDEs {\scriptsize \lbrack Seiler \rbrack}
-            \item Ergebnis ist von fundamentaler Bedeutung für den konstruktiven Ansatz
+            \item Fundamentale Bedeutung für konstruktiven Ansatz
             \begin{itemize}
-                \item Aussagen über den Lösungsraum $\Rightarrow$ exakte Lösung
-                \item Formaler Potenzreihenansatz $\Rightarrow$ perturbative Lösung
+                \item Aussagen über den Lösungsraum \\ $\rightarrow$ exakte Lösung
+                \item Formaler Potenzreihenansatz \\ $\rightarrow$ perturbative Lösung
             \end{itemize}
             \item Nicht ableitbar im kanonischen Bild!
         \end{itemize}
@@ -246,22 +246,18 @@
 
     \begin{frame}{Lorentzinvariante Ansätze}
         \begin{itemize}
-            \item Korrespondenzprinzip: $N$ entspricht Minkowski-Geometrie \pause
-            \item \textbf{Beobachtung:} \\ $SO(1,3)$-Invarianz von $N$ überträgt sich auf $a, a_A, \ldots$ \pause
+            \item \textbf{Beobachtung:} \\ $SO(1,3)$-Invarianz von $N$ überträgt sich auf $a, a_A, \ldots$
             \item $\Rightarrow$ $a, a_A, \ldots$ sind zusammengesetzt aus
-            Minkowski-Metrik $\eta$ und Levi-Civita-Symbol $\epsilon$ \pause
-            \item Für metrische Theorien: $a_{ab} = A \cdot \eta_{ab}$, $a_{ab}^{\hphantom{ab}i} = 0$, $a_{abcd} = A\cdot \eta_{ab} \eta_{cd} + B\cdot \eta_{ac} \eta_{bd} + C\cdot \eta_{ad} \eta_{bc} + D \cdot \epsilon_{abcd}$, \ldots
-        \end{itemize}
-    \end{frame}
-
-    \begin{frame}{Ansatzerzeugung}
-        \begin{itemize}
-            \item Erzeugung von $SO(1,3)$-invarianten Ansätzen reduziert
+            Minkowski-Metrik $\eta$ und Levi-Civita-Symbol $\epsilon$
+            \item Für metrische Theorien:
             \begin{itemize}
-                \item Anzahl der Unbestimmten
-                \item Anzahl der zu lösenden Äquivarianzgleichungen
+                \item $a_{ab} = A \cdot \eta_{ab}$
+                \item $a_{ab}^{\hphantom{ab}i} = 0$
+                \item $a_{abcd} = A\cdot \eta_{ab} \eta_{cd} + B\cdot \eta_{ac} \eta_{bd} + C\cdot \eta_{ad} \eta_{bc} + D \cdot \epsilon_{abcd}$
+                \item \ldots
             \end{itemize}
-            \item Haskell-Implementierung auf Workstation-Hardware: bis zu 18 Raumzeitindizes mit typischen Symmetrien
+            \item Haskell-Implementierung auf Workstation-Hardware: \\
+            Erzeugung von Ansätzen mit bis zu 18 Raumzeitindizes
         \end{itemize}
     \end{frame}
 
@@ -329,7 +325,6 @@
             \]
             \item Quartischer Lichtkegel \[ 0 = P(k) = -\frac{1}{24} \omega_G^2 \epsilon_{mnpq} \epsilon_{rstu} \alert{G^{mnra} G^{bpsc} G^{dqtu}} k_a k_b k_c k_d \]
             $\Rightarrow$ \textbf{Doppelbrechung im Vakuum!}
-            \item Verbot der Doppelbrechung $\Rightarrow$ Maxwell
         \end{itemize}
         % \[ S = \int \omega_G G^{abcd} F_{ab} F_{cd} d^4 x \]
         % mit \alert{Area-Metrik}
@@ -345,7 +340,7 @@
             \item \alert{$G$} ist die \alert{Area-Metrik} mit Symmetrien
             \[ G^{\color{blue}ab\color{olive}cd} = -G^{\color{blue}ba\color{olive}cd} = G^{\color{olive}cd\color{blue}ab} \]
             \item Area-Metrik-Bündel $E_\text{Area}$ hat Faserdimension 21
-            \item $G$ bestimmt GLED-Wirkung \[ S = \int \omega_{\alert{G}} \alert{G^{abcd}} F_{ab} F_{cd} d^4 x \]
+            \item \alert{$G$} bestimmt GLED-Wirkung \[ S = \int \omega_{\alert{G}} \alert{G^{abcd}} F_{ab} F_{cd} d^4 x \]
             \item Maxwell: $G^{abcd} = g^{ac} g^{bd} - g^{ad} g^{bc}$ (+ Dichte)
         \end{itemize}
     \end{frame}
@@ -409,7 +404,7 @@
                 \item Lagrangian parametrisiert durch 50 Konstanten
                 \item \alert{10 unabhängige Parameter für linearisierte Euler-Lagrange-Gleichungen} \\
                 $\rightarrow$ Am meisten Relevanz für hier diskutierte Dynamik
-            \end{itemize} \pause
+            \end{itemize}
             \item Kausalität ist zu dieser Ordnung trivialerweise kompatibel mit GLED! \\
             $\rightarrow$ Folgt aus Äquivarianz ohne explizite Rechnung
         \end{itemize}
@@ -423,36 +418,35 @@
                 \item Lapse $N$ und Shift $N^\alpha$
                 \item Räumliche Tensoren $\hat G^{\alpha\beta}$, $\hat G_{\alpha\beta}$, $\hat G^\alpha_\beta$
                 \item Alle $\hat G$ symmetrisch, $\hat G^\alpha_\beta$ zusätzlich spurfrei
-                \item Ähnlich zur metrischen Theorie
-                \[ g^{ab} = \left( \begin{array}{c|c}
-                                       \frac{1}{N^2} & -\frac{N^\alpha}{N^2} \\ \hline -\frac{N^\alpha}{N^2} & \frac{N^\alpha N^\beta}{N^2} - \hat g^{\alpha\beta}
-                \end{array} \right) \]
             \end{itemize}
             \item Linearisiert + Eichfixiert (Diffeo-Symmetrie):
             \begin{itemize}
-                \item 3 TT-Tensoren $U^{\alpha\beta}$, $V^{\alpha\beta}$, $W^{\alpha\beta}$
-                \item 3 Transversale Vektoren $B^\alpha$, $U^\alpha$, $W^\alpha$
-                \item 5 Longitudinale Skalare $A$, $\tilde U$, $\tilde V$, $V$, $W$
+                \item {\color{blue}metrische Moden} + {\color{alert}nicht-metrische Moden}
+                \item 3 TT-Tensoren {\color{blue}$U^{\alpha\beta}$}, {\color{alert}$V^{\alpha\beta}$}, {\color{alert}$W^{\alpha\beta}$}
+                \item 3 Transversale Vektoren {\color{blue}$B^\alpha$}, {\color{alert}$U^\alpha$}, {\color{alert}$W^\alpha$}
+                \item 5 Longitudinale Skalare {\color{blue}$A$}, {\color{blue}$\tilde U$}, {\color{alert}$\tilde V$}, {\color{alert}$V$}, {\color{alert}$W$}
             \end{itemize}
         \end{itemize}
     \end{frame}
 
     \begin{frame}{Linearisierte 3+1-Feldgleichungen}
-        Nach Beseitigung unphysikalischer Artefakte
         \begin{itemize}
-            \item Divergierende Moden bei Wellengleichungen
-            \item Fernfeld-Modifikationen der lin.\ Schwarzschild-Lösung
+            \item Beseitigung unphysikalischer Artefakte
+            \begin{itemize}
+                \item Divergierende Moden bei Wellengleichungen
+                \item Fernfeld-Modifikationen der lin.\ Schwarzschild-Lösung
+            \end{itemize}
+            \item $\Rightarrow$ Reduktion von 10 auf 7 Konstanten
+            \item Reduzierte Feldgleichungen ($X = W,V,U^\alpha,V^\alpha,V^{\alpha\beta},W^{\alpha\beta}$)
+            \begin{gather*}
+                \begin{aligned}
+                    \color{blue}\text{(Quellterme)} &\color{blue}= \Box U^{\alpha\beta} \\
+                    \color{red}\text{(Quellterme)} &\color{red}= \Box X + \nu^2 X \\
+                    \color{red}\text{(Quellterme)} &\color{red}= \Box \tilde V + \mu^2 \tilde V \\
+                \end{aligned} \\
+                \color{blue}\text{Constraint-Gleichungen für }A, B^\alpha, \tilde U
+            \end{gather*}
         \end{itemize}
-        durch Reduzierung von 10 auf 7 Konstanten
-        bleiben ($X = W,V,U^\alpha,V^\alpha,V^{\alpha\beta},W^{\alpha\beta}$)
-        \begin{gather*}
-            \begin{aligned}
-                \text{(Quellterme)} &= \Box U^{\alpha\beta} \\
-                \text{(Quellterme)} &= \Box X + \nu^2 X \\
-                \text{(Quellterme)} &= \Box \tilde V + \mu^2 \tilde V \\
-            \end{aligned} \\
-            \text{Constraint-Gleichungen für }A, B^\alpha, \tilde U
-        \end{gather*}
     \end{frame}
 
     \begin{frame}{Doppelsternsystem}
@@ -470,7 +464,7 @@
                 \begin{itemize}
                     \item \alert{Strahlung auf $U^{\alpha\beta}$-Mode mit $f(r)$ korrigiert}
                     \item \alert{Moden mit Masse $\nu$ strahlen ab $2\omega > \nu$}
-                    \item Für $\tilde V$ noch nicht quantifiziert
+                    \item Für $\tilde V$ mit Masse $\mu$ noch nicht quantifiziert
                 \end{itemize}
             \end{itemize}
         \end{itemize}
@@ -534,8 +528,8 @@
             \item Vollständige Lösung des Beispiels zur 2.\ Ordnung
             \item Symmetriereduktion, z.B.\ Kosmologie {\scriptsize \lbrack vgl.\ Düll, 2020\rbrack}
             \item Verbesserungen im kanonischen Ansatz
-            \item Kausalität verstehen
-            \item Kovariante kanonische Formulierung
+            \item Kausalität besser verstehen
+            \item Manifest kovariante kanonische Formulierung
         \end{itemize}
     \end{frame}
 
