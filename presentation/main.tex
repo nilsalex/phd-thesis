@@ -209,7 +209,7 @@
     \begin{frame}{Neuartige Materie}
         \textbf{Beispiel bi-metrische Theorie:}\\ Skalarfelder gekoppelt an zwei verschiedene Metriken
             {\setlength{\belowdisplayskip}{-5pt}
-        \[ L = {\color{red}\sqrt{-g} g^{ab}} \phi_{,a}\phi_{,b} - m_\phi^2 \phi^2 + {\color{blue}\sqrt{-h} h^{ab}} \psi_{,a}\psi_{,b} - m_\psi^2 \psi^2 \]} \pause
+        \[ L = {\color{red}\sqrt{-g} g^{ab}} \phi_{,a}\phi_{,b} - m_\phi^2 \phi^2 + {\color{blue}\sqrt{-h} h^{ab}} \psi_{,a}\psi_{,b} - m_\psi^2 \psi^2 \]}
         \begin{itemize}
             \item Geometriebündel ist die Summe von zwei Metrikbündeln
             \item Gotay-Marsden-Koeffizienten $\Rightarrow$ Äquivarianzgleichungen
@@ -249,12 +249,11 @@
             \item \textbf{Beobachtung:} \\ $SO(1,3)$-Invarianz von $N$ überträgt sich auf $a, a_A, \ldots$
             \item $\Rightarrow$ $a, a_A, \ldots$ sind zusammengesetzt aus
             Minkowski-Metrik $\eta$ und Levi-Civita-Symbol $\epsilon$
-            \item Für metrische Theorien:
+            \item Bsp.\ für metrische Theorien:
             \begin{itemize}
                 \item $a_{ab} = A \cdot \eta_{ab}$
                 \item $a_{ab}^{\hphantom{ab}i} = 0$
                 \item $a_{abcd} = A\cdot \eta_{ab} \eta_{cd} + B\cdot \eta_{ac} \eta_{bd} + C\cdot \eta_{ad} \eta_{bc} + D \cdot \epsilon_{abcd}$
-                \item \ldots
             \end{itemize}
             \item Haskell-Implementierung auf Workstation-Hardware: \\
             Erzeugung von Ansätzen mit bis zu 18 Raumzeitindizes
@@ -312,14 +311,8 @@
 
     \begin{frame}{Generalized Linear Electrodynamics}
         \begin{itemize}
-            \item „premetric electrodynamics” nach Hehl, Obukhov
-            \item Axiomatischer Zugang zu Elektrodynamik mit
-            \begin{itemize}
-                \item Erhaltung von Ladung und magnetischer Flussdichte
-                \item Lorentzschem Kraftgesetz
-                \item Superposition
-            \end{itemize}
-            \item Allg.\ Lineare Relation für \textit{Anregungen} und \textit{Feldstärken}
+            \item „premetric electrodynamics” nach Hehl, Obukhov (2003)
+            \item Allg.\ lineare Relation für \textit{Anregungen} und \textit{Feldstärken}
             \[
                 H^{ab} = \alert{G^{abcd}} F_{cd}
             \]
