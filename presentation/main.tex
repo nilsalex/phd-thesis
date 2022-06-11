@@ -10,6 +10,8 @@
 \usepackage{booktabs}
 \usepackage{caption}
 \usepackage{subcaption}
+\usepackage{graphicx}
+\usepackage[overlay,absolute]{textpos}
 
 \usetheme{metropolis}
 \setmainlanguage[babelshorthands=true]{german}
@@ -27,12 +29,22 @@
     \maketitle
 
     \begin{frame}{}
+        \vspace{12ex}
         \Large
         \textit{„Space tells matter how to move \\
         Matter tells space how to curve“}
 
         \normalsize
         ---John Archibald Wheeler, Gravitation (1973)
+
+        \begin{figure}
+            \hspace{14ex}
+            \includegraphics[height=3.5cm]{curvature}
+            \vspace{-1ex}
+            \caption*{\scriptsize \lbrack Cowen (2013)\rbrack}
+            %! suppress = FigureNotReferenced
+            \label{fig:figure}
+        \end{figure}
     \end{frame}
 
     \begin{frame}{Gliederung}
@@ -71,16 +83,14 @@
         der Raumzeitmetrik \pause
         \begin{itemize}
             \setlength{\belowdisplayskip}{-10pt}
-            \item \textbf{Hochman, Kuchař, Teitelboim (1976):} kanonische ART
-            als eindeutige Darstellung der Dirac-Algebra
+            \item \textbf{Hochman, Kuchař, Teitelboim (1976):} \\ ART ist eindeutige Darstellung der Dirac-Algebra
             \begin{align*}
                 \{ D(\vec N), D(\vec M) \} &= -D(\mathcal L_{\vec M} \vec N) \\
                 \{ H(N), D(\vec M) \} &= -H(\mathcal L_{\vec M} N) \\
                 \{ H(N), H(M) \} &= H(g^{\alpha\beta}(M\partial_\alpha N - N\partial_\alpha M))
             \end{align*} \pause
-            \item \textbf{Lovelock (1969):} Einstein-Gleichungen folgen aus allgemeiner Kovarianz \pause
-            \item \textbf{Deser (1970):} Einstein-Hilbert-Wirkung folgt aus linearisierter ART und allgemein kovarianten
-            Selbstwechselwirkungstermen bis Ordnung $\infty$
+            \item \textbf{Lovelock (1969):} \\ Allgemeine Kovarianz $\Rightarrow$ Einstein-Gleichungen \pause
+            \item \textbf{Deser (1970):} \\ Linearisierte ART + Selbstwechselwirkung $\Rightarrow$ ART
         \end{itemize}
     \end{frame}
 
@@ -103,7 +113,7 @@
             \item Lösungsstrategien: Perturbativ, Symmetriereduktion
         \end{itemize}
 
-        \raggedleft\scriptsize \lbrack Giesel et al.\ (2012); Schuller, Witte (2014); Düll et al.\ (2019) \rbrack
+        \raggedleft\scriptsize \lbrack Giesel et al.\ (2012); Schuller, Witte (2014); Düll et al.\ (2019)\rbrack
     \end{frame}
 
     \begin{frame}{Kovariante Konstrutive Gravitation}
@@ -114,7 +124,7 @@
             \item Zusätzliche Forderung nach kausaler Kompatibilität
         \end{itemize}
 
-        \raggedleft\scriptsize \lbrack N.A., Reinhart (2020); N.A.\ (2020) \rbrack
+        \raggedleft\scriptsize \lbrack N.A., Reinhart (2020); N.A.\ (2020)\rbrack
     \end{frame}
 
 
@@ -160,7 +170,7 @@
             0 =& {\color{blue}L_{:A}^{\hphantom{:A}I}} {\color{mLightBrown}\gmc{A}{B}{(n}{m}} J^{pq)}_I {\color{purple}u^B}
         \end{align*}
         \begin{itemize}
-            \item System aus 140 linearen PDEs erster Ordnung mit konstanten und linearen Koeffizienten
+            \item System aus 140 linearen PDEs erster Ordnung
             \item Geometrieabhängigkeit nur in {\color{mLightBrown}Gotay-Marsden-Koeff.}
             \item Lösungen des Systems sind Kandidaten für Gravitation!
         \end{itemize}
@@ -170,7 +180,7 @@
         \begin{itemize}
             \item \textbf{Theorem:} Die Äquivarianzgleichungen sind
             \alert{involutiv} und folglich \alert{formal integrierbar}.
-            \item Folgt aus der Involutionstheorie für PDEs {\scriptsize \lbrack Seiler \rbrack}
+            \item Folgt aus der Involutionstheorie für PDEs {\scriptsize \lbrack Seiler\rbrack}
             \item Fundamentale Bedeutung für konstruktiven Ansatz
             \begin{itemize}
                 \item Aussagen über den Lösungsraum \\ $\rightarrow$ exakte Lösung
@@ -214,12 +224,9 @@
             \begin{align*}
                 G^A &= N^A + H^A \\
                 L &= a + a_A H^A + a_A^{\hphantom Ai} H^A_{\hphantom{A},i} + a_A^{\hphantom AI} H^A_{\hphantom{A},I} + a_{AB} H^A H^B + \ldots
-            \end{align*} \pause
-            \item Involutivität $\Rightarrow$ Formale Integrierbarkeit
-            \begin{itemize}
-                \item Potenzreihenansatz $ L = \sum_{k=0}^\infty a_k (X-X_0)^k $ iterativ lösbar
-                \item \alert{$n$-te Prolongation der PDE löst $n$-te Ordnung}
-            \end{itemize} \pause
+            \end{align*}
+            \item \textbf{Involutivität:} \\
+            Potenzreihenansatz $ L = \sum_{k=0}^\infty a_k (X-X_0)^k $ iterativ lösbar
             \item Perturbative Kovariante Konstruktive Gravitation
             \begin{itemize}
                 \item $n=0$: Minkowski-Hintergrund
@@ -233,12 +240,12 @@
     \begin{frame}{Lorentzinvariante Ansätze}
         \begin{itemize}
             \item \textbf{Beobachtung:} \\ $SO(1,3)$-Invarianz von $N$ überträgt sich auf $a, a_A, \ldots$
-            \item $\Rightarrow$ $a, a_A, \ldots$ zusammengesetzt aus $\eta$ und $\epsilon$
+            \item $\Rightarrow$ $a, a_A, \ldots$ zusammengesetzt aus ${\color{blue}\eta}$ und ${\color{blue}\epsilon}$
             \item Bsp.\ für metrische Theorien:
             \begin{itemize}
-                \item $a_{ab} = A \cdot \eta_{ab}$
+                \item $a_{ab} = A \cdot {\color{blue}\eta_{ab}}$
                 \item $a_{ab}^{\hphantom{ab}i} = 0$
-                \item $a_{abcd} = A\cdot \eta_{ab} \eta_{cd} + B\cdot \eta_{ac} \eta_{bd} + C\cdot \eta_{ad} \eta_{bc} + D \cdot \epsilon_{abcd}$
+                \item $a_{abcd} = A\cdot {\color{blue}\eta_{ab} \eta_{cd}} + B\cdot {\color{blue}\eta_{ac} \eta_{bd}} + C\cdot {\color{blue}\eta_{ad} \eta_{bc}} + D \cdot {\color{blue}\epsilon_{abcd}}$
             \end{itemize}
             \item Haskell-Implementierung auf Workstation-Hardware: \\
             Erzeugung von Ansätzen mit bis zu 18 Raumzeitindizes
@@ -266,12 +273,7 @@
     \begin{frame}{Tensorkalkül mit dem Computer}
         \begin{itemize}
             \item Auswertung der Äquivarianzgleichungen nicht trivial
-            \begin{itemize}
-                \item Tensorprodukte, Symmetrisierungen, Kontraktionen
-                \item Flache Geometrie, Gotay-Marsden-Koeffizienten, Ansätze, \ldots
-                \item Reproduzierbar, für verschiedene Bündel
-            \end{itemize}
-            \item Umsetzung in Haskell
+            \item $\Rightarrow$ Umsetzung in Haskell
             \begin{itemize}
                 \item Abbildung des Tensorkalküls im Typsystem
                 \item Typsichere DSL für Operationen (Produkte, Summen, \ldots)
@@ -281,13 +283,12 @@
         \end{itemize}
     \end{frame}
 
-    \begin{frame}{Kausalit\"at}
+    \begin{frame}{Perturbative Kausale Kompatibilit\"at}
         \begin{itemize}
-            \item Kausale Kompatibilität kann implementiert werden durch Expansion der beteiligten Polynome
+            \item Expansion der beteiligten Polynome
             \[ P(k) = P^{(0)}(k) + P^{(1)}_A(k) H^A + P^{(2)}_{AB}(k) H^A H^B + \ldots \]
-            und Gleichsetzung der Kausalität
             \item $P^{(i)}_{\dots}$ ergeben sich aus Koeffizienten $a, a_A, \ldots$
-            \item Zentral ist Expansion von Ausdrücken der Form $\frac{\det (A + \epsilon B)}{a + \epsilon b}$
+            \item Perturbative Gleichsetzung der Kausalitäten
         \end{itemize}
     \end{frame}
 
@@ -347,6 +348,7 @@
             \[
                 N^{abcd} = \eta^{ac} \eta^{bd} - \eta^{ad} \eta^{bc} + \epsilon^{abcd}
             \]
+            $\Rightarrow$ Reduziert GLED zu Maxwell auf Minkowski!
             \item Computergenerierte Ansätze bis zur 3.\ Ordnung
             \footnotesize
             \begin{table}
@@ -384,12 +386,7 @@
     \begin{frame}{Raum-Zeit-Split}
         \begin{itemize}
             \item Blätterung der Raumzeit in räumliche Hyperflächen
-            \item Induziert Aufteilung der 21 Freiheitsgrade $G^{abcd}$ in
-            \begin{itemize}
-                \item Lapse $N$ und Shift $N^\alpha$
-                \item Räumliche Tensoren $\hat G^{\alpha\beta}$, $\hat G_{\alpha\beta}$, $\hat G^\alpha_\beta$
-                \item Alle $\hat G$ symmetrisch, $\hat G^\alpha_\beta$ zusätzlich spurfrei
-            \end{itemize}
+            \item Induziert Aufteilung der 21 Freiheitsgrade $G^{abcd}$ \\ $\Rightarrow$ Lapse + Shift + Räumliche Tensoren
             \item Skalar-Vektor-Tensor-Zerlegung + Eichfixierung:
             \begin{itemize}
                 \item {\color{blue}metrische Moden} + {\color{alert}nicht-metrische Moden}
@@ -398,6 +395,7 @@
                 \item 5 Longitudinale Skalare {\color{blue}$A$}, {\color{blue}$\tilde U$}, {\color{alert}$\tilde V$}, {\color{alert}$V$}, {\color{alert}$W$}
             \end{itemize}
         \end{itemize}
+        \raggedleft $\color{blue}G_{\text{metrisch}}^{abcd} = g^{ac} g^{bd} - g^{ad} g^{bc}$
     \end{frame}
 
     \begin{frame}{Linearisierte 3+1-Feldgleichungen}
@@ -424,18 +422,15 @@
         \begin{itemize}
             \item Zwei Punktmassen $m_1,m_2$ mit Weltlinien $\gamma_1,\gamma_2$
             \[ S = \sum_{i=1,2} m_i c \int d\lambda P_\text{GLED}(L^{-1}(\dot\gamma_{(i)}(\lambda)))^{-\frac{1}{4}} \] \pause
-            \item Iterative Lösung \scriptsize \lbrack vgl.\ Poisson, Will (2014) \rbrack \pause
+            \item Iterative Lösung \scriptsize \lbrack vgl.\ Poisson, Will (2014)\rbrack \pause
             \begin{itemize}
-                \item Lösung der Trajektorien zu 1.\ Ordnung
-                \begin{itemize}
-                    \item Kreisförmige Orbits mit \alert{modifiziertem Kepler-Gesetz}
-                    \[\omega^2 = \frac{Gm}{r^3}\lbrack 1 + \alert{\underbrace{f(r)}_{\mathclap{\beta(1+\mu r)\mathrm e^{-\mu r}}}} \rbrack \]
-                \end{itemize} \pause
+                \item Lösung der Trajektorien zu 1.\ Ordnung \\
+                $\Rightarrow$ Kreisförmige Orbits mit \alert{modifiziertem Kepler-Gesetz}
+                \[\omega^2 = \frac{Gm}{r^3}\lbrack 1 + \alert{\underbrace{f(r)}_{\mathclap{\beta(1+\mu r)\mathrm e^{-\mu r}}}} \rbrack \] \pause
                 \item Liefert Quellterme für Wellengleichungen 2.\ Ordnung
                 \begin{itemize}
                     \item \alert{Strahlung auf $U^{\alpha\beta}$-Mode mit $f(r)$ korrigiert}
                     \item \alert{Moden mit Masse $\nu$ strahlen ab $2\omega > \nu$}
-                    \item Für $\tilde V$ mit Masse $\mu$ noch nicht quantifiziert
                 \end{itemize}
             \end{itemize}
         \end{itemize}
