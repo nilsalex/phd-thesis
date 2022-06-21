@@ -11,7 +11,7 @@
 \usepackage{caption}
 \usepackage{subcaption}
 \usepackage{graphicx}
-\usepackage[overlay,absolute]{textpos}
+\usepackage{minted}
 
 \usetheme{metropolis}
 \setmainlanguage[babelshorthands=true]{german}
@@ -60,21 +60,19 @@
             \[ S = m \int \sqrt{{\color{blue}g(}\dot\gamma(\lambda),\dot\gamma(\lambda){\color{blue})}} d\lambda \]
             \item Maxwell-Elektrodynamik
             \[ S = \int {\color{blue}\sqrt{-g}g^{ac}g^{bd}} F_{ab} F_{cd} d^4 x \]
-            \item $\rightarrow$ Gesamtes Standardmodell ist metrisch!
-            \item Prädiktiv nur wenn Dynamik der Raumzeitmetrik bekannt!
+            \item $\rightarrow$ Gesamtes Standardmodell ist metrisch
+            \item Prädiktiv nur, wenn Dynamik der Raumzeitmetrik bekannt!
         \end{itemize}
     \end{frame}
 
     \begin{frame}{\ldots{} Matter tells space how to curve}
         \begin{itemize}
             \item Gravitation ist dynamische Theorie der Raumzeitmetrik!
-            \item Allgemeine Relativitätstheorie
-            \begin{itemize}
-                \item Einstein-Hilbert-Wirkung
-                \[ S = \int \sqrt{-g} R d^4 x \]
-                \item Einsteinsche Feldgleichungen
-                \[ G_{ab} = T_{ab} \]
-            \end{itemize}
+            \item Allgemeine Relativitätstheorie {\scriptsize\lbrack Einstein (1915)\rbrack}
+            \begin{gather*}
+                S = \int \sqrt{-g} (R - 2 \Lambda) d^4 x \\
+                G_{ab} = T_{ab}
+            \end{gather*}
         \end{itemize}
     \end{frame}
 
@@ -142,7 +140,7 @@
             \item Lagrangian $\mathscr L \in \bigwedge^n_0 \pi_2$ ist eine horizontale $n$-Form auf dem
             2.\ Jet-Bündel $J^2 E \xrightarrow{\pi_2} M$
             \item In Koordinaten
-            \[ \mathscr{L} = L(x^i, u^A, u^A_i, u^A_{ij}) dx^1 \wedge \dots \wedge dx^n \]
+            \[ \mathscr{L} = \alert{L(x^i, u^A, u^A_i, u^A_{ij})} dx^1 \wedge \dots \wedge dx^n \]
         \end{itemize}
     \end{frame}
 
@@ -151,7 +149,7 @@
             \item $\mathscr L$ invariant unter Diffeomorphismen $\varphi\in\operatorname{Diff}(M)$
             \[ \Leftrightarrow {\underbrace{j^2(\varphi_E)}_{\mathclap{\text{Lift auf 2.\ Jet-Bündel}}}}^\ast\mathscr{L} = \mathscr{L} \]
             \item In lokalen Koordinaten
-            \[ \mathscr L = L d^n x\Rightarrow L\circ j^2(\varphi_E) = \lvert d\varphi\rvert^{-1} L \]
+            \[ L\circ j^2(\varphi_E) = \lvert d\varphi\rvert^{-1} L \]
             \item Infinitesimale Diffeo's
             \begin{align*}
                 x^p &\mapsto x^p + \xi^p \\
@@ -223,10 +221,15 @@
             \setlength{\belowdisplayskip}{-10pt}
             \begin{align*}
                 G^A &= N^A + H^A \\
-                L &= a + a_A H^A + a_A^{\hphantom Ai} H^A_{\hphantom{A},i} + a_A^{\hphantom AI} H^A_{\hphantom{A},I} + a_{AB} H^A H^B + \ldots
+                L &= {\color{green}a} + {\color{blue}a_A H^A + a_A^{\hphantom Ai} H^A_{\hphantom{A},i} + a_A^{\hphantom AI} H^A_{\hphantom{A},I}} + {\color{violet}a_{AB} H^A H^B + {}} \ldots
             \end{align*}
-            \item \textbf{Involutivität:} \\
-            Potenzreihenansatz $ L = \sum_{k=0}^\infty a_k (X-X_0)^k $ iterativ lösbar
+            \item Iterative Lösung
+            \begin{itemize}
+                \item \makebox[11em]{Ansatz in PDE\hfill} $\Rightarrow$ {\color{blue}bestimmt $a_{\dots}$ zu 1.\ Ordnung}
+                \item \makebox[11em]{Ansatz in 1.\ Prolongation\hfill} $\Rightarrow$ {\color{violet}bestimmt $a_{\dots}$ zu 2.\ Ordnung}
+                \item etc.\ bis gewünschte Ordnung
+                \item Garantiert durch \alert{Involutivität}!
+            \end{itemize}
             \item Perturbative Kovariante Konstruktive Gravitation
             \begin{itemize}
                 \item $n=0$: Minkowski-Hintergrund
@@ -270,7 +273,7 @@
         \end{itemize}
     \end{frame}
 
-    \begin{frame}{Tensorkalkül mit dem Computer}
+    \begin{frame}[fragile]{Tensorkalkül mit dem Computer}
         \begin{itemize}
             \item Auswertung der Äquivarianzgleichungen nicht trivial
             \item $\Rightarrow$ Umsetzung in Haskell
@@ -281,6 +284,25 @@
                 \item Auswerten und Lösen der linearen Systeme
             \end{itemize}
         \end{itemize}
+        \begin{figure}
+            \begin{minted}[fontsize=\tiny]{haskell}
+diffeoEq1A :: (Num v, Eq v, MonadError String m) =>
+              T v -> T v -> m (T v)
+diffeoEq1A ansatz4 ansatz8 = do
+    e1 <- fmap contractT $
+          (.* c1) =<< relabelT (VSpace "STArea" 21) [("A","B")] ansatz4
+    e2 <- (scalarT 2 .*) . contractT =<< ((ansatz8 .*) =<< (c2 .* n))
+    e3 <- (scalarT (-1) .*) =<< (ansatz4 .* d)
+    fmap removeZerosT $ (e3 .+) =<< (e1 .+ e2)
+  where
+    n  = someFlatAreaCon  "ST" "C"
+    c1 = someInterAreaCon "ST" "m" "n" "B" "A"
+    c2 = someInterAreaCon "ST" "m" "n" "B" "C"
+    d  = someDelta        "ST" 4 "m" "n"
+            \end{minted}
+            %! suppress = FigureNotReferenced
+            \label{fig:haskell}
+        \end{figure}
     \end{frame}
 
     \begin{frame}{Perturbative Kausale Kompatibilit\"at}
