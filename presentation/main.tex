@@ -13,6 +13,15 @@
 \usepackage{graphicx}
 \usepackage{minted}
 
+\usepackage{tikz}
+\usetikzlibrary{3d}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{decorations.markings}
+\usetikzlibrary{snakes}
+\usetikzlibrary{overlay-beamer-styles}
+
+\pgfdeclareimage[width=2cm]{ligo}{ligo}
+
 \usetheme{metropolis}
 \setmainlanguage[babelshorthands=true]{german}
 \setbeamercovered{transparent}
@@ -440,22 +449,37 @@ diffeoEq1A ansatz4 ansatz8 = do
         \end{itemize}
     \end{frame}
 
-    \begin{frame}{Doppelsternsystem}
-        \begin{itemize}
-            \item Zwei Punktmassen $m_1,m_2$ mit Weltlinien $\gamma_1,\gamma_2$
-            \[ S = \sum_{i=1,2} m_i c \int d\lambda P_\text{GLED}(L^{-1}(\dot\gamma_{(i)}(\lambda)))^{-\frac{1}{4}} \] \pause
-            \item Iterative Lösung \scriptsize \lbrack vgl.\ Poisson, Will (2014)\rbrack \pause
-            \begin{itemize}
-                \item Lösung der Trajektorien zu 1.\ Ordnung \\
-                $\Rightarrow$ Kreisförmige Orbits mit \alert{modifiziertem Kepler-Gesetz}
-                \[\omega^2 = \frac{Gm}{r^3}\lbrack 1 + \alert{\underbrace{f(r)}_{\mathclap{\beta(1+\mu r)\mathrm e^{-\mu r}}}} \rbrack \] \pause
-                \item Liefert Quellterme für Wellengleichungen 2.\ Ordnung
-                \begin{itemize}
-                    \item \alert{Strahlung auf $U^{\alpha\beta}$-Mode mit $f(r)$ korrigiert}
-                    \item \alert{Moden mit Masse $\nu$ strahlen ab $2\omega > \nu$}
-                \end{itemize}
-            \end{itemize}
-        \end{itemize}
+    \begin{frame}[fragile]{Doppelsternsystem}
+        \begin{center}
+            \begin{tikzpicture}
+                \fill[visible on=<1->] ({1.5*cos(45)},0,{1.5*sin(45)}) circle (0.14) node[anchor=north west,outer sep=1pt]{$m_1$};
+                \fill[visible on=<1->] ({-3.5*cos(45)},0,{-3.5*sin(45)}) circle (0.14) node[anchor=north west,outer sep=1pt]{$m_2$};
+
+                \begin{scope}[canvas is zx plane at y=0]
+                    \draw[visible on=<2->,decoration={markings, mark=at position 0.3 with {\arrow[scale=1.5]{Latex}}},postaction={decorate}] (0,0) circle (1.5);
+                    \draw[visible on=<2->,decoration={markings, mark=at position 0.8 with {\arrow[scale=1.5]{Latex}}},postaction={decorate}] (0,0) circle (3.5);
+                \end{scope}
+
+                \draw[visible on=<3->,decoration={snake,segment length=6pt,post length=6pt},decorate,-{Latex}] (2.4,-0.9,-0.5) -- (4,-1.5,-0.5);
+                \draw[visible on=<3->,decoration={snake,segment length=6pt,post length=6pt},decorate,-{Latex}] (2.4,-0.9,0) -- (4,-1.5,0);
+                \draw[visible on=<3->,decoration={snake,segment length=6pt,post length=6pt},decorate,-{Latex}] (2.4,-0.9,0.5) -- (4,-1.5,0.5);
+
+                \draw[visible on=<3->] (5.3,-1.6,0) node{\pgfuseimage{ligo}};
+                \draw[visible on=<3->] (5.3,-2.25,0) node{\tiny\lbrack Abbott et al.\ (2016)\rbrack};
+            \end{tikzpicture}
+        \end{center}
+
+        \vspace{-2em}
+        Iterative Lösung \scriptsize \lbrack vgl.\ Poisson, Will (2014)\rbrack:
+        \begin{enumerate}
+            \item<2-> Trajektorien zu 1.\ Ordnung \\
+            $\Rightarrow$ Kreisförmige Orbits mit \alert{modifiziertem Kepler-Gesetz}
+            \[\omega^2 = \frac{Gm}{r^3}\lbrack 1 + \alert{\underbrace{f(r)}_{\mathclap{\beta(1+\mu r)\mathrm e^{-\mu r}}}} \rbrack \] \pause
+            \vspace{-1em}
+            \item<3-> Wellengleichung für 2.\ Ordnung mit Quelltermen aus 1.\ Ordnung\\
+                $\Rightarrow$ \alert{Strahlung auf $U^{\alpha\beta}$-Mode mit $f(r)$ korrigiert} \\
+                $\Rightarrow$ \alert{Moden mit Masse $\nu$ strahlen ab $2\omega > \nu$}
+        \end{enumerate}
     \end{frame}
 
     \begin{frame}{Strahlungsverluste}
@@ -522,7 +546,6 @@ diffeoEq1A ansatz4 ansatz8 = do
     \end{frame}
 
     \begin{frame}{}
-
         \begin{center}
             \Huge\alert{\textbf{Vielen Dank!}}
         \end{center}
