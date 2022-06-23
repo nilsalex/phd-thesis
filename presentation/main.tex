@@ -409,8 +409,7 @@ diffeoEq1A ansatz4 ansatz8 = do
                 \item \alert{10 unabhängige Parameter für linearisierte Euler-Lagrange-Gleichungen} \\
                 $\rightarrow$ Am meisten Relevanz für hier diskutierte Dynamik
             \end{itemize}
-            \item Kausalität ist zu dieser Ordnung trivialerweise kompatibel mit GLED! \\
-            $\rightarrow$ Folgt aus Äquivarianz ohne explizite Rechnung
+            \item Kausalität zu dieser Ordnung immer kompatibel mit GLED!
         \end{itemize}
     \end{frame}
 
@@ -420,13 +419,15 @@ diffeoEq1A ansatz4 ansatz8 = do
             \item Induziert Aufteilung der 21 Freiheitsgrade $G^{abcd}$ \\ $\Rightarrow$ Lapse + Shift + Räumliche Tensoren
             \item Skalar-Vektor-Tensor-Zerlegung + Eichfixierung:
             \begin{itemize}
-                \item {\color{blue}metrische Moden} + {\color{alert}nicht-metrische Moden}
-                \item 3 TT-Tensoren {\color{blue}$U^{\alpha\beta}$}, {\color{alert}$V^{\alpha\beta}$}, {\color{alert}$W^{\alpha\beta}$}
-                \item 3 Transversale Vektoren {\color{blue}$B^\alpha$}, {\color{alert}$U^\alpha$}, {\color{alert}$W^\alpha$}
-                \item 5 Longitudinale Skalare {\color{blue}$A$}, {\color{blue}$\tilde U$}, {\color{alert}$\tilde V$}, {\color{alert}$V$}, {\color{alert}$W$}
+                \item \makebox[3.8cm]{3 TT-Tensoren\hfill} {\color{blue}$U^{\alpha\beta}$}, {\color{alert}$V^{\alpha\beta}$}, {\color{alert}$W^{\alpha\beta}$}
+                \item \makebox[3.8cm]{3 Transversale Vektoren\hfill} {\color{blue}$B^\alpha$}, {\color{alert}$U^\alpha$}, {\color{alert}$W^\alpha$}
+                \item \makebox[3.8cm]{5 Longitudinale Skalare\hfill} {\color{blue}$A$}, {\color{blue}$\tilde U$}, {\color{alert}$\tilde V$}, {\color{alert}$V$}, {\color{alert}$W$}
             \end{itemize}
         \end{itemize}
-        \raggedleft $\color{blue}G_{\text{metrisch}}^{abcd} = g^{ac} g^{bd} - g^{ad} g^{bc}$
+        \raggedleft
+        {\color{blue}metrische Moden} \\
+        $\color{blue}G_{\text{metrisch}}^{abcd} = g^{ac} g^{bd} - g^{ad} g^{bc}$ \\
+        {\color{alert}nicht-metrische Moden}
     \end{frame}
 
     \begin{frame}{Linearisierte 3+1-Feldgleichungen}
@@ -477,8 +478,8 @@ diffeoEq1A ansatz4 ansatz8 = do
             \[\omega^2 = \frac{Gm}{r^3}\lbrack 1 + \alert{\underbrace{f(r)}_{\mathclap{\beta(1+\mu r)\mathrm e^{-\mu r}}}} \rbrack \] \pause
             \vspace{-1em}
             \item<3-> Wellengleichung für 2.\ Ordnung mit Quelltermen aus 1.\ Ordnung\\
-                $\Rightarrow$ \alert{Strahlung auf $U^{\alpha\beta}$-Mode mit $f(r)$ korrigiert} \\
-                $\Rightarrow$ \alert{Moden mit Masse $\nu$ strahlen ab $2\omega > \nu$}
+            $\Rightarrow$ \alert{Strahlung auf $U^{\alpha\beta}$-Mode mit $f(r)$ korrigiert} \\
+            $\Rightarrow$ \alert{Moden mit Masse $\nu$ strahlen ab $2\omega > \nu$}
         \end{enumerate}
     \end{frame}
 
@@ -517,7 +518,7 @@ diffeoEq1A ansatz4 ansatz8 = do
         \begin{itemize}
             \item \textbf{Konstruktive Gravitation:} \\ Neue Gravitation als Komplement neuartiger Materie \pause
             \item \textbf{Kovarianter Ansatz:} \\
-            Lagrangian und Diffeo-Invarianz anstelle Hamiltonian und Constraint-Algebra
+            Lagrangian und Diffeo-Invarianz
             \begin{itemize}
                 \item Lineare PDEs für Lagrangian
                 \item Perturbativ lösbar für schwache Felder
@@ -535,7 +536,7 @@ diffeoEq1A ansatz4 ansatz8 = do
     \end{frame}
 
     \begin{frame}{Ausblick}
-        Wie könnte es weitergehen?
+        Nächste Schritte:
         \begin{itemize}
             \item Vollständige Lösung des Beispiels zur 2.\ Ordnung
             \item Symmetriereduktion, z.B.\ Kosmologie {\scriptsize \lbrack vgl.\ Düll, 2020\rbrack}
