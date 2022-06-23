@@ -295,8 +295,7 @@
         \end{itemize}
         \begin{figure}
             \begin{minted}[fontsize=\tiny]{haskell}
-diffeoEq1A :: (Num v, Eq v, MonadError String m) =>
-              T v -> T v -> m (T v)
+diffeoEq1A :: (Num v, Eq v, MonadError String m) => T v -> T v -> m (T v)
 diffeoEq1A ansatz4 ansatz8 = do
     e1 <- fmap contractT $
           (.* c1) =<< relabelT (VSpace "STArea" 21) [("A","B")] ansatz4
